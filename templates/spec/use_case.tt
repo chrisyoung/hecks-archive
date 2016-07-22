@@ -1,0 +1,11 @@
+module <%= hexagon_name.camelize %>::UseCases
+  describe <%= name.camelize %> do
+    subject { described_class.new(repositories) }
+    let(:repositories) { double('Repositories') }
+
+    describe "#call" do
+      it 'creates a team' do
+      end
+    end
+  end
+end

@@ -1,0 +1,19 @@
+require_relative '<%= head_name %>_behavior.rb'
+
+module <%= hexagon_name.camelize %>::Domain
+  describe <%= name.camelize %>::<%= head_name.camelize %> do
+    subject { described_class.new }
+
+    <%= attributes.keys.map do |attribute|
+      if attributes[attribute].include?("[")
+        type = attributes[attribute].split("[")[1].split("]")[0]
+        "let(:#{type}) { double('#{type.camelize}') }\n" +
+        "\tlet(:#{attribute}) { [#{type}] }"
+      else
+        "let(:#{attribute}) { double('#{attribute.camelize}') }"
+      end
+    end.join("\n\t") %>
+
+    it_should_behave_like("a Domain <%= head_name.camelize %>")
+  end
+end

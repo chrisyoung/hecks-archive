@@ -1,0 +1,16 @@
+class <%= hexagon_name.camelize %>
+  module Domain
+    module <%= name.camelize %>
+      class Query
+        def initialize(repository: Repository)
+          @repository = repository
+        end
+        def call(params)
+          if params.keys == [:id]
+            @repository.read(params[:id])
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,27 @@
+module <%= hexagon_name.camelize %>::Domain
+  describe <%= module_name.camelize %>::<%= name.camelize %> do
+    subject { described_class.new }
+
+    <%= attributes.keys.map do |attribute|
+      if attributes[attribute].include?("[")
+        type = attributes[attribute].split("[")[1].split("]")[0]
+        "let(:#{type}) { double('#{type.camelize}') }\n" +
+        "\tlet(:#{attribute}) { [#{type}] }"
+      else
+        "let(:#{attribute}) { double('#{attribute.camelize}') }"
+      end
+    end.join("\n\t") %>
+
+    describe 'attributes' do
+      subject do
+        described_class.new(<%= attributes.keys.map{|attribute| "#{attribute}: #{attribute}"}.join(", ") %> )
+      end
+
+      <%= attributes.keys.map do |attribute|
+        "\t\tdescribe '##{attribute}' do\n" +
+          "\t\t\tit { expect(subject.#{attribute}).to eq #{attribute}}\n" +
+        "\t\tend"
+      end.join("\n") %>
+    end
+  end
+end
