@@ -8,7 +8,7 @@ require_relative "value_object"
 require_relative "use_case"
 
 class Hecks < Thor
-  register(HecksHexagon, "hexagon", "hexagon [HEXAGON_NAME]", "Create a Hexagon")
+  register(HecksHexagon, "new", "new [HEXAGON_NAME]", "Create a new Hexagon")
   register(HecksAggregate, "aggregate", "aggregate [AGGREGATE_NAME] [HEAD_NAME] [ATTRIBUTES]", "Creates a module with an aggregate head, a repository and application")
   register(HecksSqlRepository, "sql_repository", "sql_repository [HEXAGON_NAME] [AGGREGATE_NAME] [REPOSITORY_NAME]", "Creates a SQL Repository for use with Rails")
   register(HecksValueObject, "value_object", "value_object [HEXAGON_NAME] [MODULE_NAME] [VALUE_OBJECT_NAME] [ATTRIBUTES]", "Add a value object to a module")

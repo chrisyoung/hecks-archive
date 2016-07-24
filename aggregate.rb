@@ -10,6 +10,6 @@ class HecksAggregate < Thor::Group
   end
 
   def create_aggregate_folder
-    directory('templates/aggregate', "lib/domain")
+    directory('templates/aggregate', '.')
   end
 end
