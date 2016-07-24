@@ -1,0 +1,4 @@
+class <%= name.camelize %>
+  module Domain
+  end
+end
