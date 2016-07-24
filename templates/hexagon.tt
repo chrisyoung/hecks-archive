@@ -1,3 +1,5 @@
+class <%= name.camelize %>
+end
 require 'active_support/inflector'
 require_relative 'lib/domain.rb'
 file_path = File.dirname(__FILE__)
