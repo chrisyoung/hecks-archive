@@ -50,13 +50,15 @@ http://domainlanguage.com/ddd/reference/
 
 ## Adapters
   Adapters fall into two categories, those that can drive a domain and those that are driven by the domain.  Hecks allows you to generate driving adapters like HTTP, JSON, and Validator, as well as driven adapters like SQL, Couch, and SQLDummy(an in memory repository).
-### Driving
-#### HTTP
+
+## Driving Adapters
+
+### HTTP
   An http server that provides CRUD access to your Heckson modules.
-#### JSON
-#### Validations
-### Driven
-#### SQL
+### JSON
+### Validations
+## Driven
+### SQL
 
 ## How to Meditate
 
