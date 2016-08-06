@@ -1,20 +1,21 @@
 # Heckson
 Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can drive your applications.  
 
-http://alistair.cockburn.us/Hexagonal+architecture
-http://domainlanguage.com/ddd/reference/
+[Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture)
+
+[Domain Driven Design](http://domainlanguage.com/ddd/reference/)
+
 
 ## Usage - Developing the Pizza Domain with Heckson
 
 ### 1. Draw a domain
+You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
-┌────────────────────────────────────────────────────────────┐
-│                           Domain                           │
-│ ┌───────────────────────────────────────────────────────┐  │
-│ │                       Aggregate                       │  │
-│ │                        Modules                        │  │
-│ │  ┌─────────────────────────────────────────────────┐  │  │
-│ │  │                     Pizzas                      │  │  │
+┌───────────────────────────Domain───────────────────────────┐
+│                                                            │
+│ ┌───────────────────Aggregate Modules───────────────────┐  │
+│ │                                                       │  │
+│ │  ┌─────────────────────Pizzas──────────────────────┐  │  │
 │ │  │                                                 │  │  │
 │ │  │                   ┌────────┐                    │  │  │
 │ │  │                   │ Pizza  │                    │  │  │
@@ -30,27 +31,36 @@ http://domainlanguage.com/ddd/reference/
 │ │  │                   │  Name  │                    │  │  │
 │ │  │                   └────────┘                    │  │  │
 │ │  │                                                 │  │  │
-│ │  │                                                 │  │  │
 │ │  │  * A Pizza is the head of the Pizzas aggregate  │  │  │
 │ │  │  * A Pizza is an entity                         │  │  │
 │ │  │  * A pizza has many Toppings                    │  │  │
 │ │  │  * A Topping is a value object                  │  │  │
 │ │  │                                                 │  │  │
+│ │  │                                                 │  │  │
 │ │  └─────────────────────────────────────────────────┘  │  │
 │ └───────────────────────────────────────────────────────┘  │
 └────────────────────────────────────────────────────────────┘
 ```
-
-#### Notes on the Pizza Domain:
-* A Pizza is the head of an aggregate
-* A Pizza is an entity
-* A pizza has many toppings
-* A topping is a value object
+Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.helftone.com/)
 
 ### 2. Generate a hexagon to hold the Domain
+`$ heckson new pizza_hexagon`
 ### 3. Generate a Pizzas Aggregate with a Pizza entity for the head
+```
+$ cd pizza_hexagon
+$ heckson aggregate pizzas --head pizza --attributes name:string toppings:[topping]
+```
 ### 4. Generate a Topping Value object
+`$ heckson value_object pizza -module pizzas --attributes name:string`
 ### 5. Generate an HTTP adapter
+`$ heckson adapter http`
+### 6. Run the server
+```
+$ cd lib/adapters/http
+$ rackup config.ru
+```
+
+Now you have a puma webserver on port 9292
 
 ## Developing with Hexagons and Rails
 ### 1. Create a PizzaHexagon Gem
