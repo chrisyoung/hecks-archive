@@ -1,12 +1,23 @@
-Heckson
+# Heckson
 
-How to Meditate
+Use Heckson to generate hexagons using many of the concepts and patterns presented in
+Domain Driven Design.
 
-Method:
+## Domain Driven Design Concepts
+
+Aggregates
+Entities
+Values
+Repositories
+Commands
+
+## How to Meditate
+
+### Method:
 
 Pay attention and relax
 
-Notes:
+### Notes:
 
 Everything happens in the moment
 "The moment" is another way of saying "Now".
