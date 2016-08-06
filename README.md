@@ -11,9 +11,9 @@ Values
 Repositories
 Commands
 
-## Developing Domains with Heckson
+## Developing a Pizza Server with Heckson
 
-### Draw a domain
+1. Draw a domain
 ```
 ┌──────────────────┐
 │      Domain      │
@@ -32,14 +32,11 @@ Commands
 └──────────────────┘
 ```
 
-#### Notes:
+#### Notes on the Pizza Domain:
 * A Pizza is the head of an aggregate
+* A Pizza is an entity
 * A pizza has many toppings
 * A topping is a value object
-
-
-
-
 
 ## How to Meditate
 
