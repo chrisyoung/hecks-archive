@@ -11,7 +11,7 @@ Values
 Repositories
 Commands
 
-## Developing a Pizza Server with Heckson
+## Developing the Pizza Server with Heckson
 
 ### 1. Draw a domain
 ```
@@ -37,6 +37,15 @@ Commands
 * A Pizza is an entity
 * A pizza has many toppings
 * A topping is a value object
+
+### 2. Generate a hexagon to hold the Domain
+### 3. Generate a Pizzas Aggregate with a Pizza entity for the head
+### 4. Generate a Topping Value object
+### 5. Generate an HTTP adapter
+
+## Developing with Hexagons and Rails
+### 1. Create a PizzaHexagon Gem
+### 2. Hook up to Rails Resources
 
 ## How to Meditate
 
