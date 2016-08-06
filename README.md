@@ -1,7 +1,8 @@
 # Heckson
+Scalable architecture focused on Object Oriented best practices
 
-Use Heckson to generate hexagons using many of the concepts and patterns presented in
-Domain Driven Design.
+## Heckson Generators
+Use Heckson to generate hexagons using many of the concepts and patterns presented in Domain Driven Design.
 
 ## Domain Driven Design Concepts
 
