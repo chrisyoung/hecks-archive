@@ -1,10 +1,10 @@
 class <%= name.camelize %>
 end
 require 'active_support/inflector'
-require_relative 'lib/domain.rb'
+require file_path + '/lib/domain.rb'
 file_path = File.dirname(__FILE__)
 
-[ "lib/utilities/**/*.rb"].each { |path| Dir[path].each { |file| require_relative file } }
+Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 
 # Convenience class for calling use cases.  The #[] method will look up any
 # usecase and run it by passing args and a repositories container.
