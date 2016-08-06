@@ -1,18 +1,10 @@
 # Heckson
-Scalable architecture focused on Object Oriented best practices
+Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can drive your applications.  
 
-## Heckson Generators
-Use Heckson to generate hexagons using many of the concepts and patterns presented in Domain Driven Design.
+http://alistair.cockburn.us/Hexagonal+architecture
+http://domainlanguage.com/ddd/reference/
 
-## Domain Driven Design Concepts
-
-Aggregates
-Entities
-Values
-Repositories
-Commands
-
-## Developing the Pizza Server with Heckson
+## Usage - Developing the Pizza Domain with Heckson
 
 ### 1. Draw a domain
 ```
@@ -47,6 +39,24 @@ Commands
 ## Developing with Hexagons and Rails
 ### 1. Create a PizzaHexagon Gem
 ### 2. Hook up to Rails Resources
+
+## Domain Driven Design Concepts
+
+* Aggregates
+* Entities
+* Values
+* Repositories
+* Commands
+
+## Adapters
+  Adapters fall into two categories, those that can drive a domain and those that are driven by the domain.  Hecks allows you to generate driving adapters like HTTP, JSON, and Validator, as well as driven adapters like SQL, Couch, and SQLDummy(an in memory repository).
+### Driving
+#### HTTP
+  An http server that provides CRUD access to your Heckson modules.
+#### JSON
+#### Validations
+### Driven
+#### SQL
 
 ## How to Meditate
 
