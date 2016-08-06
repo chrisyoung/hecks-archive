@@ -13,7 +13,7 @@ Commands
 
 ## Developing a Pizza Server with Heckson
 
-1. Draw a domain
+### 1. Draw a domain
 ```
 ┌──────────────────┐
 │      Domain      │
