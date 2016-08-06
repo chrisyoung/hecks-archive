@@ -57,7 +57,7 @@ http://domainlanguage.com/ddd/reference/
   An http server that provides CRUD access to your Heckson modules.
 ### JSON
 ### Validations
-## Driven
+## Driven Adapters
 ### SQL
 
 ## How to Meditate
