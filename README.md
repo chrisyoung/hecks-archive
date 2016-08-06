@@ -5,13 +5,12 @@ Isolate your domain and make it the center of your programming world.  Use Hecks
 
 [Domain Driven Design](http://domainlanguage.com/ddd/reference/)
 
-
 ## Usage - Developing the Pizza Domain with Heckson
 
 ### 1. Draw a domain
 You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
-┌───────────────────────────Domain───────────────────────────┐
+┌───────────────────────Pizzas Domain────────────────────────┐
 │                                                            │
 │ ┌───────────────────Aggregate Modules───────────────────┐  │
 │ │                                                       │  │
@@ -33,13 +32,14 @@ You might prefer a whiteboard to ASCII, but this gets the idea across :)
 │ │  │                                                 │  │  │
 │ │  │  * A Pizza is the head of the Pizzas aggregate  │  │  │
 │ │  │  * A Pizza is an entity                         │  │  │
-│ │  │  * A pizza has many Toppings                    │  │  │
+│ │  │  * A Pizza has a name                           │  │  │
+│ │  │  * A Pizza has many Toppings                    │  │  │
 │ │  │  * A Topping is a value object                  │  │  │
-│ │  │                                                 │  │  │
-│ │  │                                                 │  │  │
+│ │  │  * A Topping has a name                         │  │  │
 │ │  └─────────────────────────────────────────────────┘  │  │
 │ └───────────────────────────────────────────────────────┘  │
 └────────────────────────────────────────────────────────────┘
+                                         ◎── = Aggregate Head
 ```
 Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.helftone.com/)
 
@@ -59,32 +59,61 @@ $ heckson aggregate pizzas --head pizza --attributes name:string toppings:[toppi
 $ cd lib/adapters/http
 $ rackup config.ru
 ```
+### 7. Make pizzas!
+```
+Create: POST localhost:9292/pizzas {
+  'name': "White",
+  'description': 'no sauce, garlic, yum',
+  'toppings': [
+    {'name': 'Mozzarella Cheese'},
+    {'name': 'Garlic'}
+  ]}}
 
-Now you have a puma webserver on port 9292
+Read: GET localhost:9293/pizzas/1
+
+Update: PUT localhost:9294/pizzas/1 {name: "New York"}
+
+Delete: DELETE localhost:9295/pizzas/1
+```
 
 ## Developing with Hexagons and Rails
 ### 1. Create a PizzaHexagon Gem
 ### 2. Hook up to Rails Resources
 
-## Domain Driven Design Concepts
-
+## Domain Driven Design Key Concepts
 * Aggregates
 * Entities
 * Values
 * Repositories
 * Commands
 
+## Hexagonal Architecture Key Concepts
+* Hexagon
+* Ports (driver and driven)
+* Port Adapters
+* Mock Database (in-memory)
+
+## Ports
+### User Commands (Driver)
+  The "native" port of your Hexagon uses commands that work with real Domain objects
+### Data (Driven)
+  By default your hexagon uses a mock database or in-memory repository to persist aggregates
+
 ## Adapters
   Adapters fall into two categories, those that can drive a domain and those that are driven by the domain.  Hecks allows you to generate driving adapters like HTTP, JSON, and Validator, as well as driven adapters like SQL, Couch, and SQLDummy(an in memory repository).
 
-## Driving Adapters
-
-### HTTP
+### Driving Adapters
+#### HTTP
   An http server that provides CRUD access to your Heckson modules.
-### JSON
-### Validations
-## Driven Adapters
-### SQL
+#### JSON
+  An http server that provides CRUD access to your Heckson modules.
+#### Validations
+  This adapter will provide a client with human friendly feedback when trying to call commands
+### Driven Adapters
+#### SQL
+  Implemented with Active Record, this adapter allows you to persist your aggregates to a SQL database
+#### CouchDB
+  An object store adapter.  Save your aggregates as object graphs
 
 ## How to Meditate
 
