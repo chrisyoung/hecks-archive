@@ -1,20 +1,44 @@
 #!/usr/bin/env ruby
 require "thor"
 
-require_relative "aggregate"
-require_relative "hexagon"
-require_relative "sql_repository"
-require_relative "value_object"
-require_relative "use_case"
+require_relative "commands/aggregate"
+require_relative "commands/hexagon"
+require_relative "commands/sql_repository"
+require_relative "commands/value_object"
+require_relative "commands/use_case"
+require_relative "commands/adapters"
 
 class Hecks < Thor
-  register(HecksHexagon, "new", "new [HEXAGON_NAME]", "Create a new Hexagon")
-  register(HecksAggregate, "aggregate", "aggregate [AGGREGATE_NAME] [HEAD_NAME] [ATTRIBUTES]", "Creates a module with an aggregate head, a repository and application")
-  register(HecksSqlRepository, "sql_repository", "sql_repository [HEXAGON_NAME] [AGGREGATE_NAME] [REPOSITORY_NAME]", "Creates a SQL Repository for use with Rails")
-  register(HecksValueObject, "value_object", "value_object [HEXAGON_NAME] [MODULE_NAME] [VALUE_OBJECT_NAME] [ATTRIBUTES]", "Add a value object to a module")
-  register(HecksUseCase, "use_case", "use_case [HEXAGON_NAME] [MODULE_NAME] [USE_CASE_NAME]", "Add a use case to a module")
-
-  desc "hexagon_name", "Returns the current directory to be used as the name of the hexagon", hide: true
+  register(
+    HecksHexagon,
+    "new",
+    "new [HEXAGON_NAME]",
+    "Create a new Hexagon")
+  register(
+    HecksAggregate,
+    "aggregate",
+    "aggregate [AGGREGATE_NAME] [HEAD_NAME] [ATTRIBUTES]",
+    "Creates a module with an aggregate head, a repository and application")
+  register(
+    HecksSqlRepository,
+    "sql_repository",
+    "sql_repository [HEXAGON_NAME] [AGGREGATE_NAME] [REPOSITORY_NAME]",
+    "Creates a SQL Repository for use with Rails")
+  register(
+    HecksValueObject,
+    "value_object",
+    "value_object [HEXAGON_NAME] [MODULE_NAME] [VALUE_OBJECT_NAME] [ATTRIBUTES]",
+    "Add a value object to a module")
+  register(
+    HecksUseCase,
+    "use_case",
+    "use_case [HEXAGON_NAME] [MODULE_NAME] [USE_CASE_NAME]",
+    "Add a use case to a module")
+  register(
+    Hecks::Adapters::WebAPI,
+    "adapters::web_api",
+    "adapters::web_api",
+    "A fast, concurrent web server for your Domain")
 end
 
 def hexagon_name

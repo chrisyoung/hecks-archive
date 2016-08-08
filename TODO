@@ -1,1 +1,31 @@
+# Your Domain is the root hexagon
+PizzaHexagon
 
+# Domain modules are equivalent to aggregates
+PizzaHexagon::Pizzas
+
+# Formatters
+PizzaHexagon::Pizzas::Formatters::JSON
+
+# Validators
+PizzaHexagon::Pizzas::Validators::Create
+PizzaHexagon::Pizzas::Validators::Update
+PizzaHexagon::Pizzas::Validators::Delete
+
+# Commands
+PizzaHexagon::Pizzas::Commands::Create
+PizzaHexagon::Pizzas::Commands::Update
+PizzaHexagon::Pizzas::Commands::Delete
+
+# Queries
+PizzaHexagon::Pizzas::Queries::PizzaByID
+PizzaHexagon::Pizzas::Queries::Pizzas
+
+# Drivers (Equivalent to Hexagonal "left port" or "driver port")
+PizzaHexagon::Drivers::WebAPI
+
+# Clients (Equivalent to hexagonal "right port" or "driven port")
+PizzaHexagon::Clients::SQL
+PizzaHexagon::Clients::CouchBase
+
+# Example

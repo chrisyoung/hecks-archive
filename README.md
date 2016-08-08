@@ -93,9 +93,14 @@ Delete: DELETE localhost:9295/pizzas/1
 * Port Adapters
 * Mock Database (in-memory)
 
+## Features
+* Supports CRUD Commands out of the box
+*
+
 ## Ports
+  Ports and adapters are used to organize services that may be provided by your hexagons, such as a web server that supports crud operations on your Domain Modules.
 ### User Commands (Driver)
-  The "native" port of your Hexagon uses commands that work with real Domain objects
+  The "native" port of your Hexagon uses Commands that operate with real Domain objects
 ### Data (Driven)
   By default your hexagon uses a mock database or in-memory repository to persist aggregates
 
