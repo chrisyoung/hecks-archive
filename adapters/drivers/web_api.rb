@@ -8,7 +8,7 @@ class Hecks < Thor
       end
 
       def create_web_api_folder
-        directory('../../templates/adapters/drivers', '.')
+        directory('../../templates/adapters/drivers/web_api', '.')
       end
     end
   end
