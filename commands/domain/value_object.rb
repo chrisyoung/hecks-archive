@@ -14,7 +14,6 @@ class HecksValueObject < Thor::Group
     directory('../templates/value_object', ".")
   end
 
-
   def module_name
     options[:module_name]
   end

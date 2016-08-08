@@ -42,7 +42,6 @@ class Hecks < Thor
     "adapters:clients:sql_database",
     "adapters:clients:sql_database NAME",
     "Creates a SQL Database")
-
 end
 
 def hexagon_name
