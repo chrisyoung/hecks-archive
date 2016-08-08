@@ -1,6 +1,6 @@
 require 'pry'
 
-class HecksSqlRepository < Thor::Group
+class Hecks::Adapters::SQLDatabase < Thor::Group
   include Thor::Actions
 
   argument :hexagon_name
@@ -30,18 +30,18 @@ class HecksSqlRepository < Thor::Group
   end
 
   def create_sql_repository
-    template('templates/sql_repository.tt', repositories_path + "/#{name}.rb")
+    template('../templates/sql_repository.tt', repositories_path + "/#{name}.rb")
   end
 
   def create_sql_repository_spec_file
-    template('templates/spec/sql_repository.tt', repositories_spec_path + "/#{name}_spec.rb")
+    template('../templates/spec/sql_repository.tt', repositories_spec_path + "/#{name}_spec.rb")
   end
 
   def create_active_record_model
-    template('templates/active_record_model.tt', models_path + "/#{name}.rb")
+    template('../templates/active_record_model.tt', models_path + "/#{name}.rb")
   end
 
   def create_active_record_model_spec
-    template('templates/spec/active_record_model.tt', models_spec_path + "/#{name}_spec.rb")
+    template('../templates/spec/active_record_model.tt', models_spec_path + "/#{name}_spec.rb")
   end
 end

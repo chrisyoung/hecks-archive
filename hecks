@@ -1,12 +1,8 @@
 #!/usr/bin/env ruby
 require "thor"
-
-require_relative "commands/aggregate"
-require_relative "commands/hexagon"
-require_relative "commands/sql_repository"
-require_relative "commands/value_object"
-require_relative "commands/use_case"
 require_relative "commands/adapters"
+require_relative "commands/domain"
+require_relative "commands/hexagon"
 
 class Hecks < Thor
   register(
@@ -16,29 +12,29 @@ class Hecks < Thor
     "Create a new Hexagon")
   register(
     HecksAggregate,
-    "aggregate",
-    "aggregate [AGGREGATE_NAME] [HEAD_NAME] [ATTRIBUTES]",
+    "domain:aggregate",
+    "domain:aggregate [AGGREGATE_NAME] [HEAD_NAME] [ATTRIBUTES]",
     "Creates a module with an aggregate head, a repository and application")
   register(
-    HecksSqlRepository,
-    "sql_repository",
-    "sql_repository [HEXAGON_NAME] [AGGREGATE_NAME] [REPOSITORY_NAME]",
-    "Creates a SQL Repository for use with Rails")
-  register(
     HecksValueObject,
-    "value_object",
-    "value_object [HEXAGON_NAME] [MODULE_NAME] [VALUE_OBJECT_NAME] [ATTRIBUTES]",
+    "domain:value_object",
+    "domain:value_object [HEXAGON_NAME] [MODULE_NAME] [VALUE_OBJECT_NAME] [ATTRIBUTES]",
     "Add a value object to a module")
   register(
     HecksUseCase,
-    "use_case",
-    "use_case [HEXAGON_NAME] [MODULE_NAME] [USE_CASE_NAME]",
+    "domain:use_case",
+    "domain:use_case [HEXAGON_NAME] [MODULE_NAME] [USE_CASE_NAME]",
     "Add a use case to a module")
   register(
     Hecks::Adapters::WebAPI,
     "adapters:drivers:web_api",
     "adapters:drivers:web_api",
     "A fast, concurrent, resourceful web server for your Domain")
+  register(
+    Hecks::Adapters::SQLDatabase,
+    "adapters:clients:sql_database",
+    "adapters:clients:sql_database [REPOSITORY_NAME]",
+    "Creates a SQL Repository for use with Rails")
 end
 
 def hexagon_name
