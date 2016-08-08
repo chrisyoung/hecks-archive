@@ -22,13 +22,13 @@ class Hecks < Thor
   register(
     HecksValueObject,
     "domain:value_object",
-    "domain:value_object NAME --module NAME --attributes [ATTRIBUTES:TYPE]",
+    "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
     "Add a value object to a module")
 
   register(
     HecksUseCase,
     "domain:use_case",
-    "domain:use_case NAME --module NAME",
+    "domain:use_case NAME -m NAME",
     "Add a use case to a module")
 
   register(

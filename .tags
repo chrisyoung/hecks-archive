@@ -23,10 +23,10 @@ initialize	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon
 delete_all	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def delete_all$/;"	method	line:36	class:PizzaHexagon
 run	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def run(module_name, command_name, args={})$/;"	method	line:40	class:PizzaHexagon
 query	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def query(module_name, args={})$/;"	method	line:47	class:PizzaHexagon
-Hecks	/Users/chrisyoung/Projects/hecks/hecks	/^class Hecks < Thor$/;"	class	line:7
-hexagon_name	/Users/chrisyoung/Projects/hecks/hecks	/^def hexagon_name$/;"	method	line:48
 HecksValueObject	/Users/chrisyoung/Projects/hecks/commands/domain/value_object.rb	/^class HecksValueObject < Thor::Group$/;"	class	line:1
 source_root	/Users/chrisyoung/Projects/hecks/commands/domain/value_object.rb	/^  def self.source_root$/;"	singleton method	line:9	class:HecksValueObject
 create_value_object_folder	/Users/chrisyoung/Projects/hecks/commands/domain/value_object.rb	/^  def create_value_object_folder$/;"	method	line:13	class:HecksValueObject
 module_name	/Users/chrisyoung/Projects/hecks/commands/domain/value_object.rb	/^  def module_name$/;"	method	line:18	class:HecksValueObject
 attributes	/Users/chrisyoung/Projects/hecks/commands/domain/value_object.rb	/^  def attributes$/;"	method	line:22	class:HecksValueObject
+Hecks	/Users/chrisyoung/Projects/hecks/hecks	/^class Hecks < Thor$/;"	class	line:7
+hexagon_name	/Users/chrisyoung/Projects/hecks/hecks	/^def hexagon_name$/;"	method	line:48
