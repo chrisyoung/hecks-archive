@@ -1,10 +1,8 @@
 class HecksUseCase < Thor::Group
   include Thor::Actions
 
-  argument :hexagon_name
-  argument :module_name
+  class_option :module_name, :aliases => "-m", :desc => "the name of the module to create the use case in"
   argument :name
-
 
   def self.source_root
     File.dirname(__FILE__)

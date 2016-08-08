@@ -1,8 +1,9 @@
 class PizzaHexagon
 end
 require 'active_support/inflector'
-require file_path + '/lib/domain.rb'
 file_path = File.dirname(__FILE__)
+require file_path + '/lib/domain.rb'
+
 
 Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 

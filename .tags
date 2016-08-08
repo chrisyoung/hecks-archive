@@ -8,5 +8,20 @@ create_sql_repository	/Users/chrisyoung/Projects/hecks/commands/adapters/clients
 create_sql_repository_spec_file	/Users/chrisyoung/Projects/hecks/commands/adapters/clients/sql_database.rb	/^  def create_sql_repository_spec_file$/;"	method	line:36	class:Hecks
 create_active_record_model	/Users/chrisyoung/Projects/hecks/commands/adapters/clients/sql_database.rb	/^  def create_active_record_model$/;"	method	line:40	class:Hecks
 create_active_record_model_spec	/Users/chrisyoung/Projects/hecks/commands/adapters/clients/sql_database.rb	/^  def create_active_record_model_spec$/;"	method	line:44	class:Hecks
+HecksAggregate	/Users/chrisyoung/Projects/hecks/commands/domain/aggregate.rb	/^class HecksAggregate < Thor::Group$/;"	class	line:1
+source_root	/Users/chrisyoung/Projects/hecks/commands/domain/aggregate.rb	/^  def self.source_root$/;"	singleton method	line:8	class:HecksAggregate
+head_name	/Users/chrisyoung/Projects/hecks/commands/domain/aggregate.rb	/^  def head_name$/;"	method	line:12	class:HecksAggregate
+attributes	/Users/chrisyoung/Projects/hecks/commands/domain/aggregate.rb	/^  def attributes$/;"	method	line:16	class:HecksAggregate
+create_aggregate_folder	/Users/chrisyoung/Projects/hecks/commands/domain/aggregate.rb	/^  def create_aggregate_folder$/;"	method	line:20	class:HecksAggregate
+HecksUseCase	/Users/chrisyoung/Projects/hecks/commands/domain/use_case.rb	/^class HecksUseCase < Thor::Group$/;"	class	line:1
+source_root	/Users/chrisyoung/Projects/hecks/commands/domain/use_case.rb	/^  def self.source_root$/;"	singleton method	line:7	class:HecksUseCase
+create_value_object	/Users/chrisyoung/Projects/hecks/commands/domain/use_case.rb	/^  def create_value_object$/;"	method	line:11	class:HecksUseCase
+create_app_spec_file	/Users/chrisyoung/Projects/hecks/commands/domain/use_case.rb	/^  def create_app_spec_file$/;"	method	line:15	class:HecksUseCase
 Hecks	/Users/chrisyoung/Projects/hecks/hecks	/^class Hecks < Thor$/;"	class	line:7
-hexagon_name	/Users/chrisyoung/Projects/hecks/hecks	/^def hexagon_name$/;"	method	line:40
+hexagon_name	/Users/chrisyoung/Projects/hecks/hecks	/^def hexagon_name$/;"	method	line:48
+PizzaHexagon	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^class PizzaHexagon$/;"	class	line:1
+PizzaHexagon	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^class PizzaHexagon$/;"	class	line:17
+initialize	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def initialize($/;"	method	line:29	class:PizzaHexagon
+delete_all	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def delete_all$/;"	method	line:36	class:PizzaHexagon
+run	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def run(module_name, command_name, args={})$/;"	method	line:40	class:PizzaHexagon
+query	/Users/chrisyoung/Projects/hecks/examples/pizza_hexagon/pizza_hexagon.rb	/^  def query(module_name, args={})$/;"	method	line:47	class:PizzaHexagon

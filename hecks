@@ -5,36 +5,44 @@ require_relative "commands/domain"
 require_relative "commands/hexagon"
 
 class Hecks < Thor
+  package_name "hecks"
+
   register(
     HecksHexagon,
     "new",
-    "new [HEXAGON_NAME]",
+    "new NAME",
     "Create a new Hexagon")
+
   register(
     HecksAggregate,
     "domain:aggregate",
-    "domain:aggregate [AGGREGATE_NAME] [HEAD_NAME] [ATTRIBUTES]",
+    "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
     "Creates a module with an aggregate head, a repository and application")
+
   register(
     HecksValueObject,
     "domain:value_object",
-    "domain:value_object [HEXAGON_NAME] [MODULE_NAME] [VALUE_OBJECT_NAME] [ATTRIBUTES]",
+    "domain:value_object NAME --module NAME --attributes [ATTRIBUTES:TYPE]",
     "Add a value object to a module")
+
   register(
     HecksUseCase,
     "domain:use_case",
-    "domain:use_case [HEXAGON_NAME] [MODULE_NAME] [USE_CASE_NAME]",
+    "domain:use_case NAME --module NAME",
     "Add a use case to a module")
+
   register(
     Hecks::Adapters::WebAPI,
     "adapters:drivers:web_api",
     "adapters:drivers:web_api",
     "A fast, concurrent, resourceful web server for your Domain")
+
   register(
     Hecks::Adapters::SQLDatabase,
     "adapters:clients:sql_database",
-    "adapters:clients:sql_database [REPOSITORY_NAME]",
-    "Creates a SQL Repository for use with Rails")
+    "adapters:clients:sql_database NAME",
+    "Creates a SQL Database")
+
 end
 
 def hexagon_name
