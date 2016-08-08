@@ -36,9 +36,9 @@ class Hecks < Thor
     "Add a use case to a module")
   register(
     Hecks::Adapters::WebAPI,
-    "adapters::web_api",
-    "adapters::web_api",
-    "A fast, concurrent web server for your Domain")
+    "adapters:drivers:web_api",
+    "adapters:drivers:web_api",
+    "A fast, concurrent, resourceful web server for your Domain")
 end
 
 def hexagon_name

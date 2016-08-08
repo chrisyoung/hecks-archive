@@ -1,1 +1,1 @@
-require_relative 'adapters/web_api'
+require_relative 'adapters/drivers/web_api'
