@@ -1,5 +1,4 @@
 [![Code Climate](https://codeclimate.com/github/chrisyoung/heckson/badges/gpa.svg)](https://codeclimate.com/github/chrisyoung/heckson)
-[![Issue Count](https://codeclimate.com/github/chrisyoung/heckson/badges/issue_count.svg)](https://codeclimate.com/github/chrisyoung/heckson)
 
 # Heckson
 Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can drive your applications.  
