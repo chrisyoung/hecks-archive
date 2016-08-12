@@ -1,25 +1,26 @@
+# Wouldn't it be nice if things worked this way?
 # Your Domain is the root hexagon
 PizzaHexagon
 
 # Domain modules are equivalent to aggregates
-PizzaHexagon::Pizzas
+PizzaHexagon::PizzaMaker
 
 # Formatters
-PizzaHexagon::Pizzas::Formatters::JSON
+PizzaHexagon::PizzaMaker::Formatters::JSON
 
 # Validators
-PizzaHexagon::Pizzas::Validators::Create
-PizzaHexagon::Pizzas::Validators::Update
-PizzaHexagon::Pizzas::Validators::Delete
+PizzaHexagon::PizzaMaker::Validators::Create
+PizzaHexagon::PizzaMaker::Validators::Update
+PizzaHexagon::PizzaMaker::Validators::Delete
 
 # Commands
-PizzaHexagon::Pizzas::Commands::Create
-PizzaHexagon::Pizzas::Commands::Update
-PizzaHexagon::Pizzas::Commands::Delete
+PizzaHexagon::PizzaMaker::Commands::Create
+PizzaHexagon::PizzaMaker::Commands::Update
+PizzaHexagon::PizzaMaker::Commands::Delete
 
 # Queries
-PizzaHexagon::Pizzas::Queries::PizzaByID
-PizzaHexagon::Pizzas::Queries::Pizzas
+PizzaHexagon::PizzaMaker::Queries::PizzaByID
+PizzaHexagon::PizzaMaker::Queries::Pizzas
 
 # Drivers (Equivalent to Hexagonal "left port" or "driver port")
 PizzaHexagon::Drivers::WebAPI
@@ -27,5 +28,4 @@ PizzaHexagon::Drivers::WebAPI
 # Clients (Equivalent to hexagonal "right port" or "driven port")
 PizzaHexagon::Clients::SQL
 PizzaHexagon::Clients::CouchBase
-
 # Example
