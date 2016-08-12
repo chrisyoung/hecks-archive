@@ -1,6 +1,6 @@
 class PizzaHexagon::Utilities
   class InMemoryDatabase
-    def initialize(domain_repositories: DOMAIN_REPOSITORIES)
+    def initialize(domain_repositories: PizzaHexagon::DOMAIN_REPOSITORIES)
       @domain_repositories = domain_repositories
     end
 

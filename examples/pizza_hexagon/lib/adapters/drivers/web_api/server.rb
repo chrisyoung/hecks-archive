@@ -16,5 +16,4 @@ class Server
   private
 
   attr_accessor :hexagon
-
 end
