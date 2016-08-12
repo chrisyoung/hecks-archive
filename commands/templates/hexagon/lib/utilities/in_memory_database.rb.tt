@@ -1,6 +1,6 @@
 class <%= name.camelize %>::Utilities
   class InMemoryDatabase
-    def initialize(domain_repositories: DOMAIN_REPOSITORIES)
+    def initialize(domain_repositories: <%= name.camelize %>::DOMAIN_REPOSITORIES)
       @domain_repositories = domain_repositories
     end
 
