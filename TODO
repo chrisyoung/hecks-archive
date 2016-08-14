@@ -1,3 +1,8 @@
+Generate HTTP Server
+Validations Adapter
+CouchDB Persistance Adapter
+
+NOTES:
 # Wouldn't it be nice if things worked this way?
 # Your Domain is the root hexagon
 PizzaHexagon
