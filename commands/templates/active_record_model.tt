@@ -1,6 +1,0 @@
-# An Active Record <%= name.camelize %>.  This
-# model will be used with the SQL Adapter with the intent
-# to provide the exact same interface as the corresponding
-# domain model
-class <%= name.camelize %> < ActiveRecord::Base
-end
