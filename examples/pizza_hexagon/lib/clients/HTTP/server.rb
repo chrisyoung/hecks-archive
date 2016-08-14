@@ -22,7 +22,7 @@ class PizzaHexagon
 
         private
 
-        attr_reader :hexagon, :resource, :create, :build_request, :request
+        attr_reader :hexagon, :resource, :create, :request
 
         def create_resource
           create.call(resource, request.params)
