@@ -1,28 +1,24 @@
+require_relative 'route_generator'
+
 class PizzaHexagon
   module Clients
     module HTTP
       class App
-        def initialize(builder: Rack::Builder)
+        def initialize(builder: Rack::Builder, route_generator: RouteGenerator.new)
           @builder = builder
+          @route_generator = route_generator
         end
 
         def run
-          generate_resource_creation_routes
+          build_routes
         end
 
         private
 
-        attr_reader :builder
+        attr_reader :route_generator
 
-        def generate_resource_creation_routes
-          builder.new do
-            Domain.modules.each do |constant_name|
-              resource = Resource.new(constant_name)
-              map "/#{resource.name}" do
-                run Server.new(resource: resource)
-              end
-            end
-          end
+        def build_routes
+          route_generator.call
         end
       end
     end
