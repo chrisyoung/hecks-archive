@@ -26,6 +26,6 @@ PizzaHexagon::PizzaMaker::Queries::Pizzas
 PizzaHexagon::Drivers::WebAPI
 
 # Clients (Equivalent to hexagonal "right port" or "driven port")
-PizzaHexagon::Clients::SQL
-PizzaHexagon::Clients::CouchBase
+PizzaHexagon::Repositories::SQL
+PizzaHexagon::Repositories::CouchBase
 # Example

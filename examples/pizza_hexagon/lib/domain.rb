@@ -1,4 +1,3 @@
-
 class PizzaHexagon
   module Domain
   end
