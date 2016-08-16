@@ -4,8 +4,7 @@ class PizzaHexagon
   module Clients
     module HTTP
       class App
-        def initialize(builder: Rack::Builder, route_generator: RouteGenerator.new)
-          @builder = builder
+        def initialize(route_generator: RouteGenerator.new)
           @route_generator = route_generator
         end
 

@@ -1,6 +1,7 @@
 class PizzaHexagon
 end
 require 'active_support/inflector'
+require 'dry-validation'
 file_path = File.dirname(__FILE__)
 require file_path + '/lib/domain.rb'
 

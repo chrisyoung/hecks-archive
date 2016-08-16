@@ -1,36 +1,42 @@
 Generate HTTP Server
 Validations Adapter
 CouchDB Persistance Adapter
+Dockerize
+Value Store
+Event Port
+Crud Commands should be generatable explicitly
 
 NOTES:
 # Wouldn't it be nice if things worked this way?
+
 # Your Domain is the root hexagon
-PizzaHexagon
+PizzaServer
 
-# Domain modules are equivalent to aggregates
-PizzaHexagon::PizzaMaker
+# Hecks modules are equivalent to DDD aggregates
+PizzaServer::Pizzas
 
-# Formatters
-PizzaHexagon::PizzaMaker::Formatters::JSON
+# Invariants are declarative and are returned by command objects.  They can
+# easilly be used as a documentatoin to build validations.  You can use the
+PizzaServer::Pizzas::Invariants
 
-# Validators
-PizzaHexagon::PizzaMaker::Validators::Create
-PizzaHexagon::PizzaMaker::Validators::Update
-PizzaHexagon::PizzaMaker::Validators::Delete
 
 # Commands
-PizzaHexagon::PizzaMaker::Commands::Create
-PizzaHexagon::PizzaMaker::Commands::Update
-PizzaHexagon::PizzaMaker::Commands::Delete
+
+# Commands are equivalent to a hexagonal "driver" port, they are the application
+# ring and are generaly intended to be used create clients for your Hexagon.
+PizzaServer::Pizzas::Commands::Create
+PizzaServer::Pizzas::Commands::Update
+PizzaServer::Pizzas::Commands::Delete
 
 # Queries
-PizzaHexagon::PizzaMaker::Queries::PizzaByID
-PizzaHexagon::PizzaMaker::Queries::Pizzas
+PizzaServer::Pizzas::Queries::PizzaByID
+PizzaServer::Pizzas::Queries::Pizzas
 
 # Drivers (Equivalent to Hexagonal "left port" or "driver port")
-PizzaHexagon::Drivers::WebAPI
+PizzaServer::Drivers::HTTP
+PizzaServer::Drivers::JSON
 
 # Clients (Equivalent to hexagonal "right port" or "driven port")
-PizzaHexagon::Repositories::SQL
-PizzaHexagon::Repositories::CouchBase
+PizzaServer::Repositories::SQL
+PizzaServer::Repositories::CouchBase
 # Example
