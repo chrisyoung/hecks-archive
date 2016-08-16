@@ -3,8 +3,8 @@ class PizzaHexagon
     module Pizzas
       module Schemas
         CreatePizza = Dry::Validation.Schema do
-          required(:name).filled
-          required(:toppings)
+          required("name").filled
+          required("toppings").filled
         end
       end
     end

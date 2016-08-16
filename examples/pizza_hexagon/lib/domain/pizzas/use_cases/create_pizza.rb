@@ -19,12 +19,13 @@ module PizzaHexagon::Domain::Pizzas::UseCases
     attr_accessor :database_adapter, :args, :schema
 
     def validate
+      binding.pry
       @errors = schema.(args).messages
     end
 
     def create
       return if @errors.keys.count > 0
-      @id = database_adapter[:pizzas].create(name: args[:name])
+      @id = database_adapter[:pizzas].create(args)
     end
   end
 end

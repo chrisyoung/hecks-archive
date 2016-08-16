@@ -26,12 +26,12 @@ class PizzaHexagon
         attr_reader :hexagon, :resource, :request, :command
 
         def write_response
-          @response.write({id: @command.id, errors: @command.errors})
+          @response.write(id: @command.id, errors: @command.errors)
           @response.finish
         end
 
         def create_resource
-          @command = hexagon.run(resource.to_param, :create_pizza)
+          @command = hexagon.run(resource.to_param, :create_pizza, request.params)
         end
       end
     end
