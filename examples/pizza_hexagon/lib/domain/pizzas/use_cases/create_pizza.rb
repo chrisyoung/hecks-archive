@@ -19,7 +19,6 @@ module PizzaHexagon::Domain::Pizzas::UseCases
     attr_accessor :database_adapter, :args, :schema
 
     def validate
-      binding.pry
       @errors = schema.(args).messages
     end
 
