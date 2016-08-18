@@ -1,11 +1,12 @@
 module PizzaHexagon::Domain::Pizzas::UseCases
   class UpdatePizza
-    attr_accessor :args
+    attr_accessor :args, :errors, :id
 
-    def initialize(args:, database_adapter:, validators: [Validator.new])
+    def initialize(args:, database_adapter:, schema: PizzaHexagon::Domain::Pizzas::Schemas::CreatePizza)
       @args       = args
+      @id         = args[:id]
       @database_adapter = database_adapter
-      @validators = validators
+      @schema           = schema
     end
 
     def call(use_case=nil)
@@ -14,22 +15,20 @@ module PizzaHexagon::Domain::Pizzas::UseCases
       self
     end
 
-    def errors
-      @errors = validators.flat_map { |validator| validator.errors }
-    end
-
     private
 
-    attr_accessor :database_adapter, :validators
+    attr_accessor :database_adapter, :schema
 
     def validate
-      validators.each do |validator|
-        validator.call(self)
-      end
+      @errors = schema.(args[:attributes]).messages
     end
 
     def update
-      database_adapter[:pizzas].update(id: args[:id], attributes: args[:attributes])
+      return if @errors.keys.count > 0
+      database_adapter[:pizzas].update(
+        args[:id],
+        args[:attributes]
+      )
     end
   end
 end

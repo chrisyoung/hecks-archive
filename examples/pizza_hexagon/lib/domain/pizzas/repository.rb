@@ -15,7 +15,7 @@ module PizzaHexagon::Domain::Pizzas
     end
 
     def self.update id, attributes
-      fixture = read(id)
+      fixture = read(id.to_i)
 
       attributes.each do |field, value|
         fixture.send("#{field}=", value)

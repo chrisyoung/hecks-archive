@@ -25,8 +25,10 @@ class PizzaHexagon
           case @request.request_method
           when 'POST'
             create_resource
-            write_response
+          when 'PUT'
+            update_resource
           end
+          write_response
           set_status
           finish_response
         end
@@ -51,7 +53,16 @@ class PizzaHexagon
           @command = hexagon.run(
             resource.to_param,
             :create_pizza,
-            JSON.parse(request.body.read, :symbolize_names => true)
+            JSON.parse(request.body.read, symbolize_names: true)
+          )
+        end
+
+        def update_resource
+          params = {id: request.params[:id]}.merge(JSON.parse(request.body.read, symbolize_names: true))
+          @command = hexagon.run(
+            resource.to_param,
+            :update_pizza,
+            params
           )
         end
       end

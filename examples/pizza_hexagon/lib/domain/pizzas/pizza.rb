@@ -5,9 +5,9 @@ module PizzaHexagon::Domain::Pizzas
 
   class Pizza
     attr_accessor :id, :name, :toppings
-    def initialize(id:, name:, toppings:)
-      @id = id
-      @name = name
+    def initialize id:, name:, toppings:
+      @id       = id
+      @name     = name
       @toppings = toppings
     end
   end
