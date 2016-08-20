@@ -6,6 +6,7 @@ Value Store
 Event Port
 Crud Commands should be generatable explicitly
 
+
 NOTES:
 # Wouldn't it be nice if things worked this way?
 

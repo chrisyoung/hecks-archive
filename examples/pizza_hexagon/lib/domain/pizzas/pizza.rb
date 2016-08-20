@@ -10,5 +10,9 @@ module PizzaHexagon::Domain::Pizzas
       @name     = name
       @toppings = toppings
     end
+
+    def to_json
+      {id: id, name: name, toppings: toppings}.to_json
+    end
   end
 end
