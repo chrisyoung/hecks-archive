@@ -1,71 +1,32 @@
-require 'rack'
-require 'pry'
+require 'sinatra'
+require "sinatra/reloader" if development?
 require 'json'
-
 require_relative '../../../pizza_hexagon'
-require_relative 'lib/resource'
-require_relative 'lib/app'
+require_relative 'update'
+require_relative 'read'
+require_relative 'create'
 
-class PizzaHexagon
-  module Clients
-    module HTTP
-      class Server
-        def initialize(
-          resource:,
-          hexagon:  PizzaHexagon.new,
-          response: Rack::Response.new)
-          @hexagon  = hexagon
-          @resource = resource
-          @response = response
-        end
+hexagon = PizzaHexagon.new
 
-        def call(env)
-          @request = Rack::Request.new(env)
+PizzaHexagon::Domain.modules.each do |domain_module|
+  post "/#{domain_module.to_s.downcase}" do
+    Create.new(hexagon: hexagon).call(
+      body: request.body,
+      module_name: domain_module.to_s.downcase
+    )
+  end
 
-          case @request.request_method
-          when 'POST'
-            create_resource
-          when 'PUT'
-            update_resource
-          end
-          write_response
-          set_status
-          finish_response
-        end
+  get "/#{domain_module.to_s.downcase}/:id" do |id|
+    Read.new(hexagon: hexagon).call(
+      id: id.to_i,
+      module_name: domain_module.to_s.downcase
+    )
+  end
 
-        private
-
-        attr_reader :hexagon, :resource, :request, :command, :response
-
-        def set_status
-          response.status = 500 if command.errors.count > 0
-        end
-
-        def finish_response
-          response.finish
-        end
-
-        def write_response
-          response.write(id: command.id, errors: command.errors)
-        end
-
-        def create_resource
-          @command = hexagon.run(
-            resource.to_param,
-            :create_pizza,
-            JSON.parse(request.body.read, symbolize_names: true)
-          )
-        end
-
-        def update_resource
-          params = {id: request.params[:id]}.merge(JSON.parse(request.body.read, symbolize_names: true))
-          @command = hexagon.run(
-            resource.to_param,
-            :update_pizza,
-            params
-          )
-        end
-      end
-    end
+  put "/#{domain_module.to_s.downcase}/:id" do |id|
+    Update.new(hexagon: hexagon).call(
+      id: id,
+      body: request.body,
+      module_name: domain_module.to_s.downcase)
   end
 end
