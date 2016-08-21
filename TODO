@@ -6,6 +6,8 @@ Event Port
 CRUD Commands should generate explicitly
 Errors on Update
 Remove module name from CRUD actions in the domain (Create, not CreatePizza)
+Make a gem out of the hexagon
+
 
 NOTES:
 # Wouldn't it be nice if things worked this way?

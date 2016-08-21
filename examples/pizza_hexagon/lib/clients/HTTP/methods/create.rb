@@ -6,7 +6,6 @@ class Create
   def call(body:, module_name:)
     @body        = body.read
     @module_name = module_name.to_sym
-
     run_command
   end
 
