@@ -62,20 +62,15 @@ $ cd lib/adapters/http
 $ rackup config.ru
 ```
 ### 7. Make pizzas!
+
+#### CREATE
 ```
-Create: POST localhost:9292/pizzas {
-  'name': "White",
-  'description': 'no sauce, garlic, yum',
-  'toppings': [
-    {'name': 'Mozzarella Cheese'},
-    {'name': 'Garlic'}
-  ]}}
+curl -sb -H "Content-Type: application/json" -X POST -d  '{"name":"chris", "toppings":[{"name":"pepperoni"}]}' http://localhost:4567/pizzas
+```
 
-Read: GET localhost:9293/pizzas/1
-
-Update: PUT localhost:9294/pizzas/1 {name: "New York"}
-
-Delete: DELETE localhost:9295/pizzas/1
+#### UPDATE
+```
+curl  -H "Content-Type: application/json" -X PUT -d  '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:4567/pizzas/1
 ```
 
 ## Developing with Hexagons and Rails
