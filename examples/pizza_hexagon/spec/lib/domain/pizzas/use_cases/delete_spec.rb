@@ -2,7 +2,7 @@ class PizzaHexagon
   module Domain
     module Pizzas
       module UseCases
-        describe Delete do
+        describe DeletePizza do
           let(:validator)  { double('Validator',  call: nil, errors: []) }
           let(:repository) { double('Repository', delete: nil) }
           let(:database_adapter) { double('Adapter', :[] => repository) }
