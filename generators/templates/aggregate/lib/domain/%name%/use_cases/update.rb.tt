@@ -1,4 +1,4 @@
-module PizzaHexagon::Domain::Pizzas::UseCases
+module <%= hexagon_name.camelize %>::Domain::<%= name.camelize %>::UseCases
   class Update
     attr_accessor :args, :errors, :id
 
@@ -25,7 +25,7 @@ module PizzaHexagon::Domain::Pizzas::UseCases
 
     def update
       return if @errors.keys.count > 0
-      database_adapter[:pizzas].update(args[:id], args[:attributes])
+      database_adapter[:<%= name %>].update(args[:id], args[:attributes])
     end
   end
 end

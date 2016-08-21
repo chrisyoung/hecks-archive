@@ -1,11 +1,11 @@
 module PizzaHexagon::Domain::Pizzas::UseCases
   class Create
-    attr_reader :args, :id, :errors
+    attr_accessor :args, :id, :errors
 
     def initialize(args:, database_adapter:, schema: PizzaHexagon::Domain::Pizzas::Schemas::CreatePizza)
-      @args             = args
+      @args       = args
       @database_adapter = database_adapter
-      @schema           = schema
+      @schema = schema
     end
 
     def call(use_case=nil)
@@ -16,7 +16,7 @@ module PizzaHexagon::Domain::Pizzas::UseCases
 
     private
 
-    attr_accessor :database_adapter, :args, :schema
+    attr_accessor :database_adapter, :schema, :args
 
     def validate
       @errors = schema.(args).messages

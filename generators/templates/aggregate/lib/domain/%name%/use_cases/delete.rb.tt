@@ -1,4 +1,4 @@
-module PizzaHexagon::Domain::Pizzas::UseCases
+module <%= hexagon_name.camelize %>::Domain::<%= name.camelize %>::UseCases
   class Delete
     attr_accessor :args
 
@@ -22,7 +22,7 @@ module PizzaHexagon::Domain::Pizzas::UseCases
 
 
     def delete
-      database_adapter[:pizzas].delete(args[:id])
+      database_adapter[:<%= name %>].delete(args[:id])
     end
   end
 end
