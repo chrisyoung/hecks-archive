@@ -1,10 +1,8 @@
 class PizzaHexagon
 end
 require 'active_support/inflector'
-require 'dry-validation'
-file_path = File.dirname(__FILE__)
 require file_path + '/lib/domain.rb'
-
+file_path = File.dirname(__FILE__)
 
 Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 
@@ -31,7 +29,7 @@ class PizzaHexagon
     database_adapter: Utilities::InMemoryDatabase.new,
     use_cases: USE_CASES)
     @database_adapter = database_adapter
-    @use_cases = use_cases
+    @use_cases        = use_cases
   end
 
   def delete_all
