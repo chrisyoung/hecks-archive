@@ -1,11 +1,11 @@
 Generate HTTP Server
-Validations Adapter
 CouchDB Persistance Adapter
 Dockerize
 Value Store
 Event Port
-Crud Commands should be generatable explicitly
-
+CRUD Commands should generate explicitly
+Errors on Update
+Remove module name from CRUD actions in the domain (Create, not CreatePizza)
 
 NOTES:
 # Wouldn't it be nice if things worked this way?
