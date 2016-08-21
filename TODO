@@ -1,4 +1,3 @@
-Generate HTTP Server
 CouchDB Persistance Adapter
 Dockerize
 Value Store
@@ -7,6 +6,8 @@ CRUD Commands should generate explicitly
 Errors on Update
 Remove module name from CRUD actions in the domain (Create, not CreatePizza)
 Make a gem out of the hexagon
+Make the HecksServer run with any hexagon (Relies on CRUD being named without module name qualifier )
+Factory for building toppings
 
 
 NOTES:
