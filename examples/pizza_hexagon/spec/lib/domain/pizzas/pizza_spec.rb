@@ -5,6 +5,9 @@ module PizzaHexagon::Domain
     subject { described_class.new }
 
     let(:name) { double('Name') }
+	let(:description) { double('Description') }
+	let(:topping) { double('Topping') }
+	let(:toppings) { [topping] }
 
     it_should_behave_like("a Domain Pizza")
   end

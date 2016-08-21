@@ -4,11 +4,12 @@ module PizzaHexagon::Domain::Pizzas
   # that is handled by the Repository and operated on by the application.
 
   class Pizza
-    attr_accessor :id, :name, :toppings
-    def initialize id:, name:, toppings:
-      @id       = id
-      @name     = name
-      @toppings = toppings
+    attr_accessor :id, :name, :description, :toppings
+    def initialize(id:, name:, description:, toppings:)
+      @id = id
+      @name = name
+			@description = description
+			@toppings = toppings
     end
 
     def to_json
