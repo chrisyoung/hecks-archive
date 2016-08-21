@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 group 'test' do
+  gem 'sinatra'
   gem 'rspec'
   gem 'guard-rspec'
   gem 'simplecov'
   gem 'activesupport'
+  gem 'dry-validation'
 end
