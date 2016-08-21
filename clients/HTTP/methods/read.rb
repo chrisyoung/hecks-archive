@@ -14,6 +14,6 @@ class Read
   attr_reader :hexagon, :id, :module_name
 
   def run_query
-    hexagon.query(module_name, id: id).to_json
+    hexagon.query(module_name, id: id).to_h.to_json
   end
 end

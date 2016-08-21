@@ -6,15 +6,14 @@ module Ph2::Domain::Pizzas
   class Pizza
     attr_accessor :id, :name, :description, :toppings
     def initialize(id:, name:, description:, toppings:)
-      @id          = id
-      @name        = name
+      @id = id
+      @name = name
 			@description = description
-			@toppings    = toppings
+			@toppings = toppings
     end
 
-    def to_json
-      {id: id, name: name, toppings: toppings}.to_json
+    def to_h
+      { name: name, description: description, toppings: toppings }
     end
-
   end
 end

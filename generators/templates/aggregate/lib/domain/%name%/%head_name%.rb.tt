@@ -9,5 +9,13 @@ module <%= hexagon_name.camelize %>::Domain::<%= name.camelize %>
       @id = id
       <%= attributes.keys.map{|attribute, type| '@' + attribute + ' = ' + attribute}.join("\n\t\t\t") %>
     end
+
+    def to_h
+      { <%=
+          attributes.keys.map do |attribute, type|
+            attribute + ': ' + attribute
+          end.join(", ")
+        %> }
+    end
   end
 end
