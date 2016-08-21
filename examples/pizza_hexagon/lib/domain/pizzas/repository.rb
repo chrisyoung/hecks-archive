@@ -15,7 +15,7 @@ module PizzaHexagon::Domain::Pizzas
     end
 
     def self.update id, attributes
-      fixture = read(id.to_i)
+      fixture = read(id)
 
       attributes.each do |field, value|
         fixture.send("#{field}=", value)
@@ -33,7 +33,7 @@ module PizzaHexagon::Domain::Pizzas
     end
 
     def self.delete(id)
-      @collection.delete(id.to_i)
+      @collection.delete(id)
     end
 
     def self.delete_all

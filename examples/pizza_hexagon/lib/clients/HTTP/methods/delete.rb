@@ -4,14 +4,16 @@ class Delete
   end
 
   def call(id:, module_name:)
-    hexagon.run(
-      module_name.to_sym,
-      :delete_pizza,
-      id: id
-    )
+    @id          = id
+    @module_name = module_name.to_sym
+    run_command
   end
 
   private
 
-  attr_accessor :hexagon
+  attr_reader :hexagon, :module_name, :id
+
+  def run_command
+    hexagon.run(module_name, :delete_pizza, id: id.to_i)
+  end
 end
