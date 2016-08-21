@@ -1,21 +1,19 @@
-class <%= name.camelize %>
+class PizzaHexagon::
 end
 require 'active_support/inflector'
-require 'dry-validation'
-file_path = File.dirname(__FILE__)
 require file_path + '/lib/domain.rb'
-
+file_path = File.dirname(__FILE__)
 
 Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 
 # Convenience class for calling use cases.  The #[] method will look up any
 # usecase and run it by passing args and a repositories container.
 #
-# <%= name.camelize %>.new[:some_use_case, arg1: arg1, arg2: arg:2]
+# PizzaHexagon::.new[:some_use_case, arg1: arg1, arg2: arg:2]
 #
 # You can pass in repositories using the initializer if you want to use
 # something other than the default domain repos
-class <%= name.camelize %>
+class PizzaHexagon::
   DOMAIN_REPOSITORIES = Domain.constants.map do |constant|
     [constant.downcase, Domain.const_get(constant)::Repository]
   end.to_h

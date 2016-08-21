@@ -31,7 +31,7 @@ class PizzaHexagon
     database_adapter: Utilities::InMemoryDatabase.new,
     use_cases: USE_CASES)
     @database_adapter = database_adapter
-    @use_cases = use_cases
+    @use_cases        = use_cases
   end
 
   def delete_all
