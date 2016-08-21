@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require 'json'
+require_relative '../../examples/pizza_hexagon/pizza_hexagon'
 require_relative 'methods'
-require_relative '../../../pizza_hexagon'
+
 
 class Server < Sinatra::Base
   methods = Methods.new(hexagon: PizzaHexagon.new)
