@@ -33,7 +33,7 @@ module PizzaHexagon::Domain::Pizzas
     end
 
     def self.delete(id)
-      @collection.delete(id)
+      @collection.delete(id.to_i)
     end
 
     def self.delete_all

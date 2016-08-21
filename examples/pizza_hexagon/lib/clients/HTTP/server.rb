@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'json'
 require_relative '../../../pizza_hexagon'
 require_relative 'methods'
-
+require 'pry'
 class Server < Sinatra::Base
   hexagon = PizzaHexagon.new
 
@@ -21,5 +21,11 @@ class Server < Sinatra::Base
       Update.new(hexagon: hexagon)
         .call(id: id, body: request.body, module_name: name)
     end
+
+    delete "/#{name}/:id" do |id|
+      Delete.new(hexagon: hexagon)
+        .call(id: id, module_name: name)
+    end
+
   end
 end

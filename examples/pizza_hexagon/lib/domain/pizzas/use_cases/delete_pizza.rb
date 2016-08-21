@@ -2,34 +2,26 @@ module PizzaHexagon::Domain::Pizzas::UseCases
   class DeletePizza
     attr_accessor :args
 
-    def initialize(args:, database_adapter:, validators: [Validator.new])
+    def initialize(args:, database_adapter:)
       @args       = args
       @database_adapter = database_adapter
-      @validators = validators
     end
 
     def call(use_case=nil)
-      validate
       delete
       self
     end
 
     def errors
-      @errors = validators.flat_map { |validator| validator.errors }
+      []
     end
 
     private
 
-    attr_accessor :database_adapter, :validators
-
-    def validate
-      validators.each do |validator|
-        validator.call(self)
-      end
-    end
+    attr_accessor :database_adapter
 
     def delete
-      database_adapter[:pizzas].delete(id: args[:id])
+      database_adapter[:pizzas].delete(args[:id])
     end
   end
 end
