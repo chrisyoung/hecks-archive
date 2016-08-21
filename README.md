@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/chrisyoung/heckson/badges/gpa.svg)](https://codeclimate.com/github/chrisyoung/heckson)
+
 # Heckson
 Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can drive your applications.  
 
@@ -48,10 +50,10 @@ Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.
 ### 3. Generate a Pizzas Aggregate with a Pizza entity for the head
 ```
 $ cd pizza_hexagon
-$ heckson aggregate pizzas --head pizza --attributes name:string toppings:[topping]
+$ heckson aggregate pizzas --h pizza --a name:string toppings:[topping]
 ```
 ### 4. Generate a Topping Value object
-`$ heckson value_object pizza -module pizzas --attributes name:string`
+`$ heckson value_object pizza -m pizzas --a name:string`
 ### 5. Generate an HTTP adapter
 `$ heckson adapter http`
 ### 6. Run the server
@@ -93,9 +95,14 @@ Delete: DELETE localhost:9295/pizzas/1
 * Port Adapters
 * Mock Database (in-memory)
 
+## Features
+* Supports CRUD Commands out of the box
+*
+
 ## Ports
+  Ports and adapters are used to organize services that may be provided by your hexagons, such as a web server that supports crud operations on your Domain Modules.
 ### User Commands (Driver)
-  The "native" port of your Hexagon uses commands that work with real Domain objects
+  The "native" port of your Hexagon uses Commands that operate with real Domain objects
 ### Data (Driven)
   By default your hexagon uses a mock database or in-memory repository to persist aggregates
 
