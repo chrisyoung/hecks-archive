@@ -8,9 +8,11 @@ Make a gem out of the hexagon
 Factory for building toppings
 Make the server into a gem
 Generator to create config.ru file
-Update all the generators
-Generate Schemas
 Generate to_json methods
+Rename use cases to commands
+Fix Tests
+Tests for schema
+Tests for server
 
 NOTES:
 # Wouldn't it be nice if things worked this way?
