@@ -1,5 +1,5 @@
 module PizzaHexagon::Domain::Pizzas::UseCases
-  class CreatePizza
+  class Create
     attr_reader :args, :id, :errors
 
     def initialize(args:, database_adapter:, schema: PizzaHexagon::Domain::Pizzas::Schemas::CreatePizza)

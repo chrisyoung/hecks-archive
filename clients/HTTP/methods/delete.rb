@@ -14,6 +14,6 @@ class Delete
   attr_reader :hexagon, :module_name, :id
 
   def run_command
-    hexagon.run(module_name, :delete_pizza, id: id)
+    hexagon.run(module_name, :delete, id: id)
   end
 end

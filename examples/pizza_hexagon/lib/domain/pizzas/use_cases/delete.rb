@@ -1,5 +1,5 @@
 module PizzaHexagon::Domain::Pizzas::UseCases
-  class DeletePizza
+  class Delete
     attr_accessor :args
 
     def initialize(args:, database_adapter:)

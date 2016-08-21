@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'json'
 require_relative '../../examples/pizza_hexagon/pizza_hexagon'
 require_relative 'methods'
+require 'pry'
 
 class Server < Sinatra::Base
   def initialize(app: nil, hexagon:)
@@ -9,7 +10,7 @@ class Server < Sinatra::Base
     @methods = Methods.new(hexagon: hexagon)
   end
 
-  PizzaHexagon::Domain.modules.each do |name|
+  Domain.modules.each do |name|
     post "/#{name}" do
       methods.create.call(body: request.body, module_name: name)
     end

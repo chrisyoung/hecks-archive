@@ -14,7 +14,7 @@ class Create
   attr_reader :hexagon, :body, :module_name
 
   def run_command
-    hexagon.run(module_name, :create_pizza, params)
+    hexagon.run(module_name, :create, params)
   end
 
   def params

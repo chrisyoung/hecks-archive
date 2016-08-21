@@ -15,7 +15,7 @@ class Update
   attr_accessor :hexagon, :id, :body, :module_name
 
   def run_command
-    hexagon.run(module_name, :update_pizza, params)
+    hexagon.run(module_name, :update, params)
   end
 
   def params

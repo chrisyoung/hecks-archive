@@ -2,7 +2,7 @@ class PizzaHexagon
   module Domain
     module Pizzas
       module UseCases
-        describe UpdatePizza do
+        describe Update do
           let(:validator)  { double('Validator',  call: nil, errors: []) }
           let(:repository) { double('Repository', update: nil) }
           let(:database_adapter) { double('Adapter', :[] => repository) }

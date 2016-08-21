@@ -1,5 +1,5 @@
 module PizzaHexagon::Domain::Pizzas::UseCases
-  class UpdatePizza
+  class Update
     attr_accessor :args, :errors, :id
 
     def initialize(args:, database_adapter:, schema: PizzaHexagon::Domain::Pizzas::Schemas::CreatePizza)
