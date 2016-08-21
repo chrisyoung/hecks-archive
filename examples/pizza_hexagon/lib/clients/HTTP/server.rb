@@ -1,32 +1,25 @@
-require 'sinatra'
-require "sinatra/reloader" if development?
+require 'sinatra/base'
 require 'json'
 require_relative '../../../pizza_hexagon'
-require_relative 'update'
-require_relative 'read'
-require_relative 'create'
+require_relative 'methods'
 
-hexagon = PizzaHexagon.new
+class Server < Sinatra::Base
+  hexagon = PizzaHexagon.new
 
-PizzaHexagon::Domain.modules.each do |domain_module|
-  post "/#{domain_module.to_s.downcase}" do
-    Create.new(hexagon: hexagon).call(
-      body: request.body,
-      module_name: domain_module.to_s.downcase
-    )
-  end
+  PizzaHexagon::Domain.modules.each do |name|
+    post "/#{name}" do
+      Create.new(hexagon: hexagon)
+        .call(body: request.body, module_name: name)
+    end
 
-  get "/#{domain_module.to_s.downcase}/:id" do |id|
-    Read.new(hexagon: hexagon).call(
-      id: id.to_i,
-      module_name: domain_module.to_s.downcase
-    )
-  end
+    get "/#{name}/:id" do |id|
+      Read.new(hexagon: hexagon)
+        .call(id: id.to_i, module_name: name)
+    end
 
-  put "/#{domain_module.to_s.downcase}/:id" do |id|
-    Update.new(hexagon: hexagon).call(
-      id: id,
-      body: request.body,
-      module_name: domain_module.to_s.downcase)
+    put "/#{name}/:id" do |id|
+      Update.new(hexagon: hexagon)
+        .call(id: id, body: request.body, module_name: name)
+    end
   end
 end

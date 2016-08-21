@@ -1,7 +1,9 @@
 class PizzaHexagon
   module Domain
     def self.modules
-      constants
+      constants.map do |module_name|
+        module_name.to_s.downcase
+      end
     end
   end
 end

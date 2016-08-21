@@ -1,5 +1,5 @@
 class Read
-  def initialize(hexagon: hexagon)
+  def initialize(hexagon:)
     @hexagon = hexagon
   end
 
