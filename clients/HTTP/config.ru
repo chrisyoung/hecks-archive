@@ -1,3 +1,3 @@
 require_relative './server'
-
-run Server
+require_relative '../../examples/pizza_hexagon/pizza_hexagon'
+run Server.new(hexagon: PizzaHexagon.new)

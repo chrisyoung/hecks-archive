@@ -3,9 +3,11 @@ require 'json'
 require_relative '../../examples/pizza_hexagon/pizza_hexagon'
 require_relative 'methods'
 
-
 class Server < Sinatra::Base
-  methods = Methods.new(hexagon: PizzaHexagon.new)
+  def initialize(app: nil, hexagon:)
+    super(app)
+    @methods = Methods.new(hexagon: hexagon)
+  end
 
   PizzaHexagon::Domain.modules.each do |name|
     post "/#{name}" do
@@ -24,4 +26,8 @@ class Server < Sinatra::Base
       methods.delete.call(id: id, module_name: name)
     end
   end
+
+  private
+
+  attr_reader :methods
 end
