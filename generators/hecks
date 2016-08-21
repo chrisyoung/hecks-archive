@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 require "thor"
-require_relative "commands/adapters"
-require_relative "commands/domain"
-require_relative "commands/hexagon"
+require_relative "adapters"
+require_relative "domain"
+require_relative "hexagon"
 
 class Hecks < Thor
   package_name "hecks"
@@ -30,18 +30,6 @@ class Hecks < Thor
     "domain:use_case",
     "domain:use_case NAME -m NAME",
     "Add a use case to a module")
-
-  register(
-    Hecks::Adapters::WebAPI,
-    "adapters:drivers:web_api",
-    "adapters:drivers:web_api",
-    "A fast, concurrent, resourceful web server for your Domain")
-
-  register(
-    Hecks::Adapters::SQLDatabase,
-    "adapters:clients:sql_database",
-    "adapters:clients:sql_database NAME",
-    "Creates a SQL Database")
 end
 
 def hexagon_name

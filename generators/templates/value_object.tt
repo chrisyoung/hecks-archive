@@ -1,0 +1,12 @@
+class <%= hexagon_name.camelize %>
+  module Domain
+    module <%= module_name.camelize %>
+      class <%= name.camelize %>
+        attr_accessor :<%= attributes.map{|attribute, type| attribute}.join(', :') %>
+        def initialize(<%= attributes.map{|attribute, type| attribute}.join(':, ') %>:)
+          <%= attributes.map{|attribute, type| '@' + attribute + ' = ' + attribute}.join("\n\t\t\t") %>
+        end
+      end
+    end
+  end
+end
