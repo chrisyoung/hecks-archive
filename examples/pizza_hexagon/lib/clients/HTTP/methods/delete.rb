@@ -4,7 +4,7 @@ class Delete
   end
 
   def call(id:, module_name:)
-    @id          = id
+    @id          = id.to_i
     @module_name = module_name.to_sym
     run_command
   end
@@ -14,6 +14,6 @@ class Delete
   attr_reader :hexagon, :module_name, :id
 
   def run_command
-    hexagon.run(module_name, :delete_pizza, id: id.to_i)
+    hexagon.run(module_name, :delete_pizza, id: id)
   end
 end
