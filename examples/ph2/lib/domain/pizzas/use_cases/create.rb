@@ -17,6 +17,10 @@ class Ph2
             self
           end
 
+          def to_h
+            {errors: errors, id: id, args: args}
+          end
+
           private
 
           attr_accessor :database_adapter, :schema, :args

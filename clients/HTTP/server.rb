@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'json'
-require_relative '../../examples/pizza_hexagon/pizza_hexagon'
 require_relative 'methods'
 require 'pry'
 
@@ -12,7 +11,7 @@ class Server < Sinatra::Base
 
   Domain.modules.each do |name|
     post "/#{name}" do
-      methods.create.call(body: request.body, module_name: name)
+      result = methods.create.call(body: request.body, module_name: name)
     end
 
     get "/#{name}/:id" do |id|

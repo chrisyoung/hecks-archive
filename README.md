@@ -65,8 +65,7 @@ $ rackup config.ru
 
 #### CREATE
 ```
-curl -sb -H "Content-Type: application/json" -X POST -d  '{"name":"chris", "toppings":[{"name":"pepperoni"}]}' http://localhost:4567/pizzas
-```
+curl -H "Content-Type: application/json" -X POST -d  '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas```
 
 #### UPDATE
 ```

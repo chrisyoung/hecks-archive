@@ -1,6 +1,6 @@
 Docker
 Active Record Adapter
-Factory for building toppings
+Factory for building toppings in pizza
 Rename use cases to commands
 CRUD Commands should generate explicitly
 Event Port
@@ -14,6 +14,7 @@ Fix Tests
 Tests for schema
 Tests for server
 Domain Console
+to_h method on commands
 
 NOTES:
 # Wouldn't it be nice if things worked this way?
@@ -27,7 +28,6 @@ PizzaServer::Pizzas
 # Invariants are declarative and are returned by command objects.  They can
 # easilly be used as a documentatoin to build validations.  You can use the
 PizzaServer::Pizzas::Invariants
-
 
 # Commands
 
