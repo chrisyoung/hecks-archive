@@ -19,7 +19,6 @@ class Create
     return 200
   end
 
-
   def run_command
     @command_result = hexagon.run(module_name, :create, params)
   end

@@ -1,20 +1,25 @@
-Docker
-Active Record Adapter
-Factory for building toppings in pizza
-Rename use cases to commands
-CRUD Commands should generate explicitly
-Event Port
-Value Store
-Generator to create config.ru file
-Make the server into a gem
-Make a gem out of the hexagon
-Errors on Update
-CouchDB Persistence Adapter
-Fix Tests
-Tests for schema
-Tests for server
-Domain Console
-to_h method on commands
+For Presentation
+  Active Record Adapter
+  Event Port
+  Make a gem out of the hexagon
+  to_h method on commands
+  Update Documentation
+
+Next Actions
+  Docker
+  Fix Tests
+  Tests for schema
+  Tests for server
+  Factory for building toppings in pizza
+  Rename use cases to commands
+  CRUD Commands should generate explicitly
+  Value Store
+  Generator to create config.ru file
+  Make the server into a gem
+  Errors on Update
+  CouchDB Persistence Adapter
+  Domain Console
+
 
 NOTES:
 # Wouldn't it be nice if things worked this way?

@@ -1,7 +1,7 @@
 [![Code Climate](https://codeclimate.com/github/chrisyoung/heckson/badges/gpa.svg)](https://codeclimate.com/github/chrisyoung/heckson)
 
 # Heckson
-Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can drive your applications.  
+Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can be driven by your frameworks.
 
 [Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture)
 
@@ -50,7 +50,7 @@ Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.
 ### 3. Generate a Pizzas Aggregate with a Pizza entity for the head
 ```
 $ cd pizza_hexagon
-$ heckson aggregate pizzas --h pizza --a name:string toppings:[topping]
+$ heckson aggregate pizzas --h pizza --a name:string toppings:[topping] description:description
 ```
 ### 4. Generate a Topping Value object
 `$ heckson value_object pizza -m pizzas --a name:string`
