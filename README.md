@@ -1,15 +1,25 @@
 [![Code Climate](https://codeclimate.com/github/chrisyoung/heckson/badges/gpa.svg)](https://codeclimate.com/github/chrisyoung/heckson)
 
 # Heckson
-Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Domain library that can be driven by your frameworks.
+Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Containerized Domain Model that can be driven by your frameworks and included in your apps.
 
-[Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture)
+## Why we need domains
+We need to organize our thoughts to become faster the more we understand, not slower.
 
+## Domain Driven Design
 [Domain Driven Design](http://domainlanguage.com/ddd/reference/)
 
-## Usage - Developing the Pizza Domain with Heckson
+## Hexagonal Architecture
+[Hexagonal Architecture](http://alistair.cockburn.us/Hexagonal+architecture)
 
-### 1. Draw a domain
+## Domain Driven Hexagons (of pure love)
+* Domains make it meaningful (Business Language is self sustaining and resolvable)
+* Hexagons make it portable and pluggable (think containers).
+
+## Pizza Server
+We developed PizzaServer at Tanga as a simple application that we could use to evaluate new recruits.  The simple domain made it easy to extend with these concepts in a very iterative fashion.  
+
+## Pizza Domain
 You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
 ┌───────────────────────Pizzas Domain────────────────────────┐
@@ -45,27 +55,29 @@ You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
 Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.helftone.com/)
 
-### 2. Generate a hexagon to hold the Domain
+## Usage - Developing the Pizza Domain with Heckson
+
+### 1. Generate a hexagon to hold the Domain
 `$ heckson new pizza_hexagon`
-### 3. Generate a Pizzas Aggregate with a Pizza entity for the head
+### 1. Generate a Pizzas Aggregate with a Pizza entity for the head
 ```
 $ cd pizza_hexagon
 $ heckson aggregate pizzas --h pizza --a name:string toppings:[topping] description:description
 ```
-### 4. Generate a Topping Value object
+### 1. Generate a Topping Value object
 `$ heckson value_object pizza -m pizzas --a name:string`
-### 5. Generate an HTTP adapter
+### 1. Generate an HTTP adapter
 `$ heckson adapter http`
-### 6. Run the server
+### 1. Run the server
 ```
 $ cd lib/adapters/http
 $ rackup config.ru
 ```
-### 7. Make pizzas!
 
-#### CREATE
+### 1. Make pizzas!
 ```
-curl -H "Content-Type: application/json" -X POST -d  '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas```
+curl -H "Content-Type: application/json" -X POST -d  '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
+```
 
 #### UPDATE
 ```
