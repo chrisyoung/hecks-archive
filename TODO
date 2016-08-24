@@ -4,6 +4,7 @@ For Presentation
   Make a gem out of the hexagon
   to_h method on commands
   Update Documentation
+  Only use invariants
 
 Next Actions
   Docker
@@ -20,6 +21,8 @@ Next Actions
   CouchDB Persistence Adapter
   Domain Console
 
+Challenge:
+  Remove all if statements
 
 NOTES:
 # Wouldn't it be nice if things worked this way?
