@@ -71,3 +71,16 @@ curl -H "Content-Type: application/json" /-X POST -d '{"name":"White Pizza", "de
 # UPDATE
 curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
+
+## Next Actions
+* Dockerize
+* Fix Tests
+* Factory for building toppings in pizza
+* Rename use cases to commands
+* CRUD Commands should generate explicitly
+* Value Store (Service?)
+* Generator to create config.ru file
+* Server gem
+* Errors on Update
+* CouchDB Persistence Adapter
+* Domain Console
