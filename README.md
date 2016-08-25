@@ -100,3 +100,4 @@ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chri
 * Generate an elixr project
 * Create Commands from Product Use Cases
 * Create plugin for Asana to show test results on use cases
+* Figure out scheme to use in memory db in production and periodically flush to real db
