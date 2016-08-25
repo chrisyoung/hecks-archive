@@ -86,6 +86,8 @@ curl -H "Content-Type: application/json" -X POST -d  '{"name":"White Pizza", "de
 curl  -H "Content-Type: application/json" -X PUT -d  '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
 
+## Understanding Hecks
+
 ### Hecks Databases
 Hexagonal architecture moves the domain to the center of your programming world.  This means that how you persist the data can be an afterthought.  Once a domain is well tested and in-line with your product vision, you can adapt your database to the Domain.  Hecks makes it fairly easy to use Active Record to connect to your database.
 
@@ -96,7 +98,7 @@ By default, hexagons use a super-fast in-memory adapter.  This adapter is fast! 
 Here we'll have some notes on generating an activerecord database adapter for you hexagon.
 
 ### Queries and Commands
-Hecks provides a seperate api for reading (Queries) and performing operations (Commands) on the database.  For example, when generating a CRUD interface, `CUD` are commands and `R` is a query.
+Hecks provides a separate api for reading (Queries) and performing operations (Commands) on the database.  For example, when generating a CRUD interface, `CUD` are commands and `R` is a query.
 
 ### Testing
 No stubbing, no mocking!  Blazingly fast tests because Hexagons always talk to the in-memory database by default.
