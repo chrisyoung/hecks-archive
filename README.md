@@ -44,31 +44,28 @@ Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.
 
 ## Usage - Developing the Pizza Domain with Hecks
 
-### Generate a hexagon to hold the Domain
-`$ hecks new pizza_hexagon`
-
-### Generate a Pizzas Aggregate with a Pizza entity for the head
+### Generate the Hexagon
 ```
+# Generate a hexagon to hold the Domain
+$ hecks new pizza_hexagon
+
+# Generate a Pizzas Aggregate with a Pizza entity for the head
 $ cd pizza_hexagon
 $ hecks aggregate pizzas --h pizza --a name:string toppings:[topping] description:description
-```
-### Generate a Topping Value object
-`$ hecks value_object topping -m pizzas --a name:string`
 
-### Run the server
-```
-$ cd lib/adapters/http
+# Generate a Topping Value object
+$ hecks value_object topping -m pizzas --a name:string
+
+# Run the server
+$ cd ../adapters/http
 $ rackup config.ru
 ```
 
 ### Make pizzas!
-
-#### CREATE
 ```
+# CREATE
 curl -H "Content-Type: application/json" -X POST -d  '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
-```
 
-#### UPDATE
-```
+# UPDATE
 curl  -H "Content-Type: application/json" -X PUT -d  '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
