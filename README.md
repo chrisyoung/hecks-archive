@@ -19,14 +19,14 @@ We need to organize our thoughts to become faster the more we understand, not sl
 ## Pizza Server
 We developed PizzaServer at Tanga as a simple application that we could use to evaluate new recruits.  The simple domain made it easy to extend with these concepts in a very iterative fashion.  
 
-## Pizza Domain
+## Drawing The Domain
 You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
-┌───────────────────────Pizzas Domain────────────────────────┐
+┌─────────────────────────Hexagon────────────────────────────┐
 │                                                            │
-│ ┌───────────────────Aggregate Modules───────────────────┐  │
+│ ┌───────────────────────────────────────────────────────┐  │
 │ │                                                       │  │
-│ │  ┌─────────────────────Pizzas──────────────────────┐  │  │
+│ │  ┌─────────────────Pizzas Aggregate────────────────┐  │  │
 │ │  │                                                 │  │  │
 │ │  │                   ┌────────┐                    │  │  │
 │ │  │                   │ Pizza  │                    │  │  │
@@ -55,34 +55,65 @@ You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
 Note: This diagram was created by a cool tool called [Monodraw](http://monodraw.helftone.com/)
 
-## Usage - Developing the Pizza Domain with Heckson
+## Usage - Developing the Pizza Domain with Hecks
 
-### 1. Generate a hexagon to hold the Domain
-`$ heckson new pizza_hexagon`
-### 1. Generate a Pizzas Aggregate with a Pizza entity for the head
+### Generate a hexagon to hold the Domain
+`$ hecks new pizza_hexagon`
+
+### Generate a Pizzas Aggregate with a Pizza entity for the head
 ```
 $ cd pizza_hexagon
-$ heckson aggregate pizzas --h pizza --a name:string toppings:[topping] description:description
+$ hecks aggregate pizzas --h pizza --a name:string toppings:[topping] description:description
 ```
-### 1. Generate a Topping Value object
-`$ heckson value_object pizza -m pizzas --a name:string`
-### 1. Generate an HTTP adapter
-`$ heckson adapter http`
-### 1. Run the server
+### Generate a Topping Value object
+`$ hecks value_object topping -m pizzas --a name:string`
+
+### Run the server
 ```
 $ cd lib/adapters/http
 $ rackup config.ru
 ```
 
-### 1. Make pizzas!
+### Make pizzas!
+
+#### CREATE
 ```
 curl -H "Content-Type: application/json" -X POST -d  '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
 ```
 
 #### UPDATE
 ```
-curl  -H "Content-Type: application/json" -X PUT -d  '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:4567/pizzas/1
+curl  -H "Content-Type: application/json" -X PUT -d  '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
+
+### Hecks Databases
+Hexagonal architecture moves the domain to the center of your programming world.  This means that how you persist the data can be an afterthought.  Once a domain is well tested and in-line with your product vision, you can adapt your database to the Domain.  Hecks makes it fairly easy to use Active Record to connect to your database.
+
+#### In-Memory "Mock" Database
+By default, hexagons use a super-fast in-memory adapter.  This adapter is fast!  In fact it is preferred to utilize this default adapter during tests to completely avoid stubbing and mocking calls to the database.  See testing below.
+
+#### ActiveRecord SQL Database
+Here we'll have some notes on generating an activerecord database adapter for you hexagon.
+
+### Queries and Commands
+Hecks provides a seperate api for reading (Queries) and performing operations (Commands) on the database.  For example, when generating a CRUD interface, `CUD` are commands and `R` is a query.
+
+### Testing
+No stubbing, no mocking!  Blazingly fast tests because Hexagons always talk to the in-memory database by default.
+
+```
+module Ph2::Domain::Pizzas
+  describe UseCases::Create do
+    it 'creates a pizza' do
+      pizza_attributes = { name: "White Pizza", toppings: ['garlic', 'chicken'] }
+      UseCases::Create.new(args: pizza_attributes).call
+      expect(Queries::Read.new.run(id: 1).name).to == "White Pizza"
+    end
+  end
+end
+```
+
+
 
 ## Developing with Hexagons and Rails
 ### 1. Create a PizzaHexagon Gem
