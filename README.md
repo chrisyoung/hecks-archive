@@ -72,6 +72,16 @@ curl -H "Content-Type: application/json" /-X POST -d '{"name":"White Pizza", "de
 curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
 
+## In Progress
+* Generate Active Record Adapter - Chris Young
+
+## Current Sprint
+* Fix Update
+* Event Port
+* Make a gem out of the hexagon
+* to_h method on commands
+* Only use invariants (move schema out of hexagon)
+
 ## Next Actions
 * Dockerize
 * Fix Tests
@@ -84,3 +94,8 @@ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chri
 * Errors on Update
 * CouchDB Persistence Adapter
 * Domain Console
+
+## Challenges:
+* Remove all if statements
+* Generate an elixr project
+* Create Commands from Product Use Cases

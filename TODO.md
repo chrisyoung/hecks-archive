@@ -1,19 +1,9 @@
-## For Presentation
-* Generate Active Record Adapter
-* Fix Update
-* Event Port
-* Make a gem out of the hexagon
-* to_h method on commands
-* Update Documentation
-* Only use invariants (move schema out of hexagon)
 
-## Challenges:
-* Remove all if statements
-
-## Start Documenting
+## Start Documenting API
 
 ### Modules:
 
+```
 #### Your Domain is the root hexagon
 PizzaServer
 
@@ -44,3 +34,4 @@ PizzaServer::Drivers::JSON
 PizzaServer::Repositories::SQL
 PizzaServer::Repositories::CouchBase
 #### Example
+```
