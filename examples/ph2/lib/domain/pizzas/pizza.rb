@@ -11,9 +11,5 @@ module Ph2::Domain::Pizzas
 			@description = description
 			@toppings = toppings
     end
-
-    def to_h
-      { name: name, description: description, toppings: toppings }
-    end
   end
 end
