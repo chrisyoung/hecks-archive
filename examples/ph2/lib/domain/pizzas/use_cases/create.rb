@@ -23,14 +23,14 @@ class Ph2
 
           private
 
-          attr_accessor :database_adapter, :schema, :args
+          attr_reader :database_adapter, :schema, :args
 
           def validate
             @errors = schema.(args).messages
           end
 
           def create
-            return if @errors.keys.count > 0
+            return if errors.keys.count > 0
             @id = database_adapter[:pizzas].create(args)
           end
         end
