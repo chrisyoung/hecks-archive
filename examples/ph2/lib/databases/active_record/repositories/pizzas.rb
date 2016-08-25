@@ -4,6 +4,7 @@ module Databases
       module Pizzas
         class Repository < ::ActiveRecord::Base
           self.table_name = "pizzas"
+          serialize :toppings, JSON
 
           def self.query(args={})
             where(id: args[:id]).limit(1).first

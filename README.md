@@ -76,7 +76,7 @@ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chri
 * Generate Active Record Adapter - Chris Young
 
 ## Current Sprint
-* Fix Update
+* Errors on Update
 * Event Port
 * Make a gem out of the hexagon
 * to_h method on commands
@@ -91,7 +91,7 @@ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chri
 * Value Store (Service?)
 * Generator to create config.ru file
 * Server gem
-* Errors on Update
+
 * CouchDB Persistence Adapter
 * Domain Console
 
