@@ -1,5 +1,7 @@
 class Ph2
 end
+
+require 'pry'
 require 'active_support/inflector'
 require 'dry-validation'
 file_path = File.dirname(__FILE__)

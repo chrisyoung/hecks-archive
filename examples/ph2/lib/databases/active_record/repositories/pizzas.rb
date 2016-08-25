@@ -1,8 +1,10 @@
 module Databases
-  module ActiveRecord
-    module Repositories
-      class Pizzas < ::ActiveRecord::Base
-        self.table_name = "pizzas"
+  class ActiveRecord
+    module Domain
+      module Pizzas
+        class Repository < ::ActiveRecord::Base
+          self.table_name = "pizzas"
+        end
       end
     end
   end

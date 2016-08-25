@@ -3,6 +3,7 @@ class CreatePizza < ActiveRecord::Migration
     create_table :pizzas do |t|
       t.string :name
       t.string :description
+      t.string :toppings
     end
   end
 end
