@@ -6,7 +6,7 @@ class Ph2
           attr_accessor :args, :errors, :id
 
           def initialize(args:, database_adapter:, schema: nil)
-            @args       = args
+            @args = args
             @id = args[:id]
             @database_adapter = database_adapter
             @schema = schema
@@ -17,6 +17,10 @@ class Ph2
             validate
             update
             self
+          end
+
+          def to_h
+            { errors: errors, id: id, args: args }
           end
 
           private

@@ -18,7 +18,7 @@ class Ph2
           end
 
           def to_h
-            {errors: errors, id: id, args: args}
+            { errors: errors, id: id, args: args }
           end
 
           private
