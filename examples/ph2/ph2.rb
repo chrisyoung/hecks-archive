@@ -18,8 +18,9 @@ Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 # something other than the default domain repos
 class Ph2
   def initialize(
-    database_adapter: Utilities::InMemoryDatabase.new)
+    database_adapter: Utilities::InMemoryDatabase.new, listeners: [])
     @database_adapter = database_adapter
+    @listeners = listeners
   end
 
   def delete_all
@@ -28,8 +29,9 @@ class Ph2
 
   def run(module_name, command_name, args={})
     Domain.use_cases[[module_name, command_name]].new(
-      args: args,
-      database_adapter: @database_adapter
+      args:             args,
+      database_adapter: @database_adapter,
+      listeners:        @listeners
     ).call
   end
 

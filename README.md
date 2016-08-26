@@ -73,12 +73,10 @@ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chri
 ```
 
 ## In Progress
-* Generate Active Record Adapter - Chris Young
+Event Port - Chris Young
 
 ## Current Sprint
-* Get Mysql working
-* Show Errors on Update in HTTPClient
-* Event Port
+* Delete Operation on Server
 * Make a gem out of the hexagon
 * Only use invariants (move schema out of hexagon)
 
