@@ -33,6 +33,6 @@ class Ph2
   end
 
   def query(module_name, args={})
-    @adapter[module_name].query args
+    @database[module_name].query args
   end
 end

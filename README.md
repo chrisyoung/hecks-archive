@@ -71,7 +71,12 @@ $ curl http://localhost:9292/pizzas/1
 
 # UPDATE
 $ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
+
+# DELETE
+$ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
+
+
 
 ## In Progress
 * Delete Operation on Server
