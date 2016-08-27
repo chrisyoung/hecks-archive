@@ -1,8 +1,3 @@
-require 'sinatra/base'
-require 'json'
-require_relative 'methods'
-require 'pry'
-
 class Server < Sinatra::Base
   def initialize(app: nil, hexagon:)
     super(app)

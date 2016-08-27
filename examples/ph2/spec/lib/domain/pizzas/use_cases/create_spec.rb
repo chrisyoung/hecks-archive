@@ -1,4 +1,4 @@
-class Ph2
+module Ph2
   module Domain
     module Pizzas
       describe UseCases::Create do

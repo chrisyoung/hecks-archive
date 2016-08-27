@@ -1,5 +1,6 @@
 require_relative 'env'
 
+
 module Databases
   class ActiveRecord
     def initialize(repositories: { pizzas: Domain::Pizzas::Repository })

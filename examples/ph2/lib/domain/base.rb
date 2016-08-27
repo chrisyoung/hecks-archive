@@ -1,4 +1,5 @@
-class Ph2
+
+module Ph2
   module Domain
     def self.repositories
       constants.map do |constant|
@@ -22,5 +23,4 @@ class Ph2
     end
   end
 end
-
-Dir[File.dirname(__FILE__) + "/domain/**/*.rb"].each { |file| require file }
+Dir[File.dirname(__FILE__) + "/**/*.rb"].each { |file| require file }

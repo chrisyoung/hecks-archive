@@ -1,4 +1,4 @@
-class Ph2
+module Ph2
   module Ports
     class Events
       def initialize(listeners:)

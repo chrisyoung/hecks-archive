@@ -10,10 +10,6 @@ class Create
     [JSON.generate(command_result.to_h) + "\n\n"]
   end
 
-  def pizza_created(command)
-    raise command.inspect
-  end
-
   private
 
   attr_reader :hexagon, :body, :module_name, :command_result

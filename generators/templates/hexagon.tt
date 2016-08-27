@@ -28,7 +28,7 @@ class <%= name.camelize %>
   end.to_h
 
   def initialize(
-    database_adapter: Utilities::InMemoryDatabase.new,
+    database_adapter: Databases::Memory.new,
     use_cases: USE_CASES)
     @database_adapter = database_adapter
     @use_cases        = use_cases
