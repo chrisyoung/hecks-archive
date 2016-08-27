@@ -1,16 +1,6 @@
-require_relative '../ph2/ph2'
-require_relative '../ph2/lib/databases/active_record'
-Domain = Ph2::Domain
-require_relative '../../clients/HTTP/server'
+require_relative 'env'
 
-database = Databases::ActiveRecord.new
-listeners = [PizzaCreatedListener.new]
+database  = Databases::ActiveRecord.new
+hexagon   =  Ph2.new(database: database)
 
-class PizzaCreatedListener
-  def pizzas_create(command)
-  end
-end
-
-hexagon = hexagon: Ph2.new(database: database, listeners: listeners)
-
-run Server.new(hexagon)
+run(Server.new(hexagon: hexagon))

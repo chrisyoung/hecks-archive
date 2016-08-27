@@ -94,6 +94,8 @@ $ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"ch
 * Server gem
 * CouchDB Persistence Adapter
 * Domain Console
+* Hook up code coverage
+* Set up stats module to could lines of code
 
 ## Challenges:
 * Remove all if statements
