@@ -3,9 +3,9 @@ require 'pry'
 require 'active_support/inflector'
 require 'dry-validation'
 file_path = File.dirname(__FILE__)
-require file_path + '/lib/domain.rb'
-require file_path + '/lib/ports/events.rb'
-Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
+require file_path + '/domain.rb'
+require file_path + '/ports/events.rb'
+Dir[file_path + "/utilities/**/*.rb"].each { |file| require file }
 
 # Convenience class for calling use cases.  The #[] method will look up any
 # usecase and run it by passing args and a repositories container.

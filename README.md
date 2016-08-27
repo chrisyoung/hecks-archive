@@ -62,32 +62,32 @@ $ rackup config.ru
 ```
 
 ### Make pizzas!
-```
-# CREATE
-$ curl -H "Content-Type: application/json" -X POST -d '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
 
-# READ
-$ curl http://localhost:9292/pizzas/1
+  # CREATE
+  $ curl -H "Content-Type: application/json" -X POST -d '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
 
-# UPDATE
-$ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
+  # READ
+  $ curl http://localhost:9292/pizzas/1
 
-# DELETE
-$ curl -X DELETE http://localhost:9292/pizzas/1
-```
+  # UPDATE
+  $ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
+
+  # DELETE
+  $ curl -X DELETE http://localhost:9292/pizzas/1
 
 ## In Progress
+* Make a gem out of the hexagon - Chris Young
 
 ## Current Sprint
-* Make a gem out of the hexagon
 * Deploy a pizza app using Rails
 * Only use invariants (move schema out of hexagon)
 * Generate Notifiers
 * Update the generators
 * Fix Tests
+* Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 
 ## Next Actions
-* Dockerize
+* Dockerize the HTTP Server
 * Factory for building toppings in pizza
 * Rename use cases to commands
 * CRUD Commands should generate explicitly
@@ -98,6 +98,9 @@ $ curl -X DELETE http://localhost:9292/pizzas/1
 * Domain Console
 * Hook up code coverage
 * Set up stats module to could lines of code
+* Server DELETE is reporting "no response from server" in curl
+* Add a Soccer app to the examples
+* Deploy a Soccer app for Tanga
 
 ## Challenges:
 * Remove all if statements
