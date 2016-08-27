@@ -10,9 +10,7 @@ We developed [PizzaServer](https://github.com/chrisyoung/heckson/tree/master/exa
 You might prefer a whiteboard to ASCII, but this gets the idea across :)
 ```
 ┌─────────────────────────Hexagon────────────────────────────┐
-│                                                            │
 │ ┌───────────────────────────────────────────────────────┐  │
-│ │                                                       │  │
 │ │  ┌─────────────────Pizzas Aggregate────────────────┐  │  │
 │ │  │                                                 │  │  │
 │ │  │                   ┌────────┐                    │  │  │
@@ -66,19 +64,23 @@ $ rackup config.ru
 ### Make pizzas!
 ```
 # CREATE
-curl -H "Content-Type: application/json" -X POST -d '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
+$ curl -H "Content-Type: application/json" -X POST -d '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
+
+# READ
+$ curl http://localhost:9292/pizzas/1
 
 # UPDATE
-curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
+$ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 ```
 
 ## In Progress
-Event Port - Chris Young
+* Delete Operation on Server
 
 ## Current Sprint
-* Delete Operation on Server
 * Make a gem out of the hexagon
+* Deploy a pizza app using Rails
 * Only use invariants (move schema out of hexagon)
+* Generate Notifiers
 
 ## Next Actions
 * Dockerize
@@ -89,13 +91,12 @@ Event Port - Chris Young
 * Value Store (Service?)
 * Generator to create config.ru file
 * Server gem
-
 * CouchDB Persistence Adapter
 * Domain Console
 
 ## Challenges:
 * Remove all if statements
-* Generate an elixr project
+* Generate an Elixr project
 * Create Commands from Product Use Cases
 * Create plugin for Asana to show test results on use cases
 * Figure out scheme to use in memory db in production and periodically flush to real db

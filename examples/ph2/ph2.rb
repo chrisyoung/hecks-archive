@@ -1,12 +1,10 @@
-class Ph2
-end
 
 require 'pry'
 require 'active_support/inflector'
 require 'dry-validation'
 file_path = File.dirname(__FILE__)
 require file_path + '/lib/domain.rb'
-
+require file_path + '/lib/ports/events.rb'
 Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 
 # Convenience class for calling use cases.  The #[] method will look up any
@@ -17,25 +15,24 @@ Dir[file_path + '/' + "lib/utilities/**/*.rb"].each { |file| require file }
 # You can pass in repositories using the initializer if you want to use
 # something other than the default domain repos
 class Ph2
-  def initialize(
-    database_adapter: Utilities::InMemoryDatabase.new, listeners: [])
-    @database_adapter = database_adapter
-    @listeners = listeners
+  def initialize(database: Utilities::InMemoryDatabase.new, listeners: [])
+    @database      = database
+    @events_port   = Ports::Events.new(listeners: listeners)
   end
 
   def delete_all
-    @database_adapter.delete_all
+    @database.delete_all
   end
 
   def run(module_name, command_name, args={})
     Domain.use_cases[[module_name, command_name]].new(
-      args:             args,
-      database_adapter: @database_adapter,
-      listeners:        @listeners
+      args:      args,
+      database:  @database,
+      events_port: @events_port
     ).call
   end
 
   def query(module_name, args={})
-    @database_adapter[module_name].query args
+    @adapter[module_name].query args
   end
 end

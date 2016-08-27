@@ -5,11 +5,11 @@ class Ph2
         class Create
           attr_accessor :args, :id, :errors
 
-          def initialize(args:, database_adapter:, schema: Schemas::Pizza, listeners: [])
-            @args             = args
-            @database_adapter = database_adapter
-            @schema           = schema
-            @listeners        = listeners
+          def initialize(args:, database:, schema: Schemas::Pizza, events_port:)
+            @args          = args
+            @database      = database
+            @schema        = schema
+            @events_port   = events_port
           end
 
           def call(use_case=nil)
@@ -20,17 +20,15 @@ class Ph2
           end
 
           def to_h
-            { errors: errors, id: id, args: args }
+            { errors: errors, id: command_result.id, args: args }
           end
 
           private
 
-          attr_reader :database_adapter, :schema, :args, :listeners
+          attr_reader :database, :schema, :args, :command_result, :events_port
 
           def notify_listeners
-            listeners.each do |listener|
-              listener.pizza_created(self) if listener.respond_to?(:pizza_created)
-            end
+            events_port.send(:pizzas_create, command: self)
           end
 
           def validate
@@ -40,7 +38,7 @@ class Ph2
           def create
             return if errors.keys.count > 0
             notify_listeners
-            @id = database_adapter[:pizzas].create(args)
+            @command_result = database[:pizzas].create(args)
           end
         end
       end

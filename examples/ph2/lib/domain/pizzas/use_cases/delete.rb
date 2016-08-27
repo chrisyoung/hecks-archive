@@ -2,9 +2,9 @@ module Ph2::Domain::Pizzas::UseCases
   class Delete
     attr_accessor :args
 
-    def initialize(args:, database_adapter:)
-      @args       = args
-      @database_adapter = database_adapter
+    def initialize(args:, database:)
+      @args     = args
+      @database = database
     end
 
     def call(use_case=nil)
@@ -18,11 +18,11 @@ module Ph2::Domain::Pizzas::UseCases
 
     private
 
-    attr_accessor :database_adapter
+    attr_accessor :database
 
 
     def delete
-      database_adapter[:pizzas].delete(args[:id])
+      database[:pizzas].delete(args[:id])
     end
   end
 end

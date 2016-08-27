@@ -3,5 +3,16 @@ require_relative '../ph2/lib/databases/active_record'
 Domain = Ph2::Domain
 require_relative '../../clients/HTTP/server'
 
-run Server.new(hexagon: Ph2.new(database_adapter: Databases::ActiveRecord.new, listeners: []))
-# run Server.new(hexagon: Ph2.new)
+
+class PizzaCreatedListener
+  def pizzas_create(command)
+
+  end
+end
+
+run Server.new(
+  hexagon: Ph2.new(
+    database: Databases::ActiveRecord.new,
+    listeners: [PizzaCreatedListener.new]
+  )
+)
