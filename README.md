@@ -81,6 +81,7 @@ $ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"ch
 * Deploy a pizza app using Rails
 * Only use invariants (move schema out of hexagon)
 * Generate Notifiers
+* Update the generators
 
 ## Next Actions
 * Dockerize
