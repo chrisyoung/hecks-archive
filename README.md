@@ -76,10 +76,9 @@ $ rackup config.ru
   $ curl -X DELETE http://localhost:9292/pizzas/1
 
 ## In Progress
-* Make a gem out of the hexagon - Chris Young
+* Deploy a pizza app using Rails
 
 ## Current Sprint
-* Deploy a pizza app using Rails
 * Only use invariants (move schema out of hexagon)
 * Generate Notifiers
 * Update the generators
