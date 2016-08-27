@@ -73,13 +73,10 @@ $ curl http://localhost:9292/pizzas/1
 $ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 
 # DELETE
-$ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
+$ curl -X DELETE http://localhost:9292/pizzas/1
 ```
 
-
-
 ## In Progress
-* Delete Operation on Server
 
 ## Current Sprint
 * Make a gem out of the hexagon
@@ -87,10 +84,10 @@ $ curl  -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"ch
 * Only use invariants (move schema out of hexagon)
 * Generate Notifiers
 * Update the generators
+* Fix Tests
 
 ## Next Actions
 * Dockerize
-* Fix Tests
 * Factory for building toppings in pizza
 * Rename use cases to commands
 * CRUD Commands should generate explicitly
