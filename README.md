@@ -63,13 +63,17 @@ $ rackup config.ru
 
 ### Make pizzas!
   # CREATE
+
   curl -H "Content-Type: application/json" -X POST -d '{"name":"White Pizza", "description":"No red sauce", "toppings":[{"name":"chicken"}]}' http://localhost:9292/pizzas
 
   # READ
+
   curl http://localhost:9292/pizzas/1
 
   # UPDATE
+
   curl -H "Content-Type: application/json" -X PUT -d '{"attributes":{"name":"chris", "toppings":[{"name":"pepperoni2"}]}}' http://localhost:9292/pizzas/1
 
   # DELETE
+
   curl -X DELETE http://localhost:9292/pizzas/1
