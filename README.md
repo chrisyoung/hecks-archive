@@ -4,7 +4,7 @@
 Isolate your domain and make it the center of your programming world.  Use Heckson to generate a Containerized Domain Model that can be driven by your frameworks and included in your apps.
 
 ## Pizza Server
-We developed [PizzaServer](https://github.com/chrisyoung/heckson/tree/master/examples/ph2) at Tanga as a simple application that we could use to evaluate new recruits.  The simple domain made it easy to extend with these concepts in a very iterative fashion.  
+We developed [PizzaServer](https://github.com/chrisyoung/heckson/tree/master/examples/PizzaHexagon) at Tanga as a simple application that we could use to evaluate new recruits.  The simple domain made it easy to extend with these concepts in a very iterative fashion.  
 
 ## Drawing The Domain
 You might prefer a whiteboard to ASCII, but this gets the idea across :)
