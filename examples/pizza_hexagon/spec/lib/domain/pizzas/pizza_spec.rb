@@ -1,6 +1,6 @@
 require_relative 'pizza_behavior.rb'
 
-module Ph2::Domain
+module PizzaHexagon::Domain
   describe Pizzas::Pizza do
     subject { described_class.new }
 

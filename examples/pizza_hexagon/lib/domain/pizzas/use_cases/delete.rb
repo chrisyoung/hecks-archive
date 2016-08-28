@@ -1,4 +1,4 @@
-module Ph2::Domain::Pizzas::UseCases
+module PizzaHexagon::Domain::Pizzas::UseCases
   class Delete
     attr_accessor :args
 

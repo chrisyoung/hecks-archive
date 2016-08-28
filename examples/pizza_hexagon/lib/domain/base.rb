@@ -1,5 +1,5 @@
 
-module Ph2
+module PizzaHexagon
   module Domain
     def self.repositories
       constants.map do |constant|

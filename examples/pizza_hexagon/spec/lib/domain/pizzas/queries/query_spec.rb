@@ -1,4 +1,4 @@
-module Ph2::Domain
+module PizzaHexagon::Domain
   describe Pizzas::Query do
     subject    { described_class.new(repository: repository) }
     let(:repository) { double('Repository') }

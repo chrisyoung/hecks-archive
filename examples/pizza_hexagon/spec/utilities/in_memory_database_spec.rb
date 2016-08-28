@@ -1,4 +1,4 @@
-describe Ph2::Utilities::InMemoryDatabase do
+describe PizzaHexagon::Utilities::InMemoryDatabase do
   subject          { described_class.new(domain_repositories: {pizzas: repository}) }
   let(:repository) { double('Repository') }
 

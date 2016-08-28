@@ -1,4 +1,4 @@
-describe Ph2 do
+describe PizzaHexagon do
   let(:adapter)    { double('Adapter', :[] => repository) }
   let(:repository) { double('Repository') }
   let(:use_case)   { double('UseCase') }

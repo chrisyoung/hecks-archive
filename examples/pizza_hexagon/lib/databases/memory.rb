@@ -1,4 +1,4 @@
-module Ph2
+module PizzaHexagon
   module Databases
     class Memory
       def initialize(repositories: Domain.repositories)

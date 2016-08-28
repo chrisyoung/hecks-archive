@@ -1,4 +1,4 @@
-module Ph2::Domain::Pizzas
+module PizzaHexagon::Domain::Pizzas
   class Query
     def initialize(repository: Repository)
       @repository = repository

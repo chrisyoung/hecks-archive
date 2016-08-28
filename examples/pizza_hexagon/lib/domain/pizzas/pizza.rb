@@ -1,4 +1,4 @@
-module Ph2::Domain::Pizzas
+module PizzaHexagon::Domain::Pizzas
   # This is the head of the Pizzas Aggregate.  An
   # Aggregate head is generally an Entity and is the only object
   # that is handled by the Repository and operated on by the application.

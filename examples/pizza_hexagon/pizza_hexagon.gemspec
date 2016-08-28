@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'ph2'
+  s.name        = 'PizzaHexagon'
   s.version     = '0.0.0'
   s.date        = '2016-08-27'
   s.summary     = "Pizza Hexagon"

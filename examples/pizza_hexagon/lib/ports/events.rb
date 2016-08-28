@@ -1,4 +1,4 @@
-module Ph2
+module PizzaHexagon
   module Ports
     class Events
       def initialize(listeners:)

@@ -1,4 +1,4 @@
-module Ph2
+module PizzaHexagon
   module Domain
     module Pizzas
       module Schemas

@@ -1,4 +1,4 @@
-module Ph2::Domain::Pizzas
+module PizzaHexagon::Domain::Pizzas
   # This is the default "in memory" Pizzas Repository.
   # When developing the domain, the in-memory repo makes it things fast to test
   # without mocking.  A repository is only able to do operations on the aggregate
