@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.name        = 'ph2'
   s.version     = '0.0.0'
   s.date        = '2016-08-27'
-  s.summary     = "PH2 Hexagon"
+  s.summary     = "Pizza Hexagon"
   s.description = "A domain library"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'

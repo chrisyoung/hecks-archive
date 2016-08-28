@@ -1,11 +1,11 @@
 # Convenience class for calling use cases.  The #[] method will look up any
 # usecase and run it by passing args and a repositories container.
 #
-# Ph2.new[:some_use_case, arg1: arg1, arg2: arg:2]
+# PizzaHexagon.new[:some_use_case, arg1: arg1, arg2: arg:2]
 #
 # You can pass in repositories using the initializer if you want to use
 # something other than the default domain repos
-module Ph2
+module PizzaHexagon
   class App
     def initialize(database: Databases::Memory.new, listeners: [])
       @database      = database
