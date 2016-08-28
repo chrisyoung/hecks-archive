@@ -76,7 +76,7 @@ $ rackup config.ru
   $ curl -X DELETE http://localhost:9292/pizzas/1
 
 ## In Progress
-* Deploy a pizza app using Rails
+* Use Events port to build toppings cache
 
 ## Current Sprint
 * Only use invariants (move schema out of hexagon)
