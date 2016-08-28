@@ -1,11 +1,31 @@
+PATH
+  remote: .
+  specs:
+    pizza_hexagon (0.0.1)
+      activerecord
+      activesupport
+      dry-validation
+      guard-rspec
+      mysql2
+      rspec
+      simplecov
+      sinatra
+
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (5.0.0.1)
+      activesupport (= 5.0.0.1)
+    activerecord (5.0.0.1)
+      activemodel (= 5.0.0.1)
+      activesupport (= 5.0.0.1)
+      arel (~> 7.0)
     activesupport (5.0.0.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    arel (7.1.1)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
@@ -64,6 +84,7 @@ GEM
     lumberjack (1.0.10)
     method_source (0.8.2)
     minitest (5.9.0)
+    mysql2 (0.4.4)
     nenv (0.3.0)
     notiffany (0.1.1)
       nenv (~> 0.1)
@@ -113,12 +134,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
-  dry-validation
-  guard-rspec
-  rspec
-  simplecov
-  sinatra
+  pizza_hexagon!
 
 BUNDLED WITH
    1.11.2
