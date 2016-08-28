@@ -1,6 +1,6 @@
 class PizzasCreateListener
   def pizzas_create(command)
-    Topping.upsert(command.args[:toppings])
+    Topping.save_toppings(command.args[:toppings])
   end
 end
 

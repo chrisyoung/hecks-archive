@@ -24,6 +24,7 @@
 * Server DELETE is reporting "no response from server" in curl
 * Add a Soccer app to the examples
 * Deploy a Soccer app for Tanga
+* make update take id as seperate parameter
 
 ## Challenges:
 * Remove all if statements
