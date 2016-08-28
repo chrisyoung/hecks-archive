@@ -2,6 +2,7 @@
 * Use Events port to build toppings cache
 
 ## Current Sprint
+* Fix AR
 * Hook up pizzas as rack middleware
 * Fix Tests
 * Only use invariants (move schema out of hexagon)

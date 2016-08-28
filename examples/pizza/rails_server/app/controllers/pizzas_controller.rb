@@ -1,6 +1,6 @@
 class PizzasController < ApplicationController
   def create
-    render json: PizzaHexagon.run(
+    render json: Hexagon.run(
       :pizzas,
       :create,
       pizza_params
@@ -8,7 +8,7 @@ class PizzasController < ApplicationController
   end
 
   def update
-    render json: PizzaHexagon.run(
+    render json: Hexagon.run(
       :pizzas,
       :update,
       pizza_params.merge(id: params[:id])
@@ -16,7 +16,7 @@ class PizzasController < ApplicationController
   end
 
   def delete
-    render json: PizzaHexagon.run(
+    render json: Hexagon.run(
       :pizzas,
       :delete,
       params[:id].to_i
@@ -24,7 +24,7 @@ class PizzasController < ApplicationController
   end
 
   def show
-    render json: PizzaHexagon.query(
+    render json: Hexagon.query(
       :pizzas,
       id: params[:id].to_i
     )

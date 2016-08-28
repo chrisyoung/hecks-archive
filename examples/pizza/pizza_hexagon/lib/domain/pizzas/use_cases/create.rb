@@ -25,7 +25,7 @@ module PizzaHexagon
 
           private
 
-          attr_reader :database, :schema, :args, :database_result, :events_port
+          attr_reader :database, :schema, :database_result, :events_port
 
           def notify_listeners
             events_port.send(:pizzas_create, command: self)
