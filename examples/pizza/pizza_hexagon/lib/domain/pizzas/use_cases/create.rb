@@ -20,12 +20,12 @@ module PizzaHexagon
           end
 
           def to_h
-            { errors: errors, id: command_result.id, args: args }
+            { errors: errors, id: database_result, args: args }
           end
 
           private
 
-          attr_reader :database, :schema, :args, :command_result, :events_port
+          attr_reader :database, :schema, :args, :database_result, :events_port
 
           def notify_listeners
             events_port.send(:pizzas_create, command: self)
@@ -38,7 +38,7 @@ module PizzaHexagon
           def create
             return if errors.keys.count > 0
             notify_listeners
-            @command_result = database[:pizzas].create(args)
+            @database_result = database[:pizzas].create(args)
           end
         end
       end

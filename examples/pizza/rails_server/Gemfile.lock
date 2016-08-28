@@ -127,6 +127,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mysql2 (0.4.4)
     nenv (0.3.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -134,10 +135,12 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pizza_hexagon (0.0.0)
+    pizza_hexagon (0.0.1)
+      activerecord
       activesupport
       dry-validation
       guard-rspec
+      mysql2
       rspec
       simplecov
       sinatra
@@ -249,7 +252,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
-  pizza_hexagon
+  mysql2
+  pizza_hexagon (= 0.0.1)
+  pry
   rails (= 4.2.4)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
