@@ -1,9 +1,8 @@
 ## In Progress
-* Fix AR
+* Fix Tests
 
 ## Current Sprint
 * Hook up pizzas as rack middleware
-* Fix Tests
 * Only use invariants (move schema out of hexagon)
 * Generate Notifiers
 * Update the generators

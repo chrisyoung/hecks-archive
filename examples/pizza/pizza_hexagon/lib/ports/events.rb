@@ -1,7 +1,7 @@
 module PizzaHexagon
   module Ports
     class Events
-      def initialize(listeners:)
+      def initialize(listeners: [])
         @listeners = listeners
       end
 

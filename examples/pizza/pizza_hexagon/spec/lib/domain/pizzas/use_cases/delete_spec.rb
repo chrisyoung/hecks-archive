@@ -1,27 +1,28 @@
+require 'pry'
 module PizzaHexagon
   module Domain
     module Pizzas
       module UseCases
-        describe DeletePizza do
-          let(:validator)  { double('Validator',  call: nil, errors: []) }
-          let(:repository) { double('Repository', delete: nil) }
-          let(:database_adapter) { double('Adapter', :[] => repository) }
+        describe Delete do
+          subject { described_class.new(args: { id: 1 }, database: @database) }
 
-          subject do
-            described_class.new(
-              args: {id: 1},
-              database_adapter: database_adapter,
-              validators: [validator]
-            )
+          let(:pizza_attributes) {
+            { name:        "The Yuck",
+              description: "Tastes worse than it sounds",
+              toppings: [
+                { name: 'Crickets' }
+              ]
+            }
+          }
+
+          before do
+            @database = Databases::Memory.new
           end
 
           it 'deletes a pizza' do
-            expect(repository).to receive(:delete).with(id: 1)
-            subject.call()
-          end
-
-          it 'aggregates errors from the validators' do
-            expect(subject.call().errors).to eq []
+            Create.new(args: pizza_attributes, database: @database).call
+            subject.call
+            expect(Query.new(database: @database).call(id: 1)).to_not be
           end
         end
       end

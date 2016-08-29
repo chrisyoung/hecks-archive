@@ -5,15 +5,16 @@ module PizzaHexagon
         class Create
           attr_accessor :args, :id, :errors
 
-          def initialize(args:, database:, schema: Schemas::Pizza, events_port:)
+          def initialize(
+            args:,
+            database:    Databases::Memory.new,
+            events_port: Ports::Events.new)
             @args          = args
             @database      = database
-            @schema        = schema
             @events_port   = events_port
           end
 
           def call(use_case=nil)
-            validate
             create
             notify_listeners
             self
@@ -25,20 +26,15 @@ module PizzaHexagon
 
           private
 
-          attr_reader :database, :schema, :database_result, :events_port
+          attr_reader :database, :database_result, :events_port
 
           def notify_listeners
             events_port.send(:pizzas_create, command: self)
           end
 
-          def validate
-            @errors = schema.(args).messages
-          end
-
           def create
-            return if errors.keys.count > 0
             notify_listeners
-            @database_result = database[:pizzas].create(args)
+            @id = @database_result = database[:pizzas].create(args)
           end
         end
       end

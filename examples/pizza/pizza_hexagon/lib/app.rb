@@ -18,8 +18,8 @@ module PizzaHexagon
 
     def run(module_name, command_name, args={})
       Domain.use_cases[[module_name, command_name]].new(
-        args:      args,
-        database:  @database,
+        args:        args,
+        database:    @database,
         events_port: @events_port
       ).call
     end

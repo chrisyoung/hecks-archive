@@ -1,21 +1,20 @@
+require 'pry'
 module PizzaHexagon
   module Domain
     module Pizzas
       describe UseCases::Create do
-        it 'creates a pizza' do
-          UseCases::Create.new(
-            args: { name: "White Pizza", toppings: ['garlic', 'chicken'] }
-          ).call
-
-          expect(Queries::Read.new.run(id: 1).name).to == "White Pizza"
+        subject do
+          described_class.new(
+            args: {
+              name: "White Pizza",
+              description: 'yes',
+              toppings: ['garlic', 'chicken']
+            })
         end
 
         it 'attaches an id' do
-          expect(subject.call.id).to eq 1
-        end
-
-        it 'aggregates errors from the validators' do
-          expect(subject.call().errors).to eq []
+          result = subject.call
+          expect(result.id).to be
         end
       end
     end

@@ -1,5 +1,6 @@
 require 'simplecov'
-require_relative '../PizzaHexagon/'
+require_relative 'hexagon_helper'
+
 
 SimpleCov.start
 

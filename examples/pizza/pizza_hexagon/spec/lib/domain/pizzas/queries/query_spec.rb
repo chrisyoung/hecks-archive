@@ -1,13 +1,23 @@
 module PizzaHexagon::Domain
   describe Pizzas::Query do
-    subject    { described_class.new(repository: repository) }
-    let(:repository) { double('Repository') }
+    let(:database) { PizzaHexagon::Databases::Memory.new }
+
+    let(:pizza_attributes) {
+      { name:        "The Yuck",
+        description: "Tastes worse than it sounds",
+        toppings: [
+          { name: 'Crickets' }
+        ]
+      }
+    }
+
+    subject { described_class.new(database: database) }
 
     describe '#call' do
       context 'with an id' do
         it '' do
-          expect(repository).to receive(:read).with(1)
-          subject.call(id: 1)
+          result = Pizzas::UseCases::Create.new(args: pizza_attributes, database: database).call
+          expect(subject.call(id: 1)).to be
         end
       end
     end
