@@ -1,5 +1,5 @@
 ## In Progress
-* Fix Tests
+* Move Domain into its own Project
 
 ## Current Sprint
 * Hook up pizzas as rack middleware
@@ -9,6 +9,8 @@
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 
 ## Next Actions
+* Create Pizzas::Hexagon
+* Create Pizzas::Domain
 * Dockerize the HTTP Server
 * Factory for building toppings in pizza
 * Rename use cases to commands
