@@ -1,4 +1,3 @@
-require 'pry'
 module PizzaHexagon
   module Domain
     module Pizzas

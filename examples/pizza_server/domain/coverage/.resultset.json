@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/pizza_spec.rb": [
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/pizza_spec.rb": [
         1,
         null,
         1,
@@ -17,7 +17,7 @@
         null,
         null
       ],
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/pizza_behavior.rb": [
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/pizza_behavior.rb": [
         null,
         1,
         1,
@@ -43,7 +43,7 @@
         null,
         null
       ],
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/queries/query_spec.rb": [
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/queries/query_spec.rb": [
         1,
         1,
         2,
@@ -70,15 +70,14 @@
         null,
         null
       ],
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/repository_spec.rb": [
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/repository_spec.rb": [
         1,
         1,
         1,
         null,
         null
       ],
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/use_cases/create_spec.rb": [
-        1,
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/use_cases/create_spec.rb": [
         1,
         1,
         1,
@@ -101,8 +100,7 @@
         null,
         null
       ],
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/use_cases/delete_spec.rb": [
-        1,
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/use_cases/delete_spec.rb": [
         1,
         1,
         1,
@@ -134,7 +132,7 @@
         null,
         null
       ],
-      "/Users/chrisyoung/Projects/hecks/examples/pizza/pizza_hexagon_domain/spec/lib/domain/pizzas/use_cases/update_spec.rb": [
+      "/Users/chrisyoung/Projects/hecks/examples/pizza_server/domain/spec/lib/domain/pizzas/use_cases/update_spec.rb": [
         1,
         1,
         1,
@@ -174,6 +172,6 @@
         null
       ]
     },
-    "timestamp": 1472481742
+    "timestamp": 1472502529
   }
 }

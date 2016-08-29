@@ -1,4 +1,3 @@
-require 'pry'
 module PizzaHexagon::Domain::Pizzas
   class Query
     def initialize(database: PizzaHexagon::Databases::Memory)
