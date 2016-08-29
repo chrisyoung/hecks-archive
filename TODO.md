@@ -2,32 +2,37 @@
 * Move Domain into its own Project
 
 ## Current Sprint
-* Hook up pizzas as rack middleware
-* Only use invariants (move schema out of hexagon)
+* Create Pizzas::Hexagon, Pizzas::Domain
+* Move schema validation to hexagon
+* Update existing generators
 * Generate Notifiers
-* Update the generators
-* Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
+* Generate Validators
+* Generate Active Record
+* Use invariants (fail)
+* Rename use cases to commands
+* Factory for building toppings in pizza
+
+## Bugs
+* Server DELETE is reporting "no response from server" in curl
 
 ## Next Actions
-* Create Pizzas::Hexagon
-* Create Pizzas::Domain
+* Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
+* Hook up pizzas as rack middleware
 * Dockerize the HTTP Server
-* Factory for building toppings in pizza
-* Rename use cases to commands
 * CRUD Commands should generate explicitly
 * Value Store (Service?)
 * Generator to create config.ru file
 * Server gem
 * CouchDB Persistence Adapter
 * Domain Console
-* Hook up code coverage
+* Hook up code coverage in Code Climate
 * Set up stats module to count lines of code
-* Server DELETE is reporting "no response from server" in curl
 * Add a Soccer app to the examples
 * Deploy a Soccer app for Tanga
-* make update take id as seperate parameter
+* make update take id as separate parameter
 
 ## Challenges:
+* Use Dry libraries inside of the domain?
 * Remove all if statements
 * Generate an Elixr project
 * Create Commands from Product Use Cases
