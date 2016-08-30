@@ -1,8 +1,7 @@
 ## In Progress
-* Move Domain into its own Project
+* Create Pizzas::Hexagon, Pizzas::Domain
 
 ## Current Sprint
-* Create Pizzas::Hexagon, Pizzas::Domain
 * Move schema validation to hexagon
 * Update existing generators
 * Generate Notifiers
