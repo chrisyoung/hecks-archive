@@ -3,7 +3,7 @@ module PizzaHexagon
     module Pizzas
       module UseCases
         describe Delete do
-          subject { described_class.new(args: { id: 1 }, database: @database) }
+          subject { described_class.new(args: { id: 1 }, repository: @repository) }
 
           let(:pizza_attributes) {
             { name:        "The Yuck",
@@ -15,13 +15,13 @@ module PizzaHexagon
           }
 
           before do
-            @database = Databases::Memory.new
+            @repository = Repository
           end
 
           it 'deletes a pizza' do
-            Create.new(args: pizza_attributes, database: @database).call
+            Create.new(args: pizza_attributes, repository: @repository).call
             subject.call
-            expect(Query.new(database: @database).call(id: 1)).to_not be
+            expect(Query.new(repository: @repository).call(id: 1)).to_not be
           end
         end
       end

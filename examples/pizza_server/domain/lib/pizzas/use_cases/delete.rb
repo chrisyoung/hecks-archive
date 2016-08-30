@@ -5,9 +5,9 @@ module PizzaHexagon
         class Delete
           attr_accessor :args
 
-          def initialize(args:, database: Databases::Memory.new, events_port: Ports::Events.new)
+          def initialize(args:, repository: Repository, events_port: nil)
             @args        = args
-            @database    = database
+            @repository    = repository
             @events_port = events_port
           end
 
@@ -27,14 +27,15 @@ module PizzaHexagon
 
           private
 
-          attr_accessor :database, :events_port, :command_result
+          attr_accessor :events_port, :command_result, :repository
 
           def notify_listeners
+            return if events_port.nil?
             events_port.send(:pizzas_delete, command: self)
           end
 
           def delete
-            database[:pizzas].delete(args[:id])
+            repository.delete(args[:id])
           end
         end
       end

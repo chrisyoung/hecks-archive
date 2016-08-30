@@ -14,21 +14,19 @@ module PizzaHexagon
             }
           }
 
-          before do
-            @database = Databases::Memory.new
-          end
+          let(:repository) { Repository }
 
           subject do
             described_class.new(
               args: { id: 1, attributes: new_attributes },
-              database: @database
+              repository: repository
             )
           end
 
           it 'updates a pizza' do
-            Create.new(args: pizza_attributes, database: @database).call
+            Create.new(args: pizza_attributes, repository: repository).call
             subject.call()
-            expect(Query.new(database: @database).call(id: 1)).to be
+            expect(Query.new(repository: repository).call(id: 1)).to be
           end
         end
       end

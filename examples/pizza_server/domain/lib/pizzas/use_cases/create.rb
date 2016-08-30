@@ -7,10 +7,10 @@ module PizzaHexagon
 
           def initialize(
             args:,
-            database:    Databases::Memory.new,
-            events_port: Ports::Events.new)
+            repository:  Repository,
+            events_port: nil)
             @args          = args
-            @database      = database
+            @repository    = repository
             @events_port   = events_port
           end
 
@@ -21,20 +21,21 @@ module PizzaHexagon
           end
 
           def to_h
-            { errors: errors, id: database_result, args: args }
+            { errors: errors, id: repository_result, args: args }
           end
 
           private
 
-          attr_reader :database, :database_result, :events_port
+          attr_reader :repository, :repository_result, :events_port
 
           def notify_listeners
+            return unless events_port
             events_port.send(:pizzas_create, command: self)
           end
 
           def create
             notify_listeners
-            @id = @database_result = database[:pizzas].create(args)
+            @id = @repository_result = repository.create(args)
           end
         end
       end
