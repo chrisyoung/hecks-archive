@@ -7,6 +7,7 @@ PATH
       dry-validation
       guard-rspec
       mysql2
+      pizza_domain
       rspec
       simplecov
       sinatra
@@ -89,6 +90,10 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pizza_domain (0.0.0)
+      guard-rspec
+      rspec
+      simplecov
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
