@@ -8,7 +8,8 @@ module Pizzas
               name: "White Pizza",
               description: 'yes',
               toppings: ['garlic', 'chicken']
-            })
+            }
+          )
         end
 
         it 'attaches an id' do

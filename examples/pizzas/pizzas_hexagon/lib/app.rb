@@ -19,7 +19,7 @@ module Pizzas
     def run(module_name, command_name, args={})
       Domain.use_cases[[module_name, command_name]].new(
         args:        args,
-        repository:   @database[module_name],
+        repository:  @database[module_name],
         events_port: @events_port
       ).call
     end

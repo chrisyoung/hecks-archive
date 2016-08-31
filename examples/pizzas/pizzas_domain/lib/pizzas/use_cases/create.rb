@@ -34,7 +34,6 @@ module Pizzas
           end
 
           def create
-            notify_listeners
             @id = @repository_result = repository.create(args)
           end
         end

@@ -135,12 +135,17 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    pizza_hexagon (0.0.1)
+    pizzas_domain (0.0.0)
+      guard-rspec
+      rspec
+      simplecov
+    pizzas_hexagon (0.0.1)
       activerecord
       activesupport
       dry-validation
       guard-rspec
       mysql2
+      pizzas_domain
       rspec
       simplecov
       sinatra
@@ -253,7 +258,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
-  pizza_hexagon (= 0.0.1)
+  pizzas_hexagon (= 0.0.1)
   pry
   rails (= 4.2.4)
   sass-rails (~> 5.0)
