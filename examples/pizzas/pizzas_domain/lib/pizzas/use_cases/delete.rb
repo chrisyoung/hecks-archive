@@ -5,15 +5,13 @@ module Pizzas
         class Delete
           attr_accessor :args
 
-          def initialize(args:, repository: Repository, events_port: nil)
+          def initialize(args:, repository: Repository)
             @args        = args
             @repository    = repository
-            @events_port = events_port
           end
 
           def call(use_case=nil)
             delete
-            notify_listeners
             self
           end
 
@@ -27,12 +25,7 @@ module Pizzas
 
           private
 
-          attr_accessor :events_port, :command_result, :repository
-
-          def notify_listeners
-            return if events_port.nil?
-            events_port.send(:pizzas_delete, command: self)
-          end
+          attr_accessor :command_result, :repository
 
           def delete
             repository.delete(args[:id])

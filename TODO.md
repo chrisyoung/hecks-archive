@@ -33,6 +33,7 @@
 
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl
+* guard isn't running tests when I save pizza_hexagon.rb
 
 ## Next Actions
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine

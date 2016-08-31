@@ -5,7 +5,7 @@ module Pizzas
         @listeners = listeners
       end
 
-      def send(event, command:)
+      def send(event:, command:)
         listeners.each do |listener|
           next unless listener.respond_to?(event)
           listener.public_send(event, command)

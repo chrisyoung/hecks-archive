@@ -17,11 +17,17 @@ module Pizzas
     end
 
     def run(module_name, command_name, args={})
-      Domain.use_cases[[module_name, command_name]].new(
+      command_name = [module_name, command_name]
+
+      command = Domain.use_cases[command_name].new(
         args:        args,
-        repository:  @database[module_name],
-        events_port: @events_port
+        repository:  @database[module_name]
       ).call
+
+      @events_port.send(
+        event:   command_name.join('_').to_sym,
+        command: command
+      )
     end
 
     def query(module_name, args={})

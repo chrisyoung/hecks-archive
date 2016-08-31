@@ -7,17 +7,14 @@ module Pizzas
 
           def initialize(
             args:,
-            repository: Repository,
-            events_port: nil)
+            repository: Repository)
             @args         = args
             @id           = args[:id]
             @repository   = repository
-            @events_port  = events_port
           end
 
           def call(use_case=nil)
             update
-            notify_listeners
             self
           end
 
@@ -27,12 +24,7 @@ module Pizzas
 
           private
 
-          attr_accessor :repository, :events_port
-
-          def notify_listeners
-            return if events_port.nil?
-            events_port.send(:pizzas_update, command: self)
-          end
+          attr_accessor :repository
 
           def update
             repository.update(args[:id], args[:attributes])
