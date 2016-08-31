@@ -1,8 +1,7 @@
 ## In Progress
-* Create Pizzas::Hexagon, Pizzas::Domain
+* Move schema validation to hexagon
 
 ## Current Sprint
-* Move schema validation to hexagon
 * Update existing generators
 * Generate Notifiers
 * Update the generators
