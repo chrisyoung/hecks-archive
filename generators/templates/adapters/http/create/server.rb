@@ -7,9 +7,11 @@ class Server
     request = Rack::Request.new(env)
 
     app.run_command(create_reaction_command) do |command|
+
       command.on_success do
         write_response({ create_reaction_command: { result: 'success' } })
       end
+
       command.on_fail do
 
       end

@@ -28,6 +28,7 @@ module Pizzas
         event:   command_name.join('_').to_sym,
         command: command
       )
+      command
     end
 
     def query(module_name, args={})

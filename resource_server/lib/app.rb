@@ -1,4 +1,7 @@
 class Server < Sinatra::Base
+  set :bind, '0.0.0.0'
+  set :port, '9292'
+
   def initialize(app: nil, hexagon:)
     super(app)
     @methods = Methods.new(hexagon: hexagon)

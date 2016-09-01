@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'active_support/inflector'
-require 'dry-validation'
+# require 'dry-validation'
 require 'pizzas_domain'
 require_relative 'databases/memory'
 require_relative 'ports/events'
