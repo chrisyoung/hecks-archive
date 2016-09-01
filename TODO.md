@@ -4,31 +4,26 @@
 ## Current Sprint
 * Update existing generators
 * Generate Notifiers
+* Generate Validators
+* Generate Active Record
 * Update the generators
-* Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 * Hook up code coverage
+* Dockerize the HTTP Server
+* Use invariants (fail)
 
-## Next Sprint
+## Next Actions
+* Products Domain
+* JSON schema for building Domain
 * CouchDB Persistence Adapter
 * Demonstrate Hexagon Shims
-* Create Pizzas::Hexagon
-* Create Pizzas::Domain
-* Dockerize the HTTP Server
-* Factory for building toppings in pizza
 * Rename use cases to commands
 * Generator to create config.ru file
 * Server gem
 * Set up stats module to count lines of code
-* Server DELETE is reporting "no response from server" in curl
-
-## Next Actions
+* Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 * CRUD Commands should generate explicitly
 * Value Store (Service?)
 * Domain Console
-* Generate Validators
-* Generate Active Record
-* Use invariants (fail)
-* Rename use cases to commands
 * Factory for building toppings in pizza
 
 ## Bugs
