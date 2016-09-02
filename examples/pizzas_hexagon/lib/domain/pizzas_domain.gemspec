@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
-  s.add_dependency 'rspec'
-  s.add_dependency 'guard-rspec'
-  s.add_dependency 'simplecov'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'simplecov'
 end

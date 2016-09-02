@@ -1,5 +1,3 @@
-require 'pry'
-
 module Pizzas
   module Domain
     def self.repositories

@@ -1,5 +1,3 @@
-require 'pry'
-
 class Hecks::Adapters::SQLDatabase < Thor::Group
   include Thor::Actions
 

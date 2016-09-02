@@ -9,13 +9,13 @@ Gem::Specification.new do |s|
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
-  s.add_dependency 'rspec'
-  s.add_dependency 'guard-rspec'
-  s.add_dependency 'simplecov'
-  s.add_dependency 'activesupport'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'simplecov'
 
-  # s.add_dependency 'dry-validation'
-  s.add_dependency 'activerecord'
-  # s.add_dependency 'mysql2'
-  s.add_dependency 'pizzas_domain'
+  # s.add_runtime_dependency 'dry-validation'
+  # s.add_runtime_dependency 'mysql2'
+  s.add_runtime_dependency 'activesupport'
+  s.add_runtime_dependency 'activerecord'
+  s.add_runtime_dependency 'pizzas_domain'
 end
