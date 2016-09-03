@@ -2,9 +2,6 @@ PATH
   remote: .
   specs:
     pizzas_domain (0.0.0)
-      guard-rspec
-      rspec
-      simplecov
 
 GEM
   remote: https://rubygems.org/
@@ -73,7 +70,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  guard-rspec
   pizzas_domain!
+  rspec
+  simplecov
 
 BUNDLED WITH
    1.11.2
