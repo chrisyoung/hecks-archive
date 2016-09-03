@@ -7,41 +7,36 @@
 # something other than the default domain repos
 module PizzasHexagon
   class App
-    def initialize(
-      database:  Adapters::Databases::Memory.new,
-      listeners: []
-    )
-      @database     = database
-      @events_port  = Ports::Events.new(listeners: listeners)
+    def initialize(database:  Adapters::Databases::Memory.new, listeners: [])
+      @database         = database
+      @events_port      = Ports::Events.new(listeners: listeners)
+      @validations_port = Ports::Validations
     end
 
     def call(command:, module_name:, args: {})
       @module_name  = module_name.to_sym
-      @command_name = [module_name, command]
+      @command      = [module_name, command]
       @args         = args
 
-      run_command
-      publish_events
-      result
+      validate
+      create
+      broadcast
     end
 
     private
 
-    attr_reader :command_name, :module_name, :result, :database, :args, :events_port
+    attr_reader :command, :module_name, :result, :database, :args, :events_port, :validations_port
 
-    def publish_events
-      events_port.send(
-        event:   command_name.join('_').to_sym,
-        command: result
-      )
+    def validate
+      @result = validations_port.new(args: args).call
     end
 
-    def run_command
-      @result = Domain.use_cases[command_name]
-      .new(
-        args:       args,
-        repository: database[module_name]
-      ).call
+    def create
+      @result = Domain.use_cases[command].new(result)
+    end
+
+    def broadcast
+      events_port.send(result)
     end
   end
 end
