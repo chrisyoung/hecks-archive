@@ -94,6 +94,7 @@ PLATFORMS
 DEPENDENCIES
   guard-rspec
   pizzas_hexagon!
+  pry
   rspec
   simplecov
 

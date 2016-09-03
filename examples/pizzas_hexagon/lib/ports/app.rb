@@ -8,20 +8,18 @@
 module PizzasHexagon
   class App
     def initialize(
-      command:,
-      module_name:,
-      args:      {},
       database:  Adapters::Databases::Memory.new,
       listeners: []
     )
       @database     = database
       @events_port  = Ports::Events.new(listeners: listeners)
+    end
+
+    def call(command:, module_name:, args: {})
       @module_name  = module_name.to_sym
       @command_name = [module_name, command]
       @args         = args
-    end
 
-    def call()
       run_command
       publish_events
       result
