@@ -9,9 +9,11 @@ module PizzasHexagon
             @repository      = repository
             @chained_command = chained_command
             @args            = args || chained_command.args
+            @errors          = []
           end
 
           def call
+            call_chained_command
             create
             self
           end
@@ -24,7 +26,13 @@ module PizzasHexagon
 
           attr_reader :repository, :repository_result, :chained_command
 
+          def call_chained_command
+            return unless chained_command
+            @errors = chained_command.call.errors
+          end
+
           def create
+            rertun if @errors.count > 0
             @id = @repository_result = repository.create(args)
           end
         end
