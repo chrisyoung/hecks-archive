@@ -1,4 +1,4 @@
-module Pizzas
+module PizzasHexagon
   module Domain
     module Pizzas
       describe UseCases::Create do

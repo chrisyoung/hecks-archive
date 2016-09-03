@@ -1,4 +1,4 @@
-module Pizzas
+module PizzasHexagon
   module Ports
     class Events
       def initialize(listeners: [])

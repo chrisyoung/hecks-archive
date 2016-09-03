@@ -5,34 +5,45 @@
 #
 # You can pass in repositories using the initializer if you want to use
 # something other than the default domain repos
-module Pizzas
+module PizzasHexagon
   class App
-    def initialize(database: Databases::Memory.new, listeners: [])
-      @database      = database
-      @events_port   = Ports::Events.new(listeners: listeners)
+    def initialize(
+      command:,
+      module_name:,
+      args:      {},
+      database:  Adapters::Databases::Memory.new,
+      listeners: []
+    )
+      @database     = database
+      @events_port  = Ports::Events.new(listeners: listeners)
+      @module_name  = module_name.to_sym
+      @command_name = [module_name, command]
+      @args         = args
     end
 
-    def delete_all
-      @database.delete_all
+    def call()
+      run_command
+      publish_events
+      result
     end
 
-    def run(module_name, command_name, args={})
-      command_name = [module_name, command_name]
+    private
 
-      command = Domain.use_cases[command_name].new(
-        args:        args,
-        repository:  @database[module_name]
-      ).call
+    attr_reader :command_name, :module_name, :result, :database, :args, :events_port
 
-      @events_port.send(
+    def publish_events
+      events_port.send(
         event:   command_name.join('_').to_sym,
-        command: command
+        command: result
       )
-      command
     end
 
-    def query(module_name, args={})
-      @database[module_name].query args
+    def run_command
+      @result = Domain.use_cases[command_name]
+      .new(
+        args:       args,
+        repository: database[module_name]
+      ).call
     end
   end
 end

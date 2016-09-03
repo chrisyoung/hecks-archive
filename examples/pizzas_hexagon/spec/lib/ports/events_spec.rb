@@ -3,7 +3,7 @@ class TestListener
   end
 end
 
-describe Pizzas::Ports::Events do
+describe PizzasHexagon::Ports::Events do
   let(:listener) { TestListener }
   let(:command)  { double("SomeCommand") }
   subject { described_class.new(listeners: [listener])}

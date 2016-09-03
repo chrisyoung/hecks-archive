@@ -1,4 +1,4 @@
-module Pizzas
+module PizzasHexagon
   module Domain
     module Pizzas
       # This is the head of the Pizzas Aggregate.  An

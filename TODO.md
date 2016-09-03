@@ -9,7 +9,7 @@
 * Update the generators
 * Hook up code coverage
 * Use invariants (fail)
-* Get MySQL Running in Docker
+* Get MySQL Running in in Rails
 * Stop putting entire hecks directory into container
 * Generate Schema
 

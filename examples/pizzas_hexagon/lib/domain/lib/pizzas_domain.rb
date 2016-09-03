@@ -1,4 +1,4 @@
-module Pizzas
+module PizzasHexagon
   module Domain
     def self.repositories
       constants.map do |name|

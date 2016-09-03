@@ -1,7 +1,10 @@
 require   'rubygems'
 require   'active_support/inflector'
+require 'pry'
 # require 'dry-validation'
 require_relative 'domain/lib/pizzas_domain'
+
 require_relative 'ports/events'
+require_relative 'ports/query'
 require_relative 'ports/app'
 require_relative 'adapters/databases/memory'
