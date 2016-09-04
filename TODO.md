@@ -14,6 +14,7 @@
 * Generate Schema
 
 ## Next Actions
+* We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * 12 factor app in Docker
 * Products Domain
 * JSON schema for building Domain

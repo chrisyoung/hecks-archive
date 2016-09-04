@@ -24,7 +24,7 @@ module PizzasHexagon
           end
 
           def run_command
-            @command_result = hexagon.call(module_name.to_sym, :create, params)
+            @command_result = hexagon.call(module_name: module_name, command: :create, args: params)
           end
 
           def params

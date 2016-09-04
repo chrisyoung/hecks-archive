@@ -3,6 +3,8 @@ describe PizzasHexagon::Adapters::ResourceServer::Methods::Create do
 
   subject { described_class.new(hexagon: PizzasHexagon::App.new) }
   describe '#call' do
-    it { subject.call(body: body, module_name: 'module') }
+    it 'creates a pizza' do
+      subject.call(body: body, module_name: :pizzas)
+    end
   end
 end
