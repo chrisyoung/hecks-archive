@@ -6,7 +6,6 @@ require_relative 'domain/lib/pizzas_domain'
 
 require_relative 'ports/events/base'
 require_relative 'ports/query'
-require_relative 'ports/app'
-require_relative 'ports/validations'
+require_relative 'ports/app/base'
 require_relative 'adapters/databases/memory'
 require_relative 'adapters/resource_server/base'

@@ -4,9 +4,9 @@ PATH
     pizzas_hexagon (0.0.1)
       activerecord (~> 5.0)
       activesupport (~> 5.0)
-      json
+      json (~> 2.0)
       pizzas_domain (~> 0.0)
-      sinatra
+      sinatra (~> 1.4)
 
 GEM
   remote: https://rubygems.org/
