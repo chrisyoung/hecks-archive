@@ -47,7 +47,7 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.2)
+    rspec-core (3.5.3)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -70,10 +70,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  guard-rspec
+  guard-rspec (~> 4.7)
   pizzas_domain!
-  rspec
-  simplecov
+  rspec (~> 3.5)
+  simplecov (~> 0.12)
 
 BUNDLED WITH
    1.11.2

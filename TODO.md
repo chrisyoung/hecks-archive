@@ -37,6 +37,7 @@
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl
 * guard isn't running tests when I save pizza_hexagon.rb
+* coverage is only showing specs
 
 ## Challenges:
 * Use Dry libraries inside of the domain?
