@@ -2,7 +2,9 @@ module PizzasHexagon
   module Domain
     module Pizzas
       describe UseCases::Create do
-        let(:chained_command) { double("ChainedCommand", errors: []) }
+        let(:chained_command) do
+          double("ChainedCommand", call: double("ChainedCommand", errors: []))
+        end
 
         subject do
           described_class.new(
@@ -21,7 +23,9 @@ module PizzasHexagon
         end
 
         context "With errors" do
-          let(:chained_command) { double("ChainedCommand", errors: ['boom']) }
+          let(:chained_command) do
+            double("ChainedCommand", call: double("ChainedCommand", errors: ['boom']))
+          end
 
           it "wont create" do
             expect(subject.call.id).to_not be

@@ -9,8 +9,8 @@ module PizzasHexagon
   class App
     def initialize(database:  Adapters::Databases::Memory.new, listeners: [])
       @database         = database
-      @events_port      = Ports::Events.new(listeners: listeners)
       @validations_port = Ports::Validations
+      @events_port      = Ports::Events.new(listeners: listeners)
     end
 
     def call(command:, module_name:, args: {})
@@ -28,7 +28,7 @@ module PizzasHexagon
     attr_reader :command, :module_name, :result, :database, :args, :events_port, :validations_port
 
     def validate
-      @result = validations_port.new(args: args).call
+      @result = validations_port.new(args: args)
     end
 
     def create

@@ -33,7 +33,7 @@ module PizzasHexagon
 
           def call_chained_command
             return unless chained_command
-            @errors = chained_command.errors
+            @errors = chained_command.call.errors
           end
 
           def create
