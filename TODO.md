@@ -14,6 +14,7 @@
 * Generate Schema
 
 ## Next Actions
+* 12 factor app in Docker
 * Products Domain
 * JSON schema for building Domain
 * CouchDB Persistence Adapter

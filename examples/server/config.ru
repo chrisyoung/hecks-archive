@@ -1,6 +1,6 @@
 require_relative 'env'
 # database = Adapters::Databases::ActiveRecord.new
-hexagon  = PizzasHexagon::App.new
+hexagon = PizzasHexagon::App.new
 run(
-  Hecks::ResourceServer::App.new(hexagon: hexagon)
+  PizzasHexagon::Adapters::ResourceServer::App.new(hexagon: hexagon)
 )
