@@ -5,11 +5,16 @@ module PizzasHexagon
         class Create
           attr_accessor :args, :id, :errors
 
-          def initialize(chained_command=nil, args: nil, repository:  Repository)
-            @repository      = repository
+          def initialize(chained_command = nil, args: nil, repository: Repository)
             @chained_command = chained_command
+            @repository      = repository
             @args            = args || chained_command.args
             @errors          = []
+          end
+
+          def repository
+            return @repository unless chained_command.respond_to?(:repository)
+            chained_command.repository || @repository
           end
 
           def call
@@ -24,15 +29,15 @@ module PizzasHexagon
 
           private
 
-          attr_reader :repository, :repository_result, :chained_command
+          attr_reader :repository_result, :chained_command
 
           def call_chained_command
             return unless chained_command
-            @errors = chained_command.call.errors
+            @errors = chained_command.errors
           end
 
           def create
-            rertun if @errors.count > 0
+            return if @errors.count > 0
             @id = @repository_result = repository.create(args)
           end
         end
