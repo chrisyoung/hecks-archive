@@ -9,7 +9,7 @@ module PizzasHexagon
         def value
           @command.class.name.downcase
             .gsub("::", "_")
-            .gsub('usecases_', '')
+            .gsub('commands_', '')
             .gsub('pizzashexagon_', '')
             .gsub("domain_", '').to_sym
         end

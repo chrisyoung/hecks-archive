@@ -1,7 +1,7 @@
 module PizzasHexagon
   module Domain
     module Pizzas
-      module UseCases
+      module Commands
         describe Update do
           let(:new_attributes) { { name: "new name" } }
 

@@ -2,7 +2,7 @@ module PizzasHexagon
   module Adapters
     module ResourceServer
       class App < Sinatra::Base
-        def initialize(app: nil, hexagon:)
+        def initialize(app: nil, hexagon: PizzasHexagon::App.new)
           super(app)
           @methods = Methods.new(hexagon: hexagon)
         end

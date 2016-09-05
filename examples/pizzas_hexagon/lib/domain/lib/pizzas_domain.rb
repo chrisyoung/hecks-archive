@@ -14,11 +14,11 @@ module PizzasHexagon
       end
     end
 
-    def self.use_cases
+    def self.commands
       constants.flat_map do |domain_module|
-        const_get(domain_module)::UseCases.constants.map do |use_case|
+        const_get(domain_module)::Commands.constants.map do |use_case|
           [ [ domain_module.to_s.underscore.to_sym, use_case.to_s.underscore.to_sym],
-            const_get(domain_module)::UseCases.const_get(use_case)]
+            const_get(domain_module)::Commands.const_get(use_case)]
         end
       end.to_h
     end

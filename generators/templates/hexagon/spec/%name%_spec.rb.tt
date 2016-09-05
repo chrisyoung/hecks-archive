@@ -2,9 +2,9 @@ describe <%= name.camelize %> do
   let(:adapter)    { double('Adapter', :[] => repository) }
   let(:repository) { double('Repository') }
   let(:use_case)   { double('UseCase') }
-  let(:use_cases)  { double('UseCases', :[] => use_case) }
+  let(:commands)  { double('Commands', :[] => use_case) }
 
-  subject { described_class.new(database_adapter: adapter, use_cases: use_cases) }
+  subject { described_class.new(database_adapter: adapter, commands: commands) }
 
   describe '#delete_all' do
     it 'delegates to the database_adapter' do

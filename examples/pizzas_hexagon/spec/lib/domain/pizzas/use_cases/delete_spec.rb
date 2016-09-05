@@ -1,7 +1,7 @@
 module PizzasHexagon
   module Domain
     module Pizzas
-      module UseCases
+      module Commands
         describe Delete do
           subject { described_class.new(args: { id: 1 }, repository: @repository) }
 

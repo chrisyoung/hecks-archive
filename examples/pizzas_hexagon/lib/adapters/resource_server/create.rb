@@ -1,7 +1,7 @@
 module PizzasHexagon
   module Adapters
     module ResourceServer
-      module Methods
+      class Methods
         class Create
           def initialize(hexagon:)
             @hexagon = hexagon

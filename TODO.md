@@ -1,7 +1,8 @@
 ## In Progress
-* Move schema validation to hexagon
+* Fix server
 
 ## Current Sprint
+* Move schema validation to hexagon
 * Update existing generators
 * Generate Notifiers
 * Generate Validators
@@ -14,6 +15,9 @@
 * Generate Schema
 
 ## Next Actions
+* Pizza Hexagon Binary
+* hecks build -m pizzas
+* Build gems command
 * We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * 12 factor app in Docker
 * Products Domain
@@ -33,6 +37,7 @@
 * Add a Soccer app to the examples
 * Deploy a Soccer app for Tanga
 * make update take id as separate parameter
+* Generate Documentation
 
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl

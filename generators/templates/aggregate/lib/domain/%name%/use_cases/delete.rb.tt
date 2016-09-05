@@ -1,4 +1,4 @@
-module <%= hexagon_name.camelize %>::Domain::<%= name.camelize %>::UseCases
+module <%= hexagon_name.camelize %>::Domain::<%= name.camelize %>::Commands
   class Delete
     attr_accessor :args
 

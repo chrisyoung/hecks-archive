@@ -1,4 +1,4 @@
-module <%= hexagon_name.camelize %>::UseCases
+module <%= hexagon_name.camelize %>::Commands
   describe <%= name.camelize %> do
     subject { described_class.new(repositories) }
     let(:repositories) { double('Repositories') }

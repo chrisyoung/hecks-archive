@@ -1,7 +1,7 @@
 class <%= hexagon_name.camelize %>
   module Domain
     module <%= name.camelize %>
-      module UseCases
+      module Commands
         describe Update do
           let(:validator)  { double('Validator',  call: nil, errors: []) }
           let(:repository) { double('Repository', update: nil) }

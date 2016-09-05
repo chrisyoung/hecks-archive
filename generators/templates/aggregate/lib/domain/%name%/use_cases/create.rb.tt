@@ -1,7 +1,7 @@
 class <%= hexagon_name.camelize %>
   module Domain
     module <%= name.camelize %>
-      module UseCases
+      module Commands
         class Create
           attr_accessor :args, :id, :errors
 

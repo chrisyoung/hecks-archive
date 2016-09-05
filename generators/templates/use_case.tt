@@ -1,5 +1,5 @@
 class <%= hexagon_name.camelize %>
-  module UseCases
+  module Commands
     # The objective of use case patterns is to
     # bridge the gap between business and
     # system models without altering requirements

@@ -1,7 +1,7 @@
 module PizzasHexagon
   module Domain
     module Pizzas
-      describe UseCases::Create do
+      describe Commands::Create do
         let(:chained_command) do
           double("ChainedCommand", call: double("ChainedCommand", errors: []))
         end

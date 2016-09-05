@@ -1,7 +1,7 @@
 module PizzasHexagon
   module Domain
     module Pizzas
-      module UseCases
+      module Commands
         class Create
           attr_accessor :args, :id, :errors
 

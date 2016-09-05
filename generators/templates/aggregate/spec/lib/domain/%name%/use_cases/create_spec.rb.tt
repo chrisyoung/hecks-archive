@@ -1,7 +1,7 @@
 class <%= hexagon_name.camelize %>
   module Domain
     module <%= name.camelize %>
-      module UseCases
+      module Commands
         describe Create do
           let(:repository) { double('Repository', create: 1) }
           let(:database_adapter) { double('Adapter', :[] => repository) }

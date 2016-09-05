@@ -32,7 +32,7 @@ module PizzasHexagon
     end
 
     def create
-      @result = Domain.use_cases[command].new(result)
+      @result = Domain.commands[command].new(result)
     end
 
     def broadcast

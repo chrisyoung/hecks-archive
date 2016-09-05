@@ -9,10 +9,10 @@ class HecksUseCase < Thor::Group
   end
 
   def create_value_object
-    template('templates/use_case.tt', "lib/#{hexagon_name}/use_cases/#{name}.rb")
+    template('templates/use_case.tt', "lib/#{hexagon_name}/commands/#{name}.rb")
   end
 
   def create_app_spec_file
-    template('templates/spec/use_case.tt', "lib/#{hexagon_name}/spec/use_cases/#{name}_spec.rb")
+    template('templates/spec/use_case.tt', "lib/#{hexagon_name}/spec/commands/#{name}_spec.rb")
   end
 end
