@@ -1,4 +1,3 @@
-require 'pry'
 # Convenience class for calling use cases.  The #[] method will look up any
 # usecase and run it by passing args and a repositories container.
 #

@@ -1,4 +1,3 @@
-require 'pry'
 describe PizzasHexagon::Adapters::ResourceServer::App do
   subject { described_class.new }
 
