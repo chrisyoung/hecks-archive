@@ -17,7 +17,7 @@ module PizzasHexagon
         private
 
         def validate
-          @errors = ['go boom']
+          @errors = []
         end
       end
     end

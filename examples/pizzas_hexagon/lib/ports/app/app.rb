@@ -1,3 +1,4 @@
+require 'pry'
 # Convenience class for calling use cases.  The #[] method will look up any
 # usecase and run it by passing args and a repositories container.
 #
@@ -21,6 +22,7 @@ module PizzasHexagon
       validate
       create
       broadcast
+      result
     end
 
     private
@@ -28,11 +30,11 @@ module PizzasHexagon
     attr_reader :command, :module_name, :result, :database, :args, :events_port, :validations
 
     def validate
-      @result = validations.new(args: args)
+      @result = validations.new(:create, args)
     end
 
     def create
-      @result = Domain.commands[command].new(result)
+      @result = Domain.commands[command].new(result).call
     end
 
     def broadcast

@@ -2,42 +2,39 @@
 * Fix server
 
 ## Current Sprint
+* Performance Testing
+* We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Move schema validation to hexagon
+* Consider JSON schema for building Domain
 * Update existing generators
 * Generate Notifiers
 * Generate Validators
 * Generate Active Record
-* Update the generators
-* Hook up code coverage
-* Use invariants (fail)
-* Get MySQL Running in in Rails
-* Stop putting entire hecks directory into container
 * Generate Schema
+* Generator to create config.ru file
+* CRUD Commands should generate explicitly
+* Get MySQL Running in in Docker Container
+* Factory for building toppings in pizza
 
 ## Next Actions
-* Pizza Hexagon Binary
-* hecks build -m pizzas
-* Build gems command
-* We are referencing PizzaHexagon::App, instead of PizzaHexagon
+* Hook up code coverage
+* Use invariants (fail)
+* Stop putting entire hecks directory into container
+* pizza_hexagon Binary
+* Build Gem: hecks build -m pizzas
 * 12 factor app in Docker
 * Products Domain
-* JSON schema for building Domain
 * CouchDB Persistence Adapter
 * Demonstrate Hexagon Shims
-* Rename use cases to commands
-* Generator to create config.ru file
-* Server gem
 * Set up stats module to count lines of code
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
-* CRUD Commands should generate explicitly
 * Value Store (Service?)
 * Domain Console
-* Factory for building toppings in pizza
 * Hook up pizzas as rack middleware
 * Add a Soccer app to the examples
 * Deploy a Soccer app for Tanga
 * make update take id as separate parameter
-* Generate Documentation
+* Generate Documentation for Server
 
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl

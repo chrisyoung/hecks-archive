@@ -11,7 +11,8 @@ describe PizzasHexagon::Adapters::ResourceServer::Methods::Create do
 
   describe '#call' do
     it 'creates a pizza' do
-      expect(subject.call(body: body, module_name: :pizzas)).to eq ''
+      result = subject.call(body: body, module_name: :pizzas)
+      expect(JSON.parse(result.first)["id"]).to eq 1
     end
   end
 end

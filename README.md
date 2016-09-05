@@ -75,4 +75,5 @@ $ rackup config.ru
   curl -X DELETE http://localhost:9292/pizzas/1
 
 ### Run it in a Docker container
+  docker build .
   docker run -p 9292:9292
