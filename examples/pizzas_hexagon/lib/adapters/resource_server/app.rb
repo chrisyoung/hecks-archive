@@ -16,7 +16,7 @@ module PizzasHexagon
           end
 
           get "/#{name}/:id" do |id|
-            methods.read.call(
+            result = methods.read.call(
               id:          id,
               module_name: name
             )

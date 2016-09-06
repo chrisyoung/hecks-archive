@@ -63,6 +63,8 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -104,6 +106,7 @@ DEPENDENCIES
   guard-rspec (~> 4.7)
   pizzas_hexagon!
   pry (~> 0.10)
+  rack-test (~> 0.6.3)
   rspec (~> 3.5)
   simplecov (~> 0.12)
 

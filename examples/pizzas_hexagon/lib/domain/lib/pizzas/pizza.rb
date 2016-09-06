@@ -13,6 +13,10 @@ module PizzasHexagon
     			@description = description
     			@toppings = toppings
         end
+
+        def to_json
+          JSON.generate(id: id, name: name, description: description, toppings: toppings)
+        end
       end
     end
   end

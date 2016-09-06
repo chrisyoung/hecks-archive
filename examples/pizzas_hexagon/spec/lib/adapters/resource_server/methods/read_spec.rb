@@ -18,7 +18,8 @@ describe PizzasHexagon::Adapters::ResourceServer::Methods::Read do
 
   describe '#call' do
     it 'can read a pizza from the database' do
-      expect(subject.call(id: 1, module_name: :pizzas).name).to eq 'The Yuck'
+      result = subject.call(id: 1, module_name: :pizzas)
+      expect(JSON.parse(result.first)['name']).to eq 'The Yuck'
     end
   end
 end

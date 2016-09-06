@@ -1,10 +1,9 @@
 ## In Progress
-* Fix server
+* Move schema validation to hexagon
 
 ## Current Sprint
 * Performance Testing
 * We are referencing PizzaHexagon::App, instead of PizzaHexagon
-* Move schema validation to hexagon
 * Consider JSON schema for building Domain
 * Update existing generators
 * Generate Notifiers

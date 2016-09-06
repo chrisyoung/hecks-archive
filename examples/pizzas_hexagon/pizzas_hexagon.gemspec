@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-rspec', "~> 4.7"
   s.add_development_dependency 'simplecov', "~> 0.12"
   s.add_development_dependency 'pry', "~> 0.10"
+  s.add_development_dependency 'rack-test', '~> 0.6.3'
 
   # s.add_runtime_dependency 'dry-validation'
   # s.add_runtime_dependency 'mysql2'

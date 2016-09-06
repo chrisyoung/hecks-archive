@@ -11,6 +11,7 @@ module PizzasHexagon
             @id          = id.to_i
             @module_name = module_name.to_sym
             run_query
+            [result.to_json]
           end
 
           def status
@@ -21,10 +22,10 @@ module PizzasHexagon
 
           private
 
-          attr_reader :hexagon, :id, :module_name
+          attr_reader :hexagon, :id, :module_name, :result
 
           def run_query
-            hexagon.query(
+            @result = hexagon.query(
               query:       :find_by_id,
               module_name: module_name,
               args:        { id: id }
