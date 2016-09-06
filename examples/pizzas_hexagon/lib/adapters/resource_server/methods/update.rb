@@ -35,11 +35,6 @@ module PizzasHexagon
           def params
             JSON.parse(body, symbolize_names: true).merge(id: id)
           end
-
-          def status
-            return 500 if command_result.errors.count > 0
-            return 200
-          end
         end
       end
     end
