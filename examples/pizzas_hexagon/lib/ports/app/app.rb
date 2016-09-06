@@ -19,7 +19,7 @@ module PizzasHexagon
       @args         = args
 
       validate
-      create
+      run_command
       broadcast
       result
     end
@@ -41,7 +41,7 @@ module PizzasHexagon
       @result = validations.new(:create, args)
     end
 
-    def create
+    def run_command
       @result = Domain.commands[command].new(result).call
     end
 

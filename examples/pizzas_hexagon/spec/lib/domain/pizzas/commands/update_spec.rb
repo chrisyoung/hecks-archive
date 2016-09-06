@@ -8,9 +8,7 @@ module PizzasHexagon
           let(:pizza_attributes) {
             { name:        "The Yuck",
               description: "Tastes worse than it sounds",
-              toppings: [
-                { name: 'Crickets' }
-              ]
+              toppings: [{ name: 'Crickets' }]
             }
           }
 
@@ -18,7 +16,7 @@ module PizzasHexagon
 
           subject do
             described_class.new(
-              args: { id: 1, attributes: new_attributes },
+              args:       { id: 1, attributes: new_attributes },
               repository: repository
             )
           end
@@ -26,7 +24,10 @@ module PizzasHexagon
           it 'updates a pizza' do
             Create.new(args: pizza_attributes, repository: repository).call
             subject.call()
-            expect(Queries::FindByID.new(repository: repository).call(id: 1)).to be
+            expect(
+              Queries::FindByID.new(repository: repository)
+                .call(id: 1).name
+            ).to eq 'new name'
           end
         end
       end

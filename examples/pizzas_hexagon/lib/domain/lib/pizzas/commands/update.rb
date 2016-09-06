@@ -5,15 +5,21 @@ module PizzasHexagon
         class Update
           attr_accessor :args, :errors, :id
 
-          def initialize(
-            args:,
-            repository: Repository)
-            @args         = args
-            @id           = args[:id]
-            @repository   = repository
+          def initialize(chained_command = nil, args: nil, repository: Repository)
+            @repository      = repository
+            @chained_command = chained_command
+            @args            = args || chained_command.args
+            @errors          = []
+            @id              = @args[:id]
           end
 
-          def call(use_case=nil)
+          def repository
+            return @repository unless chained_command.respond_to?(:repository)
+            chained_command.repository || @repository
+          end
+
+          def call
+            call_chained_command
             update
             self
           end
@@ -24,10 +30,16 @@ module PizzasHexagon
 
           private
 
-          attr_accessor :repository
+          attr_reader :repository_result, :chained_command
+
+          def call_chained_command
+            return unless chained_command
+            @errors = chained_command.call.errors
+          end
 
           def update
-            repository.update(args[:id], args[:attributes])
+            return if @errors.count > 0
+            @repository_result = repository.update(args[:id], args[:attributes])
           end
         end
       end

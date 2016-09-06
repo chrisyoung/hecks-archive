@@ -16,8 +16,13 @@ class Update
   attr_accessor :hexagon, :id, :body, :module_name, :command_result
 
   def run_command
-    @command_result = hexagon.run(module_name, :update, params)
+    @command_result = hexagon.call(
+      module_name: module_name,
+      command:     :update,
+      args:        params
+    )
   end
+
 
   def params
     JSON.parse(body, symbolize_names: true).merge(id: id)

@@ -8,6 +8,7 @@ module PizzasHexagon
           def initialize(chained_command = nil, args: nil, repository: Repository)
             @chained_command = chained_command
             @repository      = repository
+
             @args            = args || chained_command.args
             @errors          = []
           end

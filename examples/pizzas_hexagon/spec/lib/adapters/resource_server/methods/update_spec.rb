@@ -1,18 +1,11 @@
 describe PizzasHexagon::Adapters::ResourceServer::Methods::Update do
-  # let(:args) do
-  #   {
-  #     name:        "White Pizza",
-  #     description: 'yes',
-  #     toppings:    ['garlic', 'chicken']
-  #   }
-  # end
-  # let(:body) { double("Body", read: args.to_json) }
-  # subject    { described_class.new(hexagon: PizzasHexagon::App.new) }
-  #
-  # describe '#call' do
-  #   it 'creates a pizza' do
-  #     result = subject.call(body: body, module_name: :pizzas)
-  #     expect(JSON.parse(result.first)["id"]).to eq 1
-  #   end
-  # end
+  subject { described_class.new(hexagon: hexagon) }
+  let(:hexagon) { PizzasHexagon::App.new }
+  let(:body) { double("Body", read: {}.to_s) }
+
+  describe '#call' do
+    it do
+      subject.call(id: 1, body: body, module_name: :pizzas)
+    end
+  end
 end
