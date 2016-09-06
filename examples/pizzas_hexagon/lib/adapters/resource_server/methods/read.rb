@@ -13,6 +13,12 @@ module PizzasHexagon
             run_query
           end
 
+          def status
+            return 500 if command_result.errors.count > 0
+            return 200
+          end
+
+
           private
 
           attr_reader :hexagon, :id, :module_name

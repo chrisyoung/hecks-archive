@@ -3,15 +3,22 @@ module PizzasHexagon
     module Pizzas
       module Commands
         describe Delete do
-          subject { described_class.new(args: { id: 1 }, repository: @repository) }
+          subject do
+            described_class.new(
+              args:       { id: 1 },
+              repository: @repository
+            )
+          end
 
-          let(:pizza_attributes) {
+          let(:pizza_attributes) do
             {
               name:        "The Yuck",
               description: "Tastes worse than it sounds",
-              toppings: [{ name: 'Crickets' }]
+              toppings:    [{ name: 'Crickets' }]
             }
-          }
+          end
+
+          let(:query) { Queries::FindByID.new(repository: @repository) }
 
           before do
             @repository = Repository
@@ -20,7 +27,7 @@ module PizzasHexagon
           it 'deletes a pizza' do
             Create.new(args: pizza_attributes, repository: @repository).call
             subject.call
-            expect(Queries::FindByID.new(repository: @repository).call(id: 1)).to_not be
+            expect(query.call(id: 1)).to_not be
           end
         end
       end

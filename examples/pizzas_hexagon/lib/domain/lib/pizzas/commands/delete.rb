@@ -3,20 +3,24 @@ module PizzasHexagon
     module Pizzas
       module Commands
         class Delete
-          attr_accessor :args
+          attr_accessor :args, :errors
 
-          def initialize(args:, repository: Repository)
-            @args        = args
-            @repository    = repository
+          def initialize(chained_command = nil, args: nil, repository: Repository)
+            @chained_command = chained_command
+            @args            = args || chained_command.args
+            @repository      = repository
+            @errors          = []
           end
 
-          def call(use_case=nil)
+          def call(use_case = nil)
+            call_chained_command
             delete
             self
           end
 
-          def errors
-            []
+          def repository
+            return @repository unless chained_command.respond_to?(:repository)
+            chained_command.repository || @repository
           end
 
           def to_h
@@ -25,10 +29,16 @@ module PizzasHexagon
 
           private
 
-          attr_accessor :command_result, :repository
+          attr_accessor :command_result, :repository, :chained_command
 
           def delete
-            repository.delete(args[:id])
+            @result = repository.delete(args[:id])
+            @errors << "cound not find #{args[:id]}" unless @result
+          end
+
+          def call_chained_command
+            return unless chained_command
+            @errors = chained_command.call.errors
           end
         end
       end
