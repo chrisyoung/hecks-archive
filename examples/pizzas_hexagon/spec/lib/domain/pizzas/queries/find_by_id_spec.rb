@@ -1,14 +1,12 @@
 module PizzasHexagon
   module Domain
-    describe Pizzas::Query do
+    describe Pizzas::Queries::FindByID do
       let(:repository) { Pizzas::Repository }
 
       let(:pizza_attributes) {
         { name:        "The Yuck",
           description: "Tastes worse than it sounds",
-          toppings: [
-            { name: 'Crickets' }
-          ]
+          toppings: [{ name: 'Crickets' }]
         }
       }
 

@@ -26,7 +26,7 @@ module PizzasHexagon
           it 'updates a pizza' do
             Create.new(args: pizza_attributes, repository: repository).call
             subject.call()
-            expect(Query.new(repository: repository).call(id: 1)).to be
+            expect(Queries::FindByID.new(repository: repository).call(id: 1)).to be
           end
         end
       end

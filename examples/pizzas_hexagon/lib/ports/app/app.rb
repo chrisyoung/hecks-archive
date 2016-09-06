@@ -24,6 +24,15 @@ module PizzasHexagon
       result
     end
 
+    def query(query:, module_name:, args: {})
+      @module_name = module_name
+      @query       = [module_name, query]
+
+      Domain.queries[@query].new(
+        repository: database[module_name]
+      ).call(args)
+    end
+
     private
 
     attr_reader :command, :module_name, :result, :database, :args, :events_port, :validations

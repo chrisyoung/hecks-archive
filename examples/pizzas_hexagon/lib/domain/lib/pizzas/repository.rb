@@ -27,10 +27,6 @@ module PizzasHexagon
           entity
         end
 
-        def self.query(params)
-          Query.new.call(params)
-        end
-
         def self.read id
           @collection[id]
         end

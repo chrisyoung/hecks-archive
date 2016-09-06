@@ -14,6 +14,15 @@ module PizzasHexagon
       end
     end
 
+    def self.queries
+      constants.flat_map do |domain_module|
+        const_get(domain_module)::Queries.constants.map do |query|
+          [ [ domain_module.to_s.underscore.to_sym, query.to_s.underscore.to_sym],
+            const_get(domain_module)::Queries.const_get(query)]
+        end
+      end.to_h
+    end
+
     def self.commands
       constants.flat_map do |domain_module|
         const_get(domain_module)::Commands.constants.map do |use_case|

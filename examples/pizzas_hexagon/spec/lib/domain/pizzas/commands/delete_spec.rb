@@ -6,11 +6,10 @@ module PizzasHexagon
           subject { described_class.new(args: { id: 1 }, repository: @repository) }
 
           let(:pizza_attributes) {
-            { name:        "The Yuck",
+            {
+              name:        "The Yuck",
               description: "Tastes worse than it sounds",
-              toppings: [
-                { name: 'Crickets' }
-              ]
+              toppings: [{ name: 'Crickets' }]
             }
           }
 
@@ -21,7 +20,7 @@ module PizzasHexagon
           it 'deletes a pizza' do
             Create.new(args: pizza_attributes, repository: @repository).call
             subject.call
-            expect(Query.new(repository: @repository).call(id: 1)).to_not be
+            expect(Queries::FindByID.new(repository: @repository).call(id: 1)).to_not be
           end
         end
       end
