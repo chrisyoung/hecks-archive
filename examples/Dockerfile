@@ -1,11 +1,12 @@
 FROM ubuntu:latest
 
-MAINTAINER chriswyoung "https://github.com/chrisyoung"
+MAINTAINER chrisyoung "https://github.com/chrisyoung"
 
 # Install packages for building ruby
 RUN apt-get update
 RUN apt-get install -y --force-yes build-essential wget git
-RUN apt-get install -y --force-yes zlib1g-dev libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt-dev
+RUN apt-get install -y --force-yes zlib1g-dev libssl-dev libreadline-dev
+RUN apt-get install -y --force-yes libyaml-dev libxml2-dev libxslt-dev
 RUN apt-get clean
 
 RUN wget -P /root/src http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.5.tar.gz

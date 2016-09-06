@@ -2,6 +2,7 @@
 * Move schema validation to hexagon
 
 ## Current Sprint
+* Validations should not be a port
 * Performance Testing
 * We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Consider JSON schema for building Domain

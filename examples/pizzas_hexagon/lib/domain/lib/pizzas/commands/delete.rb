@@ -12,7 +12,7 @@ module PizzasHexagon
             @errors          = { base: [] }
           end
 
-          def call(use_case = nil)
+          def call
             call_chained_command
             delete
             self
