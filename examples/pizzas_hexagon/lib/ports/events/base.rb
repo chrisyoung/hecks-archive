@@ -1,2 +1,2 @@
-require_relative 'event'
+require_relative 'event_name'
 require_relative 'events'
