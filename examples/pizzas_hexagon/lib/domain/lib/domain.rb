@@ -15,19 +15,18 @@ module PizzasHexagon
     end
 
     def self.queries
-      constants.flat_map do |domain_module|
-        const_get(domain_module)::Queries.constants.map do |query|
-          [ [ domain_module.to_s.underscore.to_sym, query.to_s.underscore.to_sym],
-            const_get(domain_module)::Queries.const_get(query)]
-        end
-      end.to_h
+      lookup(:Queries)
     end
 
     def self.commands
+      lookup(:Commands)
+    end
+
+    def self.lookup(name)
       constants.flat_map do |domain_module|
-        const_get(domain_module)::Commands.constants.map do |use_case|
+        const_get(domain_module).const_get(name).constants.map do |use_case|
           [ [ domain_module.to_s.underscore.to_sym, use_case.to_s.underscore.to_sym],
-            const_get(domain_module)::Commands.const_get(use_case)]
+            const_get(domain_module).const_get(name).const_get(use_case)]
         end
       end.to_h
     end

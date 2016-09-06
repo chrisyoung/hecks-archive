@@ -9,7 +9,7 @@ describe PizzasHexagon::Adapters::ResourceServer::Methods::Delete do
     }
   end
 
-  subject       { described_class.new(hexagon: hexagon) }
+  subject { described_class.new(hexagon: hexagon) }
 
   describe '#call' do
     before do
