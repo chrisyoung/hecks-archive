@@ -6,7 +6,7 @@ module PizzasHexagon
 
         def initialize(command, **args)
           @command = command
-          @args = args || command.args
+          @args    = args || command.args
         end
 
         def call
@@ -17,7 +17,7 @@ module PizzasHexagon
         private
 
         def validate
-          @errors = []
+          @errors = Schemas::Pizzas::Create.(args).messages
         end
       end
     end

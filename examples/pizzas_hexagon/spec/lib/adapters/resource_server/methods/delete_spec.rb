@@ -29,7 +29,7 @@ describe PizzasHexagon::Adapters::ResourceServer::Methods::Delete do
 
       it 'returns an error' do
         result = subject.call(id: 1, module_name: :pizzas).first
-        expect(JSON.parse(result)["errors"]).to include('cound not find 1')
+        expect(JSON.parse(result)["errors"]["base"]).to include('cound not find 1')
       end
     end
   end

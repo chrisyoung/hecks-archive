@@ -16,8 +16,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry', "~> 0.10"
   s.add_development_dependency 'rack-test', '~> 0.6.3'
 
-  # s.add_runtime_dependency 'dry-validation'
+
   # s.add_runtime_dependency 'mysql2'
+  s.add_runtime_dependency 'dry-validation', '~> 0.9'
   s.add_runtime_dependency 'activerecord', "~> 5.0"
   s.add_runtime_dependency 'pizzas_domain', "~> 0.0"
   s.add_runtime_dependency 'sinatra', "~> 1.4"

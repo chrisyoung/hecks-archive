@@ -9,7 +9,7 @@ module PizzasHexagon
             @chained_command = chained_command
             @args            = args || chained_command.args
             @repository      = repository
-            @errors          = []
+            @errors          = { base: [] }
           end
 
           def call(use_case = nil)
@@ -33,12 +33,12 @@ module PizzasHexagon
 
           def delete
             @result = repository.delete(args[:id])
-            @errors << "cound not find #{args[:id]}" unless @result
+            @errors[:base] << "cound not find #{args[:id]}" unless @result
           end
 
           def call_chained_command
             return unless chained_command
-            @errors = chained_command.call.errors
+            @errors.merge(chained_command.call.errors)
           end
         end
       end
