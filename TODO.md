@@ -1,10 +1,9 @@
 ## In Progress
-* Move schema validation to hexagon
+* Update Schema
 
 ## Current Sprint
-* Validations should not be a port
+* Toppings Schema
 * Performance Testing
-* We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Consider JSON schema for building Domain
 * Update existing generators
 * Generate Notifiers
@@ -17,6 +16,7 @@
 * Factory for building toppings in pizza
 
 ## Next Actions
+* We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Hook up code coverage
 * Use invariants (fail)
 * Stop putting entire hecks directory into container
