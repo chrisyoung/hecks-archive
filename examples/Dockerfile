@@ -21,7 +21,7 @@ ADD ./server /app/server
 
 WORKDIR /app/server
 
-RUN cd /app/pizzas_hexagon; bash build_gems.rb
+RUN cd /app/pizzas_hexagon; bash build_gems
 
 EXPOSE 9292
 CMD ["/usr/local/bin/rackup", "config.ru", "-p", "9292", "-o", "0.0.0.0"]
