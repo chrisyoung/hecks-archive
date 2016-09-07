@@ -28,7 +28,7 @@ describe PizzasHexagon::App do
   end
 
   context "Events Port" do
-    it do
+    it '' do
       expect(TestListener).to receive(:pizzas_create)
       subject.call(method_params)
     end

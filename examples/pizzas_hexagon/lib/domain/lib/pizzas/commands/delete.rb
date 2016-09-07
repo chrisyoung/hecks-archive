@@ -18,6 +18,10 @@ module PizzasHexagon
             self
           end
 
+          def name
+            CommandName.new(self)
+          end
+
           def repository
             return @repository unless chained_command.respond_to?(:repository)
             chained_command.repository || @repository

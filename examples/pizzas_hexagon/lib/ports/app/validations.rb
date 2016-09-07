@@ -4,7 +4,7 @@ module PizzasHexagon
       class Validations
         attr_reader :errors, :args
 
-        def initialize(command, **args)
+        def initialize(command = nil, args=nil)
           @command = command
           @args    = args || command.args
         end
@@ -16,8 +16,10 @@ module PizzasHexagon
 
         private
 
+        attr_accessor :command
+
         def validate
-          @errors = Schemas::Pizzas::Create.(args).messages
+          @errors = Schemas.fetch(command: command).(args).messages
         end
       end
     end

@@ -18,6 +18,7 @@ module PizzasHexagon
       @command      = [module_name, command]
       @args         = args
 
+      fetch_command
       validate
       run_command
       broadcast
@@ -38,7 +39,11 @@ module PizzasHexagon
     attr_reader :command, :module_name, :result, :database, :args, :events_port, :validations
 
     def validate
-      @result = validations.new(:create, args)
+      @result = validations.new(@fetched_command)
+    end
+
+    def fetch_command
+      @fetched_command = Domain.commands[command].new(args: args)
     end
 
     def run_command

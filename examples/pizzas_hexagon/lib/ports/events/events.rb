@@ -18,7 +18,7 @@ module PizzasHexagon
       attr_reader :listeners, :command
 
       def event_name
-        EventName.new(command).value
+        CommandName.new(command).to_sym
       end
     end
   end

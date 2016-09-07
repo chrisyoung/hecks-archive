@@ -28,6 +28,10 @@ module PizzasHexagon
             { errors: errors, id: repository_result, args: args }
           end
 
+          def name
+            CommandName.new(self)
+          end
+
           private
 
           attr_reader :repository_result, :chained_command

@@ -18,6 +18,10 @@ module PizzasHexagon
             chained_command.repository || @repository
           end
 
+          def name
+            CommandName.new(self)
+          end
+
           def call
             call_chained_command
             update
