@@ -11,7 +11,7 @@ describe PizzasHexagon::App do
     args: {
       name:        'Pizza',
       description: 'round',
-      toppings:    [{ name: 'yes' }]
+      toppings:    ['yes']
     }}
   end
 

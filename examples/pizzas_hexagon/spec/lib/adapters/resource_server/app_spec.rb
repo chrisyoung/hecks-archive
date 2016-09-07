@@ -24,7 +24,7 @@ describe "My Sinatra Application" do
   end
 
   it 'update a pizza' do
-    put  '/pizzas/1', { attributes: {name: "new name"} }.to_json
+    put  '/pizzas/1', { attributes: { name: "new name" } }.to_json
     get  '/pizzas/1'
     expect(JSON.parse(last_response.body)['name']).to eq "new name"
   end

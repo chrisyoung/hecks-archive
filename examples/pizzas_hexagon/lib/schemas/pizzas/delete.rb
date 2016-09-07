@@ -2,11 +2,7 @@ module PizzasHexagon
   module Schemas
     module Pizzas
       Delete = Dry::Validation.Schema do
-        # required(:name).maybe(:str?)
-        # required(:description).maybe(:str?)
-        # required(:toppings).schema do
-        #   required(:name).each.maybe(:str?)
-        # end
+        required(:id).filled(:int?)
       end
     end
   end

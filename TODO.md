@@ -1,10 +1,6 @@
 ## In Progress
-* Update Schema
 
 ## Current Sprint
-* Toppings Schema
-* Performance Testing
-* Consider JSON schema for building Domain
 * Update Generators:
   * Existing
   * Notifiers
@@ -15,9 +11,11 @@
   * CRUD Commands
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
+* Performance Testing
 
 ## Next Actions
-* We are referencing PizzaHexagon::App, instead of PizzaHexagon
+* Consider JSON schema for building Domain
+* Schema for read (required int?)
 * Hook up code coverage
 * Use invariants (fail)
 * Stop putting entire hecks directory into container
@@ -38,9 +36,8 @@
 * Generate Documentation for Server
 
 ## Bugs
+* We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Server DELETE is reporting "no response from server" in curl
-* guard isn't running tests when I save pizza_hexagon.rb
-* coverage is only showing specs
 
 ## Challenges:
 * Use Dry libraries inside of the domain?
