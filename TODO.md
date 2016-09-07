@@ -5,15 +5,16 @@
 * Toppings Schema
 * Performance Testing
 * Consider JSON schema for building Domain
-* Update existing generators
-* Generate Notifiers
-* Generate Validators
-* Generate Active Record
-* Generate Schema
-* Generator to create config.ru file
-* CRUD Commands should generate explicitly
+* Update Generators:
+  * Existing
+  * Notifiers
+  * Validators
+  * Active Record
+  * Schema
+  * Config.ru file
+  * CRUD Commands
 * Get MySQL Running in in Docker Container
-* Factory for building toppings in pizza
+* Factory for building toppings in Pizza
 
 ## Next Actions
 * We are referencing PizzaHexagon::App, instead of PizzaHexagon

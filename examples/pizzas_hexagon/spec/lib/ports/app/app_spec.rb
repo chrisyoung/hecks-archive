@@ -9,16 +9,14 @@ describe PizzasHexagon::App do
     module_name: :pizzas,
     command: :create,
     args: {
-      name: 'Pizza',
-      description: 'round' ,
-      toppings: [{ name: 'yes' }],
+      name:        'Pizza',
+      description: 'round',
+      toppings:    [{ name: 'yes' }]
     }}
   end
 
   subject do
-    described_class.new(
-      listeners: [TestListener]
-    )
+    described_class.new(listeners: [TestListener])
   end
 
   describe '#call' do

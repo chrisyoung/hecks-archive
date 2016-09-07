@@ -8,7 +8,7 @@ describe PizzasHexagon::Adapters::ResourceServer::Methods::Read do
     {
       name:        "The Yuck",
       description: "Tastes worse than it sounds",
-      toppings:    [{ name: 'Crickets' }]
+      toppings:    ['Crickets']
     }
   }
 
