@@ -1,6 +1,6 @@
-require_relative 'schemas/pizzas/create'
-require_relative 'schemas/pizzas/update'
-require_relative 'schemas/pizzas/delete'
+require_relative 'pizzas/create'
+require_relative 'pizzas/update'
+require_relative 'pizzas/delete'
 
 module PizzasHexagon
   module Schemas
