@@ -1,4 +1,4 @@
-module PizzasHexagon
+module <%= module_name %>
   module Ports
     class App
       class Validations

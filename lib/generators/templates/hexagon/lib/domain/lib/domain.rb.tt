@@ -1,4 +1,4 @@
-module PizzasHexagon
+module <%= module_name %>
   module Domain
     def self.repositories
       constants.map do |name|

@@ -5,7 +5,7 @@
 #
 # You can pass in repositories using the initializer if you want to use
 # something other than the default domain repos
-module PizzasHexagon
+module <%= module_name %>
   class App
     def initialize(database:  Adapters::Databases::Memory.new, listeners: [])
       @database         = database

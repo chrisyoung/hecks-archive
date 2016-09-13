@@ -1,4 +1,4 @@
-module PizzasHexagon
+module <%= module_name %>
   module Adapters
     module Databases
       class Memory

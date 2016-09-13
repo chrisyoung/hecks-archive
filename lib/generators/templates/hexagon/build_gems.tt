@@ -1,0 +1,5 @@
+cd lib/domain && gem build <%= domain_name %>.gemspec
+gem install <%= domain_name %>-0.0.0.gem --no-rdoc --no-ri
+cd ../..
+gem build <%= name %>.gemspec
+gem install <%= name %>-0.0.1.gem --no-rdoc --no-ri

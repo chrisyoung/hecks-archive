@@ -1,4 +1,4 @@
-module PizzasHexagon
+module <%= module_name %>
   class CommandName
     def initialize(command)
       @command = command
@@ -16,7 +16,7 @@ module PizzasHexagon
       @command.class.name.downcase
         .gsub("::", "_")
         .gsub('commands_', '')
-        .gsub('pizzashexagon_', '')
+        .gsub('<%= condensed_module_name %>_', '')
         .gsub("domain_", '').to_sym
     end
 

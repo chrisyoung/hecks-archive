@@ -2,7 +2,7 @@ require_relative 'pizzas/create'
 require_relative 'pizzas/update'
 require_relative 'pizzas/delete'
 
-module PizzasHexagon
+module <%= module_name %>
   module Schemas
     def self.fetch(command:)
       Schemas

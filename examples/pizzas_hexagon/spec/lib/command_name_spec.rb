@@ -1,6 +1,7 @@
 describe PizzasHexagon::CommandName do
   subject { described_class.new(command) }
-  let(:command) { PizzasHexagon::Domain::Pizzas::Commands::Create.new(args: {}) }
+
+  let(:command) { double("Command") }
 
   describe '#to_sym' do
     it { expect(subject.to_sym).to eq :pizzas_create }

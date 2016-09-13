@@ -4,14 +4,9 @@ require "thor"
 # require_relative "../lib/generators/domain"
 require_relative "../lib/generators/hexagon"
 
-class Hecks < Thor
+class Hecks
   package_name "hecks"
-
-  register(
-    HecksHexagon,
-    "new",
-    "new NAME",
-    "Create a new Hexagon")
+  register(Hecks::Hexagon, "new", "new NAME", "Create a new Hexagon")
 
   # register(
   #   HecksAggregate,

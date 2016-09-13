@@ -8,7 +8,7 @@ module TestModule
   end
 end
 
-describe PizzasHexagon::Ports::Events do
+describe <%= module_name %>::Ports::Events do
   let(:listener) { TestListener }
   let(:command)  { TestModule::TestCommand.new }
   subject { described_class.new(listeners: [listener])}
