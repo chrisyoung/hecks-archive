@@ -9,10 +9,6 @@ class HecksHexagon < Thor::Group
     File.dirname(__FILE__)
   end
 
-  def create_hexagon_file
-    template('templates/hexagon.tt', "#{name}/#{name}.rb")
-  end
-
   def create_hexagon_folder
     directory('templates/hexagon', "#{name}")
   end

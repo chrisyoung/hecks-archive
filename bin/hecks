@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "thor"
-require_relative "../lib/generators/adapters"
-require_relative "../lib/generators/domain"
+# require_relative "../lib/generators/adapters"
+# require_relative "../lib/generators/domain"
 require_relative "../lib/generators/hexagon"
 
 class Hecks < Thor
@@ -13,23 +13,23 @@ class Hecks < Thor
     "new NAME",
     "Create a new Hexagon")
 
-  register(
-    HecksAggregate,
-    "domain:aggregate",
-    "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
-    "Creates a module with an aggregate head, a repository and application")
-
-  register(
-    HecksValueObject,
-    "domain:value_object",
-    "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
-    "Add a value object to a module")
-
-  register(
-    HecksUseCase,
-    "domain:use_case",
-    "domain:use_case NAME -m NAME",
-    "Add a use case to a module")
+  # register(
+  #   HecksAggregate,
+  #   "domain:aggregate",
+  #   "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
+  #   "Creates a module with an aggregate head, a repository and application")
+  #
+  # register(
+  #   HecksValueObject,
+  #   "domain:value_object",
+  #   "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
+  #   "Add a value object to a module")
+  #
+  # register(
+  #   HecksUseCase,
+  #   "domain:use_case",
+  #   "domain:use_case NAME -m NAME",
+  #   "Add a use case to a module")
 end
 
 def hexagon_name
