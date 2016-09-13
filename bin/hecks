@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 require "thor"
-require_relative "adapters"
-require_relative "domain"
-require_relative "hexagon"
+require_relative "../lib/generators/adapters"
+require_relative "../lib/generators/domain"
+require_relative "../lib/generators/hexagon"
 
 class Hecks < Thor
   package_name "hecks"
