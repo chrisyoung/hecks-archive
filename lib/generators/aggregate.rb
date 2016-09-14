@@ -1,3 +1,4 @@
+require 'pry'
 class Hecks < Thor
   class Aggregate < Thor::Group
     include Thor::Actions
