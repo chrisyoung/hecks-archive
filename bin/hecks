@@ -3,16 +3,17 @@ require "thor"
 # require_relative "../lib/generators/adapters"
 # require_relative "../lib/generators/domain"
 require_relative "../lib/generators/hexagon"
+require_relative "../lib/generators/aggregate"
 
 class Hecks
   package_name "hecks"
   register(Hecks::Hexagon, "new", "new NAME", "Create a new Hexagon")
 
-  # register(
-  #   HecksAggregate,
-  #   "domain:aggregate",
-  #   "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
-  #   "Creates a module with an aggregate head, a repository and application")
+  register(
+    Hecks::Aggregate,
+    "domain:aggregate",
+    "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
+    "Creates a module with an aggregate head, a repository and application")
   #
   # register(
   #   HecksValueObject,
