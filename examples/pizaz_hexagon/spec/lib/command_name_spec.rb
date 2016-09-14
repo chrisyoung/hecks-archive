@@ -1,4 +1,4 @@
-describe <%= module_name %>::CommandName do
+describe PizazHexagon::CommandName do
   subject { described_class.new(command) }
 
   let(:command) { double("Command") }

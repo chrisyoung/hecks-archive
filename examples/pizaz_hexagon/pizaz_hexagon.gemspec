@@ -1,14 +1,15 @@
 Gem::Specification.new do |s|
-  s.name        = '<%= name %>'
-  s.homepage    = ""
+  s.name        = 'pizaz_hexagon'
   s.version     = '0.0.0'
-  s.date        = ''
-  s.summary     = ""
-  s.description = ""
-  s.authors     = [""]
-  s.email       = ''
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
+
+#  s.homepage    = ""
+#  s.date        = ''
+#  s.summary     = ""
+#  s.description = ""
+#  s.authors     = [""]
+#  s.email       = ''
 
   s.add_development_dependency 'rspec', "~> 3.5"
   s.add_development_dependency 'guard-rspec', "~> 4.7"

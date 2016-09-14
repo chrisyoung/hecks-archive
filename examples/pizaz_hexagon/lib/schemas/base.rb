@@ -1,4 +1,4 @@
-module <%= module_name %>
+module PizazHexagon
   module Schemas
     def self.fetch(command:)
       Schemas
