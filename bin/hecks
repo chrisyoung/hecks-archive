@@ -3,6 +3,7 @@ require "thor"
 # require_relative "../lib/generators/adapters"
 # require_relative "../lib/generators/domain"
 require_relative "../lib/generators/hexagon"
+require_relative "../lib/generators/value_object"
 require_relative "../lib/generators/aggregate"
 
 class Hecks
@@ -14,12 +15,12 @@ class Hecks
     "domain:aggregate",
     "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
     "Creates a module with an aggregate head, a repository and application")
-  #
-  # register(
-  #   HecksValueObject,
-  #   "domain:value_object",
-  #   "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
-  #   "Add a value object to a module")
+
+  register(
+    Hecks::ValueObject,
+    "domain:value_object",
+    "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
+    "Add a value object to a module")
   #
   # register(
   #   HecksUseCase,
