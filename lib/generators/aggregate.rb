@@ -20,23 +20,35 @@ class Hecks < Thor
     end
 
     def attribute_names_as_strings
-      attributes.keys.map {|key| key.to_s}
+      attributes.keys.map { |key| key.to_s }
     end
 
     def keys_and_values
-      attributes.map {|key, value| (key.to_s + ': ' + key.to_s)}.join(", ")
+      attributes.map { |key, value| (key.to_s + ': ' + key.to_s) }.join(", ")
+    end
+
+    def hexagon_name
+      Dir.pwd.split('/').last
+    end
+
+    def module_name
+      name.camelize
+    end
+
+    def hexagon_module_name
+      hexagon_name.camelize
     end
 
     def attribute_names
-      attributes.keys.map {|key| ':' + key.to_s}.join ", "
+      attributes.keys.map { |key| ':' + key.to_s }.join ", "
     end
 
     def attribute_param_names
-      attributes.keys.map {|key| key.to_s + ':'}.join ", "
+      attributes.keys.map { |key| key.to_s + ':' }.join ", "
     end
 
     def attributes
-      options[:attributes].merge({id: 'integer'})
+      options[:attributes].merge(id: 'integer')
     end
 
     def create_aggregate_folder

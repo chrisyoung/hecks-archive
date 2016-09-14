@@ -1,6 +1,6 @@
-module PizzasHexagon
+module <%= hexagon_module_name %>
   module Domain
-    module Pizzas
+    module <%= module_name %>
       # This is the default "in memory" Pizzas Repository.
       # When developing the domain, the in-memory repo makes it things fast to test
       # without mocking.  A repository is only able to do operations on the aggregate
@@ -12,7 +12,7 @@ module PizzasHexagon
 
         def self.create attributes={}
           id              = @last_id + 1
-          @collection[id] = Pizza.new(attributes.merge(id: id))
+          @collection[id] = <%= head_module_name %>.new(attributes.merge(id: id))
           @last_id        = id
         end
 

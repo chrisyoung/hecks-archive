@@ -28,8 +28,4 @@ class Hecks
   #   "Add a use case to a module")
 end
 
-def hexagon_name
-  Dir.pwd.split('/').last
-end
-
 Hecks.start

@@ -1,8 +1,8 @@
 ## In Progress
+  * Update domain generators
 
 ## Current Sprint
 * Update Generators:
-  * Existing
   * Notifiers
   * Validators
   * Active Record
@@ -11,7 +11,6 @@
   * CRUD Commands
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
-* Performance Testing
 
 ## Next Actions
 * Consider JSON schema for building Domain
