@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 require "thor"
 # require_relative "../lib/generators/adapters"
-# require_relative "../lib/generators/domain"
+# require_relative "../lib/generators/resource_server"
+require_relative "../lib/generators/crud_commands"
 require_relative "../lib/generators/hexagon"
 require_relative "../lib/generators/value_object"
 require_relative "../lib/generators/aggregate"
@@ -14,19 +15,22 @@ class Hecks
     Hecks::Aggregate,
     "domain:aggregate",
     "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
-    "Creates a module with an aggregate head, a repository and application")
+    "Creates a module with an aggregate head, a repository and application"
+  )
 
   register(
     Hecks::ValueObject,
     "domain:value_object",
     "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
-    "Add a value object to a module")
+    "Add a value object to a module"
+  )
 
-  # register(
-  #   HecksUseCase,
-  #   "domain:use_case",
-  #   "domain:use_case NAME -m NAME",
-  #   "Add a use case to a module")
+  register(
+    Hecks::CrudCommands,
+    "adapter:crud_commands",
+    "adapter:crud_commands -m MODULE_NAME",
+    "generate a crud commands for a module"
+  )
 end
 
 Hecks.start
