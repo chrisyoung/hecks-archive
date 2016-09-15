@@ -5,8 +5,8 @@ RSpec.shared_examples "a Domain <%= head_module_name %>" do
       described_class.new(<%= keys_and_values %>)
     end
 
-    describe '#id' do
-      it { expect(subject.id).to eq 1 }
+    describe 'it should test all the attributes' do
+      xit { expect(subject.id).to eq 1 }
     end
 
 		describe '#name' do

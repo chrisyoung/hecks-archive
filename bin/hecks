@@ -21,7 +21,7 @@ class Hecks
     "domain:value_object",
     "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
     "Add a value object to a module")
-  #
+
   # register(
   #   HecksUseCase,
   #   "domain:use_case",
