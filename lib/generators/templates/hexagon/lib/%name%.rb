@@ -8,6 +8,6 @@ require_relative 'domain/lib/domain'
 require_relative 'ports/events/base'
 require_relative 'ports/app/base'
 
-require_relative 'adapters/databases/memory'
+Dir[File.dirname(__FILE__) + "/adapters/*.rb"].each {|file| require file}
 
 require_relative 'schemas/base'
