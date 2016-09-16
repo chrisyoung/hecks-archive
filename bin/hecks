@@ -31,6 +31,14 @@ class Hecks
     "adapter:crud_commands -m MODULE_NAME",
     "generate a crud commands for a module"
   )
+
+  register(
+    Hecks::ResourceServer,
+    "adapter:resource_server",
+    "adapter:resource_server",
+    "generate a CRUD Server"
+  )
+
 end
 
 Hecks.start
