@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "thor"
 # require_relative "../lib/generators/adapters"
-# require_relative "../lib/generators/resource_server"
+require_relative "../lib/generators/resource_server"
 require_relative "../lib/generators/crud_commands"
 require_relative "../lib/generators/hexagon"
 require_relative "../lib/generators/value_object"
