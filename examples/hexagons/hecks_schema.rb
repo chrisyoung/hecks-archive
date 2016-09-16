@@ -1,5 +1,6 @@
 require 'pry'
-hexagon = {
+
+hexagon: {
   name: "pizzas",
   modules: [
     {
@@ -20,9 +21,11 @@ hexagon = {
             name: :string
           }
         }
-      ]
+      ],
+      services: [:crud_commands]
     }
-  ]
+    services: [:resource_server]
+  ],
 }
 
 class Schema
@@ -49,6 +52,10 @@ class Module
     @domain_objects.each do |domain_object|
       return domain_object if domain_object.head?
     end
+  end
+
+  def value_objects
+    @domain_objects - head
   end
 end
 
@@ -83,6 +90,9 @@ class Generate
   def call
     generate_hexagon
     generate_modules
+    generate_value_objects
+    generate_module_services
+    generate_hexagon_services
   end
 
   private
@@ -95,8 +105,20 @@ class Generate
 
   def generate_modules
     schema.modules.each do |domain_module|
-      puts `cd #{schema.name}_hexagon && ../../../bin/hecks domain:aggregate #{domain_module.name} -h #{domain_module.head.name} `
+      puts `cd #{schema.name}_hexagon && ../../../bin/hecks domain:aggregate #{domain_module.name} -h #{domain_module.head.name}`
     end
+  end
+
+  def generate_value_objects
+    domain_module.value_objects.each do |value_object|
+      puts `cd #{schema.name}_hexagon && ../../../bin/hecks domain:value_object #{value_object.name}`
+    end
+  end
+
+  def generate_module_services
+  end
+
+  def generate_hexagon_services
   end
 end
 
