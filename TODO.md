@@ -1,7 +1,8 @@
 ## In Progress
-* Generate schema when creating crud_commands
+* Generate pizzas from a json file
 
 ## Current Sprint
+* Manual Integration Test
 * Active Record Generator
 * Config.ru file Generator
 * Validations Generator
@@ -9,6 +10,7 @@
 * Factory for building toppings in Pizza
 
 ## Next Actions
+* Warn if running a generator without being in a hexagon
 * Consider JSON schema for building Domain
 * Schema for read (required int?)
 * Hook up code coverage
