@@ -4,7 +4,7 @@ class Hecks < Thor
   class Hexagon < Thor::Group
     include Thor::Actions
 
-    argument :name
+    argument :name, optional: true
 
     def self.source_root
       File.dirname(__FILE__)

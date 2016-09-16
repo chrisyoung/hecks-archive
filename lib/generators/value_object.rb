@@ -2,8 +2,13 @@ class Hecks < Thor
   class ValueObject < Thor::Group
     include Thor::Actions
 
-    class_option :aggregate_name, aliases: "-m", desc: "the name of the module to create the use case in"
-    class_option :attributes,  aliases: "-a", type: :hash, desc: "attributes for the value object"
+    class_option :aggregate_name,
+                 aliases: "-m",
+                 desc:    "the name of the module to create the use case in"
+    class_option :attributes,
+                 aliases: "-a",
+                 type:    :hash,
+                 desc:    "attributes for the value object"
 
     argument :name
 

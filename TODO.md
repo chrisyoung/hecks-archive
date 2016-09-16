@@ -1,5 +1,5 @@
 ## In Progress
-* Generate pizzas from a json file
+* Generate pizzas from a file
 
 ## Current Sprint
 * Manual Integration Test
@@ -8,6 +8,7 @@
 * Validations Generator
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
+* Stop hardcoding attributes
 
 ## Next Actions
 * Warn if running a generator without being in a hexagon
