@@ -32,7 +32,6 @@ class Hecks < Thor
       domain_name.camelize
     end
 
-
     def condensed_module_name
       name.gsub('_', '')
     end

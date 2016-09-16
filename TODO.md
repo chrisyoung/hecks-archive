@@ -1,14 +1,10 @@
 ## In Progress
-  * Update domain generators
+* Generate schema when creating crud_commands
 
 ## Current Sprint
-* Update Generators:
-  * Notifiers
-  * Validators
-  * Active Record
-  * Schema
-  * Config.ru file
-  * CRUD Commands
+* Active Record Generator
+* Config.ru file Generator
+* Validations Generator
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
 

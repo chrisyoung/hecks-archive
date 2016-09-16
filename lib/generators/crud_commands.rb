@@ -16,8 +16,12 @@ class Hecks < Thor
       hexagon_name.camelize
     end
 
+    def aggregate_name
+      options[:aggregate_name]
+    end
+
     def aggregate_module_name
-      options[:aggregate_name].camelize
+      aggregate_name.camelize
     end
 
     def create_value_object_folder

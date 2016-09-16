@@ -1,0 +1,14 @@
+module <%= hexagon_module_name %>
+  module Schemas
+    module <%= aggregate_module_name %>
+      Update = Dry::Validation.Schema do
+        # required(:id).filled(:int?)
+        # required(:attributes).schema do
+        #   optional(:name).filled(:str?)
+        #   optional(:description).filled(:str?)
+        #   optional(:toppings).each(:str?)
+        # end
+      end
+    end
+  end
+end

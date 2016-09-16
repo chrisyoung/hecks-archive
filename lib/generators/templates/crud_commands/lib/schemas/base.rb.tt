@@ -1,8 +1,8 @@
-require_relative 'pizzas/create'
-require_relative 'pizzas/update'
-require_relative 'pizzas/delete'
+require_relative '<%= aggregate_name %>/create'
+require_relative '<%= aggregate_name %>/update'
+require_relative '<%= aggregate_name %>/delete'
 
-module PizzasHexagon
+module <%= hexagon_module_name %>
   module Schemas
     def self.fetch(command:)
       Schemas
