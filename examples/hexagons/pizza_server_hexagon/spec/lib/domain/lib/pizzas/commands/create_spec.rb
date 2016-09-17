@@ -17,7 +17,7 @@ module PizzaServerHexagon
           )
         end
 
-        xit 'attaches an id' do
+        it 'attaches an id' do
           result = subject.call
           expect(result.id).to be
         end
@@ -27,7 +27,7 @@ module PizzaServerHexagon
             double("ChainedCommand", call: double("ChainedCommand", errors: ['boom']))
           end
 
-          xit "wont create" do
+          it "wont create" do
             expect(subject.call.id).to_not be
           end
         end

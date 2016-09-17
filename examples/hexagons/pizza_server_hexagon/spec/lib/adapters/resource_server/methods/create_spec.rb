@@ -4,18 +4,18 @@ module PizzaServerHexagon
       describe Methods::Create do
         let(:args) do
           {
-            name:        "White Pizza",
-            description: 'yes',
-            toppings:    ['garlic', 'chicken']
+            name:        "Test Entity",
+            children:    ['garlic', 'chicken']
           }
         end
 
         let(:body) { double("Body", read: args.to_json) }
-        subject    { described_class.new(hexagon: PizzasHexagon::App.new) }
+        let(:hexagon) { PizzaServerHexagon::App.new }
+        subject    { described_class.new(hexagon: hexagon) }
 
         describe '#call' do
-          xit 'creates a pizza' do
-            result = subject.call(body: body, module_name: :pizzas)
+          it 'creates a test entity' do
+            result = subject.call(body: body, module_name: :test)
             expect(JSON.parse(result.first)["id"]).to eq 1
           end
         end

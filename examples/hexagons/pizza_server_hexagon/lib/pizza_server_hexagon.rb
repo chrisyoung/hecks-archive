@@ -9,5 +9,4 @@ require_relative 'ports/events/base'
 require_relative 'ports/app/base'
 
 Dir[File.dirname(__FILE__) + "/adapters/*.rb"].each {|file| require file}
-
-require_relative 'schemas/base'
+require_relative 'schemas'
