@@ -8,6 +8,9 @@ Fix specs
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
 * Fix thor generator output
+* Dont generate a double in head_spec generator `let(:id) { double('Id') }`
+* dynamically generate test module
+* fix behavior spec when generating test entity
 
 ## Next Actions
 * Warn if running a generator without being in a hexagon

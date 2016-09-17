@@ -26,11 +26,11 @@ module PizzaServerHexagon
 
           context 'not found' do
             before do
-              hexagon.call(command: :delete, module_name: :pizzas, args: {id: 1})
+              hexagon.call(command: :delete, module_name: :test, args: {id: 1})
             end
 
             it 'returns an error' do
-              result = subject.call(id: 1, module_name: :pizzas).first
+              result = subject.call(id: 1, module_name: :test).first
               expect(JSON.parse(result)["errors"]["base"]).to include('cound not find 1')
             end
           end

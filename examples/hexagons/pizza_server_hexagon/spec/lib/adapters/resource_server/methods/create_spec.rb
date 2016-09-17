@@ -14,7 +14,7 @@ module PizzaServerHexagon
         subject    { described_class.new(hexagon: hexagon) }
 
         describe '#call' do
-          it 'creates a test entity' do
+          it 'creates test entity' do
             result = subject.call(body: body, module_name: :test)
             expect(JSON.parse(result.first)["id"]).to eq 1
           end

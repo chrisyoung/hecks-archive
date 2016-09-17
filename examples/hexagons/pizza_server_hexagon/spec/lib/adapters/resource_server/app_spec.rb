@@ -17,12 +17,12 @@ describe "My Sinatra Application" do
     expect(JSON(last_response.body)['id']).to eq 1
   end
 
-  it 'read a pizza' do
+  it 'reads' do
     get  '/test/1'
     expect(JSON.parse(last_response.body)['name']).to eq "White Pizza"
   end
 
-  it 'update a pizza' do
+  it 'updates' do
     put  '/test/1', { attributes: { name: "new name" } }.to_json
     get  '/test/1'
     expect(JSON.parse(last_response.body)['name']).to eq "new name"

@@ -8,4 +8,16 @@ class Hexagon
       DomainModule.new(attributes)
     end
   end
+
+  def value_objects
+    modules.flat_map do |domain_module|
+      domain_module.value_objects
+    end
+  end
+
+  def module_services
+    modules.flat_map do |domain_module|
+      domain_module.services
+    end
+  end
 end
