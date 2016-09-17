@@ -1,4 +1,4 @@
-require_relative '../lib/pizzas_domain'
+require_relative '../lib/<%= name %>_domain'
 RSpec.configure do |config|
   config.after(:each) do
     <%= module_name %>::Domain.repositories.values.each do |repo|

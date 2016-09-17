@@ -6,7 +6,7 @@ RSpec.shared_examples "a Domain Entity" do
     end
 
     describe 'it should test all the attributes' do
-      xit { expect(subject.id).to eq 1 }
+      it { expect(subject.id).to eq 1 }
     end
 
 		describe '#name' do

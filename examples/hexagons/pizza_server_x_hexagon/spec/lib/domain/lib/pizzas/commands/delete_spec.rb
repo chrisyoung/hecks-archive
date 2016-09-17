@@ -24,7 +24,7 @@ module PizzaServerXHexagon
             @repository = Repository
           end
 
-          xit 'deletes a pizza' do
+          it 'deletes a pizza' do
             Create.new(args: pizza_attributes, repository: @repository).call
             subject.call
             expect(query.call(id: 1)).to_not be

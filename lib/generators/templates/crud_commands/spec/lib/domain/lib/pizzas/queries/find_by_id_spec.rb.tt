@@ -5,9 +5,10 @@ module <%= hexagon_module_name %>
         let(:repository) { Repository }
 
         let(:pizza_attributes) {
-          { name:        "The Yuck",
+          {
+            name:        "The Yuck",
             description: "Tastes worse than it sounds",
-            toppings: [{ name: 'Crickets' }]
+            toppings:    [{ name: 'Crickets' }]
           }
         }
 
@@ -15,8 +16,8 @@ module <%= hexagon_module_name %>
 
         describe '#call' do
           context 'with an id' do
-            it '' do
-              result = Pizzas::Commands::Create.new(args: pizza_attributes, repository: repository).call
+            xit '' do
+              result = <%= aggregate_module_name %>::Commands::Create.new(args: pizza_attributes, repository: repository).call
               expect(subject.call(id: 1)).to be
             end
           end

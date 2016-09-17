@@ -8,7 +8,7 @@ module Hecks
   class Parser
     def initialize(hexagon_schema)
       @hexagon = Hexagon.new(hexagon_schema)
-      @dry_run = true
+      # @dry_run = true
     end
 
     def call

@@ -1,7 +1,7 @@
 describe <%= module_name %>::CommandName do
   subject { described_class.new(command) }
 
-  let(:command) { PizzaServerHexagon::Domain::Test::Commands::Create.new(args: {name: 'this'}) }
+  let(:command) { <%= module_name %>::Domain::Test::Commands::Create.new(args: {name: 'this'}) }
 
   describe '#to_sym' do
     it { expect(subject.to_sym).to eq :test_create }

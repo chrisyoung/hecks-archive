@@ -15,7 +15,7 @@ module PizzaServerXHexagon
 
         describe '#call' do
           context 'with an id' do
-            xit '' do
+            it '' do
               result = Pizzas::Commands::Create.new(args: pizza_attributes, repository: repository).call
               expect(subject.call(id: 1)).to be
             end

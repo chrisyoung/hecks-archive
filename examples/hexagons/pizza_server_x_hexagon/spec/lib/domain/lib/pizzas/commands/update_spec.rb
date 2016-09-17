@@ -21,7 +21,7 @@ module PizzaServerXHexagon
             )
           end
 
-          xit 'updates a pizza' do
+          it 'updates a pizza' do
             Create.new(args: pizza_attributes, repository: repository).call
             subject.call()
             expect(

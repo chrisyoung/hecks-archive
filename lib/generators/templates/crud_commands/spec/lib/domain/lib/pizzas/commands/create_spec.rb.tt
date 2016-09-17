@@ -17,7 +17,7 @@ module <%= hexagon_module_name %>
           )
         end
 
-        it 'attaches an id' do
+        xit 'attaches an id' do
           result = subject.call
           expect(result.id).to be
         end
@@ -27,7 +27,7 @@ module <%= hexagon_module_name %>
             double("ChainedCommand", call: double("ChainedCommand", errors: ['boom']))
           end
 
-          it "wont create" do
+          xit "wont create" do
             expect(subject.call.id).to_not be
           end
         end
