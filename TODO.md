@@ -1,14 +1,13 @@
 ## In Progress
-* Generate pizzas from a file
+Fix specs
 
 ## Current Sprint
 * Manual Integration Test
+* Fix Specs
 * Active Record Generator
-* Config.ru file Generator
-* Validations Generator
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
-* Stop hardcoding attributes
+* Fix thor generator output
 
 ## Next Actions
 * Warn if running a generator without being in a hexagon
@@ -38,9 +37,8 @@
 * Server DELETE is reporting "no response from server" in curl
 
 ## Challenges:
-* Use Dry libraries inside of the domain?
 * Remove all if statements
-* Generate an Elixr project
+* Generate a different language
 * Create Commands from Product Use Cases
 * Create plugin for Asana to show test results on use cases
 * Figure out scheme to use in memory db in production and periodically flush to real db

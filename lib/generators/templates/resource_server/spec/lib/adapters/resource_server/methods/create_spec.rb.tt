@@ -1,4 +1,4 @@
-module PizzaServerHexagon
+module <%= hexagon_module_name %>
   module Adapters
     module ResourceServer
       describe Methods::Create do

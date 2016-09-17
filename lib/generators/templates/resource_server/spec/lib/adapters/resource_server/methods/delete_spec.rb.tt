@@ -1,8 +1,8 @@
-module PizzaServerHexagon
+module <%= hexagon_module_name %>
   module Adapters
     module ResourceServer
       describe Methods::Delete do
-        let(:hexagon) { PizzaServerHexagon::App.new }
+        let(:hexagon) { <%= hexagon_module_name %>::App.new }
 
         let(:pizza_attributes) do
           {
