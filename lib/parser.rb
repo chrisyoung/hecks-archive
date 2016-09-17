@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'parser/hexagon'
 require_relative 'parser/domain_module'
 require_relative 'parser/domain_object'
@@ -11,7 +12,9 @@ module Hecks
     def call
       generate_hexagon
       generate_modules
+
       generate_hexagon_services
+      generate_test_module
     end
 
     private
@@ -22,6 +25,17 @@ module Hecks
       command = "../../bin/hecks new #{hexagon.name}"
       puts command
       puts `#{command}`
+    end
+
+    def generate_test_module
+      run_command(
+        [
+          'cd', hexagon_directory, '&&',
+          hecks_binary, 'domain:aggregate', 'test',
+          '-h', 'entity',
+          '-a', 'name:string children[child]'
+        ].join ' '
+      )
     end
 
     def generate_modules
