@@ -1,7 +1,7 @@
 require_relative '../../lib/parser'
 
 hexagon = {
-  name: "pizzas",
+  name: "pizza_server",
   modules: [
     {
       name: "pizzas",
