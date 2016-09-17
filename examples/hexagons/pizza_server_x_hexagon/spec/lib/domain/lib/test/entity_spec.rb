@@ -8,6 +8,8 @@ module PizzaServerXHexagon
       
         let(:name) { double('Name') }
       
+        let(:children) { double('Children') }
+      
         let(:id) { double('Id') }
       
 

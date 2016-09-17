@@ -15,6 +15,7 @@ module Hecks
       generate_hexagon
       generate_modules
       generate_test_module
+      generate_test_commands
       generate_value_objects
       generate_module_services
       generate_hexagon_services
@@ -31,7 +32,11 @@ module Hecks
     end
 
     def generate_test_module
-      run(['domain:aggregate', 'test', '-h', 'entity', '-a', 'name:string children[child]'])
+      run(['domain:aggregate', 'test', '-h', 'entity', '-a', 'name:string children:[child]'])
+    end
+
+    def generate_test_commands
+      run(['adapter:crud_commands', '-m', 'test'])
     end
 
     def generate_modules

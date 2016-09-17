@@ -10,7 +10,7 @@ module PizzaServerXHexagon
         end
 
         let(:body) { double("Body", read: args.to_json) }
-        let(:hexagon) { PizzaServerHexagon::App.new }
+        let(:hexagon) { PizzaServerXHexagon::App.new }
         subject    { described_class.new(hexagon: hexagon) }
 
         describe '#call' do

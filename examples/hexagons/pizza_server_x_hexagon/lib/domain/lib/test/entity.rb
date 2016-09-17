@@ -6,17 +6,19 @@ module PizzaServerXHexagon
       # that is handled by the Repository and operated on by the application.
 
       class Entity
-        attr_accessor :name, :id
-        def initialize(name:, id:)
+        attr_accessor :name, :children, :id
+        def initialize(name:, children:, id:)
           
             @name = name
+          
+            @children = children
           
             @id = id
           
         end
 
         def to_json
-          JSON.generate(name: name, id: id)
+          JSON.generate(name: name, children: children, id: id)
         end
       end
     end

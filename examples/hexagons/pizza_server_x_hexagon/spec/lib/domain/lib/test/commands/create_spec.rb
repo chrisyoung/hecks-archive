@@ -1,6 +1,6 @@
 module PizzaServerXHexagon
   module Domain
-    module Pizzas
+    module Test
       describe Commands::Create do
         let(:chained_command) do
           double("ChainedCommand", call: double("ChainedCommand", errors: []))

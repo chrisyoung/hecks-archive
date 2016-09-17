@@ -1,6 +1,6 @@
 module PizzaServerXHexagon
   module Domain
-    module Pizzas
+    module Test
       module Commands
         describe Delete do
           subject do

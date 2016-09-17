@@ -28,7 +28,7 @@ describe "My Sinatra Application" do
     expect(JSON.parse(last_response.body)['name']).to eq "new name"
   end
 
-  it 'delete a pizza' do
+  it 'deletes' do
     delete '/test/1'
     get    '/test/1'
     expect(JSON.parse(last_response.body)).to be_nil

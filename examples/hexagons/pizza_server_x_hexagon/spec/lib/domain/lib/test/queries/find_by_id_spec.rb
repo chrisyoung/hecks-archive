@@ -1,6 +1,6 @@
 module PizzaServerXHexagon
   module Domain
-    module Pizzas
+    module Test
       describe Queries::FindByID do
         let(:repository) { Repository }
 
@@ -17,7 +17,7 @@ module PizzaServerXHexagon
         describe '#call' do
           context 'with an id' do
             xit '' do
-              result = Pizzas::Commands::Create.new(args: pizza_attributes, repository: repository).call
+              result = Test::Commands::Create.new(args: pizza_attributes, repository: repository).call
               expect(subject.call(id: 1)).to be
             end
           end

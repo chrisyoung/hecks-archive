@@ -20,7 +20,7 @@ module PizzaServerXHexagon
 
           it 'deletes' do
             subject.call(id: 1, module_name: :test).first
-            result = hexagon.query(query: :find_by_id, module_name: :pizzas, args: { id: 1 })
+            result = hexagon.query(query: :find_by_id, module_name: :test, args: { id: 1 })
             expect(result).to_not be
           end
 

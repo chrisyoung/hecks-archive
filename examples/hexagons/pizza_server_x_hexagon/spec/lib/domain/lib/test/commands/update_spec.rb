@@ -1,6 +1,6 @@
 module PizzaServerXHexagon
   module Domain
-    module Pizzas
+    module Test
       module Commands
         describe Update do
           let(:new_attributes) { { name: "new name" } }

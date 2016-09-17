@@ -2,7 +2,7 @@ Dir[File.dirname(__FILE__) + "/schemas/**/*.rb"].each do |file|
   require file
 end
 
-module PizzaServerXHexagon
+module <%= module_name %>
   module Schemas
     def self.fetch(command:)
       Schemas

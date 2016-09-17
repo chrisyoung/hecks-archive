@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = '<%=aggregate_name %>_domain'
+  s.name        = '<%=domain_name %>'
   s.version     = '0.0.0'
   # s.homepage    = ''
   # s.date        = ''
