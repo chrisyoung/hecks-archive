@@ -25,7 +25,7 @@ module Hecks
     def generate(command)
       case command
       when :hexagon
-        runner.call(['new', hexagon.name])
+        runner.call(['new', hexagon.name], from_hex_dir: false)
       when :test_module
         runner.call(['generate aggregate', 'test', '--head_name', 'entity', '--attributes', 'name:string children:[child]'])
       when :test_commands
