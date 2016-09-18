@@ -1,8 +1,8 @@
 ## In Progress
+* Active Record Generator
 
 ## Current Sprint
 * Manual Integration Test
-* Active Record Generator
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
 
