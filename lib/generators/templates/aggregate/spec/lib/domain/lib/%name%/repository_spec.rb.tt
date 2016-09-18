@@ -1,0 +1,5 @@
+describe <%= hexagon_module_name %>::Domain::<%= module_name %>::Repository do
+  subject { described_class }
+  describe '#create' do
+  end
+end

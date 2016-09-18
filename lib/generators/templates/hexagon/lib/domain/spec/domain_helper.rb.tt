@@ -1,0 +1,8 @@
+require_relative '../lib/<%= name %>_domain'
+RSpec.configure do |config|
+  config.after(:each) do
+    <%= module_name %>::Domain.repositories.values.each do |repo|
+      repo.delete_all
+    end
+  end
+end

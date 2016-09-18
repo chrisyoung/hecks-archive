@@ -1,19 +1,14 @@
 ## In Progress
+* Active Record Generator
 
 ## Current Sprint
-* Update Generators:
-  * Existing
-  * Notifiers
-  * Validators
-  * Active Record
-  * Schema
-  * Config.ru file
-  * CRUD Commands
+* Manual Integration Test
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
-* Performance Testing
 
 ## Next Actions
+* Add test module generation to hexagon generator
+* Warn if running a generator without being in a hexagon
 * Consider JSON schema for building Domain
 * Schema for read (required int?)
 * Hook up code coverage
@@ -40,9 +35,8 @@
 * Server DELETE is reporting "no response from server" in curl
 
 ## Challenges:
-* Use Dry libraries inside of the domain?
 * Remove all if statements
-* Generate an Elixr project
+* Generate a different language
 * Create Commands from Product Use Cases
 * Create plugin for Asana to show test results on use cases
 * Figure out scheme to use in memory db in production and periodically flush to real db

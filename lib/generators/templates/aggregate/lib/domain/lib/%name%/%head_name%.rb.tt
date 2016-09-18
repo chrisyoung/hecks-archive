@@ -1,0 +1,22 @@
+module <%= hexagon_module_name %>
+  module Domain
+    module <%= module_name %>
+      # This is the head of the Pizzas Aggregate.  An
+      # Aggregate head is generally an Entity and is the only object
+      # that is handled by the Repository and operated on by the application.
+
+      class <%= head_module_name %>
+        attr_accessor <%= attribute_names %>
+        def initialize(<%= attribute_param_names %>)
+          <% attribute_names_as_strings.each do |attribute| %>
+            @<%= attribute.to_s %> = <%= attribute.to_s %>
+          <% end %>
+        end
+
+        def to_json
+          JSON.generate(<%= keys_and_values %>)
+        end
+      end
+    end
+  end
+end

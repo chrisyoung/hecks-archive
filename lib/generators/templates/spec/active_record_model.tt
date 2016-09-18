@@ -1,6 +1,0 @@
-require File.expand_path('lib/<%= hexagon_name %>/spec/domain/<%= module_name %>/<%= name %>_behavior.rb')
-
-describe <%= name.camelize %> do
-  it "will behave like a domain <%= name.camelize %> if you uncomment the following line"
-  # it_should_behave_like("a Domain <%= name.camelize %>")
-end

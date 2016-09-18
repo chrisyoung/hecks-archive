@@ -1,0 +1,3 @@
+describe <%= hexagon_module_name %>::Adapters::ResourceServer::Methods do
+
+end

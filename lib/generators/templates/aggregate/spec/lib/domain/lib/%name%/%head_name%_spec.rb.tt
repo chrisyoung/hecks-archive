@@ -1,0 +1,15 @@
+require_relative '<%= head_name %>_behavior.rb'
+
+module <%= hexagon_module_name %>
+  module Domain
+    describe <%= module_name %>::<%= head_module_name %> do
+      subject { described_class.new }
+
+      <% attribute_names_as_strings.each do |attribute_name| %>
+        <%= "let(:#{attribute_name}) { double('#{attribute_name.camelize}') }" %>
+      <% end %>
+
+      it_should_behave_like("a Domain <%= head_name.camelize %>")
+    end
+  end
+end
