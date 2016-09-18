@@ -6,15 +6,12 @@ module <%= hexagon_module_name %>
           double("ChainedCommand", call: double("ChainedCommand", errors: []))
         end
 
+        let(:args) do
+          { name: "White Pizza", description: 'A local favorite', toppings: ['garlic', 'chicken'] }
+        end
+
         subject do
-          described_class.new(
-            chained_command,
-            args: {
-              name:        "White Pizza",
-              description: 'yes',
-              toppings:    ['garlic', 'chicken']
-            }
-          )
+          described_class.new(chained_command, args: args)
         end
 
         xit 'attaches an id' do
