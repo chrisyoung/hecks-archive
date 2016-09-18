@@ -16,12 +16,12 @@ RUN cd /root/src/ruby-2.2.5; ./configure; make install
 RUN gem update --system
 RUN gem install bundler
 
-ADD ./hexagons/pizza_server_x_hexagon /app/hexagon
+ADD ./hexagons/pizza_server_hexagon /app/hexagons/pizza_server_hexagon
 ADD ./server /app/server
 
 WORKDIR /app/server
 
-RUN cd /app/hexagon; bash build_gems
+RUN cd /app/hexagons/pizza_server_hexagon; bash build_gems
 
 EXPOSE 9292
 CMD ["/usr/local/bin/rackup", "config.ru", "-p", "9292", "-o", "0.0.0.0"]

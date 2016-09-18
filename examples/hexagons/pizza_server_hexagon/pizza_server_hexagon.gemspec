@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = '<%= name %>'
+  s.name        = 'pizza_server_hexagon'
   s.version     = '0.0.0'
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   # s.add_runtime_dependency 'mysql2'
   s.add_runtime_dependency 'dry-validation', '~> 0.9'
   s.add_runtime_dependency 'activerecord', "~> 5.0"
-  s.add_runtime_dependency '<%= domain_name %>', "~> 0.0"
+  s.add_runtime_dependency 'pizza_server_domain', "~> 0.0"
   s.add_runtime_dependency 'sinatra', "~> 1.4"
   s.add_runtime_dependency 'json', "~> 2.0"
 end
