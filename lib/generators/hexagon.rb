@@ -1,6 +1,6 @@
 require 'active_support/inflector'
 
-class Hecks < Thor
+class Domain
   class Hexagon < Thor::Group
     include Thor::Actions
 

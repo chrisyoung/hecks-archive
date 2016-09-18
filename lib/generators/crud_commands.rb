@@ -1,4 +1,4 @@
-class Hecks < Thor
+class Adapter
   class CrudCommands < Thor::Group
     include Thor::Actions
 

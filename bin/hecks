@@ -1,44 +1,15 @@
 #!/usr/bin/env ruby
 require "thor"
-# require_relative "../lib/generators/adapters"
-require_relative "../lib/generators/resource_server"
-require_relative "../lib/generators/crud_commands"
+require_relative "../lib/generate"
 require_relative "../lib/generators/hexagon"
-require_relative "../lib/generators/value_object"
-require_relative "../lib/generators/aggregate"
 
-class Hecks
+class Hecks < Thor
   package_name "hecks"
-  register(Hecks::Hexagon, "new", "new NAME", "Create a new Hexagon")
 
-  register(
-    Hecks::Aggregate,
-    "domain:aggregate",
-    "domain:aggregate NAME -h NAME -a [ATTRIBUTE:TYPE]",
-    "Creates a module with an aggregate head, a repository and application"
-  )
+  desc "generate", "generate domain objects and hexagon services"
+  subcommand "generate", Generate
 
-  register(
-    Hecks::ValueObject,
-    "domain:value_object",
-    "domain:value_object NAME -m NAME -a [ATTRIBUTES:TYPE]",
-    "Add a value object to a module"
-  )
-
-  register(
-    Hecks::CrudCommands,
-    "adapter:crud_commands",
-    "adapter:crud_commands -m MODULE_NAME",
-    "generate a crud commands for a module"
-  )
-
-  register(
-    Hecks::ResourceServer,
-    "adapter:resource_server",
-    "adapter:resource_server",
-    "generate a CRUD Server"
-  )
-
+  register(Domain::Hexagon, "new", "new NAME", "Create a new Hexagon")
 end
 
 Hecks.start

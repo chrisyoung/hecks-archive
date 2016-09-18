@@ -1,16 +1,12 @@
 ## In Progress
-Fix specs
 
 ## Current Sprint
 * Manual Integration Test
-* Fix Specs
 * Active Record Generator
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
-* Fix thor generator output
-* Dont generate a double in head_spec generator `let(:id) { double('Id') }`
-* dynamically generate test module
-* fix behavior spec when generating test entity
+
+* Add test module generation to hexagon generator
 
 ## Next Actions
 * Warn if running a generator without being in a hexagon

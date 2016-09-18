@@ -1,4 +1,4 @@
-class Hecks < Thor
+class Domain
   class ValueObject < Thor::Group
     include Thor::Actions
 

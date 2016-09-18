@@ -10,7 +10,7 @@ class DomainObject
   def fields
     @fields.map do |attributes|
       Field.new(attributes)
-    end
+    end.map(&:to_s).join(" ")
   end
 
   def head?

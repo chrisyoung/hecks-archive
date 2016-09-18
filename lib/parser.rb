@@ -1,71 +1,46 @@
-require_relative 'parser/hexagon'
-require_relative 'parser/domain_module'
-require_relative 'parser/domain_object'
-require_relative 'parser/field'
-require_relative 'parser/module_service'
+require_relative 'parser/env'
 
 module Hecks
   class Parser
-    def initialize(hexagon_schema)
+    def initialize(hexagon_schema, dry_run = false)
       @hexagon = Hexagon.new(hexagon_schema)
-      # @dry_run = true
+      @runner  = CommandRunner.new(hexagon, dry_run)
     end
 
     def call
-      generate_hexagon
-      generate_modules
-      generate_test_module
-      generate_test_commands
-      generate_value_objects
-      generate_module_services
-      generate_hexagon_services
+      puts "\n"
+      generate :hexagon
+      generate :modules
+      generate :test_module
+      generate :test_commands
+      generate :value_objects
+      generate :module_services
+      generate :hexagon_services
     end
 
     private
 
-    attr_reader :hexagon, :dry_run
+    attr_reader :hexagon, :runner
 
-    def generate_hexagon
-      command = ["new #{hexagon.name}"]
-      puts "\n", 'hecks ' + command.join(' ')
-      puts "\n", `#{(['../../bin/hecks'] + command).join(' ')}`, "\n" unless dry_run
-    end
-
-    def generate_test_module
-      run(['domain:aggregate', 'test', '-h', 'entity', '-a', 'name:string children:[child]'])
-    end
-
-    def generate_test_commands
-      run(['adapter:crud_commands', '-m', 'test'])
-    end
-
-    def generate_modules
-      hexagon.modules.each do |domain_module|
-        run(['domain:aggregate', domain_module.name, '-h', domain_module.head.name, '-a', domain_module.head.fields.map(&:to_s).join(" ")])
+    def generate(command)
+      case command
+      when :hexagon
+        runner.call(['new', hexagon.name])
+      when :test_module
+        runner.call(['generate aggregate', 'test', '-h', 'entity', '-a', 'name:string children:[child]'])
+      when :test_commands
+        runner.call(['generate crud_commands', '-m', 'test'])
+      when :modules
+        hexagon.modules.each { |domain_module| runner.call(['generate aggregate', domain_module.name, '-h', domain_module.head.name, '-a', domain_module.head.fields]) }
+      when :value_objects
+        hexagon.value_objects.each { |value_object| runner.call(['generate value_object', value_object.name, '-m', 'pizzas', '-a', value_object.fields]) }
+      when :module_services
+        hexagon.module_services.each { |s| runner.call(["generate #{s.name}", '-m', s.domain_module.name]) }
+      when :hexagon_services
+        hexagon.services.each { |s| runner.call(["generate #{s}"]) }
+      else
+        raise "unrecognized command: #{command}"
       end
-    end
-
-    def generate_value_objects
-      hexagon.value_objects.each do |value_object|
-        run(['domain:value_object', value_object.name, '-m', 'pizzas', '-a', value_object.fields.map(&:to_s)])
-      end
-    end
-
-    def generate_module_services
-      hexagon.module_services.each { |s| run(["adapter:#{s.name}", '-m', s.domain_module.name]) }
-    end
-
-    def generate_hexagon_services
-      hexagon.services.each { |s| run(["adapter:#{s}"]) }
-    end
-
-    def full_command(command)
-      (['cd', "#{hexagon.name}_hexagon", '&&', '../../../bin/hecks'] + command).join(' ')
-    end
-
-    def run(command)
-      puts 'hecks ' + command.join(' ')
-      puts("\n", `#{full_command(command)}`, "\n") unless dry_run
     end
   end
 end
