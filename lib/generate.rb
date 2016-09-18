@@ -5,6 +5,7 @@ require_relative "../lib/generators/aggregate"
 
 class Generate < Thor
   package_name "hecks generate"
+
   register(
     Domain::Aggregate,
     "aggregate",

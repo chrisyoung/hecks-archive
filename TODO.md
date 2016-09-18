@@ -6,9 +6,8 @@
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
 
-* Add test module generation to hexagon generator
-
 ## Next Actions
+* Add test module generation to hexagon generator
 * Warn if running a generator without being in a hexagon
 * Consider JSON schema for building Domain
 * Schema for read (required int?)
