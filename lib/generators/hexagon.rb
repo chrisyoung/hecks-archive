@@ -14,6 +14,11 @@ class Domain
       directory('templates/hexagon', "#{name}")
     end
 
+    def copy_hidden_files
+      copy_file('templates/hidden_files/gitignore', "#{name}/.gitignore")
+      copy_file('templates/hidden_files/rspec', "#{name}/.rspec")
+    end
+
     private
 
     def name
