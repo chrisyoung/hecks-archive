@@ -1,10 +1,11 @@
 Gem::Specification.new do |s|
   s.name        = '<%=domain_name %>'
   s.version     = '0.0.0'
+  s.authors     = ['Who are you?']
   # s.homepage    = ''
   # s.date        = ''
   # s.description = ""
-  # s.authors     = []
+
   # s.email       = ''
   # s.license     = ''
   s.summary     = "<%= module_name %> Domain"

@@ -3,13 +3,12 @@ Gem::Specification.new do |s|
   s.version     = '0.0.0'
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
-
-#  s.homepage    = ""
-#  s.date        = ''
-#  s.summary     = ""
-#  s.description = ""
-#  s.authors     = [""]
-#  s.email       = ''
+  s.authors     = ["Who are you?"]
+  s.summary     = "What is it?"
+  #  s.homepage    = ""
+  #  s.date        = ''
+  #  s.description = ""
+  #  s.email       = ''
 
   s.add_development_dependency 'rspec', "~> 3.5"
   s.add_development_dependency 'guard-rspec', "~> 4.7"
