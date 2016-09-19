@@ -1,3 +1,4 @@
+
 ## In Progress
 * Active Record Generator
 
@@ -5,6 +6,8 @@
 * Manual Integration Test
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
+* Rename memory to memory_database
+* Do something interesting with it.
 
 ## Next Actions
 * Add test module generation to hexagon generator

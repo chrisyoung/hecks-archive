@@ -6,7 +6,7 @@ require_relative "../lib/generators/hexagon"
 class Hecks < Thor
   package_name "hecks"
 
-  desc "generate", "generate domain objects and hexagon services"
+  desc       "generate", "generate domain objects and hexagon services"
   subcommand "generate", Generate
 
   register(Domain::Hexagon, "new", "new NAME", "Create a new Hexagon")

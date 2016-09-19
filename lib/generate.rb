@@ -2,6 +2,7 @@ require_relative "../lib/generators/resource_server"
 require_relative "../lib/generators/crud_commands"
 require_relative "../lib/generators/value_object"
 require_relative "../lib/generators/aggregate"
+require_relative "../lib/generators/sql_database"
 
 class Generate < Thor
   package_name "hecks generate"
@@ -32,5 +33,19 @@ class Generate < Thor
     "resource_server",
     "resource_server",
     "generate a CRUD Server"
+  )
+
+  register(
+    Adapter::ResourceServer,
+    "resource_server",
+    "resource_server",
+    "generate a CRUD Server"
+  )
+
+  register(
+    Adapter::SQLDatabase,
+    "sql_database",
+    "sql_database",
+    "generate a SQL Database"
   )
 end
