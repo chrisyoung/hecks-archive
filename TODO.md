@@ -1,13 +1,12 @@
-
 ## In Progress
-* Active Record Generator
+* Add rules to schemas
 
 ## Current Sprint
 * Manual Integration Test
 * Get MySQL Running in in Docker Container
 * Factory for building toppings in Pizza
-* Rename memory to memory_database
-* Do something interesting with it.
+* 'Pizzas' directory shouldn't be camelcased
+* Active Record Generator
 
 ## Next Actions
 * Add test module generation to hexagon generator
