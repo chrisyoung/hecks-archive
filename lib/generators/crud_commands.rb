@@ -8,6 +8,8 @@ class Adapter
       File.dirname(__FILE__)
     end
 
+    private
+
     def hexagon_name
       Dir.pwd.split('/').last
     end

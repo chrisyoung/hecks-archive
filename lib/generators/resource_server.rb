@@ -10,6 +10,8 @@ class Adapter
       directory('templates/resource_server', ".")
     end
 
+    private
+
     def hexagon_name
       Dir.pwd.split('/').last
     end

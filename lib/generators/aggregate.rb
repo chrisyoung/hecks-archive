@@ -11,6 +11,12 @@ class Domain
       File.dirname(__FILE__)
     end
 
+    def create_aggregate_folder
+      directory('templates/aggregate', '.')
+    end
+
+    private
+
     def head_name
       options[:head_name]
     end
@@ -49,10 +55,6 @@ class Domain
 
     def attributes
       options[:attributes].merge(id: 'integer')
-    end
-
-    def create_aggregate_folder
-      directory('templates/aggregate', '.')
     end
   end
 end

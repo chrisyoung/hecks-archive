@@ -20,6 +20,8 @@ class Domain
       directory('templates/value_object', ".")
     end
 
+    private
+
     def attribute_names
       attributes.keys.map { |key| ':' + key.to_s }.join ", "
     end

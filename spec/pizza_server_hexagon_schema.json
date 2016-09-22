@@ -1,0 +1,27 @@
+{
+  "name": "pizza_server_demo",
+  "modules": [
+    {
+      "name": "pizzas",
+      "objects": [
+        {
+          "name": "pizza",
+          "attributes": {
+            "name":        "string",
+            "description": "string",
+            "toppings":    "[topping]"
+          },
+          "head": true
+        },
+        {
+          "name": "topping",
+          "attributes": {
+            "name": "string"
+          }
+        }
+      ],
+      "services": ["crud_commands"]
+    }
+  ],
+  "services": ["resource_server"]
+}
