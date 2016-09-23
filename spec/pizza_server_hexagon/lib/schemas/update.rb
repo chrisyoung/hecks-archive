@@ -1,6 +1,6 @@
-module <%= hexagon_module_name %>
+module PizzaServerHexagon
   module Schemas
-    module <%= aggregate_module_name %>
+    module Pizzas
       Update = Dry::Validation.Schema do
         required(:id).filled(:int?)
         # required(:attributes).schema do

@@ -1,6 +1,6 @@
-module <%= hexagon_module_name %>
+module PizzaServerHexagon
   module Schemas
-    module <%= aggregate_module_name %>
+    module Pizzas
       Delete = Dry::Validation.Schema do
         required(:id).filled(:int?)
       end

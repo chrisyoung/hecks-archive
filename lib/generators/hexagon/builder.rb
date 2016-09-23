@@ -30,7 +30,7 @@ module Hecks
       when :value_objects
         hexagon.value_objects.each { |value_object| runner.call(['generate value_object', value_object.name, '-m', 'pizzas', '-a', value_object.fields]) }
       when :module_services
-        hexagon.module_services.each { |s| runner.call(["generate #{s.name}", '-m', s.domain_module.name]) }
+        hexagon.module_services.each { |s| runner.call(["generate #{s.name}", '-m', s.domain_module.name, '-a', s.attributes]) }
       when :hexagon_services
         hexagon.services.each { |s| runner.call(["generate #{s}"]) }
       else

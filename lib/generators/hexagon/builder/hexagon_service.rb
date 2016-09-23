@@ -1,9 +1,8 @@
-class ModuleService
-  attr_reader :name, :domain_module
-  def initialize(service, domain_module)
+class HexagonService
+  attr_reader :name, :attributes
+  def initialize(service)
     @name = service[:name]
     @attributes = service[:attributes]
-    @domain_module = domain_module
   end
 
   def attributes

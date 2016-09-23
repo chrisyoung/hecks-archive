@@ -10,8 +10,8 @@ class DomainModule
   end
 
   def services
-    @services.map do |service_name|
-      ModuleService.new(service_name, self)
+    @services.map do |attributes|
+      ModuleService.new(attributes, self)
     end
   end
 

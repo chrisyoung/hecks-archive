@@ -2,10 +2,15 @@ class Adapter
   class CrudCommands < Thor::Group
     include Thor::Actions
 
-    class_option :aggregate_name, aliases: "-m", desc: "the name of the module to create the use case in"
+    class_option :module_name, aliases: "-m", desc: "the name of the aggregate module"
+    class_option :attributes,  aliases: "-a", desc: "required attributes will be validated by a schema"
 
     def self.source_root
       File.dirname(__FILE__)
+    end
+
+    def create_value_object_folder
+      directory('templates/crud_commands', ".")
     end
 
     private
@@ -23,11 +28,7 @@ class Adapter
     end
 
     def aggregate_module_name
-      aggregate_name.camelize
-    end
-
-    def create_value_object_folder
-      directory('templates/crud_commands', ".")
+      options[:module_name].camelize
     end
   end
 end

@@ -9,6 +9,12 @@ class Hexagon
     end
   end
 
+  def services
+    @services.map do |service|
+      HexagonService.new(service)
+    end
+  end
+
   def value_objects
     modules.flat_map do |domain_module|
       domain_module.value_objects

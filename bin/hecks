@@ -10,7 +10,7 @@ module Hecks
     desc       "generate", "generate domain objects and hexagon services"
     subcommand "generate", Generate
 
-    register(Domain::Hexagon, "new", "new NAME", "Create a new Hexagon")
+    register(Domain::Hexagon, "new", "new NAME [options]", "Create a new Hexagon")
   end
 end
 

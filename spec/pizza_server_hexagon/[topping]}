@@ -1,0 +1,12 @@
+       exist  
+   identical  lib/domain/lib/pizzas/commands/create.rb
+   identical  lib/domain/lib/pizzas/commands/delete.rb
+   identical  lib/domain/lib/pizzas/commands/update.rb
+   identical  lib/domain/lib/pizzas/queries/find_by_id.rb
+   identical  lib/schemas/pizzas/create.rb
+   identical  lib/schemas/pizzas/delete.rb
+   identical  lib/schemas/pizzas/update.rb
+   identical  spec/lib/domain/lib/pizzas/commands/create_spec.rb
+   identical  spec/lib/domain/lib/pizzas/commands/delete_spec.rb
+   identical  spec/lib/domain/lib/pizzas/commands/update_spec.rb
+   identical  spec/lib/domain/lib/pizzas/queries/find_by_id_spec.rb
