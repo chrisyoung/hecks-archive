@@ -1,0 +1,11 @@
+module <%= hexagon_module_name %>
+  module Schemas
+    module <%= aggregate_module_name %>
+      Create = Dry::Validation.Schema do
+      <%- attributes.each do |name, value| -%>
+        require(:<%= name %>).filled(:str?)
+      <%- end -%>
+      end
+    end
+  end
+end

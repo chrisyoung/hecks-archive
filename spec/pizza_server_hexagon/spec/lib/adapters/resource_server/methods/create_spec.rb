@@ -9,9 +9,9 @@ module PizzaServerHexagon
           }
         end
 
-        let(:body)    { double("Body", read: args.to_json) }
+        let(:body) { double("Body", read: args.to_json) }
         let(:hexagon) { PizzaServerHexagon::App.new }
-        subject       { described_class.new(hexagon: hexagon) }
+        subject    { described_class.new(hexagon: hexagon) }
 
         describe '#call' do
           it 'creates test entity' do

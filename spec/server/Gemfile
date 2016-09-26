@@ -1,2 +1,2 @@
-gem 'pizzas_hexagon', '0.0.1'
+gem 'pizzas_hexagon', '0.0.0'
 gem 'hecks_resource_server', '0.0.0'

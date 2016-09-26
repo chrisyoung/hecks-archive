@@ -1,0 +1,33 @@
+{
+  "modules": [
+    {
+      "name": "pizzas",
+      "objects": [
+        {
+          "name": "pizza",
+          "attributes": {
+            "name":        "string",
+            "description": "string",
+            "toppings":    "[topping]"
+          },
+          "head": true
+        },
+        {
+          "name": "topping",
+          "attributes": {
+            "name": "string"
+          }
+        }
+      ],
+      "services": [{
+        "name": "crud_commands",
+        "attributes": {
+          "name":        "string",
+          "description": "string",
+          "toppings":    "[topping]"
+        }
+      }]
+    }
+  ],
+  "services": [{"name": "resource_server"}]
+}

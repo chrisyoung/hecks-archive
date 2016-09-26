@@ -1,17 +1,2 @@
 #!/usr/bin/env ruby
-require "thor"
-require_relative "../lib/generate"
-require_relative "../lib/generators/hexagon"
-
-module Hecks
-  class Generators < Thor
-    package_name "hecks"
-
-    desc       "generate", "generate domain objects and hexagon services"
-    subcommand "generate", Generate
-
-    register(Domain::Hexagon, "new", "new NAME [options]", "Create a new Hexagon")
-  end
-end
-
-Hecks::Generators.start
+require_relative "../lib/app"
