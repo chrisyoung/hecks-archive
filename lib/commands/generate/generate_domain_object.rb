@@ -6,11 +6,11 @@
 class GenerateDomainObject < Thor::Group
   include Thor::Actions
 
-  class_option :head_name,  :aliases => "-h", desc: "the name of the aggregate head"
-  class_option :attributes, :aliases => "-a", type: :hash, desc: "attributes for the aggregate head"
-  class_option :name,       :aliases => "-n", desc: "attributes for the aggregate head"
-  class_option :type,       :aliases => "-t", desc: "The type of domain object you want to create"
-  class_option :module,     :aliases => "-m", desc: "Domain Module"
+  class_option :head_name,   :aliases => "-h", desc: "the name of the aggregate head"
+  class_option :attributes,  :aliases => "-a", type: :hash, desc: "attributes for the aggregate head"
+  class_option :name,        :aliases => "-n", desc: "attributes for the aggregate head"
+  class_option :type,        :aliases => "-t", desc: "The type of domain object you want to create"
+  class_option :module_name, :aliases => "-m", desc: "Domain Module"
 
   def self.source_root
     File.dirname(__FILE__) + '/../../templates/generate/domain'
@@ -21,6 +21,15 @@ class GenerateDomainObject < Thor::Group
   end
 
   private
+
+  # Aliases
+  def hexagon_module_name
+    camelized_hexagon_name
+  end
+
+  def aggregate_module_name
+    camelized_module_name
+  end
 
   # Head Name
   def head_name
@@ -58,7 +67,7 @@ class GenerateDomainObject < Thor::Group
     attributes.keys.map { |key| key.to_s }
   end
 
-  def attribute_keys_as_string
+  def attribute_keys_string_as_symbols
     attributes.keys.map { |key| ':' + key.to_s }.join ", "
   end
 

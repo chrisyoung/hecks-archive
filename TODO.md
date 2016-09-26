@@ -4,25 +4,26 @@
 * Explode hecks commands to be more comprehensive
 
 ## Current Sprint
-* Figure out how to generate the config for the server
-* Clean up generator comments
-* Establish open source license
+* Use a struct for value objects
 * Finish Active Record implementation
 * Tests for spec/pizza_server_hexagon
 * Figure out where to deploy Docker
 * Factory for building toppings in Pizza
 * Push it to Github
-* Update Hecks Documentation
 * Get MySQL Running in in Docker Container
-* Use a struct for value objects
-* Use relative hex binary automatically if no gem is installed
 
 ## Bugs
 * We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Server DELETE is reporting "no response from server" in curl
-* 'Pizzas' directory shouldn't be camelcased
+* 'Pizzas' directory shouldn't be camel cased
 
 ## Next Actions
+* Update Hecks Documentation
+* Establish open source license
+* Clean up generator comments
+* Figure out how to generate the config for the server
+* Use relative hex binary automatically if no gem is installed
+* Tests for all the generators
 * Active Record Generator
 * Set up guard to build gems
 * Write tests for example app in spec
