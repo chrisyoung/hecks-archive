@@ -13,9 +13,7 @@
 * Get MySQL Running in in Docker Container
 
 ## Bugs
-* We are referencing PizzaHexagon::App, instead of PizzaHexagon
 * Server DELETE is reporting "no response from server" in curl
-* 'Pizzas' directory shouldn't be camel cased
 
 ## Next Actions
 * Update Hecks Documentation
