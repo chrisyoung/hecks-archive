@@ -5,10 +5,10 @@ module PizzaServerHexagon
     describe ::Pizza do
       subject { described_class.new }
 
-      let(:name) { double('Name') }
-      let(:description) { double('Description') }
-      let(:toppings) { double('Toppings') }
-      let(:id) { double('Id') }
+      let(:["name", "string"]) { double('["name", "string"]') }
+      let(:["description", "string"]) { double('["description", "string"]') }
+      let(:["toppings", "[topping]"]) { double('["toppings", "[topping]"]') }
+      let(:[:id, "integer"]) { double('[:id, "integer"]') }
 
       it_should_behave_like("a Domain Pizza")
     end

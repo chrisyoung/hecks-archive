@@ -1,5 +1,5 @@
 class DomainObject
-  attr_reader :name, :domain_module
+  attr_reader :name, :module_name
 
   def initialize(attributes)
     @name        = attributes[:name]

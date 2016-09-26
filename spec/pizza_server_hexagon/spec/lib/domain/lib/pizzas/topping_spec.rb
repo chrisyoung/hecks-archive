@@ -2,7 +2,7 @@ require_relative 'topping_behavior.rb'
 
 module PizzaServerHexagon
   module Domain
-    describe ModuleName::module_name do
+    describe Pizzas::pizzas do
       subject { described_class.new }
 
       
@@ -11,7 +11,7 @@ module PizzaServerHexagon
         let(:id) { double('Id') }
       
 
-      it_should_behave_like("a Domain module_name")
+      it_should_behave_like("a Domain pizzas")
     end
   end
 end

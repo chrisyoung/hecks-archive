@@ -5,8 +5,8 @@ module <%= hexagon_module_name %>
     describe <%= module_name %>::<%= head_module_name %> do
       subject { described_class.new }
 
-      <%- attribute_names_as_strings.each do |attribute_name| -%>
-      <%= "let(:#{attribute_name}) { double('#{attribute_name.camelize}') }" %>
+      <%- attributes.each do |attribute_name| -%>
+      <%= "let(:#{attribute_name.to_s}) { double('#{attribute_name.to_s.camelize}') }" %>
       <%- end -%>
 
       it_should_behave_like("a Domain <%= head_name.camelize %>")

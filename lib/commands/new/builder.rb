@@ -41,7 +41,7 @@ module Hecks
             'generate:domain_object',
             '-t', 'value_object',
             '-n', value_object.name,
-            '-m', value_object.domain_module,
+            '-m', value_object.module_name,
             '-a', value_object.fields
           ])
         end

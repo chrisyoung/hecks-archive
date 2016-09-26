@@ -2,9 +2,9 @@ module PizzaServerHexagon
   module Schemas
     module Pizzas
       Create = Dry::Validation.Schema do
-        require(:name).filled(:str?)
-        require(:description).filled(:str?)
-        require(:toppings).filled(:str?)
+        required(:name).filled(:str?)
+        required(:description).filled(:str?)
+        required(:toppings).filled(:str?)
       end
     end
   end
