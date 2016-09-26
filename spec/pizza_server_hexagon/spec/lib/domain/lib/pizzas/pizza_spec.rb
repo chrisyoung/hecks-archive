@@ -2,7 +2,7 @@ require_relative 'pizza_behavior.rb'
 
 module PizzaServerHexagon
   module Domain
-    describe Pizzas::Pizza do
+    describe ::Pizza do
       subject { described_class.new }
 
       let(:name) { double('Name') }

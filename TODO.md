@@ -1,12 +1,11 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Explode hecks commands to be more comprehensive
+* Tests for spec/pizza_server_hexagon
 
 ## Current Sprint
 * Use a struct for value objects
 * Finish Active Record implementation
-* Tests for spec/pizza_server_hexagon
 * Figure out where to deploy Docker
 * Factory for building toppings in Pizza
 * Push it to Github
@@ -16,6 +15,8 @@
 * Server DELETE is reporting "no response from server" in curl
 
 ## Next Actions
+* Stop using aliases in generators
+* Move domain into its own repository
 * Update Hecks Documentation
 * Establish open source license
 * Clean up generator comments
