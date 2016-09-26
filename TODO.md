@@ -16,7 +16,7 @@
 
 ## Next Actions
 * Stop using aliases in generators
-* Move domain into its own repository
+* Hexagon and Domain should be different libraries
 * Update Hecks Documentation
 * Establish open source license
 * Clean up generator comments
