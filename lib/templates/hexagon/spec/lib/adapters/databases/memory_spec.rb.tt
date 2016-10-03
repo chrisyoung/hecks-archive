@@ -1,3 +1,0 @@
-describe <%= module_name %>::Adapters::Databases::Memory do
-
-end

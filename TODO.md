@@ -15,6 +15,7 @@
 * Server DELETE is reporting "no response from server" in curl
 
 ## Next Actions
+* spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Stop using aliases in generators
 * Hexagon and Domain should be different libraries
 * Update Hecks Documentation

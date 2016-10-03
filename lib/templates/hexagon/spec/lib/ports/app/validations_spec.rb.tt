@@ -1,3 +1,0 @@
-describe <%= module_name %>::Ports::App::Validations do
-
-end

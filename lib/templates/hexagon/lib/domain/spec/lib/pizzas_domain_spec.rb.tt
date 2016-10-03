@@ -1,6 +1,0 @@
-describe <%= module_name %>::Domain do
-  subject { described_class }
-  describe '#modules' do
-    it { expect(<%= module_name %>::Domain.modules).to_not be_empty }
-  end
-end

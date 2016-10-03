@@ -1,3 +1,0 @@
-describe <%= module_name %>::Domain do
-
-end

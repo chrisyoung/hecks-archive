@@ -13,7 +13,7 @@ class GenerateDomainObject < Thor::Group
   class_option :module_name, :aliases => "-m", desc: "Domain Module"
 
   def self.source_root
-    File.dirname(__FILE__) + '/../../templates/generate/domain'
+    File.dirname(__FILE__) + '/../../generators/templates/generate/domain'
   end
 
   def create_aggregate_folder
