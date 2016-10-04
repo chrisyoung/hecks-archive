@@ -1,5 +1,0 @@
-cd lib/domain && gem build pizza_server_domain.gemspec
-gem install pizza_server_domain-0.0.0.gem --no-rdoc --no-ri
-cd ../..
-gem build pizza_server_hexagon.gemspec
-gem install pizza_server_hexagon-0.0.0.gem --no-rdoc --no-ri

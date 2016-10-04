@@ -29,7 +29,7 @@ module Hecks
         attr_accessor :command, :domain, :module_name, :schema
 
         def fetch_schema
-          @schema = domain.modules(module_name).schemas(name: command.name)
+          @schema = domain.schemas(module_name: module_name, command: command.name)
         end
 
         def validate

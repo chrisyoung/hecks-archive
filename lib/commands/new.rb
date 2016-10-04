@@ -30,7 +30,7 @@ module Hecks
       private
 
       def name
-        options[:name] + '_domain'
+        options[:name]
       end
 
       def module_name

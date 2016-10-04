@@ -1,4 +1,4 @@
-module PizzaServerHexagon
+module PizzaServer
   module Domain
     module Pizzas
       # This is the default "in memory" Pizzas Repository.

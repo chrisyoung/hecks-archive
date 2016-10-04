@@ -1,4 +1,5 @@
 require_relative '../lib/hecks/'
+require_relative 'pizza_server/lib/pizza_server'
 require 'rack/test'
 require 'rspec'
 

@@ -4,9 +4,9 @@ module Hecks
   module Ports
     module Left
       class App
-        def initialize(database:, listeners: [], domain:)
-          @database         = database
+        def initialize(database: nil, listeners: [], domain:)
           @domain           = domain
+          @database         = database || Adapters::Right::Database::Memory.new(domain: domain)
           @validations      = Ports::App::Validations
           @events_port      = Ports::Right::Events.new(listeners: listeners)
           @domain = domain

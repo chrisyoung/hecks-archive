@@ -3,14 +3,15 @@ require 'json'
 
 module Hecks
   class Builder
-    def initialize(hexagon_schema, name:, dry_run: false)
+    def initialize(schema, name:, dry_run: false)
       @name = name
-      @hexagon = Hexagon.new(hexagon_schema)
-      @runner  = CommandRunner.new(hexagon, name, dry_run)
+      @domain = Domain.new(schema)
+      @runner  = CommandRunner.new(domain, name, dry_run)
     end
 
     def call
       puts "\n"
+      generate :domain
       generate :modules
       generate :value_objects
       generate :module_services
@@ -18,12 +19,14 @@ module Hecks
 
     private
 
-    attr_reader :hexagon, :runner, :name
+    attr_reader :runner, :name, :domain
 
     def generate(command)
       case command
+      when :domain
+        runner.call(['new', '-n', name], from_domain_dir: false)
       when :modules
-        hexagon.modules.each do |domain_module|
+        domain.modules.each do |domain_module|
           runner.call([
             'generate:domain_object',
             '-t', 'aggregate',
@@ -32,7 +35,7 @@ module Hecks
             '-a', domain_module.head.fields])
         end
       when :value_objects
-        hexagon.value_objects.each do |value_object|
+        domain.value_objects.each do |value_object|
           runner.call([
             'generate:domain_object',
             '-t', 'value_object',
@@ -42,9 +45,9 @@ module Hecks
           ])
         end
       when :module_services
-        hexagon.module_services.each do |s|
+        domain.module_services.each do |s|
           runner.call([
-            "generate:adapter ",
+            "generate:adapter",
             '-t', s.name,
             '-m', s.domain_module.name,
             '-a', s.attributes

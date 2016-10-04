@@ -13,23 +13,7 @@ module Hecks
                   banner:   "[OBJECT_TYPE]",
                   enum:     ['entity', 'value_object', 'aggregate']
     register GenerateDomainObject, "generate:domain_object", "generate:domain_object", "Generate adapters"
-  end
 
-  class Executable < Thor
-    desc "generate:adapter", "generate adapters"
-    method_option :type,
-                  aliases:  '-t',
-                  required: true,
-                  desc:     "The type of adapter you want to generate",
-                  banner:   "[ADAPTER_NAME]",
-                  enum:     ['resource_server', 'crud_commands', 'sql_database']
-
-    method_option :module_name,
-                  aliases: '-m',
-                  desc:     "if applicable, the name of the adapter's domain module"
-  end
-
-  class Executable < Thor
     desc "new", "Generate a new domain"
     long_desc     "A domain"
     method_option :name,
