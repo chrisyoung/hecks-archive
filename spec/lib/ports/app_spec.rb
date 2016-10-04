@@ -14,7 +14,7 @@ describe Hecks::Ports::Left::App do
 
   describe '#call' do
     it 'calls the method on the repository' do
-      expect(PizzaServerDomain::Domain::Pizzas::Repository).to receive(:create).with(pizza_attributes)
+      expect(PizzaServer::Domain::Pizzas::Repository).to receive(:create).with(pizza_attributes)
       subject.call(command_name: :create, module_name: :pizzas, args: pizza_attributes)
     end
 

@@ -1,4 +1,4 @@
-module PizzaServer
+module <%= module_name %>
   Dir[File.dirname(__FILE__) + "/domain/**/*.rb"].each {|file| require file}
 
   def self.repositories

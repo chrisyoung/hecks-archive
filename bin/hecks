@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 require_relative "../lib/hecks"
+require_relative "executable"
 Hecks::Executable.start(ARGV)

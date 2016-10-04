@@ -38,7 +38,10 @@ module Hecks
         attr_reader :command_name, :command, :module_name, :database, :args, :events_port, :validations, :domain, :validation_command
 
         def validate
-          @validation_command = validations.new(command: command, module_name: module_name, domain: domain).call
+          @validation_command = validations.new(
+            command: command,
+            module_name: module_name,
+            domain: domain).call
         end
 
         def fetch_command
