@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hecks
   module Ports
     module Right
@@ -20,7 +21,7 @@ module Hecks
         attr_reader :listeners, :command, :module_name
 
         def event_name
-          "#{module_name.to_s}_#{command.name.to_s}".to_sym
+          "#{module_name}_#{command.name}".to_sym
         end
       end
     end

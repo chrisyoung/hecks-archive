@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module PizzaServerHexagon
   module Adapters
     module ResourceServer
@@ -19,8 +20,8 @@ module PizzaServerHexagon
           attr_reader :hexagon, :body, :module_name, :command_result
 
           def status
-            return 500 if command_result.errors.count > 0
-            return 200
+            return 500 if command_result.errors.count.positive?
+            200
           end
 
           def run_command

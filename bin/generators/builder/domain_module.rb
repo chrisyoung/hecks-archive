@@ -12,8 +12,8 @@ class DomainModule
   end
 
   def services
-    @services.map do |attributes|
-      ModuleService.new(attributes, self)
+    @services.map do |service_attributes|
+      ModuleService.new(service_attributes, self)
     end
   end
 

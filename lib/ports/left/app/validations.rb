@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'json-schema'
 
 module Hecks
@@ -6,7 +7,7 @@ module Hecks
       class Validations
         attr_reader :errors, :args
 
-        def initialize(command: nil, args: nil, module_name:, domain: )
+        def initialize(command: nil, args: nil, module_name:, domain:)
           @command = command
           @domain  = domain
           @args    = args || command.args
@@ -21,7 +22,7 @@ module Hecks
 
         def name
           return command.name if command
-          self.class.to_s.split("::").last.underscore
+          self.class.to_s.split('::').last.underscore
         end
 
         private

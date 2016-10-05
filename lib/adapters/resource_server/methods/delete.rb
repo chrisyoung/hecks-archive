@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module PizzaServerHexagon
   module Adapters
     module ResourceServer
@@ -15,8 +16,8 @@ module PizzaServerHexagon
           end
 
           def status
-            return 500 if command_result.errors.count > 0
-            return 200
+            return 500 if command_result.errors.count.positive?
+            200
           end
 
           private
@@ -27,7 +28,8 @@ module PizzaServerHexagon
             @command_result = hexagon.call(
               module_name: module_name,
               command: :delete,
-              args: { id: id })
+              args: { id: id }
+            )
           end
         end
       end

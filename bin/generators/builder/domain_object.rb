@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class DomainObject
   attr_reader :name, :module_name
 
@@ -11,7 +12,7 @@ class DomainObject
   def fields
     @fields.map do |attributes|
       Field.new(attributes)
-    end.map(&:to_s).join(" ")
+    end.map(&:to_s).join(' ')
   end
 
   def head?

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hecks
   module Ports
     module Left
@@ -30,7 +31,7 @@ module Hecks
             end
 
             def name
-              self.class.to_s.split("::").last.underscore
+              self.class.to_s.split('::').last.underscore
             end
 
             private
@@ -43,7 +44,7 @@ module Hecks
             end
 
             def create
-              return if @errors.count > 0
+              return if @errors.count.positive?
               @id = @repository_result = repository.create(args)
             end
           end

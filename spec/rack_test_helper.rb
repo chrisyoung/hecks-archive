@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 ENV['RACK_ENV'] = 'test'
 HEX = PizzaServerHexagon::App.new
 
 module PizzaServerHexagonMixin
   include Rack::Test::Methods
-  def app()
+  def app
     PizzaServerHexagon::Adapters::ResourceServer::App.new(hexagon: HEX)
   end
 end

@@ -1,2 +1,3 @@
+# frozen_string_literal: true
 gem 'pizzas_hexagon', '0.0.0'
 gem 'hecks_resource_server', '0.0.0'

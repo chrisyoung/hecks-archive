@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../pizza_server_domain/lib/domain'
 require_relative '../../lib/hexagon/hexagon'
 Domain = PizzaServerHexagon::Domain

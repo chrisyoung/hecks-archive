@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 module Hecks
   module Ports
     module Left
       class App
         module Queries
           class FindById
-            def initialize(repository: )
+            def initialize(repository:)
               @repository = repository
             end
 

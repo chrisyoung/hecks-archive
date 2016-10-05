@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Hecks
   module Adapters
     module Right
@@ -7,14 +8,12 @@ module Hecks
             @repositories = domain.repositories
           end
 
-          def [] (module_name)
+          def [](module_name)
             @repositories[module_name]
           end
 
           def delete_all
-            @repositories.values.each do |repository|
-              repository.delete_all
-            end
+            @repositories.values.each(&:delete_all)
           end
         end
       end

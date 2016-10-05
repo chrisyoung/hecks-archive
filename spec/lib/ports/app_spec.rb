@@ -1,7 +1,8 @@
+# frozen_string_literal: true
 class PizzasCreateListener
   attr_reader :called
 
-  def pizzas_create(command)
+  def pizzas_create(_command)
     @called = true
   end
 end
@@ -11,7 +12,7 @@ describe Hecks::Ports::Left::App do
   let(:listener) { PizzasCreateListener.new }
   let(:pizza_attributes) do
     {
-      name: "White Pizza",
+      name: 'White Pizza',
       description: 'white sauce and chicken',
       toppings: [{ name: 'chicken' }]
     }
@@ -41,7 +42,7 @@ describe Hecks::Ports::Left::App do
       result = subject.call(
         command_name: :create,
         module_name: :pizzas,
-        args: { }
+        args: {}
       )
       expect(result.errors.first).to include(message)
     end

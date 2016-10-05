@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative '../lib/hecks/'
 if ENV['GENERATE']
   puts 'Generating Pizza Server...'

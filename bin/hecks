@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
-require_relative "../lib/hecks"
-require_relative "executable"
+# frozen_string_literal: true
+require_relative '../lib/hecks'
+require_relative 'executable'
 Hecks::Executable.start(ARGV)

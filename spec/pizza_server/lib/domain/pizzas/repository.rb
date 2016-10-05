@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module PizzaServer
   module Domain
     module Pizzas
@@ -10,13 +11,13 @@ module PizzaServer
         @collection = {}
         @last_id    = 0
 
-        def self.create attributes={}
+        def self.create(attributes = {})
           id              = @last_id + 1
           @collection[id] = Pizza.new(attributes.merge(id: id))
           @last_id        = id
         end
 
-        def self.update id, attributes
+        def self.update(id, attributes)
           entity = read id
 
           return unless entity
@@ -27,7 +28,7 @@ module PizzaServer
           entity
         end
 
-        def self.read id
+        def self.read(id)
           @collection[id]
         end
 

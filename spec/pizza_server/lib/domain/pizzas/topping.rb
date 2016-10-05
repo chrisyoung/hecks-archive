@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module PizzaServer
   module Domain
     module Pizzas
@@ -8,11 +9,9 @@ module PizzaServer
       class Topping
         attr_accessor :name, :id
         def initialize(name:, id:)
-          
-            @name = name
-          
-            @id = id
-          
+          @name = name
+
+          @id = id
         end
 
         def to_json

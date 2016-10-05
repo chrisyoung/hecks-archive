@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require_relative 'validations'
 require_relative 'queries/find_by_id'
 
@@ -40,7 +41,8 @@ module Hecks
           @validation_command = validations.new(
             command: command,
             module_name: module_name,
-            domain: domain).call
+            domain: domain
+          ).call
         end
 
         def fetch_command
@@ -52,7 +54,7 @@ module Hecks
 
         def run_command
           @command.errors = validation_command.errors
-          @command = command.call unless @command.errors.count > 0
+          @command = command.call unless @command.errors.count.positive?
         end
 
         def broadcast

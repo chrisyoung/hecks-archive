@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module PizzaServerHexagon
   module Domain
     module Pizzas
@@ -42,7 +43,7 @@ module PizzaServerHexagon
           end
 
           def update
-            return if @errors.count > 0
+            return if @errors.count.positive?
             @repository_result = repository.update(args[:id], args[:attributes])
           end
         end

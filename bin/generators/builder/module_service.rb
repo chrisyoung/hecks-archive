@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ModuleService
   attr_reader :name, :domain_module
   def initialize(service, domain_module)
