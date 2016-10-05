@@ -1,11 +1,14 @@
-class FakeListener
-  def self.pizzas_create(command)
+class PizzasCreateListener
+  attr_reader :called
+
+  def pizzas_create(command)
+    @called = true
   end
 end
 
 describe Hecks::Ports::Left::App do
-  let(:domain)        { PizzaServer }
-  let(:fake_listener) { FakeListener }
+  let(:domain)   { PizzaServer }
+  let(:listener) { PizzasCreateListener.new }
   let(:pizza_attributes) do
     {
       name: "White Pizza",
@@ -14,7 +17,7 @@ describe Hecks::Ports::Left::App do
     }
   end
 
-  subject { described_class.new(listeners: [fake_listener], domain: domain) }
+  subject { described_class.new(listeners: [listener], domain: domain) }
 
   describe '#call' do
     it 'calls the method on the repository' do
@@ -34,11 +37,11 @@ describe Hecks::Ports::Left::App do
     end
 
     it 'broadcasts the command over the events port' do
-      expect(FakeListener).to receive(:pizzas_create)
       subject.call(
         command_name: :create,
         module_name: :pizzas,
         args: pizza_attributes)
+      expect(listener.called).to eq true
     end
 
     it 'runs validations' do
