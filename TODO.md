@@ -1,7 +1,7 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Tests for spec/pizza_server_hexagon
+* How to generate a schema for toppings?
 
 ## Current Sprint
 * Use a struct for value objects
