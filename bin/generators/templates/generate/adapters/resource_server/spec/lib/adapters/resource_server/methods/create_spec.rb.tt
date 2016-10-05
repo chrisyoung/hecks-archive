@@ -1,4 +1,4 @@
-module <%= hexagon_module_name %>
+module <%= camelized_domain_name %>
   module Adapters
     module ResourceServer
       describe Methods::Create do
@@ -10,7 +10,7 @@ module <%= hexagon_module_name %>
         end
 
         let(:body) { double("Body", read: args.to_json) }
-        let(:hexagon) { <%= hexagon_module_name %>::App.new }
+        let(:hexagon) { <%= camelized_domain_name %>::App.new }
         subject    { described_class.new(hexagon: hexagon) }
 
         describe '#call' do

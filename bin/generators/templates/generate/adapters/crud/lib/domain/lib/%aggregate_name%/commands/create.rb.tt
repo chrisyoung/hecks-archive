@@ -1,4 +1,4 @@
-module <%= hexagon_module_name %>
+module <%= camelized_domain_name %>
   module Domain
     module <%= aggregate_module_name %>
       module Commands

@@ -14,8 +14,13 @@ describe Hecks::Ports::Left::App do
 
   describe '#call' do
     it 'calls the method on the repository' do
-      expect(PizzaServer::Domain::Pizzas::Repository).to receive(:create).with(pizza_attributes)
-      subject.call(command_name: :create, module_name: :pizzas, args: pizza_attributes)
+      result = subject.call(command_name: :create, module_name: :pizzas, args: pizza_attributes)
+      expect(
+        subject.query(
+          query_name: :find_by_id,
+          module_name: :pizzas,
+          args: {id: 1}).name
+        ).to eq 'White Pizza'
     end
 
     it 'broadcasts the command over the events port' do

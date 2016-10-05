@@ -3,7 +3,7 @@ require_relative 'methods/read'
 require_relative 'methods/update'
 require_relative 'methods/delete'
 
-module <%= hexagon_module_name %>
+module <%= camelized_domain_name %>
   module Adapters
     module ResourceServer
       class Methods

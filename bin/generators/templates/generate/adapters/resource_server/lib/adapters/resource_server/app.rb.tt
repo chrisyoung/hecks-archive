@@ -1,8 +1,8 @@
-module <%= hexagon_module_name %>
+module <%= camelized_domain_name %>
   module Adapters
     module ResourceServer
       class App < Sinatra::Base
-        def initialize(app: nil, hexagon: <%= hexagon_module_name %>::App.new)
+        def initialize(app: nil, hexagon: <%= camelized_domain_name %>::App.new)
           super(app)
           @methods = Methods.new(hexagon: hexagon)
         end

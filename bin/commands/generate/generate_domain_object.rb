@@ -31,10 +31,6 @@ class GenerateDomainObject < Thor::Group
   end
 
   # Aliases
-  def hexagon_module_name
-    camelized_hexagon_name
-  end
-
   def aggregate_name
     module_name
   end
@@ -81,13 +77,13 @@ class GenerateDomainObject < Thor::Group
     attributes.map { |key, value| (key.to_s + ': ' + key.to_s) }.join(", ")
   end
 
-  # Hexagon
-  def hexagon_name
+  # Domain
+  def domain_name
     Dir.pwd.split('/').last
   end
 
-  def camelized_hexagon_name
-    hexagon_name.camelize
+  def camelized_domain_name
+    domain_name.camelize
   end
 
   # Attributes
@@ -97,6 +93,10 @@ class GenerateDomainObject < Thor::Group
 
   def attributes_as_string
     attributes.keys.map { |key| ':' + key.to_s }.join ", "
+  end
+
+  def required_attributes_as_string
+    (attributes.keys - [:id]).map { |key| ':' + key.to_s }.join ", "
   end
 
   def attribute_param_names_as_string

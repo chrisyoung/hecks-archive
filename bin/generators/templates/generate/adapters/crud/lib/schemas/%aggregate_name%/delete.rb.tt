@@ -1,4 +1,4 @@
-module <%= hexagon_module_name %>
+module <%= camelized_domain_name %>
   module Schemas
     module <%= aggregate_module_name %>
       Delete = Dry::Validation.Schema do

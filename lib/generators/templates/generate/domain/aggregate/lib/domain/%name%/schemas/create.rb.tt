@@ -2,10 +2,11 @@ module <%= camelized_domain_name %>
   module Domain
     module <%= camelized_name %>
       module Schemas
-        Update = {
+        Create = {
           '$schema' => 'http://json-schema.org/draft-04/schema',
           type:       "object",
           title:      "pizza",
+          required:   [:name, :description, :toppings],
           properties: {
             name:        { type: "string" },
             description: { type: "string" },
@@ -13,6 +14,7 @@ module <%= camelized_domain_name %>
               type: "array",
               items: {
                 type: 'object',
+                required:   [:name],
                 properties: {
                   name: { type: "string" },
                 },

@@ -1,4 +1,5 @@
 require_relative 'validations'
+require_relative 'queries/find_by_id'
 
 module Hecks
   module Ports
@@ -24,13 +25,11 @@ module Hecks
           command
         end
 
-        def query(query:, module_name:, args: {})
+        def query(query_name:, module_name:, args: {})
           @module_name = module_name
-          @query       = [module_name, query]
+          @query_name  = query_name.to_sym
 
-          Domain.queries[@query].new(
-            repository: database[module_name]
-          ).call(args)
+          Queries.const_get(query_name.to_s.camelcase).new(repository: database[module_name]).call(args)
         end
 
         private

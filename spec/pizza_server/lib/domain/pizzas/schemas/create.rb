@@ -8,22 +8,25 @@ module PizzaServer
           title:      "pizza",
           required:   [:name, :description, :toppings],
           properties: {
-            name:        { type: "string" },
-            description: { type: "string" },
-            toppings: {
-              type: "array",
-              items: {
-                type: 'object',
-                required:   [:name],
-                properties: {
-                  name: { type: "string" },
-                },
-                additionalProperties: false,
-              },
-            },
+              name: { type: 'string' },
+              description: { type: 'string' },
+              toppings: { type: '[topping]' },
+              id: { type: 'integer' },
           },
           additionalProperties: false
-        }
+
+            #toppings: {
+            #  type: "array",
+            #  items: {
+            #    type: 'object',
+            #    required:   [:name],
+            #    properties: {
+            #      name: { type: "string" },
+            #    },
+            #    additionalProperties: false,
+            #  },
+            #},
+          }
       end
     end
   end

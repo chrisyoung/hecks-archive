@@ -1,29 +1,31 @@
-module <%= hexagon_module_name %>
+module <%= camelized_domain_name %>
   module Domain
     module <%= camelized_name %>
       module Schemas
         Create = {
           '$schema' => 'http://json-schema.org/draft-04/schema',
           type:       "object",
-          title:      "pizza",
-          required:   [:name, :description, :toppings],
+          title:      "<%= head_name %>",
+          required:   [<%= required_attributes_as_string %>],
           properties: {
-            name:        { type: "string" },
-            description: { type: "string" },
-            toppings: {
-              type: "array",
-              items: {
-                type: 'object',
-                required:   [:name],
-                properties: {
-                  name: { type: "string" },
-                },
-                additionalProperties: false,
-              },
-            },
+            <%- attributes.each do |attribute_name, type| -%>
+              <%= attribute_name %>: { type: '<%= type %>' },
+            <%- end -%>
           },
           additionalProperties: false
-        }
+
+            #toppings: {
+            #  type: "array",
+            #  items: {
+            #    type: 'object',
+            #    required:   [:name],
+            #    properties: {
+            #      name: { type: "string" },
+            #    },
+            #    additionalProperties: false,
+            #  },
+            #},
+          }
       end
     end
   end
