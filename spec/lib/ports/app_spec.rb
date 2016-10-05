@@ -31,17 +31,9 @@ describe Hecks::Ports::Left::App do
         subject.query(
           query_name: :find_by_id,
           module_name: :pizzas,
-          args: {id: 1}
+          args: { id: 1 }
         ).name
       ).to eq 'White Pizza'
-    end
-
-    it 'broadcasts the command over the events port' do
-      subject.call(
-        command_name: :create,
-        module_name: :pizzas,
-        args: pizza_attributes)
-      expect(listener.called).to eq true
     end
 
     it 'runs validations' do
@@ -52,6 +44,15 @@ describe Hecks::Ports::Left::App do
         args: { }
       )
       expect(result.errors.first).to include(message)
+    end
+
+    it 'broadcasts the command over the events port' do
+      subject.call(
+        command_name: :create,
+        module_name:  :pizzas,
+        args:         pizza_attributes
+      )
+      expect(listener.called).to eq true
     end
   end
 end
