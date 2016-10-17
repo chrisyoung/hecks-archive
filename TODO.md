@@ -4,17 +4,19 @@
 * How to generate a schema for toppings?
 
 ## Current Sprint
+* Change to PizzaBuilder
 * Use a struct for value objects
-* Finish Active Record implementation
+* Active Record implementation
 * Figure out where to deploy Docker
 * Factory for building toppings in Pizza
-* Push it to Github
+* Push PizzaBuilder to Github
 * Get MySQL Running in in Docker Container
 
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl
 
 ## Next Actions
+* Port Adapter Schemas and validations - make sure Hecks can talk to your adapters.
 * spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Stop using aliases in generators
 * Hexagon and Domain should be different libraries

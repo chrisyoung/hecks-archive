@@ -1,15 +1,5 @@
 # frozen_string_literal: true
-class PizzasCreateListener
-  attr_reader :called
-
-  def pizzas_create(_command)
-    @called = true
-  end
-end
-
-describe Hecks::Ports::Left::App do
-  let(:domain)   { PizzaServer }
-  let(:listener) { PizzasCreateListener.new }
+describe Hecks::Adapters::Application do
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
@@ -18,7 +8,13 @@ describe Hecks::Ports::Left::App do
     }
   end
 
-  subject { described_class.new(listeners: [listener], domain: domain) }
+  subject do
+    Hecks::Adapters::Application.new(
+      driving:          PizzaBuilder,
+      database:         Hecks::Adapters::MemoryDatabase,
+      event_listeners:  [Hecks::Adapters::ToppingCache]
+    )
+  end
 
   describe '#call' do
     it 'calls the method on the repository' do
