@@ -2,8 +2,8 @@
 require 'json-schema'
 
 module Hecks
-  module Ports
-    class App
+  module Adapters
+    class Application
       class Validations
         attr_reader :errors, :args
 

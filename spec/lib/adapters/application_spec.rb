@@ -8,11 +8,13 @@ describe Hecks::Adapters::Application do
     }
   end
 
+  let(:log_output) {[]}
+
   subject do
     Hecks::Adapters::Application.new(
-      driving:          PizzaBuilder,
-      database:         Hecks::Adapters::MemoryDatabase,
-      event_listeners:  [Hecks::Adapters::ToppingCache]
+      domain:    PizzaBuilder,
+      database:  Hecks::Adapters::MemoryDatabase,
+      listeners: [Hecks::Adapters::Logger.new(output: log_output)]
     )
   end
 
@@ -26,7 +28,7 @@ describe Hecks::Adapters::Application do
 
       expect(
         subject.query(
-          query_name: :find_by_id,
+          query_name:  :find_by_id,
           module_name: :pizzas,
           args: { id: 1 }
         ).name
@@ -37,8 +39,8 @@ describe Hecks::Adapters::Application do
       message = "did not contain a required property of 'name'"
       result = subject.call(
         command_name: :create,
-        module_name: :pizzas,
-        args: {}
+        module_name:  :pizzas,
+        args:         {}
       )
       expect(result.errors.first).to include(message)
     end
@@ -49,7 +51,7 @@ describe Hecks::Adapters::Application do
         module_name:  :pizzas,
         args:         pizza_attributes
       )
-      expect(listener.called).to eq true
+      expect(log_output.first).to include('pizzas_create')
     end
   end
 end
