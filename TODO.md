@@ -38,10 +38,12 @@
 * Set up stats module to count lines of code
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 * Value Store (Service?)
-* Domain Console
+* Domain Console (> hecks console in domain)
+* Command Line
 * Hook up pizzas as rack middleware
 * Deploy a Soccer app for Tanga
 * Make update take id as separate parameter
+
 
 ## Challenges:
 * Remove all if statements

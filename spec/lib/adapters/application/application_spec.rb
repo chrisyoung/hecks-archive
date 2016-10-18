@@ -19,7 +19,7 @@ describe Hecks::Adapters::Application do
   end
 
   describe '#call' do
-    it 'calls the method on the repository' do
+    it 'runs commands' do
       subject.call(
         command_name: :create,
         module_name:  :pizzas,
@@ -37,7 +37,7 @@ describe Hecks::Adapters::Application do
 
     it 'runs validations' do
       message = "did not contain a required property of 'name'"
-      result = subject.call(
+      result  = subject.call(
         command_name: :create,
         module_name:  :pizzas,
         args:         {}
@@ -45,7 +45,7 @@ describe Hecks::Adapters::Application do
       expect(result.errors.first).to include(message)
     end
 
-    it 'broadcasts the command over the events port' do
+    it 'broadcasts events' do
       subject.call(
         command_name: :create,
         module_name:  :pizzas,
