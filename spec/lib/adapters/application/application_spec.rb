@@ -18,8 +18,16 @@ describe Hecks::Adapters::Application do
     )
   end
 
+  it 'Works with generated domains (see pizza_builder_schema.json)', :slow do
+    # Generate a pizza_builder to run the tests against
+    # see the file "pizza_builder_schema.json"
+
+    puts `cd spec && rm -rf pizza_builder`
+    puts `cd spec && ../bin/hecks new -n pizza_builder -s pizza_builder_schema.json`
+  end
+
   describe '#call' do
-    it 'runs commands' do
+    it 'Runs a command' do
       subject.call(
         command_name: :create,
         module_name:  :pizzas,
@@ -30,12 +38,12 @@ describe Hecks::Adapters::Application do
         subject.query(
           query_name:  :find_by_id,
           module_name: :pizzas,
-          args: { id: 1 }
+          args:        { id: 1 }
         ).name
       ).to eq 'White Pizza'
     end
 
-    it 'runs validations' do
+    it 'Runs validations' do
       message = "did not contain a required property of 'name'"
       result  = subject.call(
         command_name: :create,
@@ -45,7 +53,7 @@ describe Hecks::Adapters::Application do
       expect(result.errors.first).to include(message)
     end
 
-    it 'broadcasts events' do
+    it 'Broadcasts events' do
       subject.call(
         command_name: :create,
         module_name:  :pizzas,
