@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-module PizzaServerHexagon
+module Hecks
   module Adapters
     module ResourceServer
       class Methods
         class Create
-          def initialize(hexagon:)
-            @hexagon = hexagon
+          def initialize(application_adapter:)
+            @application_adapter = application_adapter
           end
 
           def call(body:, module_name:)
@@ -17,7 +17,7 @@ module PizzaServerHexagon
 
           private
 
-          attr_reader :hexagon, :body, :module_name, :command_result
+          attr_reader :application_adapter, :body, :module_name, :command_result
 
           def status
             return 500 if command_result.errors.count.positive?
@@ -25,9 +25,9 @@ module PizzaServerHexagon
           end
 
           def run_command
-            @command_result = hexagon.call(
+            @command_result = application_adapter.call(
               module_name: module_name,
-              command:     :create,
+              command_name: :create,
               args:        params
             )
           end

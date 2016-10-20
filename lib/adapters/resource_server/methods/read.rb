@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-module PizzaServerHexagon
+module Hecks
   module Adapters
     module ResourceServer
       class Methods
         class Read
-          def initialize(hexagon:)
-            @hexagon = hexagon
+          def initialize(application_adapter:)
+            @application_adapter = application_adapter
           end
 
           def call(id:, module_name:)
@@ -22,11 +22,11 @@ module PizzaServerHexagon
 
           private
 
-          attr_reader :hexagon, :id, :module_name, :result
+          attr_reader :application_adapter, :id, :module_name, :result
 
           def run_query
-            @result = hexagon.query(
-              query:       :find_by_id,
+            @result = application_adapter.query(
+              query_name:       :find_by_id,
               module_name: module_name,
               args:        { id: id }
             )

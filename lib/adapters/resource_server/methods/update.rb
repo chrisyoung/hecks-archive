@@ -1,11 +1,11 @@
 # frozen_string_literal: true
-module PizzaServerHexagon
+module Hecks
   module Adapters
     module ResourceServer
       class Methods
         class Update
-          def initialize(hexagon:)
-            @hexagon = hexagon
+          def initialize(application_adapter:)
+            @application_adapter = application_adapter
           end
 
           def call(id:, body:, module_name:)
@@ -23,10 +23,10 @@ module PizzaServerHexagon
 
           private
 
-          attr_accessor :hexagon, :id, :body, :module_name, :command_result
+          attr_accessor :application_adapter, :id, :body, :module_name, :command_result
 
           def run_command
-            @command_result = hexagon.call(
+            @command_result = application_adapter.call(
               module_name: module_name,
               command:     :update,
               args:        params
