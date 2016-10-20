@@ -28,7 +28,7 @@ module Hecks
           def run_command
             @command_result = application_adapter.call(
               module_name: module_name,
-              command:     :update,
+              command_name: :update,
               args:        params
             )
           end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-module PizzaServerHexagon
-  module Domain
-    module Pizzas
+module Hecks
+  module Adapters
+    class Application
       module Commands
         class Delete
           attr_accessor :args, :errors
@@ -20,7 +20,7 @@ module PizzaServerHexagon
           end
 
           def name
-            CommandName.new(self)
+            self.class.to_s.split('::').last.underscore
           end
 
           def repository

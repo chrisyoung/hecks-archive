@@ -7,7 +7,6 @@ module Hecks
     module ResourceServer
       class App < Sinatra::Base
         configure do
-          set :dump_errors, false
           set :raise_errors, true
           set :show_exceptions, false
         end

@@ -27,7 +27,7 @@ module Hecks
           def run_command
             @command_result = application_adapter.call(
               module_name: module_name,
-              command: :delete,
+              command_name: :delete,
               args: { id: id }
             )
           end

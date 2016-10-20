@@ -14,7 +14,7 @@ module PizzaBuilder
   def self.queries
     domain_modules.map do |domain_module|
       domain_module.const_get(:Queries).map do |query|
-        binding.pry
+        # binding.pry
       end
     end
   end
