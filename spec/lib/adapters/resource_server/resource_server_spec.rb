@@ -1,6 +1,7 @@
 describe Hecks::Adapters::ResourceServer::App do
   it 'reads aggregates' do
-    read_pizza(2)
+    id = JSON.parse(create_pizza("Created Pizza").body)["id"]
+    expect(JSON.parse(read_pizza(id).body)['name']).to eq 'Created Pizza'
   end
 
   it 'creates aggregates' do
@@ -8,8 +9,9 @@ describe Hecks::Adapters::ResourceServer::App do
   end
 
   it 'updates aggregates' do
-    id = JSON.parse(create_pizza.body)["id"]
+    id = JSON.parse(create_pizza("YumYUM").body)["id"]
     put "/pizzas/#{id}", { name: "The Double Yuck" }.to_json
+    puts last_response.body
     expect(JSON.parse(read_pizza(id).body)["name"]).to eq "The Double Yuck"
   end
 
@@ -19,13 +21,15 @@ describe Hecks::Adapters::ResourceServer::App do
     expect(JSON.parse(read_pizza(id).body)).to be_nil
   end
 
+  private
+
   def read_pizza(id)
     get "/pizzas/#{id}"
   end
 
-  def create_pizza
+  def create_pizza(name="The Yuck")
     post '/pizzas', {
-      name: "The Yuck",
+      name: name,
       description: "Worse than it sounds",
       toppings: [{ name: 'children'}, {name: 'crickets'}]
     }.to_json
