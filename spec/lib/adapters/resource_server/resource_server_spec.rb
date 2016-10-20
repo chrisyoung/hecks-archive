@@ -1,7 +1,6 @@
 describe Hecks::Adapters::ResourceServer::App do
   it 'reads aggregates' do
     get '/pizzas/2'
-    puts last_response.body
   end
 
   it 'creates aggregates' do
