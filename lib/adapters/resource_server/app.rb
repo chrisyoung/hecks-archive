@@ -23,7 +23,9 @@ module Hecks
         end
 
         post "/:module_name" do |module_name|
-          methods.create.call(body: request.body, module_name: module_name)
+          command = methods.create.call(body: request.body, module_name: module_name)
+          status command.status
+          body   command.result
         end
 
         put "/:module_name/:id" do |module_name, id|
@@ -37,7 +39,9 @@ module Hecks
         end
 
         delete "/:module_name/:id" do |module_name, id|
-          methods.delete.call(id: id, module_name: module_name)
+          command = methods.delete.call(id: id, module_name: module_name)
+          status command.status
+          body   command.result
         end
 
         private

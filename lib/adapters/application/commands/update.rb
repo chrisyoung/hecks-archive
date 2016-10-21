@@ -4,21 +4,13 @@ module Hecks
     class Application
       module Commands
         class Update
-          attr_accessor :args, :errors, :id
+          attr_accessor :args, :errors, :id, :repository
 
-          def initialize(chained_command = nil, args: nil, repository: Repository)
-
+          def initialize(args: nil, repository: Repository)
             @repository      = repository
-            @chained_command = chained_command
-            @args            = args || chained_command.args
+            @args            = args
             @errors          = []
             @id              = @args.delete(:id)
-          end
-
-
-          def repository
-            return @repository unless chained_command.respond_to?(:repository)
-            chained_command.repository || @repository
           end
 
           def name
@@ -26,7 +18,6 @@ module Hecks
           end
 
           def call
-            call_chained_command
             update
             self
           end
@@ -37,12 +28,7 @@ module Hecks
 
           private
 
-          attr_reader :repository_result, :chained_command
-
-          def call_chained_command
-            return unless chained_command
-            @errors = chained_command.call.errors
-          end
+          attr_reader :repository_result
 
           def update
             return if @errors.count.positive?

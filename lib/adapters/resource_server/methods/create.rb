@@ -4,6 +4,8 @@ module Hecks
     module ResourceServer
       class Methods
         class Create
+          attr_reader :result
+
           def initialize(application_adapter:)
             @application_adapter = application_adapter
           end
@@ -12,16 +14,21 @@ module Hecks
             @body        = body.read
             @module_name = module_name.to_sym
             run_command
-            [JSON.generate(command_result.to_h)]
+            build_json
+            self
+          end
+
+          def status
+            return 500 if command_result.errors.count.positive?
+            200
           end
 
           private
 
           attr_reader :application_adapter, :body, :module_name, :command_result
 
-          def status
-            return 500 if command_result.errors.count.positive?
-            200
+          def build_json
+            @result = JSON.generate(command_result.to_h)
           end
 
           def run_command

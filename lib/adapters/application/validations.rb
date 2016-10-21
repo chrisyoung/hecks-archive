@@ -20,11 +20,6 @@ module Hecks
           self
         end
 
-        def name
-          return command.name if command
-          self.class.to_s.split('::').last.underscore
-        end
-
         private
 
         attr_accessor :command, :domain, :module_name, :schema

@@ -4,6 +4,8 @@ module Hecks
     module ResourceServer
       class Methods
         class Delete
+          attr_reader :result
+
           def initialize(application_adapter:)
             @application_adapter = application_adapter
           end
@@ -12,7 +14,8 @@ module Hecks
             @id          = id.to_i
             @module_name = module_name.to_sym
             run_command
-            [JSON.generate(command_result.to_h) + "\n\n"]
+            convert_to_json
+            self
           end
 
           def status
@@ -23,6 +26,10 @@ module Hecks
           private
 
           attr_reader :application_adapter, :module_name, :id, :command_result
+
+          def convert_to_json
+            @result = JSON.generate(command_result.to_h)
+          end
 
           def run_command
             @command_result = application_adapter.call(
