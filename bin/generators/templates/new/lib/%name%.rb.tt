@@ -11,14 +11,6 @@ module <%= module_name %>
     end.to_h
   end
 
-  def self.queries
-    domain_modules.map do |domain_module|
-      domain_module.const_get(:Queries).map do |query|
-        binding.pry
-      end
-    end
-  end
-
   def self.aggregate_name(domain_module)
     domain_module.to_s.downcase.split("::").last.to_sym
   end

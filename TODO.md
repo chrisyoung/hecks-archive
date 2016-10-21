@@ -1,16 +1,15 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Tests for resource server
+* How to generate a schema for toppings?
 
 ## Current Sprint
-* How to generate a schema for toppings?
-* Use a struct for value objects
-* Active Record implementation
-* Figure out where to deploy Docker
 * Factory for building toppings in Pizza
+* Use a struct for value objects
+* SQL Adapter
+* Figure out where to deploy Docker
 * Push PizzaBuilder to Github
-* Get MySQL Running in in Docker Container
+* Get MySQL Running in in Container
 
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl
