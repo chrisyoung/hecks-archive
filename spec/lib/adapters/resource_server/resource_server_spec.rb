@@ -1,21 +1,20 @@
 describe Hecks::Adapters::ResourceServer::App do
+  let(:id) {JSON.parse(create_pizza.body)["id"]}
+
   it 'reads aggregates' do
-    id = JSON.parse(create_pizza("Created Pizza").body)["id"]
-    expect(JSON.parse(read_pizza(id).body)['name']).to eq 'Created Pizza'
+    expect(JSON.parse(read_pizza(id).body)['name']).to eq 'The Yuck'
   end
 
   it 'creates aggregates' do
-    create_pizza
+    expect(JSON.parse(create_pizza.body)["id"]).to be
   end
 
   it 'updates aggregates' do
-    id = JSON.parse(create_pizza("YumYUM").body)["id"]
     put "/pizzas/#{id}", { name: "The Double Yuck" }.to_json
     expect(JSON.parse(read_pizza(id).body)["name"]).to eq "The Double Yuck"
   end
 
   it 'deletes aggregates' do
-    id = JSON.parse(create_pizza.body)["id"]
     delete "/pizzas/#{id}"
     expect(JSON.parse(read_pizza(id).body)).to be_nil
   end
@@ -34,24 +33,3 @@ describe Hecks::Adapters::ResourceServer::App do
     }.to_json
   end
 end
-
-# describe Hecks::Adapters::ResourceServer::App do
-#   subject do
-#     Hecks::Adapters::ResourceServer::App.new(domain: PizzaBuilder)
-#   end
-#
-#   it 'Can post an entity' do
-#     subject
-#   end
-# end
-
-# # Build a resource server
-#
-# # Will instantiate an application on your behalf
-# Hecks::Adapters::ResourceServer.new(
-#   driving:      PizzaBuilder,
-#   application:  Hecks::Adapters::Application,
-#   database:     Hecks::Adapters::SQLDatabase
-# )
-# # Or this (pre-instantiated application):
-# Hecks::Adapters::ResourceServer.new(application: application)

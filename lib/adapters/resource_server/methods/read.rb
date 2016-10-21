@@ -26,7 +26,7 @@ module Hecks
 
           def run_query
             @result = application_adapter.query(
-              query_name:       :find_by_id,
+              query_name:  :find_by_id,
               module_name: module_name,
               args:        { id: id }
             )

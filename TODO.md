@@ -16,6 +16,7 @@
 * Server DELETE is reporting "no response from server" in curl
 
 ## Next Actions
+* Get rid of command chaining
 * Adapter Schemas and validations - make sure Hecks can talk to your adapters.
 * Spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Stop using aliases in generators
