@@ -4,6 +4,7 @@ module Hecks
     module ResourceServer
       class Methods
         class Read
+          attr_reader :result, :status
           def initialize(application_adapter:)
             @application_adapter = application_adapter
           end
@@ -12,21 +13,26 @@ module Hecks
             @id          = id.to_i
             @module_name = module_name.to_sym
             run_query
-            [result.to_json]
+            convert_to_json
+            self
           end
 
           def status
-            return 500 if command_result.errors.count.positive?
+            return 404 if command_result.nil?
             200
           end
 
           private
 
-          attr_reader :application_adapter, :id, :module_name, :result
+          attr_reader :application_adapter, :id, :module_name, :command_result
+
+          def convert_to_json
+            @result = command_result.to_json
+          end
 
           def run_query
-            @result = application_adapter.query(
-              query_name:  :find_by_id,
+            @command_result = application_adapter.query(
+              query_name:       :find_by_id,
               module_name: module_name,
               args:        { id: id }
             )

@@ -2,6 +2,7 @@ describe Hecks::Adapters::ResourceServer::App do
   let(:id) {JSON.parse(create_pizza.body)["id"]}
 
   it 'reads aggregates' do
+    create_pizza
     expect(JSON.parse(read_pizza(id).body)['name']).to eq 'The Yuck'
   end
 

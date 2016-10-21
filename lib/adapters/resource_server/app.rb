@@ -19,7 +19,9 @@ module Hecks
         end
 
         get "/:module_name/:id" do |module_name, id|
-          methods.read.call(id: id, module_name: module_name)
+          command = methods.read.call(id: id, module_name: module_name)
+          body command.result
+          status command.status
         end
 
         post "/:module_name" do |module_name|
