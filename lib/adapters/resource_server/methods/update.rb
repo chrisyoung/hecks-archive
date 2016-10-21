@@ -4,6 +4,8 @@ module Hecks
     module ResourceServer
       class Methods
         class Update
+          attr_reader :result
+
           def initialize(application_adapter:)
             @application_adapter = application_adapter
           end
@@ -13,7 +15,8 @@ module Hecks
             @body        = body.read
             @module_name = module_name.to_sym
             run_command
-            [JSON.generate(command_result.to_h)]
+            convert_to_json
+            self
           end
 
           def status
@@ -25,11 +28,15 @@ module Hecks
 
           attr_accessor :application_adapter, :id, :body, :module_name, :command_result
 
+          def convert_to_json
+            @result = JSON.generate(command_result.to_h)
+          end
+
           def run_command
             @command_result = application_adapter.call(
-              module_name: module_name,
+              module_name:  module_name,
               command_name: :update,
-              args:        params
+              args:         params
             )
           end
 

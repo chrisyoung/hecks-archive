@@ -7,12 +7,14 @@ module Hecks
           attr_accessor :args, :errors, :id
 
           def initialize(chained_command = nil, args: nil, repository: Repository)
+
             @repository      = repository
             @chained_command = chained_command
             @args            = args || chained_command.args
             @errors          = []
-            @id              = @args[:id]
+            @id              = @args.delete(:id)
           end
+
 
           def repository
             return @repository unless chained_command.respond_to?(:repository)
@@ -44,7 +46,7 @@ module Hecks
 
           def update
             return if @errors.count.positive?
-            @repository_result = repository.update(args[:id], args[:attributes])
+            @repository_result = repository.update(id, args)
           end
         end
       end

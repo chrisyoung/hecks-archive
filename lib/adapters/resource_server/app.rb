@@ -27,7 +27,13 @@ module Hecks
         end
 
         put "/:module_name/:id" do |module_name, id|
-          methods.update.call(id: id, body: request.body, module_name: module_name)
+          command = methods.update.call(
+            id:          id,
+            body:        request.body,
+            module_name: module_name
+          )
+          status command.status
+          body   command.result
         end
 
         delete "/:module_name/:id" do |module_name, id|

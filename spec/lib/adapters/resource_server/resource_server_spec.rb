@@ -11,7 +11,6 @@ describe Hecks::Adapters::ResourceServer::App do
   it 'updates aggregates' do
     id = JSON.parse(create_pizza("YumYUM").body)["id"]
     put "/pizzas/#{id}", { name: "The Double Yuck" }.to_json
-    puts last_response.body
     expect(JSON.parse(read_pizza(id).body)["name"]).to eq "The Double Yuck"
   end
 
