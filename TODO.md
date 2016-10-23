@@ -1,31 +1,30 @@
 # Pizza Server 0.1
 
 ## In Progress
-* How to generate a schema for toppings?
+* Move command schemas to hecks resource adapter
 
 ## Current Sprint
-* Factory for building toppings in Pizza
-* Use a struct for value objects
 * SQL Adapter
 * Figure out where to deploy Docker
 * Push PizzaBuilder to Github
 * Get MySQL Running in in Container
+* Figure out how to generate the config for the server
 
 ## Bugs
 * Server DELETE is reporting "no response from server" in curl
 
 ## Next Actions
+* Use a struct for value objects
 * Get rid of command chaining
 * Adapter Schemas and validations - make sure Hecks can talk to your adapters.
 * Spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Stop using aliases in generators
 * Establish open source license
 * Clean up generator comments
-* Figure out how to generate the config for the server
 * Use relative hex binary automatically if no gem is installed
 * Tests for all the generators
 * Set up guard to build gems
-* Generate API Docs
+* Auto Generate API Docs
 * Warn if running a generator without being in a hexagon
 * Schema for read (required int?)
 * Hook up code coverage on github
@@ -43,7 +42,6 @@
 * Hook up pizzas as rack middleware
 * Deploy a Soccer app for Tanga
 * Make update take id as separate parameter
-
 
 ## Challenges:
 * Remove all if statements
