@@ -11,7 +11,7 @@ describe Hecks::Adapters::ResourceServer::App do
   end
 
   it 'updates aggregates' do
-    put "/pizzas/#{id}", { name: "The Double Yuck" }.to_json
+    put "/pizzas/#{id}", attributes('The Double Yuck').to_json
     expect(JSON.parse(read_pizza(id).body)["name"]).to eq "The Double Yuck"
   end
 
@@ -27,10 +27,15 @@ describe Hecks::Adapters::ResourceServer::App do
   end
 
   def create_pizza(name="The Yuck")
-    post '/pizzas', {
+    attributes.merge(name: name)
+    post '/pizzas', attributes.to_json
+  end
+
+  def attributes(name="The Yuck")
+    {
       name: name,
       description: "Worse than it sounds",
       toppings: [{ name: 'children'}, {name: 'crickets'}]
-    }.to_json
+    }
   end
 end
