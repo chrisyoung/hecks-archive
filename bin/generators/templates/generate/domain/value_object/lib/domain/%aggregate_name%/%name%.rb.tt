@@ -15,9 +15,9 @@ module <%= camelized_domain_name %>
         end
 
         def initialize(<%= attribute_param_names_without_id %>)
-          <% attribute_names_without_id.each do |attribute| %>
-            @<%= attribute.to_s %> = <%= attribute.to_s %>
-          <% end %>
+          <%- attribute_names_without_id.each do |attribute| -%>
+          @<%= attribute.to_s %> = <%= attribute.to_s %>
+          <%- end -%>
         end
 
         def to_json(config)

@@ -8,7 +8,7 @@ module <%= camelized_domain_name %>
       class <%= camelized_head_name %>
         attr_accessor <%= attributes_as_string %>
         def initialize(<%= attribute_param_names %>)
-        <%- attributes.each do |name, type| %>
+        <%- attributes.each do |name, type| -%>
           <%- if ['string', 'integer'].include?(type) -%>
           @<%= name.to_s %> = <%= name.to_s %>
           <%- else -%>

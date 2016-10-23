@@ -15,9 +15,7 @@ module PizzaBuilder
         end
 
         def initialize(name:)
-          
-            @name = name
-          
+          @name = name
         end
 
         def to_json(config)

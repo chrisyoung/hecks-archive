@@ -8,13 +8,9 @@ module PizzaBuilder
       class Pizza
         attr_accessor :name, :description, :toppings, :id
         def initialize(name:, description:, toppings:, id:)
-
           @name = name
-
           @description = description
-
           @toppings = Topping.factory(toppings)
-
           @id = id
         end
 
