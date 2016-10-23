@@ -8,9 +8,13 @@ module <%= camelized_domain_name %>
       class <%= camelized_head_name %>
         attr_accessor <%= attributes_as_string %>
         def initialize(<%= attribute_param_names %>)
-        <%- attribute_names.each do |attribute| %>
-          @<%= attribute.to_s %> = <%= attribute.to_s %>
-        <%- end %>
+        <%- attributes.each do |name, type| %>
+          <%- if ['string', 'integer'].include?(type) -%>
+          @<%= name.to_s %> = <%= name.to_s %>
+          <%- else -%>
+          @<%= name.to_s %> = <%= singular_type(type).camelize %>.factory(<%= name.to_s %>)
+          <%- end -%>
+        <%- end -%>
         end
 
         def to_json

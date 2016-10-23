@@ -6,17 +6,22 @@ module PizzaBuilder
       # that is handled by the Repository and operated on by the application.
 
       class Topping
-        attr_accessor :name, :id
-        def initialize(name:, id:)
+        attr_accessor :name
+
+        def self.factory(topping_group_attributes)
+          topping_group_attributes.map do |attributes|
+            Topping.new(attributes)
+          end
+        end
+
+        def initialize(name:)
           
             @name = name
           
-            @id = id
-          
         end
 
-        def to_json
-          JSON.generate(name: name, id: id)
+        def to_json(config)
+          JSON.generate(name: name)
         end
       end
     end

@@ -13,10 +13,9 @@ module PizzaBuilder
 
           @description = description
 
-          @toppings = toppings
+          @toppings = Topping.factory(toppings)
 
           @id = id
-
         end
 
         def to_json

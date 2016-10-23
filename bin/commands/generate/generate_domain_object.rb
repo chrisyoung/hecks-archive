@@ -48,8 +48,17 @@ class GenerateDomainObject < Thor::Group
     attributes.keys
   end
 
+  def attribute_names_without_id
+    attributes_without_id.keys
+  end
+
+
   def attribute_param_names
     attribute_param_names_as_string
+  end
+
+  def attribute_param_names_without_id
+    attribute_param_names_as_string_without_id
   end
 
   # Head Name
@@ -70,6 +79,10 @@ class GenerateDomainObject < Thor::Group
     module_name.camelize
   end
 
+  def keys_and_values_without_id
+    attributes_without_id.map { |key, _value| (key.to_s + ': ' + key.to_s) }.join(', ')
+  end
+
   def keys_and_values
     attributes.map { |key, _value| (key.to_s + ': ' + key.to_s) }.join(', ')
   end
@@ -77,6 +90,10 @@ class GenerateDomainObject < Thor::Group
   # Domain
   def domain_name
     Dir.pwd.split('/').last
+  end
+
+  def singular_type(type)
+    type.delete('[').delete(']')
   end
 
   def camelized_domain_name
@@ -92,6 +109,10 @@ class GenerateDomainObject < Thor::Group
     attributes.keys.map { |key| ':' + key.to_s }.join ', '
   end
 
+  def attributes_without_id_as_string
+    attributes_without_id.keys.map { |key| ':' + key.to_s }.join ', '
+  end
+
   def required_attributes_as_string
     (attributes.keys - [:id]).map { |key| ':' + key.to_s }.join ', '
   end
@@ -100,7 +121,15 @@ class GenerateDomainObject < Thor::Group
     attributes.keys.map { |key| key.to_s + ':' }.join ', '
   end
 
+  def attribute_param_names_as_string_without_id
+    attributes_without_id.keys.map { |key| key.to_s + ':' }.join ', '
+  end
+
   def attributes
     options[:attributes].merge(id: 'integer')
+  end
+
+  def attributes_without_id
+    options[:attributes]
   end
 end
