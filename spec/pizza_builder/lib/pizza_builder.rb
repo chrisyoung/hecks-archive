@@ -1,5 +1,6 @@
 module PizzaBuilder
   Dir[File.dirname(__FILE__) + "/domain/**/*.rb"].each {|file| require file}
+  Dir[File.dirname(__FILE__) + "/schema/*.rb"].each {|file| require file}
 
   def self.domain_modules
     Domain.constants.map { |name| Domain.const_get(name)}
@@ -15,7 +16,8 @@ module PizzaBuilder
     domain_module.to_s.downcase.split("::").last.to_sym
   end
 
-  def self.schemas(module_name:, command:)
-    Domain.const_get(module_name.to_s.camelcase)::Schemas.const_get(command.camelcase)
+  def self.schemas(module_name:)
+    schemas = Domain.const_get(module_name.to_s.camelcase)::Schemas #.const_get
+    binding.pry
   end
 end

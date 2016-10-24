@@ -8,10 +8,10 @@ module Hecks
         attr_reader :errors, :args
 
         def initialize(command: nil, args: nil, module_name:, domain:)
-          @command = command
-          @domain  = domain
-          @args    = args || command.args
+          @command     = command
+          @domain      = domain
           @module_name = module_name
+          @args        = args || command.args
         end
 
         def call
@@ -25,7 +25,8 @@ module Hecks
         attr_accessor :command, :domain, :module_name, :schema
 
         def fetch_schema
-          @schema = domain.schemas(module_name: module_name, command: command.name)
+          binding.pry
+          @schema = domain.schemas(module_name: module_name)
         end
 
         def validate

@@ -6,6 +6,7 @@ end
 module PizzaServerHexagon
   module Schemas
     def self.fetch(command:)
+      binding.pry
       Schemas
         .const_get(command.name.module.capitalize)
         .const_get(command.name.name.capitalize)

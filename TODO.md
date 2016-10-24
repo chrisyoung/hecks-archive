@@ -7,7 +7,7 @@
 * SQL Adapter
 * Figure out where to deploy Docker
 * Push PizzaBuilder to Github
-* Get MySQL Running in in Container
+* Get MySQL Running in a Container
 * Figure out how to generate the config for the server
 
 ## Bugs

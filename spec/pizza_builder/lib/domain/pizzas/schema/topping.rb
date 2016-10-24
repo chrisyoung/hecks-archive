@@ -1,10 +1,10 @@
 module PizzaBuilder
   module Domain
     module Pizzas
-      module Schemas
+      module Schema
         Topping = {
-          type: 'object',
-          required: [:name],
+          type:       'object',
+          required:   [:name],
           properties: { name: { type: "string" } },
           additionalProperties: false
         }

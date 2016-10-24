@@ -3,7 +3,7 @@ require_relative 'topping'
 module PizzaBuilder
   module Domain
     module Pizzas
-      module Schemas
+      module Schema
         Pizza = {
           type:       "object",
           required:   [:name, :description, :toppings],
