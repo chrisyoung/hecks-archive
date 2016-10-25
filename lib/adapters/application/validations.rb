@@ -25,12 +25,17 @@ module Hecks
 
         attr_accessor :command, :domain, :module_name, :schema
 
+        def command_schema
+          return unless Schemas.constants.include?(command.name.camelize.to_sym)
+          Schemas.const_get(command.name.camelize.to_sym)
+        end
+
+        def domain_schema
+          domain.schemas(module_name: module_name)::Head
+        end
+
         def fetch_schema
-          @schema = if Schemas.constants.include?(command.name.camelize.to_sym)
-            Schemas.const_get(command.name.camelize.to_sym)
-          else
-            domain.schemas(module_name: module_name)::Head
-          end
+          @schema = command_schema || domain_schema
         end
 
         def validate
