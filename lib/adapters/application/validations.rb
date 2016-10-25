@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'json-schema'
+require_relative 'schemas/delete.rb'
 
 module Hecks
   module Adapters
@@ -25,8 +26,11 @@ module Hecks
         attr_accessor :command, :domain, :module_name, :schema
 
         def fetch_schema
-          binding.pry
-          @schema = domain.schemas(module_name: module_name)
+          @schema = if Schemas.constants.include?(command.name.camelize.to_sym)
+            Schemas.const_get(command.name.camelize.to_sym)
+          else
+            domain.schemas(module_name: module_name)::Head
+          end
         end
 
         def validate

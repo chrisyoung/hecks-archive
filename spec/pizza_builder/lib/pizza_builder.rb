@@ -17,7 +17,6 @@ module PizzaBuilder
   end
 
   def self.schemas(module_name:)
-    schemas = Domain.const_get(module_name.to_s.camelcase)::Schemas #.const_get
-    binding.pry
+    schemas = Domain.const_get(module_name.to_s.camelcase)::Schema
   end
 end
