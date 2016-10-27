@@ -5,7 +5,7 @@ module <%= camelized_domain_name %>
       module Schema
         <%= camelized_head_name %> = {
           type:       "object",
-          required:   [<%= attributes_as_string %>],
+          required:   [<%= attributes_without_id_as_string %>],
           properties: {
           <%- attributes.each do |name, type| -%>
             <%- if ['string', 'integer'].include?(type) -%>

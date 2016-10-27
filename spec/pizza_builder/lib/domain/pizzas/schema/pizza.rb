@@ -5,7 +5,7 @@ module PizzaBuilder
       module Schema
         Pizza = {
           type:       "object",
-          required:   [:name, :description, :toppings, :id],
+          required:   [:name, :description, :toppings],
           properties: {
             name: { type: 'string' },
             description: { type: 'string' },

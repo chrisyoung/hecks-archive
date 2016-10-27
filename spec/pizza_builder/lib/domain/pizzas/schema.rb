@@ -1,7 +1,3 @@
-# Dir[File.dirname(__FILE__) + '/schema/*.rb'].each { |file| require file }
-
-# require_relative 'schema/pizza'
-
 module PizzaBuilder
   module Domain
     module Pizzas
