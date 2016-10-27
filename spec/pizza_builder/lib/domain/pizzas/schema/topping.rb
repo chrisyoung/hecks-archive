@@ -3,9 +3,12 @@ module PizzaBuilder
     module Pizzas
       module Schema
         Topping = {
-          type:       'object',
+          type:       "object",
           required:   [:name],
-          properties: { name: { type: "string" } },
+          properties: {
+            name: { type: 'string' },
+            id: { type: 'integer' },
+          },
           additionalProperties: false
         }
       end

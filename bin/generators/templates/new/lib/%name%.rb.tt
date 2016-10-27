@@ -1,5 +1,5 @@
 module <%= module_name %>
-  Dir[File.dirname(__FILE__) + "/domain/**/*.rb"].each {|file| require file}
+  Dir[File.dirname(__FILE__) + "/domain/*.rb"].each {|file| require file}
 
   def self.domain_modules
     Domain.constants.map { |name| Domain.const_get(name)}

@@ -1,17 +1,15 @@
-require_relative 'topping'
-
 module PizzaBuilder
   module Domain
     module Pizzas
       module Schema
         Pizza = {
           type:       "object",
-          required:   [:name, :description, :toppings],
+          required:   [:name, :description, :toppings, :id],
           properties: {
-            name:        { type: 'string' },
+            name: { type: 'string' },
             description: { type: 'string' },
-            id:          { type: 'integer' },
-            toppings:    { type: 'array', items: Topping },
+            toppings: { items: Topping },
+            id: { type: 'integer' },
           },
           additionalProperties: false
         }

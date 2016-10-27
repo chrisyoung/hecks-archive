@@ -6,7 +6,7 @@ module <%= camelized_domain_name %>
       # that is handled by the Repository and operated on by the application.
 
       class <%= camelized_head_name %>
-        attr_accessor <%= attributes_as_string %>
+        attr_reader <%= attributes_as_string %>
         def initialize(<%= attribute_param_names %>)
         <%- attributes.each do |name, type| -%>
           <%- if ['string', 'integer'].include?(type) -%>
