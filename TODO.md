@@ -1,7 +1,7 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Generate schemas
+* Stop hardcoding pizza stuff into generators
 
 ## Current Sprint
 * SQL Adapter
