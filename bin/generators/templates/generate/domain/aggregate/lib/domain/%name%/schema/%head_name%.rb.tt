@@ -1,3 +1,4 @@
+require_relative 'topping'
 module <%= camelized_domain_name %>
   module Domain
     module <%= camelized_name %>
