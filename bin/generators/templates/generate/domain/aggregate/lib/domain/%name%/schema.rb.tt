@@ -1,11 +1,11 @@
-module PizzaBuilder
+module <%= camelized_domain_name %>
   module Domain
-    module Pizzas
+    module <%= camelized_name %>
       module Schema
         Head =
           {
             '$schema': 'http://json-schema.org/draft-04/schema',
-          }.merge(Schema::Pizza)
+          }.merge(Schema::<%= head_module_name %>)
       end
     end
   end
