@@ -6,7 +6,7 @@ module Hecks
         class Create
           attr_accessor :args, :id, :errors, :repository
 
-          def initialize(args: nil, repository: Repository)
+          def initialize(args:, repository: )
             @repository      = repository
             @args            = args
             @errors          = []

@@ -10,6 +10,7 @@
 * Figure out how to generate the config for the server
 
 ## Next Actions
+* clean up autoloading in adapters.rb
 * Stop hardcoding pizza stuff into generators
 * Use relative hex binary automatically if no gem is installed
 * Domain Console (> hecks console in domain)

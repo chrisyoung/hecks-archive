@@ -15,7 +15,7 @@ describe Hecks::Adapters::SQLDatabase, :database do
     }
   end
 
-  it 'exists' do
+  it 'is used by the application adapter' do
     application_adapter.call(
       command_name: :create,
       module_name:  :pizzas,
