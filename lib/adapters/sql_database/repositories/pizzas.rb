@@ -4,16 +4,11 @@ module Hecks
       module Repositories
         class Pizzas
           def create(pizza_attributes)
-            toppings = pizza_attributes.delete(:toppings)
-            pizza = Models::Pizza.create(pizza_attributes)
+            Commands::Create.new(pizza_attributes).call
+          end
 
-            toppings.each do |topping_attributes|
-              topping = Models::Topping.create(topping_attributes)
-              Models::PizzaTopping.create({
-                pizza_id: pizza.id,
-                topping_id: topping.id
-              })
-            end
+          def update(pizza_attributes)
+            Commands::Update.new(pizza_attributes).call
           end
         end
       end

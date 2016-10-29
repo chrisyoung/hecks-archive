@@ -10,7 +10,7 @@ describe Hecks::Adapters::Application::Commands::Create do
   subject do
     described_class.new(
       args: pizza_attributes,
-      repository: Hecks::Adapters::SQLDatabase.new(domain: PizzaBuilder)[:pizzas]
+      repository: PizzaBuilder.repositories[:pizzas]
     )
   end
 

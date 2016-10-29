@@ -11,9 +11,17 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'thor', "~>0.19"
+  s.add_runtime_dependency 'sinatra'
   # s.add_runtime_dependency 'active_support'
   s.add_runtime_dependency 'sequel'
   s.add_runtime_dependency 'mysql2'
+  s.add_runtime_dependency 'json-schema'
+  s.add_runtime_dependency 'activesupport'
+  s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'rack-test'
+
+
 
 
   s.executables << 'hecks'

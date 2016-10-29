@@ -10,6 +10,7 @@
 * Figure out how to generate the config for the server
 
 ## Next Actions
+* consider generating sql adapter
 * clean up autoloading in adapters.rb
 * Stop hardcoding pizza stuff into generators
 * Use relative hex binary automatically if no gem is installed
@@ -19,7 +20,6 @@
 * Use a struct for value objects
 * CouchDB Persistence Adapter
 * Generate tests for domain
-
 * Spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Stop using aliases in generators
 * Open source license

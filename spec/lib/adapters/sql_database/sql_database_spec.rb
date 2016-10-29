@@ -15,11 +15,23 @@ describe Hecks::Adapters::SQLDatabase, :database do
     }
   end
 
-  it 'is used by the application adapter' do
-    application_adapter.call(
-      command_name: :create,
-      module_name:  :pizzas,
-      args:         pizza_attributes
-    )
+  describe 'create' do
+    it do
+      application_adapter.call(
+        command_name: :create,
+        module_name:  :pizzas,
+        args:         pizza_attributes
+      )
+    end
+  end
+
+  describe 'update' do
+    it do
+      application_adapter.call(
+        command_name: :update,
+        module_name:  :pizzas,
+        args:         pizza_attributes.merge(name: "new name")
+      )
+    end
   end
 end
