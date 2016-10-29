@@ -1,4 +1,4 @@
-describe Hecks::Adapters::SQLDatabase do
+describe Hecks::Adapters::SQLDatabase, :database do
   subject { described_class.new(domain: PizzaBuilder) }
   let(:application_adapter) {
     Hecks::Adapters::Application.new(
