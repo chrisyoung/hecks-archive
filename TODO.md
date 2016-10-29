@@ -1,7 +1,6 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Stop hardcoding pizza stuff into generators
 
 ## Current Sprint
 * SQL Adapter
@@ -10,10 +9,8 @@
 * Get MySQL Running in a Container
 * Figure out how to generate the config for the server
 
-## Bugs
-* Server DELETE is reporting "no response from server" in curl
-
 ## Next Actions
+* Stop hardcoding pizza stuff into generators
 * Use relative hex binary automatically if no gem is installed
 * Domain Console (> hecks console in domain)
 * Auto Generate API Docs

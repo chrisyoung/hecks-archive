@@ -18,7 +18,7 @@ describe Hecks::Adapters::Application do
     )
   end
 
-  it 'Works with generated domains (see pizza_builder_schema.json)', :slow do
+  it 'Works with generated domains (see pizza_builder_schema.json)', :generator do
     # Generate a pizza_builder to run the tests against
     # see the file "pizza_builder_schema.json"
 

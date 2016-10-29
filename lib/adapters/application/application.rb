@@ -7,7 +7,8 @@ module Hecks
     class Application
       def initialize(database: nil, listeners: [], domain:)
         @domain           = domain
-        @database         = Hecks::Adapters::MemoryDatabase.new(domain: domain)
+        @database         = (database && database.new(domain: domain)) ||
+                            Hecks::Adapters::MemoryDatabase.new(domain: domain)
         @validations      = Validations
         @events_port      = Adapters::Events.new(listeners: listeners)
       end
