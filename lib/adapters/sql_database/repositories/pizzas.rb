@@ -14,6 +14,10 @@ module Hecks
           def read(id)
             Queries::Read.new(id).call
           end
+
+          def delete(id)
+            Commands::Delete.new(id).call
+          end
         end
       end
     end

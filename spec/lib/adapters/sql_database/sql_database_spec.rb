@@ -33,13 +33,39 @@ describe Hecks::Adapters::SQLDatabase, :database do
         args:         pizza_attributes
       ).id
 
-      application_adapter.query(
+      result = application_adapter.query(
         query_name:   :find_by_id,
         module_name:  :pizzas,
         args:         { id: id }
       )
+      expect(result).to_not be nil
     end
   end
+
+  describe 'delete' do
+    it do
+      id = application_adapter.call(
+        command_name: :create,
+        module_name:  :pizzas,
+        args:         pizza_attributes
+      ).id
+
+      application_adapter.call(
+        command_name: :delete,
+        module_name:  :pizzas,
+        args:         { id: id }
+      )
+
+      result = application_adapter.query(
+        query_name:   :find_by_id,
+        module_name:  :pizzas,
+        args:         { id: id }
+      ).first
+
+      expect(result).to be nil
+    end
+  end
+
 
   describe 'update' do
     it do
