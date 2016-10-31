@@ -3,7 +3,6 @@
 ## In Progress
 
 ## Current Sprint
-* SQL Adapter
 * Figure out where to deploy Docker
 * Push PizzaBuilder to Github
 * Get MySQL Running in a Container
