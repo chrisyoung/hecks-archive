@@ -3,13 +3,15 @@ module Hecks
     class SQLDatabase
       module Commands
         class Update
-          def initialize(attributes)
+          def initialize(id, attributes)
+            @id = id
+            attributes = attributes.clone
             @toppings_attributes = attributes.delete(:toppings)
             @pizza_attributes    = attributes
           end
 
           def call
-            create_pizza
+            update_pizza
             create_toppings
             link_toppings
             self
@@ -17,11 +19,12 @@ module Hecks
 
           private
 
-          attr_reader :pizza_attributes, :pizza
+          attr_reader :pizza_attributes, :pizza, :id
           attr_reader :toppings_attributes, :toppings
 
-          def create_pizza
-            @pizza = Models::Pizza.create(pizza_attributes)
+          def update_pizza
+            @pizza = Models::Pizza.where(id: id).first
+            pizza.update(pizza_attributes)
           end
 
           def create_toppings
@@ -35,7 +38,7 @@ module Hecks
             toppings.each do |topping|
               Models::PizzaTopping.create(
                 pizza_id: pizza.id,
-                topping_id: topping.id
+                name: topping.name
               )
             end
           end

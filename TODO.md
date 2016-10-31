@@ -10,6 +10,7 @@
 * Figure out how to generate the config for the server
 
 ## Next Actions
+* should query objects return values?
 * consider generating sql adapter
 * clean up autoloading in adapters.rb
 * Stop hardcoding pizza stuff into generators

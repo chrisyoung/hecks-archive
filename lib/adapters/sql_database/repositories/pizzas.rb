@@ -7,8 +7,12 @@ module Hecks
             Commands::Create.new(pizza_attributes).call
           end
 
-          def update(pizza_attributes)
-            Commands::Update.new(pizza_attributes).call
+          def update(id, pizza_attributes)
+            Commands::Update.new(id, pizza_attributes).call
+          end
+
+          def read(id)
+            Queries::Read.new(id).call
           end
         end
       end

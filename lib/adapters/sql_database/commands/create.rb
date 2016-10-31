@@ -4,6 +4,7 @@ module Hecks
       module Commands
         class Create
           def initialize(attributes)
+            attributes = attributes.clone
             @toppings_attributes = attributes.delete(:toppings)
             @pizza_attributes    = attributes
           end
@@ -12,7 +13,7 @@ module Hecks
             create_pizza
             create_toppings
             link_toppings
-            self
+            pizza.id
           end
 
           private
@@ -35,7 +36,7 @@ module Hecks
             toppings.each do |topping|
               Models::PizzaTopping.create(
                 pizza_id: pizza.id,
-                topping_id: topping.id
+                name: topping.name
               )
             end
           end

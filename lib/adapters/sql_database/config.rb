@@ -16,13 +16,11 @@ module Hecks
       end
 
       DB.create_table? :pizza_toppings do
-        primary_key :id
         Integer :pizza_id
-        Integer :topping_id
+        String :name
       end
 
       DB.create_table? :toppings do
-        primary_key :id
         String :name
       end
     end

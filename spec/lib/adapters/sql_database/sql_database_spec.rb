@@ -25,13 +25,44 @@ describe Hecks::Adapters::SQLDatabase, :database do
     end
   end
 
+  describe 'read' do
+    it do
+      id = application_adapter.call(
+        command_name: :create,
+        module_name:  :pizzas,
+        args:         pizza_attributes
+      ).id
+
+      application_adapter.query(
+        query_name:   :find_by_id,
+        module_name:  :pizzas,
+        args:         { id: id }
+      )
+    end
+  end
+
   describe 'update' do
     it do
-      application_adapter.call(
+      id = application_adapter.call(
+        command_name: :create,
+        module_name:  :pizzas,
+        args:         pizza_attributes
+      ).id
+
+
+      result = application_adapter.call(
         command_name: :update,
         module_name:  :pizzas,
-        args:         pizza_attributes.merge(name: "new name")
+        args:         pizza_attributes.merge(id: id, name: "new name")
       )
+
+      expect(
+        application_adapter.query(
+          query_name:   :find_by_id,
+          module_name:  :pizzas,
+          args:         { id: id }
+        ).first.name
+      ).to eq 'new name'
     end
   end
 end
