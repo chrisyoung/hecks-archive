@@ -1,3 +1,5 @@
+require_relative '../../../../lib/adapters/sql_database/sql_database'
+
 describe Hecks::Adapters::SQLDatabase, :database do
   subject { described_class.new(domain: PizzaBuilder) }
   let(:application_adapter) {

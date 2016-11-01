@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 require_relative 'validations'
 require_relative 'queries/find_by_id'
+require_relative 'commands/update'
+require_relative 'commands/create'
+require_relative 'commands/delete'
+require_relative 'queries/find_by_id'
+
 
 module Hecks
   module Adapters

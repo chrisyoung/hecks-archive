@@ -31,7 +31,7 @@ module Hecks
         end
 
         def domain_schema
-          domain.schemas(module_name: module_name)::Head
+          domain.schemas(module_name: module_name).head
         end
 
         def fetch_schema

@@ -1,0 +1,12 @@
+cd ../..
+gem build hecks
+
+cd spec/pizza_builder
+gem build pizza_builder
+
+cd ../server
+
+cp ../pizza_builder/pizza_builder-0.0.0.gem .
+cp ../../hecks-0.0.0.gem .
+
+docker build .
