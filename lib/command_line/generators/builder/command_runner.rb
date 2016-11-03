@@ -25,10 +25,13 @@ class CommandRunner
   end
 
   def hecks_command(options)
-    if options[:from_domain_dir]
-      '../../bin/hecks'
-    else
-      '../bin/hecks'
-    end
+    'hecks'
+    # if options[:from_domain_dir]
+    #
+    #   '../../bin/hecks'
+    # else
+    #   binding.pry
+    #   '../bin/hecks'
+    # end
   end
 end

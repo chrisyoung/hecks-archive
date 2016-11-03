@@ -1,7 +1,0 @@
-# frozen_string_literal: true
-source 'https://rubygems.org' do
-  gem 'pizza_builder', '0.0.0'
-  gem 'hecks_resource_server', '0.0.0'
-  gem 'thin'
-  gem 'hecks'
-end
