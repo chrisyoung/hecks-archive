@@ -3,7 +3,7 @@ module PizzaBuilder
     module Pizzas
       module Schema
         def self.topping
-           {
+            {
             type:       "object",
             required:   [:name],
             properties: {

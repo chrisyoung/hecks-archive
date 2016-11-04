@@ -2,16 +2,18 @@ module <%= camelized_domain_name %>
   module Domain
     module <%= aggregate_module_name %>
       module Schema
-        <%= camelized_name %> = {
-          type:       "object",
-          required:   [<%= attributes_without_id_as_string %>],
-          properties: {
-          <%- attributes.each do |name, type| -%>
-            <%= name.to_s %>: { type: '<%= type.to_s %>' },
-          <%- end -%>
-          },
-          additionalProperties: false
-        }
+        def self.<%= name %>
+            {
+            type:       "object",
+            required:   [<%= attributes_without_id_as_string %>],
+            properties: {
+            <%- attributes.each do |name, type| -%>
+              <%= name.to_s %>: { type: '<%= type.to_s %>' },
+            <%- end -%>
+            },
+            additionalProperties: false
+          }
+        end
       end
     end
   end

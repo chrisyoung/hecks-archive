@@ -3,20 +3,22 @@ module <%= camelized_domain_name %>
   module Domain
     module <%= camelized_name %>
       module Schema
-        <%= camelized_head_name %> = {
-          type:       "object",
-          required:   [<%= attributes_without_id_as_string %>],
-          properties: {
-          <%- attributes.each do |name, type| -%>
-            <%- if ['string', 'integer'].include?(type) -%>
-            <%= name.to_s %>: { type: '<%= type.to_s %>' },
-            <%- else -%>
-            <%= name.to_s %>: { items: <%= singular_type(type).camelize %> },
+        def self.<%= head_name %>
+          {
+            type:       "object",
+            required:   [<%= attributes_without_id_as_string %>],
+            properties: {
+            <%- attributes.each do |name, type| -%>
+              <%- if ['string', 'integer'].include?(type) -%>
+              <%= name.to_s %>: { type: '<%= type.to_s %>' },
+              <%- else -%>
+              <%= name.to_s %>: { items: Schema.<%= singular_type(type) %> },
+              <%- end -%>
             <%- end -%>
-          <%- end -%>
-          },
-          additionalProperties: false
-        }
+            },
+            additionalProperties: false
+          }
+        end
       end
     end
   end
