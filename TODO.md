@@ -1,15 +1,15 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Figure out how to generate the config for the server
+* Figure out where to deploy Docker
 
 ## Current Sprint
-* Move SQL Server out of hecks library
-* Figure out where to deploy Docker
-* Push PizzaBuilder to Github
-* Get MySQL Running in a Container
 
 ## Next Actions
+* Get MySQL Running in a Container
+* Push PizzaBuilder to Github
+* Move SQL Server out of hecks library
+* Figure out how to generate the config for the server
 * should query objects return values?
 * consider generating sql adapter
 * clean up autoloading in adapters.rb
