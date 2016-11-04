@@ -1,0 +1,16 @@
+require_relative 'topping'
+require_relative 'pizza'
+
+module <%= camelized_domain_name %>
+  module Domain
+    module <%= camelized_name %>
+      module Schema
+        def self.head
+          {
+            '$schema': 'http://json-schema.org/draft-04/schema',
+          }.merge(Schema.<%= head_name %>)
+        end
+      end
+    end
+  end
+end
