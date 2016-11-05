@@ -12,8 +12,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'thor', "~>0.19"
   s.add_runtime_dependency 'sinatra'
-  s.add_runtime_dependency 'sequel'
-  s.add_runtime_dependency 'mysql2'
   s.add_runtime_dependency 'json-schema'
   s.add_runtime_dependency 'activesupport'
   s.add_development_dependency 'guard-rspec'
