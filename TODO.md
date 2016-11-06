@@ -1,12 +1,16 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Figure out where to deploy Docker
+* Get MySQL Running in a Container
 
 ## Current Sprint
+* Figure out where to deploy Docker
 
 ## Next Actions
-* Get MySQL Running in a Container
+* Toppings must have at least one entry
+* Generate spec directory in domain
+* Generators for domain specific sql adapter
+* Move validations into an adapter
 * Push PizzaBuilder to Github
 * Move SQL Server out of hecks library
 * Figure out how to generate the config for the server
@@ -29,16 +33,13 @@
 * Set up guard to build gems
 * Set up stats module to count lines of code
 * Demonstrate Hexagon Shims for Tanga
-
 * Warn if running a generator without being in a hexagon
-* Hook up code coverage on github
+* Hook up code coverage on codeclimate
 * Build Gem: hecks build -m pizzas
 * 12 factor app in Docker
 * Products Domain
 * Value Store (Service?)
-
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
-
 * Command Line Pizzas
 * Hook up pizzas as rack middleware
 * Deploy a Soccer app for Tanga

@@ -11,11 +11,9 @@ module Hecks
           set :show_exceptions, false
         end
 
-        def initialize(app: nil, application_adapter: Application, domain: )
+        def initialize(app: nil, application_adapter:)
           super(app)
-          @methods = Methods.new(
-            application_adapter: application_adapter.new(domain: domain)
-          )
+          @methods = Methods.new(application_adapter: application_adapter)
         end
 
         get "/:module_name/:id" do |module_name, id|
