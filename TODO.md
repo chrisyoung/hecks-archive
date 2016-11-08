@@ -1,22 +1,17 @@
 # Pizza Server 0.1
 
 ## In Progress
-* Get MySQL Running in a Container
 
 ## Current Sprint
-* Figure out where to deploy Docker
 
 ## Next Actions
+* Move validations into an adapter
+* Value Store (Service?)
 * Toppings must have at least one entry
 * Generate spec directory in domain
 * Generators for domain specific sql adapter
-* Move validations into an adapter
-* Push PizzaBuilder to Github
-* Move SQL Server out of hecks library
 * Figure out how to generate the config for the server
-* should query objects return values?
-* consider generating sql adapter
-* clean up autoloading in adapters.rb
+* Should query objects return values?
 * Stop hardcoding pizza stuff into generators
 * Use relative hex binary automatically if no gem is installed
 * Domain Console (> hecks console in domain)
@@ -25,7 +20,6 @@
 * Use a struct for value objects
 * CouchDB Persistence Adapter
 * Generate tests for domain
-* Spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Stop using aliases in generators
 * Open source license
 * Clean up generator comments
@@ -37,13 +31,11 @@
 * Hook up code coverage on codeclimate
 * Build Gem: hecks build -m pizzas
 * 12 factor app in Docker
-* Products Domain
-* Value Store (Service?)
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 * Command Line Pizzas
 * Hook up pizzas as rack middleware
 * Deploy a Soccer app for Tanga
-* Make update take id as separate parameter
+* Products Domain
 
 ## Challenges:
 * Figure out scheme to use in memory db in production and periodically flush to real db
@@ -53,6 +45,7 @@
 * Create plugin for Asana to show test results on use cases
 
 ## Notes
+* Spec folders can be nested.  Generate a domain in hecks/spec should run the domain tests :)
 * Generators are functions.  What if the code is generated for the function to complete?
 * Just in time compiling of source code
 * Generate the code > Run the code > Delete the code
