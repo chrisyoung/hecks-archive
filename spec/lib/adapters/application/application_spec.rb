@@ -23,6 +23,36 @@ describe Hecks::Adapters::Application do
     puts `cd spec && ../bin/hecks new -n pizza_builder -s pizza_builder_schema.json`
   end
 
+  describe '#create' do
+    it do
+      id = subject[:pizzas].create(pizza_attributes).id
+      expect(subject[:pizzas].read(id).name).to eq 'White Pizza'
+    end
+  end
+
+  describe '#read' do
+    it do
+      id = subject[:pizzas].create(pizza_attributes).id
+      expect(subject[:pizzas].read(id).name).to eq 'White Pizza'
+    end
+  end
+
+  describe '#update' do
+    it do
+      id = subject[:pizzas].create(pizza_attributes).id
+      res = subject[:pizzas].update(id, pizza_attributes.merge(name: "Green Pizza"))
+      expect(subject[:pizzas].read(id).name).to eq 'Green Pizza'
+    end
+  end
+
+  describe '#delete' do
+    it do
+      id = subject[:pizzas].create(pizza_attributes).id
+      res = subject[:pizzas].delete(id)
+      expect(subject[:pizzas].read(id)).to eq nil
+    end
+  end
+
   describe '#call' do
     it 'Runs a command' do
       subject.call(

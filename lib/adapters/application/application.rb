@@ -4,6 +4,7 @@ require_relative 'commands/update'
 require_relative 'commands/create'
 require_relative 'commands/delete'
 require_relative 'queries/find_by_id'
+require_relative 'crud_handler'
 
 
 module Hecks
@@ -25,6 +26,10 @@ module Hecks
         run_command
         broadcast
         command
+      end
+
+      def [](module_name)
+        CRUDHandler.new(module_name: module_name, application: self)
       end
 
       def query(query_name:, module_name:, args: {})
