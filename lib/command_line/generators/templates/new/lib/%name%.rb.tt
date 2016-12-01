@@ -14,8 +14,4 @@ module <%= module_name %>
   def self.aggregate_name(domain_module)
     domain_module.to_s.downcase.split("::").last.to_sym
   end
-
-  def self.schemas(module_name:)
-    Domain.const_get(module_name.to_s.camelcase)::Schema
-  end
 end

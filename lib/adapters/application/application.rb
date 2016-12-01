@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require_relative 'validations'
 require_relative 'queries/find_by_id'
 require_relative 'commands/update'
 require_relative 'commands/create'
@@ -14,7 +13,6 @@ module Hecks
         @domain           = domain
         @database         = (database && database.new(domain: domain)) ||
                             Hecks::Adapters::MemoryDatabase.new(domain: domain)
-        @validations      = Validations
         @events_port      = Adapters::Events.new(listeners: listeners)
       end
 
@@ -24,7 +22,6 @@ module Hecks
         @args         = args
 
         fetch_command
-        validate
         run_command
         broadcast
         command
@@ -39,16 +36,7 @@ module Hecks
 
       private
 
-      attr_reader :command_name, :command, :module_name, :database, :args, :events_port, :validations, :domain, :validation_command
-
-      def validate
-        return unless validations
-        @validation_command = validations.new(
-          command:     command,
-          module_name: module_name,
-          domain:      domain
-        ).call
-      end
+      attr_reader :command_name, :command, :module_name, :database, :args, :events_port, :domain
 
       def fetch_command
         @command = Commands.const_get(command_name.to_s.camelcase).new(
@@ -58,9 +46,7 @@ module Hecks
       end
 
       def run_command
-        return unless validation_command
-        @command.errors = validation_command.errors
-        @command = command.call unless @command.errors.count.positive?
+        @command = command.call
       end
 
       def broadcast

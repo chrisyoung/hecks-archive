@@ -40,16 +40,6 @@ describe Hecks::Adapters::Application do
       ).to eq 'White Pizza'
     end
 
-    it 'Runs validations' do
-      message = "did not contain a required property of 'name'"
-      result  = subject.call(
-        command_name: :create,
-        module_name:  :pizzas,
-        args:         {}
-      )
-      expect(result.errors.first).to include(message)
-    end
-
     it 'Broadcasts events' do
       subject.call(
         command_name: :create,
