@@ -39,6 +39,10 @@ module Hecks
         Queries.const_get(query_name.to_s.camelcase).new(repository: database[module_name]).call(args)
       end
 
+      def modules
+        domain::Domain.constants.map(&:downcase)
+      end
+
       private
 
       attr_reader :command_name, :command, :module_name, :database, :args, :events_port, :domain
