@@ -3,6 +3,7 @@
 ## In Progress
 
 ## Current Sprint
+How to generate call to objects in other modules?
 
 ## Next Actions
 * Move validations into an adapter
