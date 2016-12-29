@@ -1,25 +1,36 @@
 {
   "modules": [
     {
-      "name": "pizzas",
+      "name": "Orders",
       "objects": [
         {
-          "name": "pizza",
+          "name": "Order",
           "attributes": {
-            "name":        "string",
-            "description": "string",
-            "toppings":    "[topping]"
+            "pizza": "Pizzas::Pizza"
+          },
+          "head": true
+        }
+      ]
+    },
+    {
+      "name": "Pizzas",
+      "objects": [
+        {
+          "name": "Pizza",
+          "attributes": {
+            "name":        "String",
+            "description": "String",
+            "toppings":    "[Topping]"
           },
           "head": true
         },
         {
-          "name": "topping",
+          "name": "Topping",
           "attributes": {
-            "name": "string"
+            "name": "String"
           }
         }
-      ],
-      "services": []
+      ]
     }
   ]
 }

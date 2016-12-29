@@ -8,8 +8,8 @@ module <%= camelized_domain_name %>
       class <%= camelized_name %>
         attr_accessor <%= attributes_without_id_as_string %>
 
-        def self.factory(<%= name %>_group_attributes)
-          <%= name %>_group_attributes.map do |attributes|
+        def self.factory(<%= name.downcase %>_group_attributes)
+          <%= name.downcase %>_group_attributes.map do |attributes|
             <%= camelized_name %>.new(attributes)
           end
         end

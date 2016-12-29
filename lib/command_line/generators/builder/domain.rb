@@ -7,11 +7,5 @@ class Domain
     end
 
     @value_objects = @modules.map(&:value_objects).flatten
-
-    @module_services = @modules.map do |domain_module|
-      domain_module.services.each do |service|
-        service
-      end
-    end.flatten
   end
 end

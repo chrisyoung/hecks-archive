@@ -92,7 +92,17 @@ class GenerateDomainObject < Thor::Group
     Dir.pwd.split('/').last
   end
 
-  def singular_type(type)
+  def assignment_template(attributes)
+    attributes.map do |name, type|
+      if ['string', 'integer'].include?(type.downcase)
+        "@#{name.to_s} = #{name.to_s}"
+      else
+        "@#{name.to_s} = #{parse_type(type)}.factory(#{name.to_s})"
+      end
+    end.join("\n")
+  end
+
+  def parse_type(type)
     type.delete('[').delete(']')
   end
 

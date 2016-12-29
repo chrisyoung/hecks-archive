@@ -1,3 +1,20 @@
+{
+  "pizzas":
+    [
+      { "pizza": [ "name", "description", "toppings:[topping]" ] },
+      { "topping": [ "name" ] }
+    ]
+  "orders":
+    [
+      { "pizzas[pizzas:pizza]" }
+    ]
+}
+
+
+
+
+
+
 # Pizza Server 0.1
 
 ## In Progress

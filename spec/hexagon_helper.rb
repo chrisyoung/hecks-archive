@@ -6,7 +6,7 @@ require 'pry'
 
 require_relative '../lib/hecks/'
 
-require_relative 'pizza_builder/lib/pizza_builder'
+
 
 RSpec.configure do |config|
   config.after(:each) do
@@ -16,9 +16,12 @@ RSpec.configure do |config|
   config.before(:suite) do
     unless ENV['SKIP_DOMAIN_GENERATION']
       puts "\nRegenerating the Pizza Builder Domain.  To skip, set ENV['SKIP_DOMAIN_GENERATION']"
-      puts `cd spec && ../bin/hecks new -f -n pizza_builder -s pizza_builder_schema.json`
+      puts `cd spec && rm -rf pizza_builder`
+      puts `cd spec && ../bin/hecks new -n pizza_builder -s pizza_builder_schema.json`
     else
       puts "\nSkipping Generation: Pizza Builder Domain"
     end
+    require_relative 'pizza_builder/lib/pizza_builder'
   end
+
 end

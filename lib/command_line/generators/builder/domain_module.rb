@@ -8,13 +8,6 @@ class DomainModule
       DomainObject.new(attributes.merge module_name: @name )
     end
 
-    @services = attributes[:services]
-  end
-
-  def services
-    @services.map do |service_attributes|
-      ModuleService.new(service_attributes, self)
-    end
   end
 
   def head
