@@ -18,11 +18,6 @@ describe Hecks::Adapters::Application do
     )
   end
 
-  it 'Works with generated domains (see pizza_builder_schema.json)', :generate do
-    puts `cd spec && rm -rf pizza_builder`
-    puts `cd spec && ../bin/hecks new -n pizza_builder -s pizza_builder_schema.json`
-  end
-
   describe '#create' do
     it do
       id = subject[:pizzas].create(pizza_attributes).id

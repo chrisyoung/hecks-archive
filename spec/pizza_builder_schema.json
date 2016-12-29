@@ -19,16 +19,7 @@
           }
         }
       ],
-      "services": [
-        {
-          "name": "crud_commands",
-          "attributes": {
-            "name":        "string",
-            "description": "string",
-            "toppings":    "[topping]"
-          }
-        }
-      ]
+      "services": []
     }
   ]
 }
