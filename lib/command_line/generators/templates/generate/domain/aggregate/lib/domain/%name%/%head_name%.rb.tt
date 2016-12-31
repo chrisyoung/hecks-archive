@@ -1,16 +1,10 @@
 module <%= camelized_domain_name %>
   module Domain
     module <%= camelized_name %>
-      # This is the head of the Pizzas Aggregate.  An
-      # Aggregate head is generally an Entity and is the only object
-      # that is handled by the Repository and operated on by the application.
-
       class <%= camelized_head_name %>
         attr_accessor <%= attributes_as_string %>
         def initialize(<%= attribute_param_names %>)
-
-          <%= assignment_template(attributes) %>
-
+        <%= assignment_template(attributes) %>
         end
 
         def to_json

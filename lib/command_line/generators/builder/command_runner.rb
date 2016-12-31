@@ -3,7 +3,7 @@ class CommandRunner
   def initialize(hexagon, name, dry_run = false)
     @hexagon = hexagon
     @dry_run = dry_run
-    @name = name
+    @name    = name
   end
 
   def call(command, options = { from_domain_dir: true })
@@ -16,22 +16,11 @@ class CommandRunner
   attr_reader :hexagon, :dry_run, :name
 
   def full_command(command, options)
-    (from_hexagon_dir_if(options[:from_domain_dir]) + [hecks_command(options)] + command).join(' ')
+    (from_hexagon_dir_if(options[:from_domain_dir]) + ['hecks'] + command).join(' ')
   end
 
   def from_hexagon_dir_if(statement)
     return [] unless statement
     ['cd', name.to_s, '&&']
-  end
-
-  def hecks_command(options)
-    'hecks'
-    # if options[:from_domain_dir]
-    #
-    #   '../../bin/hecks'
-    # else
-    #   binding.pry
-    #   '../bin/hecks'
-    # end
   end
 end
