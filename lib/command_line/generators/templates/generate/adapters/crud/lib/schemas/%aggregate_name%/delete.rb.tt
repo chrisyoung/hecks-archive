@@ -1,9 +1,0 @@
-module <%= camelized_domain_name %>
-  module Schemas
-    module <%= aggregate_module_name %>
-      Delete = Dry::Validation.Schema do
-        required(:id).filled(:int?)
-      end
-    end
-  end
-end

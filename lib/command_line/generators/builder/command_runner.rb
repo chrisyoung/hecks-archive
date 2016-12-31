@@ -7,7 +7,7 @@ class CommandRunner
   end
 
   def call(command, options = { from_domain_dir: true })
-    puts full_command(command, options)
+    puts "$ #{full_command(command, options)}"
     puts("\n", `#{full_command(command, options)}`, "\n") unless dry_run
   end
 
