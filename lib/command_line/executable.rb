@@ -13,7 +13,7 @@ module Hecks
                   desc:     'The type of the domain object you want to generate',
                   banner:   '[OBJECT_TYPE]',
                   enum:     %w(entity value_object aggregate)
-    register GenerateDomainObject, 'generate:domain_object', 'generate:domain_object', 'Generate adapters'
+    register GenerateDomainObject, 'generate:domain_object', 'generate:domain_object', 'Generate Domain Objects'
 
     desc 'new', 'Generate a new domain'
     long_desc     'A domain'

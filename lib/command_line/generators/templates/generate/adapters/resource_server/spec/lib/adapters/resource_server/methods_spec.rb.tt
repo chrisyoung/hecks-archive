@@ -1,3 +1,0 @@
-describe <%= camelized_domain_name %>::Adapters::ResourceServer::Methods do
-
-end

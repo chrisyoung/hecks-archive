@@ -1,11 +1,6 @@
 module PizzaBuilder
   module Domain
     module Orders
-      # This is the default "in memory" Pizzas Repository.
-      # When developing the domain, the in-memory repo makes it things fast to test
-      # without mocking.  A repository is only able to do operations on the aggregate
-      # head (Pizzas::Pizza).  There
-      # can be only one repository per module in the domain.
       class Repository
         @collection = {}
         @last_id    = 0
