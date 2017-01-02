@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 require 'rack/test'
-# require 'rspec'
 require 'pry'
 
 require_relative '../lib/hecks/'
-
-
 
 RSpec.configure do |config|
   config.after(:each) do

@@ -6,9 +6,24 @@
         {
           "name": "Order",
           "attributes": {
-            "pizza": "Pizzas::Pizza"
+            "line_items": ["LineItem"]
           },
           "head": true
+        },
+        {
+          "name": "Pizza",
+          "attributes": {
+            "name": "String",
+            "toppings": ["Topping"]
+          }
+        },
+        {
+          "name": "LineItem",
+          "attributes": {
+            "pizza": "Order[Pizza]",
+            "quantity": "Integer",
+            "price": "Double"
+          }
         }
       ]
     },

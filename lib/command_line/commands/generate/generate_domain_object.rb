@@ -14,7 +14,7 @@ class GenerateDomainObject < Thor::Group
   class_option :module_name, aliases: '-m', desc: 'Domain Module'
 
   def self.source_root
-    File.dirname(__FILE__) + '/../../generators/templates/generate/domain'
+    File.dirname(__FILE__) + '/../../../generators/templates/generate/domain'
   end
 
   def create_aggregate_folder
@@ -94,11 +94,7 @@ class GenerateDomainObject < Thor::Group
 
   def assignment_template(attributes)
     attributes.map do |name, type|
-      if ['string', 'integer'].include?(type.downcase)
-        "@#{name.to_s} = #{name.to_s}"
-      else
-        "@#{name.to_s} = #{parse_type(type)}.factory(#{name.to_s})"
-      end
+      "@#{name.to_s} = #{name.to_s}"
     end.join("\n")
   end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'active_support/inflector'
 require 'pry'
-require_relative '../generators/builder'
+require_relative '../../generators/builder'
 
 module Hecks
   class Commands
@@ -25,7 +25,7 @@ module Hecks
 
       def create_hexagon_folder
         return if options[:schema]
-        directory('../generators/templates/new', name.to_s)
+        directory('../../generators/templates/new', name.to_s)
       end
 
       private

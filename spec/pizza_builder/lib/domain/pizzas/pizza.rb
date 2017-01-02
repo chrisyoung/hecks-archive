@@ -6,7 +6,7 @@ module PizzaBuilder
         def initialize(name:, description:, toppings:, id:)
         @name = name
 @description = description
-@toppings = Topping.factory(toppings)
+@toppings = toppings
 @id = id
         end
 
