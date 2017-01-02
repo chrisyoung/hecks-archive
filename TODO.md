@@ -1,18 +1,3 @@
-{
-  "Pizzas":
-    [
-      { "Pizza":   [ "name", "description", "toppings:[Topping]" ] },
-      { "Topping": [ "name" ] }
-    ]
-  "Orders":
-    [
-      { "Order": "pizzas: [Pizzas:Pizza]" }
-    ]
-}
-
-
-
-
 # Pizza Server 0.1
 
 ## In Progress
