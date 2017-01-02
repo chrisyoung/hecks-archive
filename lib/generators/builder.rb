@@ -15,7 +15,6 @@ module Hecks
       generate :domain
       generate :modules
       generate :value_objects
-      # generate :module_services
     end
 
     private
