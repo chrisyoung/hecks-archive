@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-require_relative 'builder/env'
 require 'json'
+require_relative 'command_runner'
 
 module Hecks
   class Builder

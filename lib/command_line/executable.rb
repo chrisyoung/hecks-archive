@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 require_relative 'commands/new'
 require_relative 'commands/generate'
+require 'active_support/inflector'
+require 'pry'
+require_relative 'builder'
+require_relative '../domain_builder/builder'
 
 module Hecks
   class Executable < Thor

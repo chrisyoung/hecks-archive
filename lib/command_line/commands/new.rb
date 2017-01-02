@@ -1,7 +1,4 @@
 # frozen_string_literal: true
-require 'active_support/inflector'
-require 'pry'
-require_relative '../../generators/builder'
 
 module Hecks
   class Commands
