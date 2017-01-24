@@ -1,6 +1,8 @@
 module Hecks
   class DomainBuilder
     class DomainObject
+      attr_reader :name, :attributes
+
       def initialize(name:)
         @name = name
       end

@@ -6,15 +6,20 @@ require_relative 'head'
 
 module Hecks
   class DomainBuilder
-    def initialize(domain_name:)
-      @domain_name = domain_name
-      @domain_modules = []
-    end
+    attr_accessor :domain
 
-    def self.build(domain_name, &block)
+    def initialize(domain_name:, &block)
       @domain = Domain.new(name: domain_name)
       block.yield(@domain)
       self
+    end
+
+    def domain_modules
+      @domain.domain_modules
+    end
+
+    def self.build(domain_name, &block)
+      new(domain_name: domain_name, &block)
     end
   end
 end

@@ -4,9 +4,12 @@ require_relative 'command_runner'
 
 module Hecks
   class Builder
-    def initialize(schema, name:, dry_run: false)
+    def initialize(builder: nil, schema: nil, name:, dry_run: false)
       @name = name
-      @domain = Domain.new(schema)
+
+      @domain = Domain.new(schema) if schema
+      @domain = Domain.new(builder) if builder
+
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 

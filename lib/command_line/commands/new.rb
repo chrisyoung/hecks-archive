@@ -7,6 +7,7 @@ module Hecks
       include Thor::Actions
 
       class_option :schema, aliases: '-s', desc: 'load schema from file'
+      class_option :builder, aliases: '-b', desc: 'load schema from builder'
       class_option :name, aliases: '-n', desc: 'name of hexagon'
       class_option :dry_run, aliases: '-d', desc: 'Use when specifying a schema file to output the commands, without running them'
 
@@ -14,10 +15,20 @@ module Hecks
         File.dirname(__FILE__)
       end
 
-      def load_from_file
+      def load_from_schema
         return unless options[:schema]
         schema = JSON.parse(File.read(options[:schema]), symbolize_names: true)
-        Hecks::Builder.new(schema, name: options[:name], dry_run: !options[:dry_run].nil?).call
+        Hecks::Builder.new(schema: schema, name: options[:name], dry_run: !options[:dry_run].nil?).call
+      end
+
+      def load_from_builder
+        return unless options[:builder]
+        builder = eval(File.read(options[:builder]))
+        Hecks::Builder.new(
+          builder: builder,
+          name:    options[:name],
+          dry_run: !options[:dry_run].nil?
+        ).call
       end
 
       def create_hexagon_folder

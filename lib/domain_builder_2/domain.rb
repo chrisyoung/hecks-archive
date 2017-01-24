@@ -2,8 +2,9 @@
 module Hecks
   class DomainBuilder
     class Domain
+      attr_reader :domain_modules, :name
       def initialize(name:)
-        @domain_name = name
+        @name = name
         @domain_modules = []
       end
 
