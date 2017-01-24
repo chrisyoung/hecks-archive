@@ -3,6 +3,7 @@ class Field
   attr_reader :name, :type
 
   def initialize(attributes)
+    attributes = attributes.split("=")
     @name = attributes.first
     @type = attributes.last
   end

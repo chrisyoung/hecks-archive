@@ -8,6 +8,7 @@ module Hecks
       end
 
       def attributes(*values)
+        return @attributes if @attributes
         @attributes = values
       end
     end

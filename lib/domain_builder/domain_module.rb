@@ -1,13 +1,12 @@
 class DomainModule
   attr_reader :name, :domain_objects
 
-  def initialize(attributes)
-    @name           = attributes[:name]
+  def initialize(domain_module)
+    @name = domain_module.name
 
-    @domain_objects = attributes[:objects].map do |attributes|
-      DomainObject.new(attributes.merge module_name: @name )
+    @domain_objects = domain_module.objects.map do |object|
+      DomainObject.new(object, @name)
     end
-
   end
 
   def head

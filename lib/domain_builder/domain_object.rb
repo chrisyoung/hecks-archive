@@ -2,11 +2,11 @@
 class DomainObject
   attr_reader :name, :module_name
 
-  def initialize(attributes)
-    @name        = attributes[:name]
-    @head        = attributes[:head]
-    @module_name = attributes[:module_name]
-    @fields      = attributes[:attributes]
+  def initialize(object, module_name)
+    @name        = object.name
+    @head        = object.is_a?(Hecks::DomainBuilder::Head)
+    @module_name = module_name
+    @fields      = object.attributes
   end
 
   def fields

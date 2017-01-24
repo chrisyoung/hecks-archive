@@ -7,8 +7,8 @@ module Hecks
     def initialize(builder: nil, schema: nil, name:, dry_run: false)
       @name = name
 
-      @domain = Domain.new(schema) if schema
-      @domain = Domain.new(builder) if builder
+      @domain = Domain.new(schema: schema) if schema
+      @domain = Domain.new(builder: builder.domain) if builder
 
       @runner = CommandRunner.new(domain, name, dry_run)
     end

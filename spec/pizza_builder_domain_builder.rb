@@ -1,6 +1,6 @@
 Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
   pizza_builder.module 'Pizzas' do |pizzas|
-    pizzas.head("Pizza").attributes('name', 'description', 'toppings[Topping]')
+    pizzas.head("Pizza").attributes('name', 'description', 'toppings=[Topping]')
     pizzas.value("Topping").attributes('name')
   end
 
