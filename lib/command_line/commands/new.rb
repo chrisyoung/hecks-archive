@@ -15,12 +15,6 @@ module Hecks
         File.dirname(__FILE__)
       end
 
-      def load_from_schema
-        return unless options[:schema]
-        schema = JSON.parse(File.read(options[:schema]), symbolize_names: true)
-        Hecks::Builder.new(schema: schema, name: options[:name], dry_run: !options[:dry_run].nil?).call
-      end
-
       def load_from_builder
         return unless options[:builder]
         builder = eval(File.read(options[:builder]))
