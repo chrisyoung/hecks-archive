@@ -4,12 +4,9 @@ require_relative 'command_runner'
 
 module Hecks
   class Builder
-    def initialize(builder: nil, schema: nil, name:, dry_run: false)
+    def initialize(builder: nil, name:, dry_run: false)
       @name = name
-
-      @domain = Domain.new(schema: schema) if schema
       @domain = Domain.new(builder: builder.domain) if builder
-
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 
@@ -27,7 +24,7 @@ module Hecks
     def generate(command)
       case command
       when :domain
-        runner.call(['new', '-n', name], from_domain_dir: false)
+        runner.call(['new', '-n', name])
       when :modules
         domain.modules.each do |domain_module|
           runner.call([

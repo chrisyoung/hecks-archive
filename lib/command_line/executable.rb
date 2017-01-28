@@ -21,15 +21,6 @@ module Hecks
 
     desc 'new', 'Generate a new domain'
     long_desc     'A domain'
-    method_option :name,
-                  aliases:  '-n',
-                  required: true,
-                  desc:     'The name of the domain (required)',
-                  banner:   '[DOMAIN_NAME]'
-    method_option :schema,
-                  aliases:  '-s',
-                  banner:   'FILE_NAME',
-                  desc:     'Load from a schema file'
     method_option :dryrun,
                   aliases:  '-d',
                   type:     :boolean,
