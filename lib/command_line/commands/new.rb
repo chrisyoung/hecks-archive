@@ -27,7 +27,6 @@ module Hecks
         directory('../../generators/templates/new', ".")
       end
 
-
       private
 
       def name
