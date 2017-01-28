@@ -1,6 +1,7 @@
 # Pizza Server 0.1
 
 ## In Progress
+Get rid of domain_builder in favor of domain_builder 2
 
 ## Current Sprint
 How to generate call to objects in other modules?
