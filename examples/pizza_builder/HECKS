@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
   pizza_builder.module 'Pizzas' do |pizzas|
     pizzas.head("Pizza").attributes('name', 'description', 'toppings=[Topping]')
