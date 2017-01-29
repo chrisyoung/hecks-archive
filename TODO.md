@@ -1,14 +1,16 @@
-# Pizza Server 0.1
+# Hecks 0.1
 
 ## In Progress
-Get rid of domain_builder in favor of domain_builder 2
+* Support fields with types in generator
 
 ## Current Sprint
-How to generate call to objects in other modules?
+* Move validations into an adapter
+* Handle generating relationships to lists of objects
+* Generate relationships to other modules
 
 ## Next Actions
-* Move validations into an adapter
 * Value Store (Service?)
+* SQL repository generator
 * Toppings must have at least one entry
 * Generate spec directory in domain
 * Generators for domain specific sql adapter
