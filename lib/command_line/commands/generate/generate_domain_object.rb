@@ -112,7 +112,7 @@ class GenerateDomainObject < Thor::Group
   end
 
   def attributes_as_string
-    attributes.keys.map { |key| ':' + key.to_s }.join ', '
+    attributes.map { |key| ':' + key.to_s }.join ', '
   end
 
   def attributes_without_id_as_string
@@ -124,6 +124,7 @@ class GenerateDomainObject < Thor::Group
   end
 
   def attribute_param_names_as_string
+    binding.pry
     attributes.keys.map { |key| key.to_s + ':' }.join ', '
   end
 
@@ -132,7 +133,11 @@ class GenerateDomainObject < Thor::Group
   end
 
   def attributes
-    options[:attributes].merge(id: 'integer')
+    binding.pry
+    options[:attributes].map do |attribute|
+      Hecks::DomainBuilder::Attribute.new(attribute)
+    end
+    # .merge(id: 'integer')
   end
 
   def attributes_without_id
