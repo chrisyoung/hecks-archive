@@ -2,7 +2,7 @@ module PizzaBuilder
   module Domain
     module Pizzas
       class Topping
-        attr_accessor :name
+        attr_accessor 
 
         def self.factory(topping_group_attributes)
           topping_group_attributes.map do |attributes|
@@ -10,12 +10,11 @@ module PizzaBuilder
           end
         end
 
-        def initialize(name:)
-          @name = name
+        def initialize()
         end
 
         def to_json(config)
-          JSON.generate(name: name)
+          JSON.generate()
         end
       end
     end

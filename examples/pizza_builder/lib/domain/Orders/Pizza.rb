@@ -2,7 +2,7 @@ module PizzaBuilder
   module Domain
     module Orders
       class Pizza
-        attr_accessor :name, :toppings
+        attr_accessor :id
 
         def self.factory(pizza_group_attributes)
           pizza_group_attributes.map do |attributes|
@@ -10,13 +10,12 @@ module PizzaBuilder
           end
         end
 
-        def initialize(name:, toppings:)
-          @name = name
-          @toppings = toppings
+        def initialize(id)
+          @id = id
         end
 
         def to_json(config)
-          JSON.generate(name: name, toppings: toppings)
+          JSON.generate()
         end
       end
     end
