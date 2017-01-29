@@ -45,11 +45,11 @@ class GenerateDomainObject < Thor::Group
   end
 
   def attribute_names
-    attributes.keys
+    attributes.map(&:name)
   end
 
   def attribute_names_without_id
-    attributes_without_id.keys
+    attributes_without_id.map(&:name)
   end
 
 
@@ -80,11 +80,11 @@ class GenerateDomainObject < Thor::Group
   end
 
   def keys_and_values_without_id
-    attributes_without_id.map { |key, _value| (key.to_s + ': ' + key.to_s) }.join(', ')
+    attributes_without_id.map { |attribute| (attribute.name + ': ' + attribute.name) }.join(', ')
   end
 
   def keys_and_values
-    attributes.map { |key, _value| (key.to_s + ': ' + key.to_s) }.join(', ')
+    attributes.map { |attribute| (attribute.name + ': ' + attribute.name) }.join(', ')
   end
 
   # Domain
@@ -93,8 +93,8 @@ class GenerateDomainObject < Thor::Group
   end
 
   def assignment_template(attributes)
-    attributes.map do |name, type|
-      "@#{name.to_s} = #{name.to_s}"
+    attributes.map do |attribute|
+      "@#{attribute.name.to_s} = #{attribute.name.to_s}"
     end.join("\n")
   end
 
@@ -108,39 +108,38 @@ class GenerateDomainObject < Thor::Group
 
   # Attributes
   def attribute_names_as_strings
-    attributes.keys.map(&:to_s).join(', ')
+    attributes.map(&:name).join(', ')
   end
 
   def attributes_as_string
-    attributes.map { |key| ':' + key.to_s }.join ', '
+    attributes.map { |attribute| ':' + attribute.name }.join ', '
   end
 
   def attributes_without_id_as_string
-    attributes_without_id.keys.map { |key| ':' + key.to_s }.join ', '
+    attributes_without_id.map { |attribute| ':' + attribute.name }.join ', '
   end
 
   def required_attributes_as_string
-    (attributes.keys - [:id]).map { |key| ':' + key.to_s }.join ', '
+    attributes_without_id.map { |attribute| ':' + attribute.name }.join ', '
   end
 
   def attribute_param_names_as_string
-    binding.pry
-    attributes.keys.map { |key| key.to_s + ':' }.join ', '
+    attributes.map { |attribute| attribute.name + ':' }.join ', '
   end
 
   def attribute_param_names_as_string_without_id
-    attributes_without_id.keys.map { |key| key.to_s + ':' }.join ', '
+    attributes_without_id.map { |attribute| attribute.name + ':' }.join ', '
   end
 
   def attributes
-    binding.pry
     options[:attributes].map do |attribute|
       Hecks::DomainBuilder::Attribute.new(attribute)
-    end
-    # .merge(id: 'integer')
+    end << Hecks::DomainBuilder::Attribute.new(['id', 'value'])
   end
 
   def attributes_without_id
-    options[:attributes]
+    options[:attributes].map do |attribute|
+      Hecks::DomainBuilder::Attribute.new(attribute)
+    end
   end
 end
