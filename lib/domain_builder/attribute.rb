@@ -1,15 +1,24 @@
 module Hecks
   class DomainBuilder
     class Attribute
-      attr_reader :name, :type, :domain_module
-
       def initialize(string)
         @string = string
-        parse
       end
 
       def list?
         @string.include?("[")
+      end
+
+      def name
+        split_name
+      end
+
+      def type
+        split_type.last.delete("[").delete("]")
+      end
+
+      def domain_module
+        split_type.first.delete("[").delete("]") if @string.include?("::")
       end
 
       private
@@ -18,7 +27,7 @@ module Hecks
         unless @string.include?("[")
           @string.split(/\w:(\w.+)/).last.split("::")
         else
-          @string.split(/:\[(\w.+)/).last.split("::")
+          split_list_type
         end
       end
 
@@ -30,14 +39,12 @@ module Hecks
         end
       end
 
-      def split_list_name
-        @string.split(/(.+):\[/)[1].split(':')[0]
+      def split_list_type
+        @string.split(/:\[(\w.+)/).last.split("::")
       end
 
-      def parse
-        @name = split_name
-        @type = split_type.last.delete("[").delete("]")
-        @domain_module = split_type.first.delete("[").delete("]") if @string.include?("::")
+      def split_list_name
+        @string.split(/(.+):\[/)[1].split(':')[0]
       end
     end
   end
