@@ -3,6 +3,7 @@ require_relative 'domain_module'
 require_relative 'domain_object'
 require_relative 'value'
 require_relative 'head'
+require_relative 'attribute'
 
 module Hecks
   class DomainBuilder
