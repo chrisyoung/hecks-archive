@@ -1,12 +1,12 @@
-module <%= camelized_domain_name %>
+module SoccerSeason
   module Domain
-    module <%= aggregate_module_name %>
-      class <%= camelized_name %>
+    module Players
+      class TeamReference
         attr_accessor :id, :referenced_entity
 
         def initialize(id:)
           @id = id
-          @referenced_entity = <%= referenced_entity %>
+          @referenced_entity = Teams::Team
         end
 
         def to_json(config)

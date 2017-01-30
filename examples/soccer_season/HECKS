@@ -10,7 +10,7 @@ Hecks::DomainBuilder.build "soccer_season" do |hexagon|
 
   hexagon.module 'Players' do |players|
     players.head("Player").attributes('name:value', 'team:teams::team')
-    players.value("TeamReference").attributes("id:value")
+    players.reference("teams::team")
   end
 
   hexagon.module 'Matches' do |matches|

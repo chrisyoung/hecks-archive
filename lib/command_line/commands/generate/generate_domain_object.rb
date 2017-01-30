@@ -12,6 +12,7 @@ class GenerateDomainObject < Thor::Group
   class_option :name,        aliases: '-n', desc: 'attributes for the aggregate head'
   class_option :type,        aliases: '-t', desc: 'The type of domain object you want to create'
   class_option :module_name, aliases: '-m', desc: 'Domain Module'
+  class_option :referenced_entity, aliases: '-r', desc: 'Referenced Entity'
 
   def self.source_root
     File.dirname(__FILE__) + '/../../../generators/templates/generate/domain'
@@ -25,6 +26,10 @@ class GenerateDomainObject < Thor::Group
 
   def name
     options[:name]
+  end
+
+  def referenced_entity
+    options[:referenced_entity]
   end
 
   def underscored_name
