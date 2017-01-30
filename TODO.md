@@ -3,19 +3,17 @@
 ## In Progress
 * Handle generating relationships to lists of objects
 
-
 ## Current Sprint
 * Move validations into an adapter
-* Store domain_module and object in reference
-* Generate relationships to other modules
 * Generate spec_helper for domain
+* Generate Unit Tests as specs
+* Run example tests when doing rspec in hecks
 * Handle Reference lists
 * Fix text case problems with generators
 * Fix indentation in generators
 * Deploy to Lambda
 
 ## Next Actions
-
 * Value Store (Service?)
 * SQL repository generator
 * Toppings must have at least one entry
