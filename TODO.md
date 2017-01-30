@@ -1,13 +1,18 @@
 # Hecks 0.1
 
 ## In Progress
-* I should be able to reference objects in domain objects
+* Handle generating relationships to lists of objects
+
 
 ## Current Sprint
 * Move validations into an adapter
-* Handle generating relationships to lists of objects
+* Store domain_module and object in reference
 * Generate relationships to other modules
 * Generate spec_helper for domain
+* Handle Reference lists
+* Fix text case problems with generators
+* Fix indentation in generators
+* Deploy to Lambda
 
 ## Next Actions
 
