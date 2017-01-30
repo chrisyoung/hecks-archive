@@ -94,7 +94,15 @@ class GenerateDomainObject < Thor::Group
 
   def assignment_template(attributes)
     attributes.map do |attribute|
-      "@#{attribute.name.to_s} = #{attribute.name.to_s}"
+      if attribute.type == "Value"
+        "@#{attribute.name.to_s} = #{attribute.name.to_s}"
+      else
+        if attribute.list?
+          "@#{attribute.name.to_s} = #{attribute.type}.factory(#{attribute.name.to_s})"
+        else
+          "@#{attribute.name.to_s} = #{attribute.type}.new(#{attribute.name.to_s})"
+        end
+      end
     end.join("\n")
   end
 

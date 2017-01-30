@@ -7,7 +7,7 @@ Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
 
   pizza_builder.module 'Orders' do |orders|
     orders.head("Order").attributes('line_items:[LineItem]')
-    orders.value("Pizza").attributes('name:value')
+    orders.value("Pizza").attributes('name:value', 'id:value')
     orders.value("LineItem").attributes('pizza:Pizzas::Pizza', 'quantity:Value', 'price:Value')
   end
 end

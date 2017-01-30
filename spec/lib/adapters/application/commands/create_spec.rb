@@ -37,12 +37,12 @@ class Hecks::Adapters::Application
     end
 
     let(:order_attributes) do
-      order_pizza = PizzaBuilder::Domain::Orders::Pizza.new(name: pizza.name, toppings: pizza.toppings)
+      order_pizza = {name: pizza.name, id: pizza.id}
       {
         line_items: [
-          PizzaBuilder::Domain::Orders::LineItem.new(
+          {
             pizza: order_pizza, quantity: 1, price: 5.0
-          )
+          }
         ]
       }
     end
