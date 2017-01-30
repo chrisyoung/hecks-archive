@@ -3,7 +3,6 @@
 ## In Progress
 * I should be able to reference objects in domain objects
 
-
 ## Current Sprint
 * Move validations into an adapter
 * Handle generating relationships to lists of objects
