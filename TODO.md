@@ -1,7 +1,8 @@
 # Hecks 0.1
 
 ## In Progress
-* Support fields with types in generator
+* I should be able to reference objects in domain objects
+
 
 ## Current Sprint
 * Move validations into an adapter
@@ -9,6 +10,7 @@
 * Generate relationships to other modules
 
 ## Next Actions
+
 * Value Store (Service?)
 * SQL repository generator
 * Toppings must have at least one entry
