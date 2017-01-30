@@ -8,21 +8,6 @@ end
 
 class Hecks::Adapters::Application
   describe Commands::Create do
-    subject do
-      Commands::Create.new(
-        args: pizza_attributes,
-        repository: PizzaBuilder.repositories[:pizzas]
-      )
-    end
-
-    describe '#call' do
-      it do
-        subject.call
-      end
-    end
-  end
-
-  describe Commands::Create do
     let!(:executed_command) do
       Commands::Create.new(
         args: pizza_attributes,
@@ -37,11 +22,10 @@ class Hecks::Adapters::Application
     end
 
     let(:order_attributes) do
-      order_pizza = {name: pizza.name, id: pizza.id}
       {
         line_items: [
           {
-            pizza: order_pizza, quantity: 1, price: 5.0
+            pizza_name: pizza.name, quantity: 1, price: 5.0
           }
         ]
       }
@@ -62,7 +46,7 @@ class Hecks::Adapters::Application
           repository: PizzaBuilder.repositories[:orders]
         ).call(id: order_command.id)
 
-        expect(order.line_items.first.pizza.name).to eq pizza.name
+        expect(order.line_items.first.pizza_name).to eq pizza.name
       end
     end
   end

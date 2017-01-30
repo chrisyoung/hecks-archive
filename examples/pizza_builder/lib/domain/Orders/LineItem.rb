@@ -2,7 +2,7 @@ module PizzaBuilder
   module Domain
     module Orders
       class LineItem
-        attr_accessor :pizza, :quantity, :price
+        attr_accessor :pizza_name, :quantity, :price
 
         def self.factory(lineitem_group_attributes)
           lineitem_group_attributes.map do |attributes|
@@ -10,14 +10,14 @@ module PizzaBuilder
           end
         end
 
-        def initialize(pizza:, quantity:, price:)
-          @pizza = Pizza.new(pizza)
-          @quantity = quantity
-          @price = price
+        def initialize(pizza_name:, quantity:, price:)
+          @pizza_name = pizza_name
+@quantity = quantity
+@price = price
         end
 
         def to_json(config)
-          JSON.generate(pizza: pizza, quantity: quantity, price: price)
+          JSON.generate(pizza_name: pizza_name, quantity: quantity, price: price)
         end
       end
     end
