@@ -7,6 +7,7 @@
 * Move validations into an adapter
 * Handle generating relationships to lists of objects
 * Generate relationships to other modules
+* Generate spec_helper for domain
 
 ## Next Actions
 

@@ -2,7 +2,7 @@ module SoccerSeason
   module Domain
     module Matches
       class Goal
-        attr_accessor :player
+        attr_accessor :time, :player
 
         def self.factory(goal_group_attributes)
           goal_group_attributes.map do |attributes|
@@ -10,12 +10,13 @@ module SoccerSeason
           end
         end
 
-        def initialize(player:)
-          @player = Player.new(player)
+        def initialize(time:, player:)
+          @time = time
+@player = PlayerReference.new(player)
         end
 
         def to_json(config)
-          JSON.generate(player: player)
+          JSON.generate(time: time, player: player)
         end
       end
     end

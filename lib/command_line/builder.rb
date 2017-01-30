@@ -15,6 +15,7 @@ module Hecks
       generate :domain
       generate :modules
       generate :value_objects
+      generate :references
     end
 
     private
@@ -23,30 +24,45 @@ module Hecks
 
     def generate(command)
       case command
+      when :references
+        domain.domain_modules.each do |domain_module|
+          domain_module.references.each do |reference|
+            runner.call([
+              'generate:domain_object',
+              '-t', 'reference',
+              '-n', reference.name,
+              '-m', domain_module.name,
+              '-r', reference.refrenced_entity,
+              '-a', "id:value"
+            ])
+          end
+        end
       when :domain
         runner.call(['new', '-n', name])
       when :modules
         domain.domain_modules.each do |domain_module|
-          runner.call([
-                        'generate:domain_object',
-                        '-t', 'aggregate',
-                        '-n', domain_module.name,
-                        '--head_name', domain_module.head.name,
-                        '-a', domain_module.head.attributes
-                      ])
+          runner.call(
+            [
+              'generate:domain_object',
+              '-t', 'aggregate',
+              '-n', domain_module.name,
+              '--head_name', domain_module.head.name,
+              '-a', domain_module.head.attributes
+            ])
         end
       when :value_objects
         domain.domain_modules.each do |domain_module|
           (domain_module.objects - [domain_module.head]).each do |value_object|
           runner.call([
-                        'generate:domain_object',
-                        '-t', 'value_object',
-                        '-n', value_object.name,
-                        '-m', domain_module.name,
-                        '-a', value_object.attributes
-                      ])
+            'generate:domain_object',
+            '-t', 'value_object',
+            '-n', value_object.name,
+            '-m', domain_module.name,
+            '-a', value_object.attributes
+          ])
         end
       end
+
       else
         raise "unrecognized command: #{command}"
       end

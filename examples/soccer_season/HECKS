@@ -5,20 +5,25 @@ Hecks::DomainBuilder.build "soccer_season" do |hexagon|
   end
 
   hexagon.module 'Teams' do |teams|
-    teams.head("Team").attributes('name:value', 'players:[players::player]')
+    teams.head("Team").attributes('name:value')
   end
 
   hexagon.module 'Players' do |players|
-    players.head("Player").attributes('name:value')
+    players.head("Player").attributes('name:value', 'team:teams::team')
+    players.value("TeamReference").attributes("id:value")
   end
 
   hexagon.module 'Matches' do |matches|
-    matches.head("Match").attributes('teams:[Team]', 'pitch:Pitches::Pitch', 'goals:[goal]')
-    matches.value("Result").attributes('winner:teams::team')
-    matches.value("Goal").attributes('player:players::player')
-  end
-
-  hexagon.module "Fixtures" do |fixtures|
-    fixtures.head("Fixture").attributes('date:value', 'match:matches::match')
+    matches.head("Match").attributes(
+      "fixture:fixture",
+      "result:result",
+      "pitch:pitches::pitch",
+      "goals:[goal]",
+      "teams:[team]"
+    )
+    matches.value("Result").attributes("winner:teams::team", "type:value")
+    matches.value("Goal").attributes("time:value", "player:players::player")
+    matches.value("Fixture").attributes("season:value", "date:value", "time:value")
+    matches.reference("pitches::pitch")
   end
 end

@@ -17,6 +17,12 @@ describe Hecks::DomainBuilder::DomainModule do
     end
   end
 
+  describe '#reference' do
+    it 'refers to aggregate entities' do
+      subject.reference('pitches::pitch')
+    end
+  end
+
   describe '#objects' do
     it 'lists objects' do
       subject.head('pizza')

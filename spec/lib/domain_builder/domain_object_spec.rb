@@ -5,10 +5,17 @@ describe Hecks::DomainBuilder::DomainObject do
       expect(subject.name).to eq 'pizza'
     end
   end
-  describe 'attributes' do
+
+  describe '#attributes' do
     it 'sets attributes' do
       subject.attributes("name:value")
       expect(subject.attributes).to eq ['name:value']
+    end
+  end
+
+  describe '#references' do
+    it 'sets references' do
+      subject.attributes("puzzle:puzzles::puzzle")
     end
   end
 end
