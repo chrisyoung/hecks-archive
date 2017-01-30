@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+Hecks::DomainBuilder.build "soccer_season" do |hexagon|
+  hexagon.module 'Pitches' do |pitches|
+    pitches.head("Pitch").attributes('name:value')
+  end
+
+  hexagon.module 'Teams' do |teams|
+    teams.head("Team").attributes('name:value', 'players:[players::player]')
+  end
+
+  hexagon.module 'Players' do |players|
+    players.head("Player").attributes('name:value')
+  end
+
+  hexagon.module 'Matches' do |matches|
+    matches.head("Match").attributes('teams:[Team]', 'pitch:Pitches::Pitch', 'goals:[goal]')
+    matches.value("Result").attributes('winner:teams::team')
+    matches.value("Goal").attributes('player:players::player')
+  end
+
+  hexagon.module "Fixtures" do |fixtures|
+    fixtures.head("Fixture").attributes('date:value', 'match:matches::match')
+  end
+end
