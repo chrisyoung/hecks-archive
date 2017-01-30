@@ -7,11 +7,13 @@
 * Move validations into an adapter
 * Generate spec_helper for domain
 * Generate Unit Tests as specs
+* Sequel Repository Generator
 * Run example tests when doing rspec in hecks
 * Handle Reference lists
 * Fix text case problems with generators
 * Fix indentation in generators
 * Deploy to Lambda
+* Use events port to cache toppings
 
 ## Next Actions
 * Value Store (Service?)
@@ -36,9 +38,10 @@
 * Set up guard to build gems
 * Set up stats module to count lines of code
 * Demonstrate Hexagon Shims for Tanga
-* Warn if running a generator without being in a hexagon
 * Hook up code coverage on codeclimate
 * Build Gem: hecks build -m pizzas
+* Package: hecks package -t lambda # generate a serverless package
+* Package: hecks package -t docker
 * 12 factor app in Docker
 * Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
 * Command Line Pizzas
