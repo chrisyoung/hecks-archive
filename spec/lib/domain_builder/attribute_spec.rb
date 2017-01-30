@@ -16,15 +16,15 @@ describe Hecks::DomainBuilder::Attribute do
   describe '#domain_module' do
     it { expect(basic.domain_module).to be_nil }
     it { expect(basic_list.domain_module).to be_nil }
-    it { expect(module_reference.domain_module).to eq 'pizzas' }
-    it { expect(list_module_reference.domain_module).to eq 'topping' }
+    it { expect(module_reference.domain_module).to eq 'Pizzas' }
+    it { expect(list_module_reference.domain_module).to eq 'Topping' }
   end
 
   describe '#type' do
-    it { expect(basic.type).to eq 'value' }
-    it { expect(basic_list.type).to eq 'topping' }
-    it { expect(module_reference.type).to eq 'pizza' }
-    it { expect(list_module_reference.type).to eq 'topping' }
+    it { expect(basic.type).to eq 'Value' }
+    it { expect(basic_list.type).to eq 'Topping' }
+    it { expect(module_reference.type).to eq 'Pizza' }
+    it { expect(list_module_reference.type).to eq 'Topping' }
   end
 
   describe '#list?' do

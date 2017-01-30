@@ -15,11 +15,11 @@ module Hecks
       end
 
       def type
-        split_type.last.delete("[").delete("]")
+        split_type.last.delete("[").delete("]").camelize
       end
 
       def domain_module
-        split_type.first.delete("[").delete("]") if @type.include?("::")
+        split_type.first.delete("[").delete("]").camelize if @type.include?("::")
       end
 
       private
