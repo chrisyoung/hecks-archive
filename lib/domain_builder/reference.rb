@@ -1,16 +1,16 @@
 module Hecks
   class DomainBuilder
     class Reference
-      def initialize(name:)
-        @name = name
+      def initialize(reference)
+        @reference = reference
       end
 
-      def module
-        @name.split("::").first
+      def referenced_entity
+        @reference.split("::").map(&:camelcase).join("::")
       end
 
-      def object
-        @name.split("::").last
+      def name
+        @reference.split("::").last.camelcase + "Reference"
       end
     end
   end

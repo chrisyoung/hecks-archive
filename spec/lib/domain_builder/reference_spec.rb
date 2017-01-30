@@ -1,10 +1,11 @@
 describe Hecks::DomainBuilder::Reference do
-  subject {described_class.new(name: "pizzas::pizza")}
-  it '#module' do
-    expect(subject.module).to eq "pizzas"
+  subject {described_class.new("pizzas::pizza")}
+
+  it '#name' do
+    expect(subject.name).to eq "PizzaReference"
   end
 
-  it '#object' do
-    expect(subject.object).to eq "pizza"
+  it '#referenced_entity' do
+    expect(subject.referenced_entity).to eq "Pizzas::Pizza"
   end
 end

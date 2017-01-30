@@ -27,6 +27,10 @@ class GenerateDomainObject < Thor::Group
     options[:name]
   end
 
+  def underscored_name
+    options[:name].underscore
+  end
+
   def camelized_name
     name.camelize
   end

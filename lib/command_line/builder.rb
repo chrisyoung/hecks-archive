@@ -32,8 +32,7 @@ module Hecks
               '-t', 'reference',
               '-n', reference.name,
               '-m', domain_module.name,
-              '-r', reference.refrenced_entity,
-              '-a', "id:value"
+              '-r', reference.referenced_entity
             ])
           end
         end

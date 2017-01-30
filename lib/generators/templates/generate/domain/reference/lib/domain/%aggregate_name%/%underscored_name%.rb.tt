@@ -1,0 +1,17 @@
+module <%= camelized_domain_name %>
+  module Domain
+    module <%= aggregate_module_name %>
+      class <%= camelized_name %>
+        attr_accessor <%= attributes_without_id_as_string %>
+
+        def initialize(<%= attribute_param_names_without_id %>)
+          <%= assignment_template(attributes_without_id) %>
+        end
+
+        def to_json(config)
+          JSON.generate(<%= keys_and_values_without_id %>)
+        end
+      end
+    end
+  end
+end

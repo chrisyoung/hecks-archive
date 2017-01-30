@@ -19,7 +19,7 @@ module Hecks
       end
 
       def reference(name)
-        (@references << Reference.new(name: name)).last
+        (@references << Reference.new(name)).last
       end
     end
   end
