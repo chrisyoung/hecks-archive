@@ -12,7 +12,7 @@ module PizzaBuilder
 
         def initialize(name:, id:)
           @name = name
-          @id = id
+@id = id
         end
 
         def to_json(config)

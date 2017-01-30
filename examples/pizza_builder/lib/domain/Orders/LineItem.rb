@@ -11,7 +11,7 @@ module PizzaBuilder
         end
 
         def initialize(pizza:, quantity:, price:)
-          @pizza = pizza
+          @pizza = Pizza.new(pizza)
           @quantity = quantity
           @price = price
         end
