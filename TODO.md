@@ -1,18 +1,17 @@
 # Hecks 0.1
 
 ## In Progress
-* Handle generating relationships to lists of objects
+* Move validations into an adapter
 
 ## Current Sprint
-* Move validations into an adapter
 * Generate spec_helper for domain
 * Generate Unit Tests as specs
 * Sequel Repository Generator
-* Handle Reference lists
-* Fix text case problems with generators
-* Fix indentation in generators
+* DynoDB Repository Generator
 * Deploy to Lambda
 * Use events port to cache toppings
+* Fix text case problems with generators
+* Fix indentation in generators
 
 ## Next Actions
 * Value Store (Service?)
