@@ -4,11 +4,11 @@ module SoccerSeason
       class Match
         attr_accessor :fixture, :result, :pitch, :goals, :teams, :id
         def initialize(fixture:, result:, pitch:, goals:, teams:, id:)
-        @fixture = Fixture.new(fixture)
-@result = Result.new(result)
-@pitch = PitchReference.new(pitch)
+        @fixture = Fixture.factory(fixture)
+@result = Result.factory(result)
+@pitch = PitchReference.factory(pitch)
 @goals = Goal.factory(goals)
-@teams = Team.factory(teams)
+@teams = TeamReference.factory(teams)
 @id = id
         end
 

@@ -102,19 +102,7 @@ class GenerateDomainObject < Thor::Group
   end
 
   def assignment_template(attributes)
-    attributes.map do |attribute|
-      if attribute.domain_module
-        "@#{attribute.name} = #{attribute.type}Reference.new(#{attribute.name})"
-      elsif attribute.type == "Value"
-        "@#{attribute.name.to_s} = #{attribute.name}"
-      else
-        if attribute.list?
-          "@#{attribute.name.to_s} = #{attribute.type}.factory(#{attribute.name.to_s})"
-        else
-          "@#{attribute.name.to_s} = #{attribute.type}.new(#{attribute.name.to_s})"
-        end
-      end
-    end.join("\n")
+    AssignmentTemplate.render(attributes)
   end
 
   def parse_type(type)

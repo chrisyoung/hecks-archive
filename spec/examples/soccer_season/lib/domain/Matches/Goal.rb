@@ -4,15 +4,16 @@ module SoccerSeason
       class Goal
         attr_accessor :time, :player
 
-        def self.factory(goal_group_attributes)
-          goal_group_attributes.map do |attributes|
+        def self.factory(group_attributes)
+          return Goal.new(group_attributes) unless group_attributes.is_a?(Array)
+          group_attributes.map do |attributes|
             Goal.new(attributes)
           end
         end
 
         def initialize(time:, player:)
           @time = time
-@player = PlayerReference.new(player)
+@player = PlayerReference.factory(player)
         end
 
         def to_json(config)

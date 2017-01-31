@@ -4,6 +4,13 @@ module <%= camelized_domain_name %>
       class <%= camelized_name %>
         attr_accessor :id, :referenced_entity
 
+        def self.factory(group_attributes)
+          return <%= camelized_name %>.new(group_attributes) unless group_attributes.is_a?(Array)
+          group_attributes.map do |attributes|
+            <%= camelized_name %>.new(attributes)
+          end
+        end
+
         def initialize(id:)
           @id = id
           @referenced_entity = <%= referenced_entity %>

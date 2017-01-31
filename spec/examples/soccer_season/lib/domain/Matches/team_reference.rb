@@ -1,19 +1,19 @@
 module SoccerSeason
   module Domain
     module Matches
-      class PitchReference
+      class TeamReference
         attr_accessor :id, :referenced_entity
 
         def self.factory(group_attributes)
-          return PitchReference.new(group_attributes) unless group_attributes.is_a?(Array)
+          return TeamReference.new(group_attributes) unless group_attributes.is_a?(Array)
           group_attributes.map do |attributes|
-            PitchReference.new(attributes)
+            TeamReference.new(attributes)
           end
         end
 
         def initialize(id:)
           @id = id
-          @referenced_entity = Pitches::Pitch
+          @referenced_entity = Teams::Team
         end
 
         def to_json(config)

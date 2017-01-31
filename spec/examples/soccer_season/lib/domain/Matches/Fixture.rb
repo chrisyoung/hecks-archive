@@ -4,8 +4,9 @@ module SoccerSeason
       class Fixture
         attr_accessor :season, :date, :time
 
-        def self.factory(fixture_group_attributes)
-          fixture_group_attributes.map do |attributes|
+        def self.factory(group_attributes)
+          return Fixture.new(group_attributes) unless group_attributes.is_a?(Array)
+          group_attributes.map do |attributes|
             Fixture.new(attributes)
           end
         end

@@ -8,7 +8,6 @@
 * Generate spec_helper for domain
 * Generate Unit Tests as specs
 * Sequel Repository Generator
-* Run example tests when doing rspec in hecks
 * Handle Reference lists
 * Fix text case problems with generators
 * Fix indentation in generators

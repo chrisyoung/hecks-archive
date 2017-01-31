@@ -19,11 +19,12 @@ Hecks::DomainBuilder.build "soccer_season" do |hexagon|
       "result:result",
       "pitch:pitches::pitch",
       "goals:[goal]",
-      "teams:[team]"
+      "teams:[teams::team]"
     )
     matches.value("Result").attributes("winner:teams::team", "type:value")
     matches.value("Goal").attributes("time:value", "player:players::player")
     matches.value("Fixture").attributes("season:value", "date:value", "time:value")
     matches.reference("pitches::pitch")
+    matches.reference("teams::team")
   end
 end
