@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 require 'json'
 require_relative 'command_runner'
+require_relative 'builder/value_object_command_line_builder'
+require_relative 'builder/aggregate_command_line_builder'
+require_relative 'builder/reference_command_line_builder'
 
 module Hecks
   class Builder
@@ -25,43 +28,13 @@ module Hecks
     def generate(command)
       case command
       when :references
-        domain.domain_modules.each do |domain_module|
-          domain_module.references.each do |reference|
-            runner.call([
-              'generate:domain_object',
-              '-t', 'reference',
-              '-n', reference.name,
-              '-m', domain_module.name,
-              '-r', reference.referenced_entity
-            ])
-          end
-        end
+        ReferenceCommandLineBuilder.build(domain, runner)
       when :domain
         runner.call(['new', '-n', name])
       when :modules
-        domain.domain_modules.each do |domain_module|
-          runner.call(
-            [
-              'generate:domain_object',
-              '-t', 'aggregate',
-              '-n', domain_module.name,
-              '--head_name', domain_module.head.name,
-              '-a', domain_module.head.attributes
-            ])
-        end
+        AggregateCommandLineBuilder.build(domain, runner)
       when :value_objects
-        domain.domain_modules.each do |domain_module|
-          (domain_module.objects - [domain_module.head]).each do |value_object|
-          runner.call([
-            'generate:domain_object',
-            '-t', 'value_object',
-            '-n', value_object.name,
-            '-m', domain_module.name,
-            '-a', value_object.attributes
-          ])
-        end
-      end
-
+        ValueObjectCommandLineBuilder.build(domain, runner)
       else
         raise "unrecognized command: #{command}"
       end
