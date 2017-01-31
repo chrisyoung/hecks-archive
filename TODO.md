@@ -6,7 +6,6 @@
 ## Current Sprint
 * Generate spec_helper for domain
 * Generate Unit Tests as specs
-* Sequel Repository Generator
 * DynoDB Repository Generator
 * Deploy to Lambda
 * Use events port to cache toppings

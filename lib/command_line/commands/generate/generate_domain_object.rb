@@ -1,10 +1,10 @@
 # frozen_string_literal: true
-# class GenerateDomainObject < Thor::Group
-#   include Thor::Actions
-#
-# end
 
-class GenerateDomainObject < Thor::Group
+class GenerateDomainObject < Thor::Group; end
+
+require_relative "generate_domain_object/assignment_template"
+
+class GenerateDomainObject
   include Thor::Actions
 
   class_option :head_name,   aliases: '-h', desc: 'the name of the aggregate head'
@@ -102,7 +102,7 @@ class GenerateDomainObject < Thor::Group
   end
 
   def assignment_template(attributes)
-    AssignmentTemplate.render(attributes)
+    AssignmentTemplate.new(attributes).render
   end
 
   def parse_type(type)

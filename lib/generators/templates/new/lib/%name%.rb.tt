@@ -7,11 +7,11 @@ module <%= module_name %>
 
   def self.repositories
     domain_modules.map do |domain_module|
-      [aggregate_name(domain_module), domain_module.const_get(:Repository)]
+      [module_name(domain_module), domain_module.const_get(:Repository)]
     end.to_h
   end
 
-  def self.aggregate_name(domain_module)
+  def self.module_name(domain_module)
     domain_module.to_s.downcase.split("::").last.to_sym
   end
 end
