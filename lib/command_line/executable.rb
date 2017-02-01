@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 require_relative 'commands/new'
+require_relative 'commands/test'
 require_relative 'commands/generate/generate'
+require_relative 'commands/build'
+require_relative 'commands/console'
 require 'active_support/inflector'
 require 'pry'
 require_relative 'builder'
@@ -18,12 +21,12 @@ module Hecks
                   enum:     %w(entity value_object aggregate reference)
     register GenerateDomainObject, 'generate:domain_object', 'generate:domain_object', 'Generate Domain Objects'
 
-    desc 'new', 'Generate a new domain'
     long_desc     'A domain'
     method_option :dryrun,
                   aliases:  '-d',
                   type:     :boolean,
                   desc:     'Output commands without running'
+
     register Commands::New, 'new', 'new', 'Create a new Domain'
   end
 end

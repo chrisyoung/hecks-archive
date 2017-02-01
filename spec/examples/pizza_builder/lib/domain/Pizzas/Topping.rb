@@ -4,8 +4,9 @@ module PizzaBuilder
       class Topping
         attr_accessor :name
 
-        def self.factory(topping_group_attributes)
-          topping_group_attributes.map do |attributes|
+        def self.factory(group_attributes)
+          return Topping.new(group_attributes) unless group_attributes.is_a?(Array)
+          group_attributes.map do |attributes|
             Topping.new(attributes)
           end
         end

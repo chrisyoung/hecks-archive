@@ -4,8 +4,9 @@ module PizzaBuilder
       class LineItem
         attr_accessor :pizza_name, :quantity, :price
 
-        def self.factory(lineitem_group_attributes)
-          lineitem_group_attributes.map do |attributes|
+        def self.factory(group_attributes)
+          return LineItem.new(group_attributes) unless group_attributes.is_a?(Array)
+          group_attributes.map do |attributes|
             LineItem.new(attributes)
           end
         end
