@@ -1,14 +1,14 @@
-module <%= camelized_domain_name %>
+module <%= domain_name.camelize %>
   module Domain
-    module <%= camelized_name %>
-      class <%= camelized_head_name %>
-        attr_accessor <%= attributes_as_string %>
-        def initialize(<%= attribute_param_names %>)
+    module <%= name.camelize %>
+      class <%= options[:head_name].camelize %>
+        attr_accessor <%= option_format('attribute_string', include_id: true) %>
+        def initialize(<%= option_format('param_names', include_id: true) %>)
         <%= assignment_template(attributes) %>
         end
 
         def to_json
-          JSON.generate(<%= keys_and_values %>)
+          JSON.generate(<%= option_format('keys_and_values', include_id: true) %>)
         end
       end
     end

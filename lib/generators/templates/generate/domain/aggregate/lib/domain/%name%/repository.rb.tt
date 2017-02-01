@@ -1,13 +1,13 @@
-module <%= camelized_domain_name %>
+module <%= domain_name.camelize %>
   module Domain
-    module <%= camelized_name %>
+    module <%= name.camelize %>
       class Repository
         @collection = {}
         @last_id    = 0
 
         def self.create attributes={}
           id              = @last_id + 1
-          @collection[id] = <%= head_module_name %>.new(attributes.merge(id: id))
+          @collection[id] = <%= options[:head_name].camelize %>.new(attributes.merge(id: id))
           @last_id        = id
         end
 
