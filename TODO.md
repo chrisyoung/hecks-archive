@@ -15,6 +15,7 @@
 * DynoDB adapter
 
 ## Next Actions
+* Domain Versioning
 * Value Store (Service?)
 * SQL repository generator
 * Toppings must have at least one entry
