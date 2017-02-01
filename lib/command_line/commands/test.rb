@@ -6,7 +6,7 @@ module Hecks
         (
           reset_example('soccer_season') +
           reset_example('pizza_builder') +
-          ['rspec']
+          ['rspec -f d']
         ).join("&&")
       )
     end
