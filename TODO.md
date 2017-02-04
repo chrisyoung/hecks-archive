@@ -1,7 +1,7 @@
 # Hecks 0.1
 
 ## In Progress
-* Generators for domain specific sql adapter
+* Move validations into an adapter
 
 ## Current Sprint
 * Generate spec_helper for domain
@@ -11,8 +11,13 @@
 * Use events port to cache toppings
 * Fix text case problems with generators
 * Fix indentation in generators
-* Move validations into an adapter
 * DynoDB adapter
+* Add domain module module with a head method
+* Make head available in command
+* Look up domain module in builder
+* Check type in validator as well as presence
+* Build up attribute objects in domain builder (instead of parsing in thor command)
+* Make the Builder available through the domain
 
 ## Next Actions
 * Domain Versioning
