@@ -20,6 +20,7 @@
 * Make the Builder available through the domain
 
 ## Next Actions
+* Name the server resource_server
 * Domain Versioning
 * Value Store (Service?)
 * SQL repository generator
