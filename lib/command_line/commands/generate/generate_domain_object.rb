@@ -9,7 +9,7 @@ class GenerateDomainObject
   include Thor::Actions
 
   class_option :head_name,   aliases: '-h', desc: 'the name of the aggregate head'
-  class_option :attributes,  aliases: '-a', type: :hash, desc: 'attributes for the aggregate head'
+  class_option :attributes,  aliases: '-a', type: :array, desc: 'attributes for the aggregate head'
   class_option :name,        aliases: '-n', desc: 'attributes for the aggregate head'
   class_option :type,        aliases: '-t', desc: 'The type of domain object you want to create'
   class_option :module_name, aliases: '-m', desc: 'Domain Module'
@@ -64,7 +64,7 @@ class GenerateDomainObject
   def attributes
     options[:attributes].map do |attribute|
       Hecks::DomainBuilder::Attribute.new(attribute)
-    end << Hecks::DomainBuilder::Attribute.new(['id', 'value'])
+    end << Hecks::DomainBuilder::Attribute.new('id:value')
   end
 
   def attributes_without_id

@@ -21,7 +21,7 @@ class GenerateDomainObject
 
     def attributes(include_id)
       if include_id
-        @attributes + [Hecks::DomainBuilder::Attribute.new(['id', 'value'])]
+        @attributes + [Hecks::DomainBuilder::Attribute.new('id:value')]
       else
         @attributes
       end

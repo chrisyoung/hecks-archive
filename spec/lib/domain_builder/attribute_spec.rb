@@ -1,9 +1,10 @@
 describe Hecks::DomainBuilder::Attribute do
-  let(:basic)            { described_class.new(['description', 'value']) }
-  let(:module_reference) { described_class.new(['pizza', 'pizzas::pizza']) }
-  let(:basic_list)       { described_class.new(['toppings', '[topping]']) }
+  let(:basic)            { described_class.new('description:value') }
+  let(:module_reference) { described_class.new('pizza:pizzas::pizza') }
+  let(:basic_list)       { described_class.new('toppings:[topping]') }
+
   let(:list_module_reference) do
-    described_class.new(["toppings", 'topping::[topping]'])
+    described_class.new('toppings:topping::[topping]')
   end
 
   describe '#name' do

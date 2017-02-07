@@ -2,30 +2,24 @@ module Hecks
   class DomainBuilder
     class Attribute
       def initialize(string)
-        @name = string[0]
-        @type = string[1]
+        @string = string
       end
 
       def list?
-        @type.include?("[")
+        @string.include?("[")
       end
 
       def name
-        @name
+        @string.split(":").first
       end
 
       def type
-        split_type.last.delete("[").delete("]").camelize
+        @string.split(":").last.delete("[").delete("]").camelize
       end
 
       def domain_module
-        split_type.first.delete("[").delete("]").camelize if @type.include?("::")
-      end
-
-      private
-
-      def split_type
-        @type.split("::")
+        return unless @string.include?("::")
+        @string.split("::").first.split(":").last.camelize
       end
     end
   end
