@@ -22,6 +22,14 @@ module Hecks
         split_type.first.delete("[").delete("]").camelize if @type.include?("::")
       end
 
+      def ==(object_to_compare)
+        return false if object_to_compare.name != name
+        return false if object_to_compare.type != type
+        return false if object_to_compare.domain_module != domain_module
+        true
+      end
+
+
       private
 
       def split_type
