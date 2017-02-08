@@ -4,6 +4,7 @@ describe Hecks::DomainBuilder::DomainObject do
   let(:name_attribute) {
     Hecks::DomainBuilder::Attribute.new("name:value")
   }
+
   describe 'name' do
     it 'lists the name' do
       expect(subject.name).to eq 'pizza'
@@ -18,8 +19,13 @@ describe Hecks::DomainBuilder::DomainObject do
   end
 
   describe '#references' do
-    it 'sets references' do
-      subject.attributes("puzzle:puzzles::puzzle")
+    xit 'sets references'
+  end
+
+  describe '#attribute_hash' do
+    it 'returns a hash representation of the object' do
+      subject.attributes("name:value")
+      expect(subject.attribute_hash).to eq name: 'Value'
     end
   end
 end

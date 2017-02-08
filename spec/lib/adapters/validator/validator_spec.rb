@@ -10,8 +10,8 @@ describe Hecks::Adapters::Validator do
     head = Hecks::DomainBuilder::Head.new(name: 'Pizza')
     head.attributes(
       'name:value',
+      'description:value',
       'toppings:[Topping]')
-      binding.pry
     head
   }
 
