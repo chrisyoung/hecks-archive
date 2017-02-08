@@ -8,10 +8,7 @@ describe Hecks::Adapters::Validator do
 
   let(:head_spec) {
     head = Hecks::DomainBuilder::Head.new(name: 'Pizza')
-    head.attributes(
-      'name:value',
-      'description:value',
-      'toppings:[Topping]')
+    head.attributes('name:value', 'description:value', 'toppings:[Topping]')
     head
   }
 

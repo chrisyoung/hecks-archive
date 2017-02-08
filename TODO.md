@@ -1,7 +1,7 @@
 # Hecks 0.1
 
 ## In Progress
-* Move validations into an adapter
+Generators broken!
 
 ## Current Sprint
 * Generate spec_helper for domain
