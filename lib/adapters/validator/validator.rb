@@ -3,9 +3,9 @@ module Hecks
     class Validator
       attr_reader :errors
 
-      def initialize(args:, head_spec:)
-        @args = args
-        @head_spec = head_spec
+      def initialize(command:)
+        @args = command.args
+        @head_spec = command.domain_module.head
         @errors = {}
       end
 

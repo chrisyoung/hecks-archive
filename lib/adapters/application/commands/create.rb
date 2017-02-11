@@ -4,15 +4,18 @@ module Hecks
     class Application
       module Commands
         class Create
-          attr_accessor :args, :id, :errors, :repository
+          attr_accessor :args, :id, :errors, :repository, :domain_module
 
-          def initialize(args:, repository: )
+          def initialize(args:, repository: , domain_module: )
             @repository      = repository
             @args            = args
-            @errors          = []
+            @errors          = {}
+            @validator       = Validator
+            @domain_module   = domain_module
           end
 
           def call
+            validate
             create
             self
           end
@@ -32,6 +35,11 @@ module Hecks
           def create
             return if @errors.count.positive?
             @id = @repository_result = repository.create(args)
+          end
+
+          def validate
+            return if @validator.nil?
+            @errors = @validator.new(command: self).call.errors
           end
         end
       end

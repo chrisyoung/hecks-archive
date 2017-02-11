@@ -10,5 +10,4 @@ Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
     orders.value("LineItem").attributes('pizza_name:value', 'quantity:Value', 'price:Value', "pizza:pizzas::pizza")
     orders.reference("pizzas::pizza")
   end
-
 end

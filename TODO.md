@@ -1,7 +1,7 @@
 # Hecks 0.1
 
 ## In Progress
-* Generate domain module with a head method
+* Use Validator in application
 
 ## Current Sprint
 * Use events port to cache toppings
