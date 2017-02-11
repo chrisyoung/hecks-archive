@@ -2,10 +2,10 @@ describe Hecks::DomainBuilder::Domain do
 subject { described_class.new(name: 'pizza_builder') }
   describe '#module' do
     it 'adds a domain module' do
-      subject.module('pizzas') do |pizzas|
+      subject.module('Pizzas') do |pizzas|
         pizzas.head('pizza')
       end
-      expect(subject.domain_modules.first.name).to eq 'pizzas'
+      expect(subject.domain_modules[:Pizzas].name).to eq 'Pizzas'
     end
   end
 

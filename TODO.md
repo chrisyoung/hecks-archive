@@ -1,7 +1,7 @@
 # Hecks 0.1
 
 ## In Progress
-* Use Validator in application
+* Look up domain_module_spec in application when calling commands
 
 ## Current Sprint
 * Use events port to cache toppings

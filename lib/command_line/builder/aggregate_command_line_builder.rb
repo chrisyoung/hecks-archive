@@ -2,7 +2,7 @@ module Hecks
   class Builder
     module AggregateCommandLineBuilder
       def self.build(domain, runner)
-        domain.domain_modules.each do |domain_module|
+        domain.domain_modules.values.each do |domain_module|
           runner.call(
             [
               'generate:domain_object',

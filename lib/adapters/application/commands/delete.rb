@@ -6,7 +6,7 @@ module Hecks
         class Delete
           attr_accessor :args, :errors, :repository
 
-          def initialize(args: nil, repository: Repository)
+          def initialize(args: nil, repository:, domain_module:)
             @args            = args || chained_command.args
             @repository      = repository
             @errors          = { base: [] }

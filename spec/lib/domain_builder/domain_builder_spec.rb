@@ -15,7 +15,7 @@ describe Hecks::DomainBuilder do
   end
   describe '#domain_modules' do
     it "lists domain modules" do
-      expect(subject.domain_modules.first.name).to eq 'pizzas'
+      expect(subject.domain_modules[:pizzas].name).to eq 'pizzas'
     end
   end
 end

@@ -4,11 +4,13 @@ module Hecks
       attr_reader :domain_modules, :name
       def initialize(name:)
         @name = name
-        @domain_modules = []
+        @domain_modules = {}
       end
 
       def module(name, &block)
-        yield((@domain_modules << DomainModule.new(name: name)).last)
+        result = DomainModule.new(name: name)
+        @domain_modules[name.to_sym] = result
+        yield(result)
       end
     end
   end

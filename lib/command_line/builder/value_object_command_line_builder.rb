@@ -2,7 +2,7 @@ module Hecks
   class Builder
     module ValueObjectCommandLineBuilder
       def self.build(domain, runner)
-        domain.domain_modules.each do |domain_module|
+        domain.domain_modules.values.each do |domain_module|
           (domain_module.objects - [domain_module.head]).each do |value_object|
             runner.call([
               'generate:domain_object',

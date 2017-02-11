@@ -10,11 +10,12 @@ require_relative 'crud_handler'
 module Hecks
   module Adapters
     class Application
-      def initialize(database: nil, listeners: [], domain:)
+      def initialize(database: nil, listeners: [], domain:, domain_spec:)
         @domain           = domain
         @database         = (database && database.new(domain: domain)) ||
                             Hecks::Adapters::MemoryDatabase.new(domain: domain)
         @events_port      = Adapters::Events.new(listeners: listeners)
+        @domain_spec      = domain_spec
       end
 
       def call(command_name:, module_name:, args: {})
@@ -45,12 +46,13 @@ module Hecks
 
       private
 
-      attr_reader :command_name, :command, :module_name, :database, :args, :events_port, :domain
+      attr_reader :command_name, :command, :module_name, :database, :args, :events_port, :domain, :domain_spec
 
       def fetch_command
         @command = Commands.const_get(command_name.to_s.camelcase).new(
           repository: database[module_name],
-          args:       args
+          args:       args,
+          domain_module: domain_spec.domain_modules[module_name.to_s.camelize.to_sym]
         )
       end
 
