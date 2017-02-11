@@ -14,4 +14,8 @@ module SoccerSeason
   def self.module_name(domain_module)
     domain_module.to_s.downcase.split("::").last.to_sym
   end
+
+  def self.spec_path
+    File.dirname(__FILE__) + '/../HECKS'
+  end
 end
