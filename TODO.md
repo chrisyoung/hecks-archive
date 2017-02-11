@@ -6,6 +6,7 @@
 * DynoDB Repository Generator
 * Deploy to Lambda
 * Rename the Builder to DomainSpecification
+* Attach specification to domain instead of Hecks, or make specs available as list
 
 ## Next Actions
 * Use events port to cache toppings
