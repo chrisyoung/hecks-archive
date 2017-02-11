@@ -8,10 +8,6 @@ class Hecks::Adapters::Application
       Commands::Create.new(args: pizza_attributes, domain_module: domain.domain_modules[:Pizzas], repository: PizzaBuilder.repositories[:pizzas])
     end
 
-    let(:pizza) do
-      Queries::FindById.new(repository: PizzaBuilder.repositories[:pizzas]).call(id: subject.id)
-    end
-
     let(:pizza_attributes) do
       {
         name: 'White Pizza',

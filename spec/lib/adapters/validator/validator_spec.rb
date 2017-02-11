@@ -4,26 +4,12 @@ describe Hecks::Adapters::Validator do
     Hecks.specification
   end
 
-  let(:args) do
-    {
-      name: 'White Pizza',
-      toppings: [{ name: 'chicken' }]
-    }
-  end
-
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
       toppings: [{ name: 'chicken' }]
     }
   end
-
-
-  let(:head_spec) {
-    head = Hecks::DomainBuilder::Head.new(name: 'Pizza')
-    head.attributes('name:value', 'description:value', 'toppings:[Topping]')
-    head
-  }
 
   let(:command) {
     Hecks::Adapters::Application::Commands::Create.new(

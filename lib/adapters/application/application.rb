@@ -20,7 +20,7 @@ module Hecks
           module_name:  module_name,
           args:         args,
           application:  self
-        ).call()
+        ).call
       end
 
       def [](module_name)
