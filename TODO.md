@@ -1,12 +1,12 @@
 # Hecks 0.1
 
 ## In Progress
+* Generate domain module with a head method
 
 ## Current Sprint
 * Use events port to cache toppings
 * DynoDB Repository Generator
 * Deploy to Lambda
-* Generate domain module module with a head method
 * Make head available in command
 * Look up domain module in builder
 * Make the Builder available through the domain
