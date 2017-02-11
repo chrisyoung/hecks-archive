@@ -14,8 +14,7 @@ describe Hecks::Adapters::Application do
     Hecks::Adapters::Application.new(
       domain:    PizzaBuilder,
       database:  Hecks::Adapters::MemoryDatabase,
-      listeners: [Hecks::Adapters::Logger.new(output: log_output)],
-      domain_spec: eval(File.read('spec/examples/pizza_builder/HECKS'))
+      listeners: [Hecks::Adapters::Logger.new(output: log_output)]
     )
   end
 

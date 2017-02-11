@@ -1,7 +1,7 @@
 describe Hecks::Adapters::Validator do
 
   let(:domain) do
-    eval(File.read('spec/examples/pizza_builder/HECKS'))
+    Hecks.specification
   end
 
   let(:args) do

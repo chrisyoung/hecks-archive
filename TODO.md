@@ -1,23 +1,19 @@
 # Hecks 0.1
 
 ## In Progress
-* Look up domain_module_spec in application when calling commands
 
 ## Current Sprint
-* Use events port to cache toppings
 * DynoDB Repository Generator
 * Deploy to Lambda
-* Make head available in command
-* Look up domain module in builder
-* Make the Builder available through the domain
+* Rename the Builder to DomainSpecification
 
 ## Next Actions
+* Use events port to cache toppings
 * Fix text case problems with generators
 * Fix indentation in generators
 * Generate spec_helper for domain
 * Generate Unit Tests as specs
 * Check type in validator as well as presence
-* Name the server resource_server
 * Domain Versioning
 * Value Store (Service?)
 * SQL repository generator

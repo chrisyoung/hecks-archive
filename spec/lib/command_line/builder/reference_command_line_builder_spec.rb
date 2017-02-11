@@ -1,6 +1,6 @@
 describe Hecks::Builder::ReferenceCommandLineBuilder do
   let(:domain) do
-    eval(File.read('spec/examples/pizza_builder/HECKS')).domain
+    Hecks.specification
   end
 
   let(:runner) do

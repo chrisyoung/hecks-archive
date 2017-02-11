@@ -4,8 +4,7 @@ class Hecks::Adapters::Application
     it 'A playground for pizza builder' do
       app = Hecks::Adapters::Application.new(
         domain:    PizzaBuilder,
-        database:  Hecks::Adapters::MemoryDatabase,
-        domain_spec: eval(File.read('spec/examples/pizza_builder/HECKS'))
+        database:  Hecks::Adapters::MemoryDatabase
       )
 
       create_pizza = app[:pizzas].create(pizza_attributes)

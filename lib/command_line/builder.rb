@@ -9,7 +9,7 @@ module Hecks
   class Builder
     def initialize(hecks_file:, name:, dry_run: false)
       @name   = name
-      @domain = eval(hecks_file).domain
+      @domain = Hecks.specification.domain
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 

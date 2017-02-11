@@ -10,12 +10,13 @@ require_relative 'crud_handler'
 module Hecks
   module Adapters
     class Application
-      def initialize(database: nil, listeners: [], domain:, domain_spec:)
+      def initialize(database: nil, listeners: [], domain:)
         @domain           = domain
         @database         = (database && database.new(domain: domain)) ||
                             Hecks::Adapters::MemoryDatabase.new(domain: domain)
         @events_port      = Adapters::Events.new(listeners: listeners)
-        @domain_spec      = domain_spec
+        load(domain.spec_path)
+        @domain_spec      = Hecks.specification
       end
 
       def call(command_name:, module_name:, args: {})
