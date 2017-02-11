@@ -3,8 +3,7 @@
 # Hecks
 **Build scalable software that matches the language of your business.**
 
-Hecks attempts to standardize the creation of domains in code so that generalized solutions can be developed to adapt to both drive and receive data from business domains.  In DDD they say to use these patterns.  Hecks describes domains using a small subset of the patterns described in the blue book.
-
+Hecks attempts to standardize the creation of domains in code so that generalized solutions can be developed to adapt to both drive and receive data from business domains.  Hecks describes domains using a small subset of the patterns described in the blue book.
 
 ## Usage
 PizzaBuilder is an overly simplified application built using Hecks.  We'll use PizzaBuilder as an example for building a domain model standing up a resource server.
