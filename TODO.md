@@ -27,7 +27,6 @@
 * CouchDB Persistence Adapter
 * Open source license
 * Clean up generator comments
-* Tests for all the generators
 * Set up guard to build gems
 * Set up stats module to count lines of code
 * Demonstrate Hexagon Shims for Tanga
