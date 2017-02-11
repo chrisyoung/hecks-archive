@@ -1,12 +1,12 @@
 [![Code Climate](https://codeclimate.com/github/chrisyoung/hecks/badges/gpa.svg)](https://codeclimate.com/github/chrisyoung/hecks)[ ![Test Coverage](https://codeclimate.com/github/chrisyoung/hecks/badges/coverage.svg)](https://codeclimate.com/github/chrisyoung/hecks/coverage)
 
 # Hecks
-**Build scalable software that matches the language of your business.**
+**Use Hecks to build scalable software that matches the language of your business.**
 
-Hecks attempts to standardize the creation of domains in code so that generalized solutions can be developed to adapt to both drive and receive data from business domains.  Hecks describes domains using a small subset of the patterns described in the blue book.
+Hecks standardizes the creation of domains in code so that generalized solutions can be developed to adapt to both drive and receive data from business domains.  Hecks describes domains using a small subset of the patterns described in the blue book.
 
 ## Usage
-PizzaBuilder is an overly simplified application built using Hecks.  We'll use PizzaBuilder as an example for building a domain model standing up a resource server.
+PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll use PizzaBuilder as an example for building a domain model standing up a resource server.
 
 ### Install
 	$ gem install hecks
@@ -38,7 +38,7 @@ PizzaBuilder is an overly simplified application built using Hecks.  We'll use P
 ### Run a Resource Server
 	# TODO
 
-## Adapters
+## Hecks Adapters
 Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal
 ### Application
 The Hecks application give immediate access to all the commands available for your domain.  
