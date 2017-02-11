@@ -7,9 +7,9 @@ require_relative 'builder/reference_command_line_builder'
 
 module Hecks
   class Builder
-    def initialize(builder: nil, name:, dry_run: false)
-      @name = name
-      @domain = builder.domain if builder
+    def initialize(hecks_file:, name:, dry_run: false)
+      @name   = name
+      @domain = eval(hecks_file).domain
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 
