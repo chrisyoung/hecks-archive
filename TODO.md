@@ -1,25 +1,22 @@
 # Hecks 0.1
 
 ## In Progress
-Generators broken!
 
 ## Current Sprint
-* Generate spec_helper for domain
-* Generate Unit Tests as specs
+* Use events port to cache toppings
 * DynoDB Repository Generator
 * Deploy to Lambda
-* Use events port to cache toppings
-* Fix text case problems with generators
-* Fix indentation in generators
-* DynoDB adapter
-* Add domain module module with a head method
+* Generate domain module module with a head method
 * Make head available in command
 * Look up domain module in builder
-* Check type in validator as well as presence
-* Build up attribute objects in domain builder (instead of parsing in thor command)
 * Make the Builder available through the domain
 
 ## Next Actions
+* Fix text case problems with generators
+* Fix indentation in generators
+* Generate spec_helper for domain
+* Generate Unit Tests as specs
+* Check type in validator as well as presence
 * Name the server resource_server
 * Domain Versioning
 * Value Store (Service?)

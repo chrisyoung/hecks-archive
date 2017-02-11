@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sinatra'
   s.add_runtime_dependency 'json-schema'
   s.add_runtime_dependency 'activesupport'
+
+  s.add_development_dependency "codeclimate-test-reporter", "~> 1.0.0"
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'rack-test'
