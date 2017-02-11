@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/examples/"
+end
 
 require_relative 'hexagon_helper'
 require_relative 'sinatra_helper'
