@@ -1,5 +1,4 @@
 describe GenerateDomainObject::AssignmentTemplate do
-
   it 'assigns values' do
     expect(described_class.new(["name:value"]).render).to eq '@name = name'
   end

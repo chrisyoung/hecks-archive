@@ -17,7 +17,16 @@ module Hecks
       end
 
       def attribute_string
-        attributes.map{ |attribute| [attribute.name, attribute.type].join(':') }
+        attributes.map do |attribute|
+          [attribute.name, type_with_domain_module(attribute)].join(':')
+        end
+      end
+
+      private
+
+      def type_with_domain_module(attribute)
+        return attribute.type unless attribute.domain_module
+        return [attribute.domain_module, attribute.type].join("::")
       end
     end
   end

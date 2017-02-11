@@ -17,7 +17,16 @@ class Hecks::Adapters::Application
     end
 
     let(:order_attributes) do
-      { line_items: [{pizza_name: pizza.name, quantity: 1, price: 5.0}]}
+      { line_items:
+        [
+          {
+            pizza_name: pizza.name,
+            quantity: 1,
+            price: 5.0,
+            pizza: {id: pizza.id}
+          }
+        ]
+      }
     end
 
     subject do

@@ -8,7 +8,7 @@ describe Hecks::Builder::ValueObjectCommandLineBuilder do
   end
 
   let(:line_item_command) do
-    ["generate:domain_object", "-t", "value_object", "-n", "LineItem", "-m", "Orders", "-a", ["pizza_name:Value", "quantity:Value", "price:Value", "pizza:Pizza"]]
+    ["generate:domain_object", "-t", "value_object", "-n", "LineItem", "-m", "Orders", "-a", ["pizza_name:Value", "quantity:Value", "price:Value", "pizza:Pizzas::Pizza"]]
   end
   let(:topping_command) do
     ["generate:domain_object", "-t", "value_object", "-n", "Topping", "-m", "Pizzas", "-a", ["name:Value"]]

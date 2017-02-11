@@ -34,5 +34,10 @@ describe Hecks::DomainBuilder::DomainObject do
       subject.attributes("name:value")
       expect(subject.attribute_string).to eq ['name:Value']
     end
+
+    it 'includes a domain module' do
+      subject.attributes("pizza:pizzas::pizza")
+      expect(subject.attribute_string).to eq ['pizza:Pizzas::Pizza']
+    end
   end
 end

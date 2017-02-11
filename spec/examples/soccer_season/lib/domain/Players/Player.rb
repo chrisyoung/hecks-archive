@@ -5,7 +5,7 @@ module SoccerSeason
         attr_accessor :name, :team, :id
         def initialize(name:, team:, id:)
         @name = name
-@team = Team.factory(team)
+@team = TeamReference.factory(team)
 @id = id
         end
 
