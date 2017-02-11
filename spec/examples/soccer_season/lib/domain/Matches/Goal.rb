@@ -13,7 +13,7 @@ module SoccerSeason
 
         def initialize(time:, player:)
           @time = time
-@player = PlayerReference.factory(player)
+@player = Player.factory(player)
         end
 
         def to_json(config)

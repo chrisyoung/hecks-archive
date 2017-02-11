@@ -6,9 +6,9 @@ module SoccerSeason
         def initialize(fixture:, result:, pitch:, goals:, teams:, id:)
         @fixture = Fixture.factory(fixture)
 @result = Result.factory(result)
-@pitch = PitchReference.factory(pitch)
+@pitch = Pitch.factory(pitch)
 @goals = Goal.factory(goals)
-@teams = TeamReference.factory(teams)
+@teams = Team.factory(teams)
 @id = id
         end
 

@@ -9,7 +9,7 @@ module Hecks
               '-t', 'aggregate',
               '-n', domain_module.name,
               '--head_name', domain_module.head.name,
-              '-a', domain_module.head.attributes
+              '-a', domain_module.head.attribute_string
             ])
         end
       end

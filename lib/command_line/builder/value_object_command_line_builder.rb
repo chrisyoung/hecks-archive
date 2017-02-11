@@ -9,7 +9,7 @@ module Hecks
               '-t', 'value_object',
               '-n', value_object.name,
               '-m', domain_module.name,
-              '-a', value_object.attributes
+              '-a', value_object.attribute_string
             ])
           end
         end

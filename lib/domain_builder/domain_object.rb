@@ -15,6 +15,10 @@ module Hecks
       def attribute_hash
         attributes.map{ |attribute| [attribute.name.to_sym, attribute.type] }.to_h
       end
+
+      def attribute_string
+        attributes.map{ |attribute| [attribute.name, attribute.type].join(':') }
+      end
     end
   end
 end

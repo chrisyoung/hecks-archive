@@ -12,7 +12,7 @@ module SoccerSeason
         end
 
         def initialize(winner:, type:)
-          @winner = TeamReference.factory(winner)
+          @winner = Team.factory(winner)
 @type = type
         end
 

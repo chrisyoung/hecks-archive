@@ -58,18 +58,14 @@ class GenerateDomainObject
   end
 
   def attributes_without_id_as_string
-    attributes_without_id.map { |attribute| ':' + attribute.name }.join ', '
+    attributes_without_id.map { |attribute| ':' + Hecks::DomainBuilder::Attribute.new(attribute).name }.join ', '
   end
 
   def attributes
-    options[:attributes].map do |attribute|
-      Hecks::DomainBuilder::Attribute.new(attribute)
-    end << Hecks::DomainBuilder::Attribute.new('id:value')
+    options[:attributes] + ['id:value']
   end
 
   def attributes_without_id
-    options[:attributes].map do |attribute|
-      Hecks::DomainBuilder::Attribute.new(attribute)
-    end
+    options[:attributes]
   end
 end

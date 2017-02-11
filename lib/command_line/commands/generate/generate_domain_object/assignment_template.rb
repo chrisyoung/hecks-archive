@@ -6,7 +6,7 @@ class GenerateDomainObject
 
     def render
       attributes.map do |attribute|
-        @attribute = attribute
+        @attribute = Hecks::DomainBuilder::Attribute.new(attribute)
         do_assignment
       end.join("\n")
     end
@@ -16,7 +16,7 @@ class GenerateDomainObject
     attr_reader :attributes, :attribute
 
     def do_assignment
-      return value_assignment if attribute.type == "Value"
+      return value_assignment if @attribute.type == "Value"
       return reference_factory_assignment if attribute.domain_module
       return factory_assignment
     end
