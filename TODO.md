@@ -1,6 +1,7 @@
 # Hecks 0.1
 
 ## In Progress
+* delete tmp file before generating
 
 ## Current Sprint
 * DynoDB Repository Generator

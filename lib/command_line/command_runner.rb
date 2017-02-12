@@ -8,9 +8,9 @@ class CommandRunner
 
   def call(command)
     output = full_command(command)
-    puts "$ #{output}"
+    File.open('tmp/hecks', 'a') { |file| file.write(output + "\n")  }
     return if dry_run
-    puts("\n", `#{output}`, "\n")
+    # puts("\n", `#{output}`, "\n")
   end
 
   private

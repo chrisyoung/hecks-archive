@@ -10,6 +10,8 @@ module Hecks
     def initialize(hecks_file:, name:, dry_run: false)
       @name   = name
       @domain = eval(hecks_file).domain
+
+      FileUtils.rm('tmp/hecks')
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 
@@ -19,6 +21,7 @@ module Hecks
       generate :modules
       generate :value_objects
       generate :references
+      exec('bash tmp/hecks')
     end
 
     private

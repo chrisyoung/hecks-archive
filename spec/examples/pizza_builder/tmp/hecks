@@ -1,0 +1,6 @@
+hecks new -n pizza_builder
+hecks generate:domain_object -t aggregate -n Pizzas --head_name Pizza -a name:Value description:Value toppings:Topping
+hecks generate:domain_object -t aggregate -n Orders --head_name Order -a line_items:LineItem
+hecks generate:domain_object -t value_object -n Topping -m Pizzas -a name:Value
+hecks generate:domain_object -t value_object -n LineItem -m Orders -a pizza_name:Value quantity:Value price:Value pizza:Pizzas::Pizza
+hecks generate:domain_object -t reference -n PizzaReference -m Orders -r Pizzas::Pizza
