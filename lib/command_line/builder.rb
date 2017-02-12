@@ -10,25 +10,33 @@ module Hecks
     def initialize(hecks_file:, name:, dry_run: false)
       @name   = name
       @domain = eval(hecks_file).domain
-
-      if Pathname('tmp/hecks').exist?
-        FileUtils.rm('tmp/hecks')
-      end
+      @dry_run = dry_run
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 
     def call
+      delete_tmpfile
       puts "\n"
       generate :domain
       generate :modules
       generate :value_objects
       generate :references
-      exec('bash tmp/hecks')
+      puts File.read('tmp/hecks')
+      execute_tmpfile unless @dry_run
     end
 
     private
 
     attr_reader :runner, :name, :domain
+
+    def delete_tmpfile
+      return unless Pathname('tmp/hecks').exist?
+      FileUtils.rm('tmp/hecks')
+    end
+
+    def execute_tmpfile
+      exec('bash tmp/hecks')
+    end
 
     def generate(command)
       case command

@@ -8,9 +8,11 @@ class CommandRunner
 
   def call(command)
     output = full_command(command)
+    unless File.directory?('tmp')
+      FileUtils.mkdir('tmp')
+    end
     File.open('tmp/hecks', 'a') { |file| file.write(output + "\n")  }
     return if dry_run
-    # puts("\n", `#{output}`, "\n")
   end
 
   private

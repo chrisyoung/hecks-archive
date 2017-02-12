@@ -25,8 +25,19 @@ module Hecks
       private
 
       def type_with_domain_module(attribute)
-        return attribute.type unless attribute.domain_module
-        return [attribute.domain_module, attribute.type].join("::")
+        unless attribute.domain_module
+          if attribute.list?
+            return '[' + attribute.type + ']'
+          else
+            return attribute.type
+          end
+        end
+
+        if attribute.list?
+          return [attribute.domain_module, '[' + attribute.type + ']'].join("::")
+        else
+          return [attribute.domain_module, attribute.type].join("::")
+        end
       end
     end
   end
