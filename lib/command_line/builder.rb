@@ -11,7 +11,9 @@ module Hecks
       @name   = name
       @domain = eval(hecks_file).domain
 
-      FileUtils.rm('tmp/hecks')
+      if Pathname('tmp/hecks').exist?
+        FileUtils.rm('tmp/hecks')
+      end
       @runner = CommandRunner.new(domain, name, dry_run)
     end
 
