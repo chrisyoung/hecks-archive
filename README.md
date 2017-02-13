@@ -52,10 +52,15 @@ Hecks adapters will work generated domains to provide services.  This has the be
 The Hecks application give immediate access to all the commands available for your domain.  
 ### Events
 The Events adapter can be used to listen for life cycle events as they occur in your Domain.  You can supply listeners and respond to these events how you see fit.  
+
 ### Logger
+The logger will write the results of all commands to a log file (TBD)
 
 ### Memory Database
+This is the default database used by the Hecks Application.  It is super fast and can be used in tests without mocking.  In production you'll be more likely to use a file-based repository.  See the documentation for the hecks application to see how to use different databases.
+
 ### Resource Server
+This server provides access to all the commands in your domain.  Because it uses the Application adapter, you get CRUD commands out of the box.
 
 ## Concepts for building your Domain
 The Hecks Domain Builder uses a small subset of patterns used in Domain Driven design.  Here's a very brief overview of those patterns and the implications of using them to describe your domain
