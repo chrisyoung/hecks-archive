@@ -21,12 +21,17 @@ module Hecks
       generate :modules
       generate :value_objects
       generate :references
-      execute_tmpfile unless @dry_run
+      execute_tmpfile && return unless @dry_run
+      print_tmpfile
     end
 
     private
 
     attr_reader :runner, :name, :domain
+
+    def print_tmpfile
+      puts File.read('tmp/hecks')
+    end
 
     def delete_tmpfile
       return unless Pathname('tmp/hecks').exist?
