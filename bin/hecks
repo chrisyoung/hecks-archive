@@ -3,4 +3,4 @@
 
 require_relative '../lib/hecks'
 
-Hecks::Executable.start(ARGV)
+Hecks::CLI.start(ARGV)

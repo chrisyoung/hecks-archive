@@ -1,5 +1,5 @@
 module Hecks
-  class Executable < Thor
+  class CLI < Thor
     desc 'test','Regenerate the examples and run the specs'
     def test
       exec(

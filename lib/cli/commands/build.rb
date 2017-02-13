@@ -1,5 +1,5 @@
 module Hecks
-  class Executable < Thor
+  class CLI < Thor
     desc 'build','build and install the hecks gem'
 
     def build

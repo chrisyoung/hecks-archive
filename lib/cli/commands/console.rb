@@ -1,5 +1,5 @@
 module Hecks
-  class Executable < Thor
+  class CLI < Thor
     desc 'console','REPL with domain helpers'
 
     def console
