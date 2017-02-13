@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require_relative 'commands/generate/new'
 require_relative 'commands/test'
 require_relative 'commands/generate'
 require_relative 'commands/build'
@@ -24,12 +23,12 @@ module Hecks
     desc 'generate:resource_server', 'generate resource_server'
     register GenerateResourceServer, 'generate:resource_server', 'generate:resource_server', 'Generate A Resource Server for a domain'
 
-    long_desc     'A domain'
+    long_desc     'Generate a domain'
     method_option :dryrun,
                   aliases:  '-d',
                   type:     :boolean,
                   desc:     'Output commands without running'
 
-    register Commands::New, 'new', 'new', 'Create a new Domain'
+    register GenerateDomain, 'generate:domain', 'generate:domain', 'Create a new Domain'
   end
 end

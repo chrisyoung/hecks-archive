@@ -42,7 +42,7 @@ module Hecks
       when :references
         ReferenceCommandLineBuilder.build(domain, runner)
       when :domain
-        runner.call(['new', '-n', name])
+        runner.call(['generate:domain', '-n', name])
       when :modules
         AggregateCommandLineBuilder.build(domain, runner)
       when :value_objects

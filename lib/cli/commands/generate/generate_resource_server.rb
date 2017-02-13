@@ -4,7 +4,7 @@ class GenerateResourceServer
   include Thor::Actions
 
   def self.source_root
-    File.dirname(__FILE__) + '/templates/generate/'
+    File.dirname(__FILE__) + '/templates/'
   end
 
   def create_aggregate_folder
