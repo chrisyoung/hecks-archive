@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'json'
-require_relative 'command_runner'
+
 require_relative 'builder/value_object_command_line_builder'
 require_relative 'builder/aggregate_command_line_builder'
 require_relative 'builder/reference_command_line_builder'
