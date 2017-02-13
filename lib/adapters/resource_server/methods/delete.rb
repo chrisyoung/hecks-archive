@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module Hecks
   module Adapters
-    module ResourceServer
+    class ResourceServer < Sinatra::Base
       class Methods
         class Delete
           attr_reader :result

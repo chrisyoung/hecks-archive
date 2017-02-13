@@ -1,14 +1,8 @@
 require_relative "lib/<%= domain %>.rb"
 require 'hecks'
 
-module <%= domain.camelize %>
-  def self.app
-    Hecks::Adapters::ResourceServer::App.new(
-      application_adapter: Hecks::Adapters::Application.new(
-        domain: <%= domain.camelize %>
-      )
-    )
-  end
-end
-
-run <%= domain.camelize %>.app
+run Hecks::Adapters::ResourceServer.new(
+  application_adapter: Hecks::Adapters::Application.new(
+    domain: <%= domain.camelize %>
+  )
+)

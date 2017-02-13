@@ -6,7 +6,7 @@ require_relative 'methods/delete'
 
 module Hecks
   module Adapters
-    module ResourceServer
+    class ResourceServer
       class Methods
         attr_reader :create, :read, :update, :delete
 
