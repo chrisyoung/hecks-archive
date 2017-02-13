@@ -16,7 +16,7 @@ class GenerateDomainObject
   class_option :referenced_entity, aliases: '-r', desc: 'Referenced Entity'
 
   def self.source_root
-    File.dirname(__FILE__) + '/../../../generators/templates/generate/domain'
+    File.dirname(__FILE__) + '/templates/generate/domain'
   end
 
   def create_aggregate_folder

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require_relative 'commands/new'
+require_relative 'commands/generate/new'
 require_relative 'commands/test'
-require_relative 'commands/generate/generate'
+require_relative 'commands/generate'
 require_relative 'commands/build'
 require_relative 'commands/console'
 require 'active_support/inflector'

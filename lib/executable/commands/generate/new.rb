@@ -24,7 +24,7 @@ module Hecks
 
       def create_hexagon_folder
         return unless options[:nobuilder]
-        directory('../../generators/templates/new', ".")
+        directory('templates/new', ".")
       end
 
       private
