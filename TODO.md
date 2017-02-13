@@ -8,6 +8,7 @@
 * DynoDB Repository Generator
 
 ## Next Actions
+* Move generator templates closer to commands
 * Rename the Builder to Hecks::Domain
 * Attach specification to domain instead of Hecks, or make specs available as list
 * Use events port to cache toppings
