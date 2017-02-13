@@ -35,7 +35,7 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 ### Generate the Domain
 	$ hecks new
 
-### Run a Resource Server
+### Generate and run a Resource Server
 	$ hecks generate:resource_server
 	$ rackup config.ru
 
