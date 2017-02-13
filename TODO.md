@@ -1,15 +1,15 @@
 # Hecks 0.1
 
 ## In Progress
-* delete tmp file before generating
 
 ## Current Sprint
-* DynoDB Repository Generator
+* Start a server
 * Deploy to Lambda
-* Rename the Builder to DomainSpecification
-* Attach specification to domain instead of Hecks, or make specs available as list
+* DynoDB Repository Generator
 
 ## Next Actions
+* Rename the Builder to Hecks::Domain
+* Attach specification to domain instead of Hecks, or make specs available as list
 * Use events port to cache toppings
 * Fix text case problems with generators
 * Fix indentation in generators

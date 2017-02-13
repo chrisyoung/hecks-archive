@@ -21,6 +21,9 @@ module Hecks
                   enum:     %w(entity value_object aggregate reference)
     register GenerateDomainObject, 'generate:domain_object', 'generate:domain_object', 'Generate Domain Objects'
 
+    desc 'generate:resource_server', 'generate resource_server'
+    register GenerateResourceServer, 'generate:resource_server', 'generate:resource_server', 'Generate A Resource Server for a domain'
+
     long_desc     'A domain'
     method_option :dryrun,
                   aliases:  '-d',

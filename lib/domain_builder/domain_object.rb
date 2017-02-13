@@ -9,11 +9,13 @@ module Hecks
 
       def attributes(*values)
         return @attributes if @attributes
-        @attributes = values.map {|value| Attribute.new(value)}
+        @attributes = values.map { |value| Attribute.new(value) }
       end
 
       def attribute_hash
-        attributes.map{ |attribute| [attribute.name.to_sym, attribute.type] }.to_h
+        attributes.map do |attribute|
+          [attribute.name.to_sym, attribute.type]
+        end.to_h
       end
 
       def attribute_string

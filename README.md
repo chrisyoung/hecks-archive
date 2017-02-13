@@ -33,10 +33,18 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	end
 
 ### Generate the Domain
-	hecks new
+	$ hecks new
 
 ### Run a Resource Server
-	# TODO
+	$ hecks generate:resource_server
+	$ rackup config.ru
+
+### Make some pizzas
+	$ curl -H "Content-Type: application/json" -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' localhost:9292/pizzas
+	{"errors":{},"id":1,"args":{"name":"white","description":"yummy","toppings":[{"name":"pepperoni"}]}}
+
+	$ curl localhost:9292/pizzas/1
+	{"name":"white","description":"yummy","toppings":[{"name":"pepperoni"}],"id":1}
 
 ## Hecks Adapters
 Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal

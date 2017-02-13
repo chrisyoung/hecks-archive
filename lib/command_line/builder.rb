@@ -21,7 +21,6 @@ module Hecks
       generate :modules
       generate :value_objects
       generate :references
-      puts File.read('tmp/hecks')
       execute_tmpfile unless @dry_run
     end
 
@@ -35,7 +34,7 @@ module Hecks
     end
 
     def execute_tmpfile
-      exec('bash tmp/hecks')
+      exec('bash -x tmp/hecks')
     end
 
     def generate(command)
