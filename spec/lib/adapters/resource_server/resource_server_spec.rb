@@ -1,4 +1,4 @@
-describe Hecks::Adapters::ResourceServer::App do
+describe Hecks::Adapters::ResourceServer do
   let(:last_id)   { JSON.parse(last_response.body)['id'] }
   let(:last_json) { JSON.parse(last_response.body) }
 

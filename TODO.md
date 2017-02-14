@@ -3,7 +3,6 @@
 ## In Progress
 
 ## Current Sprint
-* Start a server
 * Deploy to Lambda
 * DynoDB Repository Generator
 

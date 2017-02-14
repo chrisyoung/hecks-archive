@@ -1,5 +1,5 @@
 require 'rack/test'
-require_relative '../lib/adapters/resource_server/app'
+require_relative '../lib/adapters/resource_server/resource_server'
 
 
 ENV['RACK_ENV'] = 'test'
