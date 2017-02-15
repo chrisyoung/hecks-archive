@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Hecks
-  class GenerateDomain < Thor::Group
+  class New < Thor::Group
     namespace :hecks
     include Thor::Actions
 

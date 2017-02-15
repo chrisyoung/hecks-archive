@@ -12,13 +12,13 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	$ gem install hecks
 	$ hecks help
 
-	hecks build                                            # build and install the hecks gem
-	hecks console                                          # REPL with domain helpers
-	hecks generate:domain_object -t, --type=[OBJECT_TYPE]  # Generate Domain Objects
-	hecks generate:resource_server                         # Generate A Resource Server for a domain
-	hecks help [COMMAND]                                   # Describe available commands or one specific command
-	hecks new                                              # Create a new Domain
-	hecks test                                             # Regenerate the examples and run the specs
+	hecks commands:
+  hecks build           # build and install the hecks gem
+  hecks console         # REPL with domain helpers
+  hecks generate        # generate
+  hecks help [COMMAND]  # Describe available commands or one specific command
+  hecks new             # Create a new Domain
+  hecks test            # Regenerate the examples and run the specs
 
 ### Create a HECKS file in an empty project directory:
 	Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|

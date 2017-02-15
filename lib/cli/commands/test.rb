@@ -18,7 +18,7 @@ module Hecks
         "cd spec/examples/#{name}",
         'rm -rf lib',
         'rm -rf spec',
-        'hecks generate:domain',
+        'hecks new',
         'cd ../../..'
       ]
     end

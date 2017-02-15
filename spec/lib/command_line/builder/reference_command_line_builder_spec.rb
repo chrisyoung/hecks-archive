@@ -8,7 +8,7 @@ describe Hecks::Builder::ReferenceCommandLineBuilder do
   end
 
   let(:result) do
-    ["generate:domain_object", "-t", "reference", "-n", "PizzaReference", "-m", "Orders", "-r", "Pizzas::Pizza"]
+    ["generate domain_object", "-t", "reference", "-n", "PizzaReference", "-m", "Orders", "-r", "Pizzas::Pizza"]
   end
 
   it 'calls the command line runner to generate the module references' do

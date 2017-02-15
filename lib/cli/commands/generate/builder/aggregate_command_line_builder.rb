@@ -5,7 +5,7 @@ module Hecks
         domain.domain_modules.values.each do |domain_module|
           runner.call(
             [
-              'generate:domain_object',
+              'generate domain_object',
               '-t', 'aggregate',
               '-n', domain_module.name,
               '--head_name', domain_module.head.name,
