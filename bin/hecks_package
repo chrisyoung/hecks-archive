@@ -1,5 +1,12 @@
-exec ['npm install serverless -g',
-'mkdir -p packages/lambda',
-'cd packages/lambda',
-'npm install serverless-offline --save-dev',
-'serverless create --template aws-nodejs'].join("&&")
+exec [
+  'rm -rf packages/lambda',
+  'npm install serverless -g',
+  'mkdir -p packages/lambda',
+  'mkdir -p packages/lambda/resources',
+  'cd packages/lambda',
+  'npm install serverless-offline --save-dev',
+  'serverless create --template aws-nodejs',
+  'cd resources',
+  'curl -O http://d6r77u77i8pq3.cloudfront.net/releases/traveling-ruby-20150715-2.2.2-osx.tar.gz',
+  'curl -O http://d6r77u77i8pq3.cloudfront.net/releases/traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
+].join("&&")
