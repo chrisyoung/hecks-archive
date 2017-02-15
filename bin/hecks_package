@@ -1,0 +1,5 @@
+exec ['npm install serverless -g',
+'mkdir -p packages/lambda',
+'cd packages/lambda',
+'npm install serverless-offline --save-dev',
+'serverless create --template aws-nodejs'].join("&&")
