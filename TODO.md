@@ -5,6 +5,7 @@
 ## Current Sprint
 * Deploy to Lambda
 * DynoDB Repository Generator
+* Hecks::Application, not Heks::Adapters::Application
 
 ## Next Actions
 * Move generator templates closer to commands

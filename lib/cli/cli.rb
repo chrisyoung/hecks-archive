@@ -5,36 +5,19 @@ require_relative 'command_runner'
 require_relative 'commands'
 
 module Hecks
-
-  class Generate < Thor
-    desc          'domain_objects', 'generate domain objects'
-    method_option :type,
-                  aliases:  '-t',
-                  required: true,
-                  desc:     'The type of the domain object you want to generate',
-                  banner:   '[OBJECT_TYPE]',
-                  enum:     %w(entity value_object aggregate reference)
-    register      GenerateDomainObject,
-                  'domain_object',
-                  'domain_object',
-                  'Generate Domain Objects'
-
-    desc           'resource_server', 'generate resource_server'
-    register       GenerateResourceServer,
-                   'resource_server',
-                   'resource_server',
-                   'Generate A Resource Server for a domain'
-  end
-
   class CLI < Thor
-
     package_name 'hecks'
+
+    desc 'package', 'package'
+    register      GeneratePackage,
+                  'package',
+                  'package',
+                  'Generate Package'
+
+
 
     desc 'generate', 'generate'
     subcommand 'generate', Generate
-
-
-
     long_desc      'Generate a domain'
     method_option  :dryrun,
                    aliases:  '-d',
