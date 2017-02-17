@@ -6,6 +6,8 @@ module Hecks
         (
           reset_example('soccer_season') +
           reset_example('pizza_builder') +
+          build_package('pizza_builder') +
+          generate_resource_server('pizza_builder') +
           ['rspec -f d']
         ).join("&&")
       )
@@ -19,6 +21,24 @@ module Hecks
         'rm -rf lib',
         'rm -rf spec',
         'hecks new',
+        'cd ../../..'
+      ]
+    end
+
+    def build_package(name)
+      [
+        "cd spec/examples/#{name}",
+        'rm -rf packages',
+        'hecks package binary',
+        'cd ../../..'
+      ]
+    end
+
+    def generate_resource_server(name)
+      [
+        "cd spec/examples/#{name}",
+        'rm -rf config.ru',
+        'hecks generate resource_server',
         'cd ../../..'
       ]
     end
