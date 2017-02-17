@@ -21,5 +21,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rack-test'
   s.executables << 'hecks'
   s.executables << 'hecks_console'
-  s.executables << 'hecks_package'
+  s.executables << 'hecks_package_binary'
+  s.executables << 'hecks_package_lambda'
 end

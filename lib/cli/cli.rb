@@ -8,16 +8,12 @@ module Hecks
   class CLI < Thor
     package_name 'hecks'
 
-    desc 'package', 'package'
-    register      GeneratePackage,
-                  'package',
-                  'package',
-                  'Generate Package'
-
-
-
     desc 'generate', 'generate'
     subcommand 'generate', Generate
+
+    desc 'package', 'package'
+    subcommand 'package', Package
+
     long_desc      'Generate a domain'
     method_option  :dryrun,
                    aliases:  '-d',
