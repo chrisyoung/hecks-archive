@@ -4,6 +4,7 @@ PATH
     hecks (0.0.2)
       activesupport
       json-schema
+      pry
       sinatra
       thor (~> 0.19)
 

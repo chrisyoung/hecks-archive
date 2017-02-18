@@ -8,9 +8,13 @@ exec [
   'tar -xzf resources/traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz -C linux-x86_64/lib/ruby',
   'tar -xzf resources/traveling-ruby-20150715-2.2.2-osx.tar.gz -C osx/lib/ruby',
   'mv ruby-version .ruby-version',
-  'bundle',
+  'cp Gemfile* /tmp',
+  'pushd .',
+  'cd /tmp',
+  'mkdir -p vendor',
   'BUNDLE_IGNORE_CONFIG=1 bundle install --path vendor --without development --no-cache',
-  # 'rm -f vendor/*/*/cache/*',
-  'cp -rf vendor osx',
-  'cp -rf vendor linux-x86_64'
+  'rm -f vendor/*/*/cache/*',
+  'popd',
+  'cp -rf /tmp/vendor osx',
+  'cp -rf /tmp/vendor linux-x86_64'
 ].join("&&")
