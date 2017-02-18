@@ -9,10 +9,10 @@ module Hecks
     package_name 'hecks'
 
     desc 'generate', 'generate'
-    subcommand('generate', Generate) if Pathname.new("HECKS").exist?
+    subcommand('generate', Generate) if File.file?('HECKS')
 
     desc 'package', 'package'
-    subcommand('package', Package) if Pathname.new("HECKS").exist?
+    subcommand('package', Package) if File.file?('HECKS')
 
     long_desc      'Generate a domain'
     method_option  :dryrun,
@@ -20,6 +20,6 @@ module Hecks
                    type:     :boolean,
                    desc:     'Output commands without running'
 
-    register(New, 'new', 'new', 'Create a new Domain') if Pathname.new("hecks.gemspec").exist?
+    register(New, 'new', 'new', 'Create a new Domain') unless File.file?('HECKS') || File.file?('hecks.gemspec')
   end
 end
