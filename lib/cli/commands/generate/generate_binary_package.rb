@@ -14,6 +14,6 @@ class GenerateBinaryPackage < Thor::Group
   end
 
   def package
-    # exec 'hecks_package_binary'
+    exec 'hecks_package_binary'
   end
 end

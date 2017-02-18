@@ -13,14 +13,14 @@ class Generate < Thor
                 desc:     'The type of the domain object you want to generate',
                 banner:   '[OBJECT_TYPE]',
                 enum:     %w(entity value_object aggregate reference)
-  register      GenerateDomainObject,
+  register(GenerateDomainObject,
                 'domain_object',
                 'domain_object',
-                'Generate Domain Objects'
+                'Generate Domain Objects') if File.file?('HECKS')
 
   desc           'resource_server', 'generate resource_server'
-  register       GenerateResourceServer,
+  register(GenerateResourceServer,
                  'resource_server',
                  'resource_server',
-                 'Generate A Resource Server for a domain'
+                 'Generate A Resource Server for a domain') if File.file?('HECKS')
 end
