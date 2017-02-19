@@ -12,4 +12,6 @@ export BUNDLE_GEMFILE="$SELFDIR/lib/app/Gemfile"
 unset BUNDLE_IGNORE_CONFIG
 
 # Run the actual app using the bundled Ruby interpreter, with Bundler activated.
-exec "$SELFDIR/lib/app/ruby/bin/ruby" -rbundler/setup "$SELFDIR/lib/app/hello.rb"
+exec "$SELFDIR/lib/ruby/bin/ruby" -rbundler/setup "$SELFDIR/lib/app/hello.rb"
+
+/Users/chrisyoung/Projects/hecks/spec/examples/pizza_builder/packages/binary/build/osx/lib
