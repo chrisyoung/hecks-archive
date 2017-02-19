@@ -6,7 +6,6 @@ module Hecks
         (
           reset_example('soccer_season') +
           reset_example('pizza_builder') +
-          build_package('pizza_builder') +
           generate_resource_server('pizza_builder') +
           ['rspec -f d']
         ).join("&&")

@@ -23,6 +23,4 @@ Gem::Specification.new do |s|
 
   s.executables << 'hecks'
   s.executables << 'hecks_console'
-  s.executables << 'hecks_package_binary'
-  s.executables << 'hecks_package_lambda'
 end

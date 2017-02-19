@@ -1,6 +1,0 @@
-exec [
-  'npm install serverless -g',
-  'cd packages/lambda',
-  'npm install serverless-offline --save-dev',
-  'serverless create --template aws-nodejs'
-].join("&&")
