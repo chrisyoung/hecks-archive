@@ -10,12 +10,4 @@ class Fixnum
   end
 end
 
-class Hecks::Adapters::Application::Commands::Create
-  def result
-    {id: id}
-  end
-end
-
-
-
 puts app[ARGV[0].to_sym].create(args).call.inspect
