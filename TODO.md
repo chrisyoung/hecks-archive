@@ -1,13 +1,18 @@
-# Hecks 0.1
+# Hecks 0.4
 
 ## In Progress
+* Deploy to Lambda
 
 ## Current Sprint
-* Deploy to Lambda
 * DynoDB Repository Generator
-* Hecks::Application, not Heks::Adapters::Application
 
 ## Next Actions
+* move code hecks_cli project
+* move code hecks_domain_builder project
+* move code hecks_console project
+* consider hecks_examples project
+
+* Finish linux package
 * Add result methods to all the crud commands
 * Move generator templates closer to commands
 * Rename the Builder to Hecks::Domain
@@ -15,14 +20,11 @@
 * Use events port to cache toppings
 * Fix text case problems with generators
 * Fix indentation in generators
-* Generate spec_helper for domain
-* Generate Unit Tests as specs
 * Check type in validator as well as presence
-* Domain Versioning
+* Demo Domain Versioning
 * Value Store (Service?)
 * SQL repository generator
-* Toppings must have at least one entry
-* Figure out how to generate the config for the server
+* Validate: Toppings must have at least one entry
 * Use relative hex binary automatically if no gem is installed
 * Auto Generate API Docs
 * Use invariants (fail)
@@ -33,19 +35,15 @@
 * Set up guard to build gems
 * Set up stats module to count lines of code
 * Demonstrate Hexagon Shims for Tanga
-* Hook up code coverage on codeclimate
-* Build Gem: hecks build -m pizzas
-* Package: hecks package -t lambda # generate a serverless package
+* Build Gem: hecks build -m pizza_builder
 * Package: hecks package -t docker
 * 12 factor app in Docker
-* Use Event Machine to take lots of concurrent requests http://recipes.sinatrarb.com/p/embed/event-machine
-* Command Line Pizzas
 * Hook up pizzas as rack middleware
 
 ## Challenges:
+* Generate a different language
 * Figure out scheme to use in_memory db in production and periodically flush to real db
 * Remove all if statements
-* Generate a different language
 * Create Commands from Product Use Cases
 * Create plugin for Asana to show test results on use cases
 

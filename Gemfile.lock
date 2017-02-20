@@ -4,7 +4,6 @@ PATH
     hecks (0.0.4)
       activesupport
       json-schema
-      pry
       sinatra
       thor (~> 0.19)
 
@@ -106,6 +105,7 @@ DEPENDENCIES
   codeclimate-test-reporter (~> 1.0.0)!
   guard-rspec!
   hecks!
+  pry!
   rack-test!
   simplecov!
 
