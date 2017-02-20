@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'hecks'
   s.homepage    = "https://github.com/chrisyoung/heckson"
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2016-09-12'
   s.summary     = "DDD and Hexagonal Code Generators"
   s.description = "Make the Domain the center of your programming world"
@@ -14,12 +14,12 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sinatra'
   s.add_runtime_dependency 'json-schema'
   s.add_runtime_dependency 'activesupport'
-  s.add_runtime_dependency 'pry'
 
   s.add_development_dependency "codeclimate-test-reporter", "~> 1.0.0"
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'rack-test'
+  s.add_development_dependency 'pry'
 
   s.executables << 'hecks'
   s.executables << 'hecks_console'
