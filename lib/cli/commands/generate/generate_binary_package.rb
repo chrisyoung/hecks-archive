@@ -2,13 +2,16 @@ class GenerateBinaryPackage < Thor::Group
   include Thor::Actions
 
   HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
+  RESOURCES_DIR = 'packages/binary/build/resources'
+
   OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
   LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
-  RESOURCES_DIR = 'packages/binary/build/resources'
   OSX_DIR       = 'packages/binary/build/osx'
-  APP_DIR       = 'packages/binary/build/osx/lib/app'
-  LIB_DIR       = 'packages/binary/build/osx/lib'
-
+  LINUX_DIR     = 'packages/binary/build/linux-x86_64'
+  OSX_APP_DIR   = 'packages/binary/build/osx/lib/app'
+  LINUX_APP_DIR = 'packages/binary/build/osx/linux-x86_64/app'
+  OSX_LIB_DIR   = 'packages/binary/build/osx/lib'
+  LINUX_LIB_DIR = 'packages/binary/build/linux-x86_64/lib'
 
   def self.source_root
     File.dirname(__FILE__) + '/templates'
@@ -23,17 +26,29 @@ class GenerateBinaryPackage < Thor::Group
     Dir.pwd.split('/').last
   end
 
-  def package
-    empty_directory(APP_DIR)
-    empty_directory(LIB_DIR + '/ruby')
-    run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{OSX_BINARY}")
-    run("tar -xzf #{RESOURCES_DIR}/#{OSX_BINARY} -C #{LIB_DIR}/ruby")
-    run("cp #{RESOURCES_DIR}/Gemfile #{APP_DIR}")
-    run("cp -rf #{RESOURCES_DIR}/bundle #{APP_DIR}/.bundle")
-    run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{APP_DIR}/#{domain_name}.rb")
-    run("cp -rf #{RESOURCES_DIR}/wrapper #{OSX_DIR}/#{domain_name}")
+  def package_osx
+    package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
+  end
 
-    say "ATTENTION!"
-    say "One More thing: Run bundle in the app dir before deploying."
+  def package_linux
+    package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
+  end
+
+  def warn
+    say "\nATTENTION!"
+    say "One More thing: Run bundle in the app dir before deploying.\n"
+  end
+
+  private
+
+  def package(app_dir, lib_dir, binary, package_dir)
+    empty_directory(app_dir)
+    empty_directory(lib_dir + '/ruby')
+    run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{binary}")
+    run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
+    run("cp #{RESOURCES_DIR}/Gemfile #{app_dir}")
+    run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
+    run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
+    run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
   end
 end

@@ -10,4 +10,4 @@ class Fixnum
   end
 end
 
-puts app[ARGV[0].to_sym].create(args).call.inspect
+puts app[ARGV[0].to_sym].create(JSON.parse(ARGV[1], symbolize_names: true)).call.result.inspect
