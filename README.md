@@ -49,8 +49,10 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 
 ## Hecks Adapters
 Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal
+
 ### Application
 The Hecks application give immediate access to all the commands available for your domain.  
+
 ### Events
 The Events adapter can be used to listen for life cycle events as they occur in your Domain.  You can supply listeners and respond to these events how you see fit.  
 
@@ -63,6 +65,9 @@ This is the default database used by the Hecks Application.  It is super fast an
 ### Resource Server
 This server provides access to all the commands in your domain.  Because it uses the Application adapter, you get CRUD commands out of the box.
 
+## Hecks Packages
+You can use hecks to package your domain and make it easy to deploy using Docker or Lambda.  
+
 ## Concepts for building your Domain
 The Hecks Domain Builder uses a small subset of patterns used in Domain Driven design.  Here's a very brief overview of those patterns and the implications of using them to describe your domain
 
@@ -73,7 +78,7 @@ An aggregate has a head entity (see entities below).  All operations must be don
 Domain modules are synonyms for aggregates in Hecks.
 
 ### Value Objects
-Value objects do not have any continuation or identity.  They can be freely copied or refereneced in a domain without worrying about the value changing under your nose.  A person's age could be considered a value object.  If a 21 year old person ages a year we replace the value with 22.
+Value objects do not have any continuation or identity.  They can be freely copied or referenced in a domain without worrying about the value changing under your nose.  A person's age could be considered a value object.  If a 21 year old person ages a year we replace the value with 22.
 
 ### Entities
 An entity has conntinuance and life cycyle and keeps a unique, unchanging identifier to reference it.  A Person is usually considered an entity.  A Person defined as having a name, age, gender can change all three attributes without changing entity.
