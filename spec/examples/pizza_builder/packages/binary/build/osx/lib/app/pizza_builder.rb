@@ -11,4 +11,4 @@ class Fixnum
   end
 end
 
-pp app[ARGV[0].to_sym].create(args).call
+pp app[ARGV[0].to_sym].create(args).call.result

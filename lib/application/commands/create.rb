@@ -28,6 +28,10 @@ module Hecks
             self.class.to_s.split('::').last.underscore
           end
 
+          def result
+            { id: id, success: !id.nil?, errors: errors, args: args }
+          end
+
           private
 
           attr_reader :repository_result

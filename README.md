@@ -13,12 +13,11 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	$ hecks help
 
 	hecks commands:
-  hecks build           # build and install the hecks gem
-  hecks console         # REPL with domain helpers
+	hecks console         # REPL with domain helpers
   hecks generate        # generate
   hecks help [COMMAND]  # Describe available commands or one specific command
   hecks new             # Create a new Domain
-  hecks test            # Regenerate the examples and run the specs
+  hecks package         # package
 
 ### Create a HECKS file in an empty project directory:
 	Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
@@ -34,9 +33,11 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	end
 
 ### Generate the Domain
+	# From your domain project Directory
 	$ hecks new
 
 ### Generate and run a Resource Server
+	# From your domain project Directory
 	$ hecks generate:resource_server
 	$ rackup config.ru
 
@@ -46,6 +47,37 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 
 	$ curl localhost:9292/pizzas/1
 	{"name":"white","description":"yummy","toppings":[{"name":"pepperoni"}],"id":1}
+
+### Package and run a domain on the command line
+	# From your domain project Directory
+	$ hecks package binary
+	$ cd packages/binary/build/osx/app/
+	$ bundle
+	$ pizzas '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
+
+	{:id=>2,
+ 		:success=>true,
+ 		:errors=>{},
+ 		:args=>
+  		{:name=>"White Pizza",
+   			:description=>"white sauce and chicken",
+   			:toppings=>[{:name=>"chicken"}]}}
+
+### Use your domain in the Ruby console
+	# From your domain project Directory
+	$ hecks console
+
+	Hecks Loaded!
+	Using the PizzaBuilder domain
+	head :001 > pp app[:pizzas].create({name: 'White Pizza', description: 'white sauce and chicken', toppings: [{ name: 'chicken' }]}).result
+
+	:id=>2,
+  :success=>true,
+  :errors=>{},
+  :args=>
+  	{:name=>"White Pizza",
+   	 :description=>"white sauce and chicken",
+     :toppings=>[{:name=>"chicken"}]}}
 
 ## Hecks Adapters
 Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal

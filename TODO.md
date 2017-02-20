@@ -8,6 +8,7 @@
 * Hecks::Application, not Heks::Adapters::Application
 
 ## Next Actions
+* Add result methods to all the crud commands
 * Move generator templates closer to commands
 * Rename the Builder to Hecks::Domain
 * Attach specification to domain instead of Hecks, or make specs available as list
