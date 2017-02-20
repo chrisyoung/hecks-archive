@@ -55,13 +55,13 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	$ bundle
 	$ pizzas '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
-	{	:id=>2,
- 	 	:success=>true,
- 	 	:errors=>{},
- 	 	:args=>
-   	{	:name=>"White Pizza",
-   			:description=>"white sauce and chicken",
-   			:toppings=>[{:name=>"chicken"}]}}
+	{:id=>2,
+ 	 :success=>true,
+ 	 :errors=>{},
+ 	 :args=>
+   { :name=>"White Pizza",
+   	 :description=>"white sauce and chicken",
+   	 :toppings=>[{:name=>"chicken"}]}}
 
 ### Use your domain in the Ruby console
 	# From your domain project Directory
