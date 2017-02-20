@@ -72,11 +72,11 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	head :001 > pp app[:pizzas].create({name: 'White Pizza', description: 'white sauce and chicken', toppings: [{ name: 'chicken' }]}).result
 
 	{:id=>2,
-		:success=>true,
-		:errors=>{},
-			:args=>{:name=>"White Pizza",
-			:description=>"white sauce and chicken",
-			:toppings=>[{:name=>"chicken"}]}}
+	 :success=>true,
+	 :errors=>{},
+		 :args=>{:name=>"White Pizza",
+		 :description=>"white sauce and chicken",
+		 :toppings=>[{:name=>"chicken"}]}}
 
 ## Hecks Adapters
 Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal
