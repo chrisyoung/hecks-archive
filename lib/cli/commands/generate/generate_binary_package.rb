@@ -5,6 +5,7 @@ class GenerateBinaryPackage < Thor::Group
   OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
   LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
   RESOURCES_DIR = 'packages/binary/build/resources'
+  OSX_DIR       = 'packages/binary/build/osx'
   APP_DIR       = 'packages/binary/build/osx/lib/app'
   LIB_DIR       = 'packages/binary/build/osx/lib'
 
@@ -14,6 +15,7 @@ class GenerateBinaryPackage < Thor::Group
   end
 
   def create_package_folder
+    run("rm -rf packages")
     directory('binary_package', './packages/binary')
   end
 
@@ -22,10 +24,15 @@ class GenerateBinaryPackage < Thor::Group
   end
 
   def package
+    empty_directory(APP_DIR)
+    empty_directory(LIB_DIR + '/ruby')
     run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{OSX_BINARY}")
-    run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{LINUX_BINARY}")
     run("tar -xzf #{RESOURCES_DIR}/#{OSX_BINARY} -C #{LIB_DIR}/ruby")
-    run("cd #{APP_DIR} && pwd && bundle")
+    run("cp #{RESOURCES_DIR}/Gemfile #{APP_DIR}")
+    run("cp -rf #{RESOURCES_DIR}/bundle #{APP_DIR}/.bundle")
+    run("cp -rf #{RESOURCES_DIR}/hello.rb #{APP_DIR}/hello.rb")
+    run("cp -rf #{RESOURCES_DIR}/wrapper #{OSX_DIR}/hello")
+    run("cd #{APP_DIR} && bundle install")
   end
 
   # def remove_tests
