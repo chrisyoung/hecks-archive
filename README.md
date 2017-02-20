@@ -14,10 +14,10 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 
 	hecks commands:
 	hecks console         # REPL with domain helpers
-  hecks generate        # generate
-  hecks help [COMMAND]  # Describe available commands or one specific command
-  hecks new             # Create a new Domain
-  hecks package         # package
+	hecks generate        # generate
+	hecks help [COMMAND]  # Describe available commands or one specific command
+	hecks new             # Create a new Domain
+	hecks package         # package
 
 ### Create a HECKS file in an empty project directory:
 	Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
