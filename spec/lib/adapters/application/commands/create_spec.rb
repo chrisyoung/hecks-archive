@@ -5,7 +5,11 @@ class Hecks::Adapters::Application
     end
 
     subject do
-      Commands::Create.new(args: pizza_attributes, domain_module: domain.domain_modules[:Pizzas], repository: PizzaBuilder.repositories[:pizzas])
+      Commands::Create.new(
+        args: pizza_attributes,
+        domain_module: domain.domain_modules[:Pizzas],
+        repository: PizzaBuilder.repositories[:pizzas]
+      )
     end
 
     let(:pizza_attributes) do

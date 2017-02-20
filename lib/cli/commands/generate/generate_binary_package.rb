@@ -30,8 +30,8 @@ class GenerateBinaryPackage < Thor::Group
     run("tar -xzf #{RESOURCES_DIR}/#{OSX_BINARY} -C #{LIB_DIR}/ruby")
     run("cp #{RESOURCES_DIR}/Gemfile #{APP_DIR}")
     run("cp -rf #{RESOURCES_DIR}/bundle #{APP_DIR}/.bundle")
-    run("cp -rf #{RESOURCES_DIR}/hello.rb #{APP_DIR}/hello.rb")
-    run("cp -rf #{RESOURCES_DIR}/wrapper #{OSX_DIR}/hello")
+    run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{APP_DIR}/#{domain_name}.rb")
+    run("cp -rf #{RESOURCES_DIR}/wrapper #{OSX_DIR}/#{domain_name}")
 
     say "ATTENTION!"
     say "One More thing: Run bundle in the app dir before deploying."
