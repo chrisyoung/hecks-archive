@@ -5,8 +5,6 @@ set -e
 SELFDIR="`dirname \"$0\"`"
 SELFDIR="`cd \"$SELFDIR\" && pwd`"
 
-# echo SELFDIR
-
 # Tell Bundler where the Gemfile and gems are.
 export BUNDLE_GEMFILE="$SELFDIR/lib/app/Gemfile"
 unset BUNDLE_IGNORE_CONFIG

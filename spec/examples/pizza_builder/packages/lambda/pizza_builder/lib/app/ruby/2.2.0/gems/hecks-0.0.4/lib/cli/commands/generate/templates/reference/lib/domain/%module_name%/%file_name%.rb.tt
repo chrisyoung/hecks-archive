@@ -1,0 +1,25 @@
+module <%= domain_name.camelize %>
+  module Domain
+    module <%= module_name.camelize %>
+      class <%= name.camelize %>
+        attr_accessor :id, :referenced_entity
+
+        def self.factory(group_attributes)
+          return <%= name.camelize %>.new(group_attributes) unless group_attributes.is_a?(Array)
+          group_attributes.map do |attributes|
+            <%= name.camelize %>.new(attributes)
+          end
+        end
+
+        def initialize(id:)
+          @id = id
+          @referenced_entity = <%= options[:referenced_entity] %>
+        end
+
+        def to_json(config)
+          JSON.generate({id: @id, referenced_entity: @referenced_entity})
+        end
+      end
+    end
+  end
+end

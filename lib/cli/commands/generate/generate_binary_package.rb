@@ -18,7 +18,7 @@ class GenerateBinaryPackage < Thor::Group
   end
 
   def create_package_folder
-    run("rm -rf packages")
+    run("rm -rf packages/binary")
     directory('binary_package', './packages/binary')
   end
 

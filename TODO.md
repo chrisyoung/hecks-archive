@@ -7,11 +7,12 @@
 * DynoDB Repository Generator
 
 ## Next Actions
+* chmod 755 on binaries
+* Why can't I run bundler from the CLI?
 * move code hecks_cli project
 * move code hecks_domain_builder project
 * move code hecks_console project
 * consider hecks_examples project
-
 * Finish linux package
 * Add result methods to all the crud commands
 * Move generator templates closer to commands
