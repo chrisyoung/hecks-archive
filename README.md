@@ -32,49 +32,34 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 		end
 	end
 
-### Generate the Domain
-	# From your domain project Directory
+Now just run this command in the same directory as the HECKS file
 	$ hecks new
 
-### Generate and run a Resource Server
-	# From your domain project Directory
+You should see a bunch of output as hecks builds the Objects that you'll use to interact with the domain.
+
+### Run the domain as a resource_server
 	$ hecks generate:resource_server
 	$ rackup config.ru
 	$ curl -H "Content-Type: application/json" -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' localhost:9292/pizzas
-	{"errors":{},"id":1,"args":{"name":"white","description":"yummy","toppings":[{"name":"pepperoni"}]}}
-	$ curl localhost:9292/pizzas/1
-	{"name":"white","description":"yummy","toppings":[{"name":"pepperoni"}],"id":1}
 
 ### Package and run a domain on the command line
-	# From your domain project Directory
+The command line adapter is currently implemented as a 2.2.2 traveling ruby package.  Hecks provides the means to build that package.
+
 	$ hecks package binary
 	$ cd packages/binary/build/osx/app/
 	$ bundle
-	$ pizza_builder pizzas '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
-
-	{:id=>2,
-	 :success=>true,
-	 :errors=>{},
-	 :args=>
-	 	 {:name=>"White Pizza",
-		  :description=>"white sauce and chicken",
-		  :toppings=>[{:name=>"chicken"}]}}
+	$ pizza_builder 'module: {'pizzas', args: {...}}'
 
 ### Use your domain in the Ruby console
-	# From your domain project Directory
+Move into your domain's directory (the one creared with hecks new)
+
 	$ hecks console
+	:001 > pp app[:pizzas].create({name: 'White Pizza' ... }]})
 
-	Hecks Loaded!
-	Using the PizzaBuilder domain
-	head :001 > pp app[:pizzas].create({name: 'White Pizza', description: 'white sauce and chicken', toppings: [{ name: 'chicken' }]}).result
+### Run it as a lamda function
+Hecks is friends with serverless to generate a deployable function.  Here's how to see if it worlks locally:
 
-	{:id=>2,
-	 :success=>true,
-	 :errors=>{},
-	 :args=>
-	 	 {:name=>"White Pizza",
-		  :description=>"white sauce and chicken",
-		  :toppings=>[{:name=>"chicken"}]}}
+	$ serverless invoke local -f hello -d '{"name":"White Pizza", ...}'
 
 ## Hecks Adapters
 Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal
