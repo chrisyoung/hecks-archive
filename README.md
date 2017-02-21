@@ -59,6 +59,7 @@ Move into your domain's directory (the one creared with hecks new)
 ### Run it as a lamda function
 Hecks is friends with serverless to generate a deployable function.  Here's how to see if it worlks locally:
 
+	$ hecks package lambda
 	$ serverless invoke local -f hello -d '{"name":"White Pizza", ...}'
 
 ## Hecks Adapters
