@@ -7,6 +7,7 @@
 * DynoDB Repository Generator
 
 ## Next Actions
+* Use the linux binary when deploying, osx binary on mac
 * chmod 755 on binaries
 * Why can't I run bundler from the CLI?
 * move code hecks_cli project
