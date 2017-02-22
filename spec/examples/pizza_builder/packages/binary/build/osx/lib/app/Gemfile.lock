@@ -1,5 +1,5 @@
 PATH
-  remote: ../../../../../..
+  remote: ../../../../../../
   specs:
     pizza_builder (0.0.0)
 
@@ -21,7 +21,7 @@ GEM
       pry
       sinatra
       thor (~> 0.19)
-    i18n (0.8.0)
+    i18n (0.8.1)
     json-schema (2.8.0)
       addressable (>= 2.4)
     method_source (0.8.2)
@@ -51,3 +51,6 @@ PLATFORMS
 DEPENDENCIES
   hecks
   pizza_builder!
+
+BUNDLED WITH
+   1.11.2

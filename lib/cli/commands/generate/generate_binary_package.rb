@@ -1,3 +1,4 @@
+require 'bundler/setup'
 class GenerateBinaryPackage < Thor::Group
   include Thor::Actions
 
@@ -31,7 +32,7 @@ class GenerateBinaryPackage < Thor::Group
   end
 
   def package_linux
-    package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
+    # package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
   end
 
   def warn
@@ -47,8 +48,13 @@ class GenerateBinaryPackage < Thor::Group
     run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{binary}")
     run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
     run("cp #{RESOURCES_DIR}/Gemfile #{app_dir}")
+    run("cp #{RESOURCES_DIR}/Gemfile /tmp")
     run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
+    run("cp -rf #{RESOURCES_DIR}/bundle /tmp")
     run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
     run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
+    Bundler.with_clean_env do
+      run("cd #{app_dir} && BUNDLE_IGNORE_CONFIG=1 bundle install --path . --without development")
+    end
   end
 end
