@@ -4,7 +4,6 @@ class GenerateBinaryPackage < Thor::Group
 
   HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
   RESOURCES_DIR = 'packages/binary/build/resources'
-
   OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
   LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
   OSX_DIR       = 'packages/binary/build/osx'
@@ -52,6 +51,7 @@ class GenerateBinaryPackage < Thor::Group
     run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
     run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
     run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
+    run("cd #{package_dir} && chmod 744 #{domain_name}")
     run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
     run("cp #{domain_name}-0.0.0.gem #{app_dir}" )
     run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")

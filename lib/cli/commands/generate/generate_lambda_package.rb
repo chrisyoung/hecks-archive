@@ -14,9 +14,7 @@ class GenerateLambdaPackage < Thor::Group
   end
 
   def create_package_folder
-    run("rm -rf packages/lambda")
     run('npm install -g serverless')
-    run('serverless create --template aws-nodejs --path ./packages/lambda')
-    run('npm install serverless-offline --save-dev -g')
+    run("cp -r packages/binary/build/osx packages/lambda/#{domain_name}")
   end
 end
