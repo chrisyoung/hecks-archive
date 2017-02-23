@@ -6,8 +6,12 @@
 
 ## Current Sprint
 * DynoDB Repository Generator
+* Make a schema based validator
 
 ## Next Actions
+* use a query to get back unique pizza toppings
+* pizza_builder binary should be outside of lib
+* break hecks_application out of hecks project
 * Use the linux binary when deploying, osx binary on mac
 * chmod 755 on binaries
 * Why can't I run bundler from the CLI?
