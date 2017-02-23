@@ -13,6 +13,7 @@
 * break hecks_application out of hecks project to reduce size
 * Hook up events example
 * Package as Docker
+* Delete intermediate container we created to copy gems
 
 ## Next Actions
 * pizza_builder binary should be outside of lib
