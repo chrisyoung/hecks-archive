@@ -37,12 +37,12 @@ Now just run this command in the same directory as the HECKS file
 
 You should see a bunch of output as hecks builds the Objects that you'll use to interact with the domain.
 
-### Run the domain as a resource_server
+### Resource Server
 	$ hecks generate:resource_server
 	$ rackup config.ru
 	$ curl -H "Content-Type: application/json" -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' localhost:9292/pizzas
 
-### Package and run a domain on the command line
+### Command Line
 The command line adapter is currently implemented as a 2.2.2 traveling ruby package.  Hecks provides the means to build that package.
 
 	$ hecks package binary
@@ -50,56 +50,14 @@ The command line adapter is currently implemented as a 2.2.2 traveling ruby pack
 	$ bundle
 	$ pizza_builder 'module: {'pizzas', args: {...}}'
 
-### Use your domain in the Ruby console
+### Ruby Console
 Move into your domain's directory (the one creared with hecks new)
 
 	$ hecks console
 	:001 > pp app[:pizzas].create({name: 'White Pizza' ... }]})
 
-### Run it as a lamda function
+### AWS Lambda
 Hecks is friends with serverless to generate a deployable function.  Here's how to see if it worlks locally:
 
 	$ hecks package lambda
-	$ serverless invoke local -f hello -d '{"name":"White Pizza", ...}'
-
-## Hecks Adapters
-Hecks adapters will work generated domains to provide services.  This has the benefit of keeping domain logic completely seperated from implementations.  These concepts borrow heavily from those expressed in Hexagonal
-
-### Application
-The Hecks application give immediate access to all the commands available for your domain.  
-
-### Events
-The Events adapter can be used to listen for life cycle events as they occur in your Domain.  You can supply listeners and respond to these events how you see fit.  
-
-### Logger
-The logger will write the results of all commands to a log file (TBD)
-
-### Memory Database
-This is the default database used by the Hecks Application.  It is super fast and can be used in tests without mocking.  In production you'll be more likely to use a file-based repository.  See the documentation for the hecks application to see how to use different databases.
-
-### Resource Server
-This server provides access to all the commands in your domain.  Because it uses the Application adapter, you get CRUD commands out of the box.
-
-## Hecks Packages
-You can use hecks to package your domain and make it easy to deploy using Docker or Lambda.  
-
-## Concepts for building your Domain
-The Hecks Domain Builder uses a small subset of patterns used in Domain Driven design.  Here's a very brief overview of those patterns and the implications of using them to describe your domain
-
-### Aggregates
-An aggregate has a head entity (see entities below).  All operations must be done on the head.  For instance, to operate on order items, we must access them through a specific Order object which is the head of the Orders aggregate.
-
-### Domain modules
-Domain modules are synonyms for aggregates in Hecks.
-
-### Value Objects
-Value objects do not have any continuation or identity.  They can be freely copied or referenced in a domain without worrying about the value changing under your nose.  A person's age could be considered a value object.  If a 21 year old person ages a year we replace the value with 22.
-
-### Entities
-An entity has conntinuance and life cycyle and keeps a unique, unchanging identifier to reference it.  A Person is usually considered an entity.  A Person defined as having a name, age, gender can change all three attributes without changing entity.
-
-### Repositories
-A repository is used in the domain to manage lifecycles of entities and their values
-
-### Commands
-Interacting with your domain is done through command objects.
+	$ serverless invoke local -f hello -d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
