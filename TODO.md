@@ -2,6 +2,7 @@
 
 ## In Progress
 * Deploy to Lambda
+* Rename HECKS Hecksfile
 
 ## Current Sprint
 * DynoDB Repository Generator

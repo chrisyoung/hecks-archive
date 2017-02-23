@@ -29,6 +29,7 @@ class GenerateBinaryPackage < Thor::Group
 
   def package_osx
     package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
+    remove_tests(OSX_APP_DIR)
   end
 
   def package_linux
@@ -48,13 +49,21 @@ class GenerateBinaryPackage < Thor::Group
     run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{binary}")
     run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
     run("cp #{RESOURCES_DIR}/Gemfile #{app_dir}")
-    run("cp #{RESOURCES_DIR}/Gemfile /tmp")
     run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
-    run("cp -rf #{RESOURCES_DIR}/bundle /tmp")
     run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
     run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
-    Bundler.with_clean_env do
-      run("cd #{app_dir} && BUNDLE_IGNORE_CONFIG=1 bundle install --path . --without development")
-    end
+    run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
+    run("cp #{domain_name}-0.0.0.gem #{app_dir}" )
+    run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
+    container = `docker create pizza_builder:latest`.gsub("\n", '')
+    run("docker cp #{container}:/usr/src/app/vendor #{app_dir}")
+  end
+
+  def remove_tests(app_dir)
+    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/test")
+    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/tests")
+    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/spec")
+    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/features")
+    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/benchmark")
   end
 end

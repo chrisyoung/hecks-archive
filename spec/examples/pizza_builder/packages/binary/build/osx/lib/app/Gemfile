@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'hecks'
-gem 'pizza_builder', path: '../../../../../../'
+gem 'pizza_builder'
