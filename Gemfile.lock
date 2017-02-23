@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hecks (0.0.4)
+    hecks (0.0.5)
       activesupport
       json-schema
       sinatra

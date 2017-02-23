@@ -35,23 +35,29 @@ class GenerateBinaryPackage < Thor::Group
     # package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
   end
 
-  def warn
-    say "\nATTENTION!"
-    say "One More thing: Run bundle in the app dir before deploying.\n"
-  end
-
   private
 
   def package(app_dir, lib_dir, binary, package_dir)
     empty_directory(app_dir)
-    empty_directory(lib_dir + '/ruby')
-    run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{binary}")
-    run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
+    download(binary, lib_dir)
+    copy_resources(app_dir, package_dir)
+    bundle(app_dir)
+  end
+
+  def copy_resources(app_dir, package_dir)
     run("cp #{RESOURCES_DIR}/Gemfile #{app_dir}")
     run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
     run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
     run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
     run("cd #{package_dir} && chmod 744 #{domain_name}")
+  end
+
+  def download(binary, lib_dir)
+    run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{binary}")
+    run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
+  end
+
+  def bundle(app_dir)
     run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
     run("cp #{domain_name}-0.0.0.gem #{app_dir}" )
     run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
