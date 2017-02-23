@@ -2,29 +2,28 @@
 
 ## In Progress
 * Deploy to Lambda
-* Rename HECKS Hecksfile
 
 ## Current Sprint
+* Rename HECKS Hecksfile
 * DynoDB Repository Generator
 * Make a schema based validator
+* Finish linux package
+* Use the linux binary when deploying, osx binary on mac
+* use a query to get back unique pizza toppings
+* break hecks_application out of hecks project to reduce size
+* Hook up events example
+* Package as Docker
 
 ## Next Actions
-* use a query to get back unique pizza toppings
 * pizza_builder binary should be outside of lib
-* break hecks_application out of hecks project
-* Use the linux binary when deploying, osx binary on mac
-* chmod 755 on binaries
-* Why can't I run bundler from the CLI?
 * move code hecks_cli project
 * move code hecks_domain_builder project
 * move code hecks_console project
 * consider hecks_examples project
-* Finish linux package
 * Add result methods to all the crud commands
 * Move generator templates closer to commands
 * Rename the Builder to Hecks::Domain
 * Attach specification to domain instead of Hecks, or make specs available as list
-* Use events port to cache toppings
 * Fix text case problems with generators
 * Fix indentation in generators
 * Check type in validator as well as presence
