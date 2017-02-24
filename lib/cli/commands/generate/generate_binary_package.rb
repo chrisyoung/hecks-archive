@@ -2,15 +2,16 @@ class GenerateBinaryPackage < Thor::Group
   include Thor::Actions
 
   HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
-  RESOURCES_DIR = 'packages/binary/build/resources'
   OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
   LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
-  OSX_DIR       = 'packages/binary/build/osx'
-  LINUX_DIR     = 'packages/binary/build/linux-x86_64'
-  OSX_APP_DIR   = 'packages/binary/build/osx/lib/app'
-  LINUX_APP_DIR = 'packages/binary/build/osx/linux-x86_64/app'
-  OSX_LIB_DIR   = 'packages/binary/build/osx/lib'
-  LINUX_LIB_DIR = 'packages/binary/build/linux-x86_64/lib'
+  BUILD_DIR     = 'packages/binary/build'
+  RESOURCES_DIR = BUILD_DIR + '/resources'
+  OSX_DIR       = BUILD_DIR + '/osx'
+  OSX_LIB_DIR   = OSX_DIR + '/lib'
+  OSX_APP_DIR   = OSX_LIB_DIR + '/app'
+  LINUX_DIR     = BUILD_DIR + '/linux-x86_64'
+  LINUX_LIB_DIR = LINUX_DIR + 'lib'
+  LINUX_APP_DIR = LINUX_LIB_DIR + '/app'
 
   def self.source_root
     File.dirname(__FILE__) + '/templates'
@@ -25,11 +26,8 @@ class GenerateBinaryPackage < Thor::Group
     Dir.pwd.split('/').last
   end
 
-  def package_osx
+  def build
     package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
-  end
-
-  def package_linux
     package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
   end
 
@@ -45,11 +43,30 @@ class GenerateBinaryPackage < Thor::Group
   end
 
   def reduce_package_size(app_dir)
-    remove_tests(app_dir)
-    remove_documentation(app_dir)
-    remove_misc_files(app_dir)
-    remove_native_extension_cruft(app_dir)
-    remove_java_files(app_dir)
+    files = %w(test tests spec features benchmark README* CHANGE* Change*
+      COPYING* LICENSE* MIT-LICENSE* TODO *.txt *.md *.rdoc doc docs example
+      examples sample doc-api
+    )
+    files.each do |file|
+      run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
+    end
+
+    run("rm -rf #{app_dir}/vendor/*/*/cache/*")
+    %w(.gitignore .travis.yml).each do |file|
+      run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
+    end
+
+    %w(MAKEfile */Makefile */tmp).each do |file|
+      run("rm -f #{app_dir}/vendor/ruby/*/gems/*/ext/#{file}")
+    end
+
+    %w(*.c *.cpp *.h *.rl *extconf.rb *.java *.class *.md).each do |file|
+      run("find #{app_dir}/vendor/ruby -name '#{file}' | xargs rm -f")
+    end
+
+    %w(*.0 *.so *.bundle).each do |file|
+      run("find #{app_dir}/vendor/ruby/*/gems -name '#{file}' | xargs rm -f")
+    end
   end
 
   def copy_resources(app_dir, package_dir)
@@ -71,58 +88,5 @@ class GenerateBinaryPackage < Thor::Group
     run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
     container = `docker create pizza_builder:latest`.gsub("\n", '')
     run("docker cp #{container}:/usr/src/app/vendor #{app_dir}")
-  end
-
-  def remove_tests(app_dir)
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/test")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/tests")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/spec")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/features")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/benchmark")
-  end
-
-  def remove_documentation(app_dir)
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/README*")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/CHANGE*")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/Change*")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/COPYING*")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/LICENSE*")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/MIT-LICENSE*")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/TODO")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/*.txt")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/*.md")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/*.rdoc")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/doc")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/docs")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/example")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/examples")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/sample")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/doc-api")
-    run("find #{app_dir}/vendor/ruby -name '*.md' | xargs rm -f")
-  end
-
-  def remove_misc_files(app_dir)
-    run("rm -rf #{app_dir}/vendor/*/*/cache/*")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/.gitignore")
-    run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/.travis.yml")
-  end
-
-  def remove_native_extension_cruft(app_dir)
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/ext/Makefile")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/ext/*/Makefile")
-    run("rm -f #{app_dir}/vendor/ruby/*/gems/*/ext/*/tmp")
-    run("find #{app_dir}/vendor/ruby -name '*.c' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby -name '*.cpp' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby -name '*.h' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby -name '*.rl' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby -name 'extconf.rb' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby/*/gems -name '*.o' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby/*/gems -name '*.so' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby/*/gems -name '*.bundle' | xargs rm -f")
-  end
-
-  def remove_java_files(app_dir)
-    run("find #{app_dir}/vendor/ruby -name '*.java' | xargs rm -f")
-    run("find #{app_dir}/vendor/ruby -name '*.class' | xargs rm -f")
   end
 end
