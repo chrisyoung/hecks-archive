@@ -10,8 +10,4 @@ class Fixnum
   end
 end
 
-domain_module = ARGV[0].to_sym
-method = ARGV[1]
-data = JSON.parse(ARGV[2], symbolize_names: true)
-
-puts app[domain_module].send(method, data).call.result.inspect
+puts app[ARGV[0].to_sym].create(JSON.parse(ARGV[1], symbolize_names: true)).call.result.inspect

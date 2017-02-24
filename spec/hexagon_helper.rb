@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rack/test'
-require 'pry'
 
 require_relative '../lib/hecks/'
 require_relative 'examples/pizza_builder/lib/pizza_builder'

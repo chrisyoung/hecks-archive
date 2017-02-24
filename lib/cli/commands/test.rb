@@ -4,8 +4,9 @@ module Hecks
     def test
       exec(
         (
-          reset_example('soccer_season') +
           reset_example('pizza_builder') +
+          build_binary_package('pizza_builder') +
+          build_lambda_package('pizza_builder') +
           generate_resource_server('pizza_builder') +
           ['rspec -f d']
         ).join("&&")
@@ -24,11 +25,18 @@ module Hecks
       ]
     end
 
-    def build_package(name)
+    def build_binary_package(name)
       [
         "cd spec/examples/#{name}",
-        'rm -rf packages',
         'hecks package binary',
+        'cd ../../..'
+      ]
+    end
+
+    def build_lambda_package(name)
+      [
+        "cd spec/examples/#{name}",
+        'hecks package lambda',
         'cd ../../..'
       ]
     end

@@ -2,8 +2,8 @@
 
 const spawn = require('child_process').spawn;
 
-module.exports.pizza_builder = (event, context, callback) => {
-  var app = 'pizza_builder/pizza_builder'
+module.exports.<%= domain_name %> = (event, context, callback) => {
+  var app = '<%= domain_name %>/<%= domain_name %>'
   var data = JSON.stringify(event['data'])
   var command = app + ' ' + event['module'] + ' ' + event['method'] + ' ' + JSON.stringify(data)
   const child = exec(command, (result) => {
