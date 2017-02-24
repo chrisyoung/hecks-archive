@@ -63,8 +63,6 @@ Hecks is friends with serverless to generate a deployable function.  Here's how 
 	$ serverless invoke local -f hello -d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
 ## Contribute to Hecks
-Here are some commands that will be helpful if you would like to develop new features for Hecks
-
 	$ hecks build # Builds and installs the hecks gem locally
 	$ hecks test ci # run the full test suite for continuous integration
 	$ rspec # run the spec suite (fast)
