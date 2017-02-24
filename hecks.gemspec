@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'hecks'
   s.homepage    = "https://github.com/chrisyoung/heckson"
-  s.version     = '0.0.6'
+  s.version     = File.read("Version").gsub("\n", '')
   s.date        = '2016-09-12'
   s.summary     = "DDD and Hexagonal Code Generators"
   s.description = "Make the Domain the center of your programming world"
