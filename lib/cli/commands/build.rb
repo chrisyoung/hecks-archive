@@ -1,10 +1,12 @@
 module Hecks
   class CLI < Thor
+    include Thor::Actions
+
     desc 'build','build and install the hecks gem'
 
     def build
-      exec(['gem build hecks',
-      'gem install hecks'].join("&&"))
+      run('gem build hecks')
+      run('gem install hecks')
     end
   end
 end
