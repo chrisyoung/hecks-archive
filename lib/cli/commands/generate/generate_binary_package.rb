@@ -41,7 +41,7 @@ class GenerateBinaryPackage < Thor::Group
     empty_directory(lib_dir + '/ruby')
     download(binary, lib_dir)
     copy_resources(app_dir, package_dir)
-    bundle(app_dir)
+    bundle_with_ruby_2_2_2(app_dir)
   end
 
   def copy_resources(app_dir, package_dir)
@@ -57,7 +57,7 @@ class GenerateBinaryPackage < Thor::Group
     run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
   end
 
-  def bundle(app_dir)
+  def bundle_with_ruby_2_2_2(app_dir)
     run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
     run("cp #{domain_name}-0.0.0.gem #{app_dir}" )
     run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
