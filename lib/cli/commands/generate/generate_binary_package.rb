@@ -27,15 +27,10 @@ class GenerateBinaryPackage < Thor::Group
 
   def package_osx
     package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
-    remove_tests(OSX_APP_DIR)
-    remove_documentation(OSX_APP_DIR)
-    remove_misc_files(OSX_APP_DIR)
-    remove_native_extension_cruft(OSX_APP_DIR)
-    remove_java_files(OSX_APP_DIR)
   end
 
   def package_linux
-    # package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
+    package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
   end
 
   private
@@ -46,6 +41,15 @@ class GenerateBinaryPackage < Thor::Group
     download(binary, lib_dir)
     copy_resources(app_dir, package_dir)
     bundle_with_ruby_2_2_2(app_dir)
+    reduce_package_size(app_dir)
+  end
+
+  def reduce_package_size(app_dir)
+    remove_tests(app_dir)
+    remove_documentation(app_dir)
+    remove_misc_files(app_dir)
+    remove_native_extension_cruft(app_dir)
+    remove_java_files(app_dir)
   end
 
   def copy_resources(app_dir, package_dir)
