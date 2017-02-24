@@ -13,6 +13,9 @@ module Hecks
     desc 'package', 'package'
     subcommand('package', Package) if File.file?('HECKS')
 
+    desc 'test', 'test'
+    subcommand('test', Test) if File.file?('hecks.gemspec')
+
     long_desc      'Generate a domain'
     method_option  :dryrun,
                    aliases:  '-d',

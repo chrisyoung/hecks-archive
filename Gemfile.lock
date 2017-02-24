@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hecks (0.0.7)
+    hecks (0.0.8)
       activesupport (~> 5.0)
       sinatra (~> 1.4)
 

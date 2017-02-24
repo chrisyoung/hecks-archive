@@ -16,6 +16,8 @@
 * Delete intermediate container we created to copy gems
 
 ## Next Actions
+* Generate Rdoc for ruby gems
+* Generate Readme examples
 * pizza_builder binary should be outside of lib
 * move code hecks_cli project
 * move code hecks_domain_builder project

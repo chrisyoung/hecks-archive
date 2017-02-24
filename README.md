@@ -61,3 +61,8 @@ Hecks is friends with serverless to generate a deployable function.  Here's how 
 
 	$ hecks package lambda
 	$ serverless invoke local -f hello -d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
+
+## Contribute to Hecks
+	$ hecks build # Builds and installs the hecks gem locally
+	$ hecks test ci # run the full test suite for continuous integration
+	$ rspec # run the spec suite (fast)
