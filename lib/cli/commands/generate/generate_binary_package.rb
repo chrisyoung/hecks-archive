@@ -5,12 +5,12 @@ class GenerateBinaryPackage < Thor::Group
   OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
   LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
   BUILD_DIR     = 'packages/binary/build'
-  RESOURCES_DIR = BUILD_DIR + '/resources'
-  OSX_DIR       = BUILD_DIR + '/osx'
-  OSX_LIB_DIR   = OSX_DIR + '/lib'
-  OSX_APP_DIR   = OSX_LIB_DIR + '/app'
-  LINUX_DIR     = BUILD_DIR + '/linux-x86_64'
-  LINUX_LIB_DIR = LINUX_DIR + 'lib'
+  RESOURCES_DIR = BUILD_DIR     + '/resources'
+  OSX_DIR       = BUILD_DIR     + '/osx'
+  OSX_LIB_DIR   = OSX_DIR       + '/lib'
+  OSX_APP_DIR   = OSX_LIB_DIR   + '/app'
+  LINUX_DIR     = BUILD_DIR     + '/linux-x86_64'
+  LINUX_LIB_DIR = LINUX_DIR     + 'lib'
   LINUX_APP_DIR = LINUX_LIB_DIR + '/app'
 
   def self.source_root
@@ -42,33 +42,6 @@ class GenerateBinaryPackage < Thor::Group
     reduce_package_size(app_dir)
   end
 
-  def reduce_package_size(app_dir)
-    files = %w(test tests spec features benchmark README* CHANGE* Change*
-      COPYING* LICENSE* MIT-LICENSE* TODO *.txt *.md *.rdoc doc docs example
-      examples sample doc-api
-    )
-    files.each do |file|
-      run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
-    end
-
-    run("rm -rf #{app_dir}/vendor/*/*/cache/*")
-    %w(.gitignore .travis.yml).each do |file|
-      run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
-    end
-
-    %w(MAKEfile */Makefile */tmp).each do |file|
-      run("rm -f #{app_dir}/vendor/ruby/*/gems/*/ext/#{file}")
-    end
-
-    %w(*.c *.cpp *.h *.rl *extconf.rb *.java *.class *.md).each do |file|
-      run("find #{app_dir}/vendor/ruby -name '#{file}' | xargs rm -f")
-    end
-
-    %w(*.0 *.so *.bundle).each do |file|
-      run("find #{app_dir}/vendor/ruby/*/gems -name '#{file}' | xargs rm -f")
-    end
-  end
-
   def copy_resources(app_dir, package_dir)
     run("cp #{RESOURCES_DIR}/Gemfile #{app_dir}")
     run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
@@ -88,5 +61,28 @@ class GenerateBinaryPackage < Thor::Group
     run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
     container = `docker create pizza_builder:latest`.gsub("\n", '')
     run("docker cp #{container}:/usr/src/app/vendor #{app_dir}")
+  end
+
+  def reduce_package_size(app_dir)
+    files = %w(test tests spec features benchmark README* CHANGE* Change*
+      COPYING* LICENSE* MIT-LICENSE* TODO *.txt *.md *.rdoc doc docs example
+      examples sample doc-api
+    )
+    files.each do |file|
+      run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
+    end
+    run("rm -rf #{app_dir}/vendor/*/*/cache/*")
+    %w(.gitignore .travis.yml).each do |file|
+      run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
+    end
+    %w(MAKEfile */Makefile */tmp).each do |file|
+      run("rm -f #{app_dir}/vendor/ruby/*/gems/*/ext/#{file}")
+    end
+    %w(*.c *.cpp *.h *.rl *extconf.rb *.java *.class *.md).each do |file|
+      run("find #{app_dir}/vendor/ruby -name '#{file}' | xargs rm -f")
+    end
+    %w(*.0 *.so *.bundle).each do |file|
+      run("find #{app_dir}/vendor/ruby/*/gems -name '#{file}' | xargs rm -f")
+    end
   end
 end

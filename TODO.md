@@ -16,6 +16,7 @@
 * Delete intermediate container we created to copy gems
 
 ## Next Actions
+* Python bindings using binary
 * Generate Rdoc for ruby gems
 * Generate Readme examples
 * pizza_builder binary should be outside of lib

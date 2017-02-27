@@ -4,4 +4,23 @@ describe Hecks::Adapters::MemoryDatabase do
   it 'exists' do
     subject
   end
+
+  let(:pizza_attributes) do
+    {
+      name: 'White Pizza',
+      description: 'white sauce and chicken',
+      toppings: [{ name: 'chicken' }]
+    }
+  end
+
+
+  it 'Works with the Hecks Application' do
+    app = Hecks::Adapters::Application.new(
+      domain: PizzaBuilder,
+      database: described_class
+    )
+
+    expect(PizzaBuilder::Domain::Pizzas::Repository).to receive(:create)
+    app[:pizzas].create(pizza_attributes)
+  end
 end

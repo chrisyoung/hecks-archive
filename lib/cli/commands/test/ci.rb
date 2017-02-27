@@ -7,7 +7,13 @@ class Test < Thor
     build_binary_package('pizza_builder')
     build_lambda_package('pizza_builder')
     generate_resource_server('pizza_builder')
+    examples
     run('rspec -f d')
+  end
+
+  desc 'examples', "run the example specs"
+  def examples
+    run('cd spec/examples/pizza_builder/adapters/sql_database&&rspec')
   end
 
   private

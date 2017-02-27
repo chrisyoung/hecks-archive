@@ -9,7 +9,7 @@ module Hecks
       def initialize(database: nil, listeners: [], domain:)
         load(domain.spec_path)
         @domain      = domain
-        @database    = database.new(domain: @domain) if @database
+        @database    = database
         @events_port = Adapters::Events.new(listeners: listeners)
         @domain_spec = Hecks.specification
       end
@@ -37,8 +37,8 @@ module Hecks
       end
 
       def database
-        return MemoryDatabase.new(domain: @domain) unless @database
-        @database
+        return @database.new(domain: @domain) if @database
+        return MemoryDatabase.new(domain: @domain)
       end
     end
   end

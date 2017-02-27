@@ -1,3 +1,4 @@
 --color
 --require spec_helper
 -f p
+--exclude-pattern spec/examples/**/*
