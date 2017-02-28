@@ -16,6 +16,8 @@ module Hecks
   end
 
   class DomainBuilder
+    Types = { string: 'String', integer: 'Integer', currency: 'Currency'}
+
     attr_accessor :domain, :specification
 
     def initialize(domain_name:, &block)

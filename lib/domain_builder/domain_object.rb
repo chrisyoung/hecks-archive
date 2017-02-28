@@ -14,7 +14,7 @@ module Hecks
 
       def attribute_hash
         attributes.map do |attribute|
-          [attribute.name.to_sym, attribute.type]
+          [attribute.name.to_sym, type_with_domain_module(attribute)]
         end.to_h
       end
 
@@ -27,8 +27,8 @@ module Hecks
       private
 
       def type_with_domain_module(attribute)
-        type = attribute.type
-        type = '[' + attribute.type + ']' if attribute.list?
+        type = DomainBuilder::Types.values.include?(attribute.type) ? "Value" : attribute.type
+        type = '[' + type + ']' if attribute.list?
         return type unless attribute.domain_module
         [attribute.domain_module, type].join("::")
       end

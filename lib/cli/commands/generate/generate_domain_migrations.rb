@@ -1,4 +1,5 @@
-load('../../Hecks')
+puts(`pwd`)
+# load('../../Hecks')
 require_relative 'generate_domain_migrations/migration_builder'
 
 class GenerateDomainMigrations < Thor::Group

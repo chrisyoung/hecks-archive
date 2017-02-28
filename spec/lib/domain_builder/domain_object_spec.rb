@@ -2,7 +2,7 @@ describe Hecks::DomainBuilder::DomainObject do
   subject { described_class.new(name: "pizza") }
 
   let(:name_attribute) {
-    Hecks::DomainBuilder::Attribute.new("name:value")
+    Hecks::DomainBuilder::Attribute.new("name:string")
   }
 
   describe 'name' do
@@ -13,7 +13,7 @@ describe Hecks::DomainBuilder::DomainObject do
 
   describe '#attributes' do
     it 'sets attributes' do
-      subject.attributes("name:value")
+      subject.attributes("name:string")
       expect(subject.attributes).to eq [name_attribute]
     end
   end
@@ -24,14 +24,15 @@ describe Hecks::DomainBuilder::DomainObject do
 
   describe '#attribute_hash' do
     it 'returns a hash representation of the object' do
-      subject.attributes("name:value")
+      subject.attributes("name:string")
       expect(subject.attribute_hash).to eq name: 'Value'
     end
   end
 
   describe '#attribute_string' do
+    it ''
     it 'represent the object as a string' do
-      subject.attributes("name:value")
+      subject.attributes("name:string")
       expect(subject.attribute_string).to eq ['name:Value']
     end
 

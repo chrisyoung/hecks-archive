@@ -1,4 +1,3 @@
-require_relative 'generate_domain_migrations'
 # require 'rubygems'
 # require_relative '../../../lib/pizza_builder'
 # require 'mysql2'

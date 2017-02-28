@@ -4,6 +4,7 @@
 * Hecks file should have datatypes
 
 ## Current Sprint
+* Map domain types to sql types in adapter
 * SQL Adapter
 * Deploy to Lambda
 * Rename HECKS Hecksfile

@@ -1,6 +1,6 @@
 describe GenerateDomainObject::AssignmentTemplate do
   it 'assigns values' do
-    expect(described_class.new(["name:value"]).render).to eq '@name = name'
+    expect(described_class.new(["name:string"]).render).to eq '@name = name'
   end
 
   it 'creates references to objects in other modules' do

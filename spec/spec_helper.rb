@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'simplecov'
+require 'pry'
 SimpleCov.start do
   add_filter "/examples/"
 end
