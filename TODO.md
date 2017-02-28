@@ -1,9 +1,11 @@
 # Hecks 0.4
 
 ## In Progress
-* Deploy to Lambda
+* Hecks file should have datatypes
 
 ## Current Sprint
+* SQL Adapter
+* Deploy to Lambda
 * Rename HECKS Hecksfile
 * DynoDB Repository Generator
 * Make a schema based validator
@@ -14,6 +16,7 @@
 * Hook up events example
 * Package as Docker
 * Delete intermediate container we created to copy gems
+
 
 ## Next Actions
 * Python bindings using binary
