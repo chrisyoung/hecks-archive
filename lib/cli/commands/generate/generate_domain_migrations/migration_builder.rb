@@ -1,17 +1,14 @@
 class GenerateDomainMigrations < Thor::Group
   class MigrationBuilder
-    def initialize(generator)
+    TYPE_MAP = { 'Currency' => "BigDecimal" }
+
+    def initialize(generator, specification)
       @generator = generator
-      @domain_spec = Hecks.specification
+      @domain_spec = specification
     end
 
     def call
-      @domain_spec.domain_modules.values.each.with_index(1) do |domain_module, index|
-        domain_module.objects.each do |object|
-          @object = object
-          @generator.template "migration.rb.tt", "#{index}_create_#{object.name.underscore}_table.rb"
-        end
-      end
+      generate_migrations
       self
     end
 
@@ -20,7 +17,28 @@ class GenerateDomainMigrations < Thor::Group
     end
 
     def attributes
-      @object.attributes
+      @object.attributes.map do |attribute|
+        attribute.copy(type: TYPE_MAP[attribute.type] || attribute.type)
+      end
+    end
+
+    private
+
+    attr_reader :domain_spec, :generator
+
+    def domain_objects
+      domain_spec.domain_modules.values.flat_map(&:objects)
+    end
+
+    def file_name(index, object)
+      "#{index}_create_#{object.name.underscore}_table.rb"
+    end
+
+    def generate_migrations
+      domain_objects.each.with_index(1) do |object, index|
+        @object = object
+        @generator.template "migration.rb.tt", file_name(index, object)
+      end
     end
   end
 end

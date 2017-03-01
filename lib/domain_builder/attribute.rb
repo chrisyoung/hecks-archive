@@ -1,9 +1,11 @@
 module Hecks
   class DomainBuilder
     class Attribute
+      attr_writer :type
       def initialize(string)
         @string = string
       end
+
 
       def list?
         @string.include?("[")
@@ -14,12 +16,19 @@ module Hecks
       end
 
       def type
+        return @type if @type
         @string.split(":").last.delete("[").delete("]").camelize
       end
 
       def domain_module
         return unless @string.include?("::")
         @string.split("::").first.split(":").last.camelize
+      end
+
+      def copy(new_values={})
+        result = self.class.new(@string)
+        result.type = new_values[:type] if new_values[:type]
+        result
       end
 
       def ==(other)

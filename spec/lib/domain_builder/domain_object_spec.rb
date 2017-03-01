@@ -30,7 +30,6 @@ describe Hecks::DomainBuilder::DomainObject do
   end
 
   describe '#attribute_string' do
-    it ''
     it 'represent the object as a string' do
       subject.attributes("name:string")
       expect(subject.attribute_string).to eq ['name:Value']

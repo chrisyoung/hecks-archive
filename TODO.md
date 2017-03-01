@@ -1,11 +1,12 @@
 # Hecks 0.4
 
 ## In Progress
-* Hecks file should have datatypes
+* SQL Adapter
+  * Figure out the right way to load the hecks file
+  * Map domain types to sql types in adapter
+  * Turn class names into plural table names
 
 ## Current Sprint
-* Map domain types to sql types in adapter
-* SQL Adapter
 * Deploy to Lambda
 * Rename HECKS Hecksfile
 * DynoDB Repository Generator
@@ -17,7 +18,6 @@
 * Hook up events example
 * Package as Docker
 * Delete intermediate container we created to copy gems
-
 
 ## Next Actions
 * Python bindings using binary

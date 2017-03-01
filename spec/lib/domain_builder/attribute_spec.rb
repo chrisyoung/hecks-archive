@@ -56,4 +56,14 @@ describe Hecks::DomainBuilder::Attribute do
     it { expect(module_reference.list?).to eq false }
     it { expect(list_module_reference.list?).to eq true }
   end
+
+  describe '#copy' do
+    it 'makes a copy' do
+      expect(basic.copy).to eq basic
+    end
+
+    it 'makes a copy with some new values' do
+      expect(basic.copy(type: "BigDecimal").type).to eq "BigDecimal"
+    end
+  end
 end

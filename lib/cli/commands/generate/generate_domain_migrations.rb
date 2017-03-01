@@ -1,10 +1,14 @@
 puts(`pwd`)
-# load('../../Hecks')
+
 require_relative 'generate_domain_migrations/migration_builder'
 
 class GenerateDomainMigrations < Thor::Group
   include Thor::Actions
   attr_writer :migration_builder
+
+  def load_domain_spec
+    load('../../Hecks')
+  end
 
   def self.source_root
     File.dirname(__FILE__) + '/templates/sql_database/'
