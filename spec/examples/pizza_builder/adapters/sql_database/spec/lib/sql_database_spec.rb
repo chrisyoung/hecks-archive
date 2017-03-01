@@ -8,7 +8,7 @@ describe PizzaBuilder::Adapters::SQLDatabase do
   end
 
   it do
-    application = Hecks::Adapters::Application.new(
+    application = Hecks::Application.new(
       domain: PizzaBuilder,
       database: described_class
     )

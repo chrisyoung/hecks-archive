@@ -1,4 +1,4 @@
-class Hecks::Adapters::Application
+class Hecks::Application
   describe Commands::Create do
     let(:domain) do
       Hecks.specification

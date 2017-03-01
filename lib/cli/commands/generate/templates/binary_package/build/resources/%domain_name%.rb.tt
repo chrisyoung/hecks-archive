@@ -1,7 +1,7 @@
 require 'hecks'
 require '<%= domain_name %>'
 
-app = Hecks::Adapters::Application.new(domain: <%= domain_name.camelcase %>)
+app = Hecks::Application.new(domain: <%= domain_name.camelcase %>)
 
 # Ruby 2.2.2 doesn't support Fixnum#positive?, so monkey patch it.
 class Fixnum

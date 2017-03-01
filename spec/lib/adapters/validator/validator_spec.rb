@@ -12,7 +12,7 @@ describe Hecks::Adapters::Validator do
   end
 
   let(:command) {
-    Hecks::Adapters::Application::Commands::Create.new(
+    Hecks::Application::Commands::Create.new(
       args: pizza_attributes,
       repository: PizzaBuilder.repositories[:pizzas],
       domain_module: domain.domain_modules[:Pizzas]
