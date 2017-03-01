@@ -1,6 +1,10 @@
 class GenerateDomainMigrations < Thor::Group
   class MigrationBuilder
-    TYPE_MAP = { 'Currency' => "BigDecimal" }
+    TYPE_MAP = {
+      'Currency' => "BigDecimal",
+      'String'   => 'String',
+      'Integer'  => 'Integer'
+    }
 
     def initialize(generator, specification)
       @generator = generator
@@ -18,8 +22,9 @@ class GenerateDomainMigrations < Thor::Group
 
     def attributes
       @object.attributes.map do |attribute|
-        attribute.copy(type: TYPE_MAP[attribute.type] || attribute.type)
-      end
+        next unless TYPE_MAP[attribute.type]
+        attribute.copy(type: TYPE_MAP[attribute.type])
+      end.compact
     end
 
     private
@@ -37,7 +42,10 @@ class GenerateDomainMigrations < Thor::Group
     def generate_migrations
       domain_objects.each.with_index(1) do |object, index|
         @object = object
-        @generator.template "migration.rb.tt", file_name(index, object)
+        @generator.template(
+          "migration.rb.tt",
+          "db/migrations/" + file_name(index, object)
+        )
       end
     end
   end

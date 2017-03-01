@@ -1,5 +1,3 @@
-puts(`pwd`)
-
 require_relative 'generate_domain_migrations/migration_builder'
 
 class GenerateDomainMigrations < Thor::Group
@@ -15,7 +13,7 @@ class GenerateDomainMigrations < Thor::Group
   end
 
   def create_migration_file
-    @migration_builder = MigrationBuilder.new(self)
+    @migration_builder = MigrationBuilder.new(self, Hecks.specification)
     @migration_builder.call
   end
 

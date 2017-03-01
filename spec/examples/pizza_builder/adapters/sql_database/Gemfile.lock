@@ -6,6 +6,11 @@ PATH
       sinatra (~> 1.4)
       thor (~> 0.19)
 
+PATH
+  remote: ../..
+  specs:
+    pizza_builder (0.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -66,6 +71,7 @@ PLATFORMS
 DEPENDENCIES
   hecks!
   mysql2
+  pizza_builder!
   pry
   rspec
   sequel

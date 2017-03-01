@@ -45,6 +45,6 @@ class Test < Thor
     run("cd spec/examples/#{name} && rm -rf config.ru")
     run("cd spec/examples/#{name} && hecks generate resource_server")
     run("cd spec/examples/#{name}")
-    run('cd spec/examples/pizza_builder/adapters/sql_database&&rspec')
+    run('cd spec/examples/pizza_builder/adapters/sql_database&&bundle exec rspec')
   end
 end

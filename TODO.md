@@ -2,10 +2,13 @@
 
 ## In Progress
 * SQL Adapter
-  * Figure out the right way to load the hecks file
-  * Turn class names into plural table names
+  * Generate joining table for lists
+  * Generate foreign keys for references
+  * Generate foreign keys for siblings in the same domain module
+
 
 ## Current Sprint
+* Figure out the right way to load the hecks file
 * Only download gems once when packaging binary
 * Deploy to Lambda
 * Rename HECKS Hecksfile
