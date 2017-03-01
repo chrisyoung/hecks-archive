@@ -17,6 +17,7 @@ class GenerateDomainObject
 
     def do_assignment
       return value_assignment if Hecks::DomainBuilder::Types.values.include?(@attribute.type)
+      return value_assignment if @attribute.type == 'Value'
       return reference_factory_assignment if attribute.domain_module
       return factory_assignment
     end

@@ -13,7 +13,7 @@ class GenerateDomainMigrations < Thor::Group
     end
 
     def table_name
-      @object.name
+      @object.name.underscore.pluralize
     end
 
     def attributes
@@ -31,7 +31,7 @@ class GenerateDomainMigrations < Thor::Group
     end
 
     def file_name(index, object)
-      "#{index}_create_#{object.name.underscore}_table.rb"
+      "#{index}_create_#{table_name}.rb"
     end
 
     def generate_migrations

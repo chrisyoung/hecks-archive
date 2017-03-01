@@ -3,10 +3,10 @@
 ## In Progress
 * SQL Adapter
   * Figure out the right way to load the hecks file
-  * Map domain types to sql types in adapter
   * Turn class names into plural table names
 
 ## Current Sprint
+* Only download gems once when packaging binary
 * Deploy to Lambda
 * Rename HECKS Hecksfile
 * DynoDB Repository Generator

@@ -2,6 +2,7 @@
 require 'active_support/inflector'
 require_relative 'command_runner'
 require_relative 'commands'
+require 'pry'
 
 module Hecks
   class CLI < Thor

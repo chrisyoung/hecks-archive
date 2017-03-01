@@ -1,5 +1,5 @@
 describe Hecks::DomainBuilder::Attribute do
-  let(:basic)            { described_class.new('description:value') }
+  let(:basic)            { described_class.new('description:string') }
   let(:module_reference) { described_class.new('pizza:pizzas::pizza') }
   let(:basic_list)       { described_class.new('toppings:[topping]') }
 
@@ -14,7 +14,7 @@ describe Hecks::DomainBuilder::Attribute do
     end
 
     it 'is not equal if type doesnt match' do
-      other = described_class.new('description:string')
+      other = described_class.new('description:integer')
       expect(other).to_not eq basic
     end
 
@@ -44,7 +44,7 @@ describe Hecks::DomainBuilder::Attribute do
   end
 
   describe '#type' do
-    it { expect(basic.type).to eq 'Value' }
+    it { expect(basic.type).to eq 'String' }
     it { expect(basic_list.type).to eq 'Topping' }
     it { expect(module_reference.type).to eq 'Pizza' }
     it { expect(list_module_reference.type).to eq 'Topping' }

@@ -1,3 +1,4 @@
+require 'Date'
 Gem::Specification.new do |s|
   s.name        = 'hecks'
   s.homepage    = "https://github.com/chrisyoung/heckson"

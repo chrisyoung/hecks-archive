@@ -62,7 +62,7 @@ class GenerateDomainObject
   end
 
   def attributes
-    options[:attributes] + ['id:value']
+    options[:attributes] + ['id:integer']
   end
 
   def attributes_without_id

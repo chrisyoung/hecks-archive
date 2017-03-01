@@ -2,8 +2,8 @@ describe Hecks::DomainBuilder do
   subject do
     described_class.build("pizza_builder") do |builder|
       builder.module 'pizzas' do |pizzas|
-        pizzas.head("Pizza").attributes('name:value', 'description:value', 'toppings:[Topping]')
-        pizzas.value("Topping").attributes('name:value')
+        pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[Topping]')
+        pizzas.value("Topping").attributes('name:string')
       end
     end
   end
