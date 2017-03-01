@@ -6,7 +6,6 @@ module Hecks
         @string = string
       end
 
-
       def list?
         @string.include?("[")
       end
