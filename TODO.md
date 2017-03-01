@@ -6,8 +6,8 @@
   * Generate foreign keys for references
   * Generate foreign keys for siblings in the same domain module
 
-
 ## Current Sprint
+* CI without downloading, gem building
 * Figure out the right way to load the hecks file
 * Only download gems once when packaging binary
 * Deploy to Lambda
