@@ -40,6 +40,15 @@ class GenerateDomainMigrations < Thor::Group
         @name
       end
 
+      def copy(new_attributes={})
+        self.class.new(
+          {name: self.name,
+          referenced_object: self.referenced_object,
+          table_name: self.table_name,
+          type: self.type}.merge(new_attributes)
+        )
+      end
+
       def ==(other)
         return false if name != other.name
         return false if referenced_table != other.referenced_table

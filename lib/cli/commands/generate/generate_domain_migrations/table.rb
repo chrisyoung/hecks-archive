@@ -2,7 +2,7 @@ class GenerateDomainMigrations < Thor::Group
   class MigrationBuilder
     class Table
       def self.factory(domain_spec)
-        TableFactory.call(domain_spec)
+        TableFactory.new(domain_spec).call
       end
 
       attr_writer :columns
