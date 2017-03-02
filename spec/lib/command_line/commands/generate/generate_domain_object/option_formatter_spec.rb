@@ -1,5 +1,5 @@
 describe GenerateDomainObject::OptionFormatter do
-  subject { described_class.new(["name:Value", "size:Value"]) }
+  subject { described_class.new(["name:Value", "size:Value"], 'line_item') }
 
   describe '#call' do
     describe 'formats' do

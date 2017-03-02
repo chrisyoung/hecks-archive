@@ -1,11 +1,9 @@
+require_relative 'table'
+require_relative 'table_factory'
+require_relative 'column'
+
 class GenerateDomainMigrations < Thor::Group
   class MigrationBuilder
-    TYPE_MAP = {
-      'Currency' => "BigDecimal",
-      'String'   => 'String',
-      'Integer'  => 'Integer'
-    }
-
     def initialize(generator, specification)
       @generator = generator
       @domain_spec = specification
@@ -17,22 +15,21 @@ class GenerateDomainMigrations < Thor::Group
     end
 
     def table_name
-      @object.name.underscore.pluralize
+      @table.name
     end
 
-    def attributes
-      @object.attributes.map do |attribute|
-        next unless TYPE_MAP[attribute.type]
-        attribute.copy(type: TYPE_MAP[attribute.type])
-      end.compact
+    def columns
+      @table.columns
     end
 
     private
 
     attr_reader :domain_spec, :generator
 
-    def domain_objects
-      domain_spec.domain_modules.values.flat_map(&:objects)
+    def tables
+      Table.factory(
+        domain_spec
+      )
     end
 
     def file_name(index, object)
@@ -40,11 +37,11 @@ class GenerateDomainMigrations < Thor::Group
     end
 
     def generate_migrations
-      domain_objects.each.with_index(1) do |object, index|
-        @object = object
+      tables.each.with_index(1) do |table, index|
+        @table = table
         @generator.template(
           "migration.rb.tt",
-          "db/migrations/" + file_name(index, object)
+          "db/migrations/" + file_name(index, table)
         )
       end
     end

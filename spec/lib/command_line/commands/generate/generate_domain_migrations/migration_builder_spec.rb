@@ -11,14 +11,15 @@ describe GenerateDomainMigrations::MigrationBuilder, focus: true do
   it do
     spec = Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
       pizza_builder.module 'Pizzas' do |pizzas|
-        pizzas.head("Pizza").attributes('name:string', 'price:currency', 'quantity:integer', 'toppings:[topping]')
+        pizzas.head("Pizza").attributes('name:string', 'price:currency', 'quantity:integer', 'toppings:[topping]', 'order:orders::order')
       end
     end
 
     builder = described_class.new(generator, spec).call
 
-    expect(builder.attributes[0]).to eq Hecks::DomainBuilder::Attribute.new("name:string")
-    expect(builder.attributes[1].type).to eq "BigDecimal"
-    expect(builder.attributes[2]).to eq Hecks::DomainBuilder::Attribute.new("quantity:integer")
+    expect(builder.columns[0].name).to eq 'name'
+    expect(builder.columns[1].type).to eq "BigDecimal"
+    expect(builder.columns[2].name).to eq 'quantity'
+    expect(builder.columns[2].type).to eq 'Integer'
   end
 end

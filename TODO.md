@@ -23,6 +23,7 @@
 * Delete intermediate container we created to copy gems
 
 ## Next Actions
+* Change delimiter in hecks file to something like pizza=pizzas::pizza
 * Python bindings using binary
 * Generate Rdoc for ruby gems
 * Generate Readme examples

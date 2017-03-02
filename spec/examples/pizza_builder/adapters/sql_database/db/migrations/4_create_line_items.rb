@@ -5,6 +5,7 @@ Sequel.migration do
       String :pizza_name, :null=>false
       Integer :quantity, :null=>false
       BigDecimal :price, :null=>false
+      Integer :pizza_id, :null=>false
     end
   end
 

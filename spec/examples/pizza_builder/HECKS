@@ -1,13 +1,26 @@
 #!/usr/bin/env ruby
- Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
+Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
   pizza_builder.module 'Pizzas' do |pizzas|
-    pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[topping]')
+    pizzas.head("Pizza").attributes(
+      'name:string',
+      'description:string',
+      'toppings:[topping]'
+    )
     pizzas.value("Topping").attributes('name:string')
   end
 
   pizza_builder.module 'Orders' do |orders|
-    orders.head("Order").attributes('line_items:[LineItem]')
-    orders.value("LineItem").attributes('pizza_name:string', 'quantity:integer', 'price:currency', "pizza:pizzas::pizza")
+    orders.head("Order").attributes(
+      'line_items:[LineItem]'
+    )
+
+    orders.value("LineItem").attributes(
+      'pizza_name:string',
+      'quantity:integer',
+      'price:currency',
+      "pizza:pizzas::pizza"
+    )
+
     orders.reference("pizzas::pizza")
   end
 end

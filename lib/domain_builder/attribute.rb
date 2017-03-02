@@ -2,8 +2,11 @@ module Hecks
   class DomainBuilder
     class Attribute
       attr_writer :type
-      def initialize(string)
+      attr_reader :object_name
+
+      def initialize(string, object_name)
         @string = string
+        @object_name = object_name
       end
 
       def list?
@@ -25,9 +28,22 @@ module Hecks
       end
 
       def copy(new_values={})
-        result = self.class.new(@string)
+        result = self.class.new(@string, new_values[:table_name])
         result.type = new_values[:type] if new_values[:type]
         result
+      end
+
+      def reference?
+        primitive?
+        !domain_module.nil?
+      end
+
+      def referenced_object
+        @string.split("::").last if reference?
+      end
+
+      def primitive?
+        ['String', 'Integer', 'Currency'].include?(type)
       end
 
       def ==(other)

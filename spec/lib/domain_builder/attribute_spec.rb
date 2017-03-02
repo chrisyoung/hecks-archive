@@ -1,30 +1,30 @@
 describe Hecks::DomainBuilder::Attribute do
-  let(:basic)            { described_class.new('description:string') }
-  let(:module_reference) { described_class.new('pizza:pizzas::pizza') }
-  let(:basic_list)       { described_class.new('toppings:[topping]') }
+  let(:basic)            { described_class.new('description:string', 'line_item') }
+  let(:module_reference) { described_class.new('pizza:pizzas::pizza', 'line_item') }
+  let(:basic_list)       { described_class.new('toppings:[topping]', 'line_item') }
 
   let(:list_module_reference) do
-    described_class.new('toppings:topping::[topping]')
+    described_class.new('toppings:topping::[topping]', 'line_item')
   end
 
   describe '#==' do
     it 'is not equal if name doesnt match' do
-      other = described_class.new('unmatching:value')
+      other = described_class.new('unmatching:value', 'line_item')
       expect(other).to_not eq basic
     end
 
     it 'is not equal if type doesnt match' do
-      other = described_class.new('description:integer')
+      other = described_class.new('description:integer', 'line_item')
       expect(other).to_not eq basic
     end
 
     it 'is not equal if domain_module doesnt match' do
-      other = described_class.new('pizza:orders::pizza')
+      other = described_class.new('pizza:orders::pizza', 'line_item')
       expect(other).to_not eq module_reference
     end
 
     it 'is equal if everything matches' do
-      other = described_class.new('pizza:pizzas::pizza')
+      other = described_class.new('pizza:pizzas::pizza', 'line_item')
       expect(other).to eq module_reference
     end
   end
@@ -55,6 +55,25 @@ describe Hecks::DomainBuilder::Attribute do
     it { expect(basic_list.list?).to eq true }
     it { expect(module_reference.list?).to eq false }
     it { expect(list_module_reference.list?).to eq true }
+  end
+
+  describe '#domain_reference?' do
+    it { expect(basic.reference?).to eq false }
+    it { expect(basic_list.reference?).to eq false }
+    it { expect(module_reference.reference?).to eq true }
+    it { expect(list_module_reference.reference?).to eq true }
+  end
+
+  describe '#primitive?' do
+    it { expect(basic.primitive?).to eq true }
+    it { expect(basic_list.primitive?).to eq false }
+    it { expect(module_reference.primitive?).to eq false }
+    it { expect(list_module_reference.primitive?).to eq false }
+  end
+
+  describe '#table' do
+    it do
+    end
   end
 
   describe '#copy' do

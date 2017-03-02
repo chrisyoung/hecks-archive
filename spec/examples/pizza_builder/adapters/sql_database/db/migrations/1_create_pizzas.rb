@@ -4,6 +4,7 @@ Sequel.migration do
       primary_key :id
       String :name, :null=>false
       String :description, :null=>false
+      Topping :toppings, :null=>false
     end
   end
 

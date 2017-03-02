@@ -9,7 +9,7 @@ module Hecks
 
       def attributes(*values)
         return @attributes if @attributes
-        @attributes = values.map { |value| Attribute.new(value) }
+        @attributes = values.map { |value| Attribute.new(value, name) }
       end
 
       def attribute_hash
