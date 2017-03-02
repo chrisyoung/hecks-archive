@@ -2,9 +2,8 @@
 
 ## In Progress
 * SQL Adapter
-  * Generate joining table for lists
-  * Generate foreign keys for references
   * Generate foreign keys for siblings in the same domain module
+  * Generate joining table for lists
 
 ## Current Sprint
 * CI without downloading, gem building

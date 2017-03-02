@@ -11,6 +11,8 @@ class Test < Thor
   desc 'domain_adapters', "run the domain adapter specs"
   def domain_adapters
     generate_resource_server('pizza_builder')
+    generate_sql_database('pizza_builder')
+
   end
 
   desc 'examples', 'Generate and run the example specs'
@@ -26,6 +28,11 @@ class Test < Thor
   end
 
   private
+
+  def generate_sql_database(name)
+    run("cd spec/examples/#{name}/adapters/sql_database && hecks generate domain_migrations")
+    # run('cd spec/examples/pizza_builder/adapters/sql_database&&bundle exec rspec')
+  end
 
   def reset_example(name)
     run("cd spec/examples/#{name} && rm -rf lib")
@@ -45,6 +52,5 @@ class Test < Thor
     run("cd spec/examples/#{name} && rm -rf config.ru")
     run("cd spec/examples/#{name} && hecks generate resource_server")
     run("cd spec/examples/#{name}")
-    run('cd spec/examples/pizza_builder/adapters/sql_database&&bundle exec rspec')
   end
 end
