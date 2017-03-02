@@ -27,7 +27,7 @@ class GenerateDomainMigrations < Thor::Group
     attr_reader :domain_spec, :generator
 
     def tables
-      Table.factory(domain_spec)
+      Table.factory(domain_spec).tables
     end
 
     def file_name(index, object)
