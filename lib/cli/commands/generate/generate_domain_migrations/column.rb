@@ -8,11 +8,12 @@ class GenerateDomainMigrations < Thor::Group
         'Integer'  => 'Integer'
       }
 
-      def initialize(name:, referenced_object: nil, table_name: nil, type:)
+      def initialize(name:, referenced_object: nil, table_name: nil, type:, is_list:)
         @name = name
         @referenced_object = referenced_object
         @type = type
         @table_name = table_name
+        @is_list = is_list
       end
 
       def self.factory(attribute)
@@ -20,8 +21,13 @@ class GenerateDomainMigrations < Thor::Group
           name: attribute.name,
           referenced_object: attribute.referenced_object,
           type: attribute.type,
-          table_name: attribute.object_name
+          table_name: attribute.object_name,
+          is_list: attribute.list?
         )
+      end
+
+      def list?
+        @is_list
       end
 
       def reference?
@@ -29,6 +35,7 @@ class GenerateDomainMigrations < Thor::Group
       end
 
       def referenced_table
+        return unless @referenced_object
         @referenced_object.pluralize.underscore
       end
 
@@ -42,10 +49,13 @@ class GenerateDomainMigrations < Thor::Group
 
       def copy(new_attributes={})
         self.class.new(
-          {name: self.name,
-          referenced_object: self.referenced_object,
-          table_name: self.table_name,
-          type: self.type}.merge(new_attributes)
+          {
+            name: self.name,
+            referenced_object: self.referenced_object,
+            table_name: self.table_name,
+            type: self.type,
+            is_list: self.list?
+          }.merge(new_attributes)
         )
       end
 

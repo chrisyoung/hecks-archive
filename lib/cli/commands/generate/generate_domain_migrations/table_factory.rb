@@ -19,7 +19,7 @@ class GenerateDomainMigrations < Thor::Group
 
       def swap_domain_reference(column)
         fetch_table(column.table_name)
-        add_db_reference(column)
+        add_db_reference(column) if column.reference?
         remove_domain_column(column)
       end
 
@@ -30,10 +30,11 @@ class GenerateDomainMigrations < Thor::Group
       end
 
       def columns(table)
-        table.columns.select(&:reference?)
+        table.columns.select {|column| column.reference? || column.list?}
       end
 
       def remove_domain_column(column)
+        binding.pry if column.list?
         @table.columns = @table.columns.select do |table_column|
           table_column != column
         end
@@ -44,7 +45,7 @@ class GenerateDomainMigrations < Thor::Group
       end
 
       def foreign_key(column)
-        column.copy(name: column.name + '_id', type: 'Integer')
+        column.copy(name: column.name + '_id', type: 'Integer', is_list: column.list?)
       end
 
       def fetch_table(table_name)
