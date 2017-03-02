@@ -34,8 +34,7 @@ module Hecks
       end
 
       def reference?
-        primitive?
-        !domain_module.nil?
+        !primitive? && !list?
       end
 
       def referenced_object

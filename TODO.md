@@ -2,10 +2,11 @@
 
 ## In Progress
 * SQL Adapter
-  * Generate foreign keys for siblings in the same domain module
-  * Generate joining table for lists
+  * generate repository/database
+  * join tables should be singular
 
 ## Current Sprint
+* Handle optional fields
 * CI without downloading, gem building
 * Figure out the right way to load the hecks file
 * Only download gems once when packaging binary

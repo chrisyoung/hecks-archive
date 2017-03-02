@@ -8,7 +8,7 @@ class GenerateDomainMigrations < Thor::Group
         'Integer'  => 'Integer'
       }
 
-      def initialize(name:, referenced_object: nil, table_name: nil, type:, is_list:)
+      def initialize(name:, referenced_object: nil, table_name: nil, type:, is_list: false)
         @name = name
         @referenced_object = referenced_object
         @type = type

@@ -10,8 +10,10 @@ class GenerateDomainMigrations < Thor::Group
 
       def call
         fetch_tables
-        fetch_columns
-        @columns.each { |column| swap_domain_reference(column) }
+        fetch_references
+        fetch_lists
+        @references.each { |column| swap_domain_reference(column) }
+        @lists.each { |column| build_join_table(column) }
         self
       end
 
@@ -19,22 +21,36 @@ class GenerateDomainMigrations < Thor::Group
 
       def swap_domain_reference(column)
         fetch_table(column.table_name)
-        add_db_reference(column) if column.reference?
+        add_db_reference(column)
         remove_domain_column(column)
       end
 
-      def fetch_columns
-        @columns = @tables.flat_map do |table|
-          columns(table)
+      def build_join_table(column)
+        fetch_table(column.table_name)
+        t = Table.new(
+          name: "#{column.table_name}_#{column.name}",
+          columns: [
+            Column.new(name: column.table_name + '_id', type: 'Integer'),
+            Column.new(name: column.name + '_id', type: 'Integer')
+          ]
+        )
+        @tables = @tables + [t]
+        remove_domain_column(column)
+      end
+
+      def fetch_references
+        @references = @tables.flat_map do |table|
+          table.columns.select {|column| column.reference?}
         end
       end
 
-      def columns(table)
-        table.columns.select {|column| column.reference? || column.list?}
+      def fetch_lists
+        @lists = @tables.flat_map do |table|
+          table.columns.select {|column| column.list?}
+        end
       end
 
       def remove_domain_column(column)
-        binding.pry if column.list?
         @table.columns = @table.columns.select do |table_column|
           table_column != column
         end
@@ -56,7 +72,7 @@ class GenerateDomainMigrations < Thor::Group
 
       def fetch_tables
         @tables ||= @domain_objects.map do |domain_object|
-          Table.new(domain_object: domain_object)
+          Table.new(name: domain_object.name, columns: domain_object.attributes.map{|attribute| Column.factory(attribute)})
         end
       end
     end

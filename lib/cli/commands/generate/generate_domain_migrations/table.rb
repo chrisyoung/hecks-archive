@@ -7,18 +7,17 @@ class GenerateDomainMigrations < Thor::Group
 
       attr_writer :columns
 
-      def initialize(domain_object:)
-        @domain_object = domain_object
+      def initialize(name:, columns:)
+        @name = name
+        @columns = columns
       end
 
       def name
-        @domain_object.name.pluralize.underscore
+        @name.pluralize.underscore
       end
 
       def columns
-        @columns || @domain_object.attributes.map do |attribute|
-          Column.factory(attribute)
-        end
+        @columns
       end
     end
   end
