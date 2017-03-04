@@ -1,6 +1,7 @@
 describe Hecks::DomainBuilder::Attribute do
   let(:basic)            { described_class.new('description:string') }
   let(:module_reference) { described_class.new('pizza:pizzas::pizza') }
+  let(:internal_reference) { described_class.new('chef:chef') }
   let(:basic_list)       { described_class.new('toppings:[topping]') }
 
   let(:list_module_reference) do
@@ -73,7 +74,10 @@ describe Hecks::DomainBuilder::Attribute do
 
   describe '#referenced_object' do
     it do
+      expect(basic.referenced_object).to eq nil
       expect(module_reference.referenced_object).to eq 'pizza'
+      expect(internal_reference.referenced_object).to eq 'chef'
+      expect(basic_list.referenced_object).to eq nil
     end
   end
 
