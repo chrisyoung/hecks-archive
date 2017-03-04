@@ -9,7 +9,6 @@ class GenerateDomainMigrations < Thor::Group
       }
 
       def initialize(name:, referenced_object: nil, table_name: nil, type:, is_list: false)
-        binding.pry if name == 'chef:chef_id'
         @name = name
         @referenced_object = referenced_object
         @type = type
