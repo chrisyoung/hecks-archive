@@ -4,7 +4,7 @@ class GenerateDomainMigrations < Thor::Group
       attr_accessor :columns
 
       def self.factory(domain_objects)
-        domain_objects.map do |domain_object|
+        r = domain_objects.map do |domain_object|
           new(
             name: domain_object.name,
             columns: domain_object.attributes.map do |attribute|

@@ -37,7 +37,7 @@ class GenerateDomainMigrations < Thor::Group
         end
 
         def remove_domain_columns(table)
-          table.foreign_key_columns + table.join_table_columns.each do |column|
+          (table.foreign_key_columns + table.join_table_columns).each do |column|
             table.columns = table.columns.select do |table_column|
               table_column != column
             end

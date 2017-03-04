@@ -1,4 +1,4 @@
-# Hecks 0.4
+# Hecks 0.10
 
 ## In Progress
 * generate sql database to inject with Lambda
@@ -14,7 +14,8 @@
   * CouchDB Database Generator
   * Schema Validator
   * Package as Docker
-Defects/Hygiene:
+* Defects/Hygiene:
+  * Fix namespacing in generators
   * 12 factor app in Docker
   * Delete intermediate container we created to copy gems
   * Use timestamps in sql migration names

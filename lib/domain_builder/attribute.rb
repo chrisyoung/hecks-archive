@@ -38,7 +38,9 @@ module Hecks
       end
 
       def referenced_object
-        @string.split("::").last if reference?
+        return unless reference?
+        return @string.split("::").last if @string.include?("::")
+        @string.split(":").last
       end
 
       def primitive?
