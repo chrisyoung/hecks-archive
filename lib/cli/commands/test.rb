@@ -1,8 +1,11 @@
 class Test < Thor
   include Thor::Actions
 
+  class_option :no_cache, aliases: '-n', desc: 'download resources', default: false, type: :boolean
+
   desc 'ci', 'Run and test the generators'
   def ci
+    run "hecks build"
     examples
     packages
     domain_adapters
@@ -12,7 +15,6 @@ class Test < Thor
   def domain_adapters
     generate_resource_server('pizza_builder')
     generate_sql_database('pizza_builder')
-
   end
 
   desc 'examples', 'Generate and run the example specs'
@@ -31,7 +33,6 @@ class Test < Thor
 
   def generate_sql_database(name)
     run("cd spec/examples/#{name}/adapters/sql_database && hecks generate domain_migrations")
-    # run('cd spec/examples/pizza_builder/adapters/sql_database&&bundle exec rspec')
   end
 
   def reset_example(name)
@@ -41,7 +42,7 @@ class Test < Thor
   end
 
   def build_binary_package(name)
-    run("cd spec/examples/#{name} && hecks package binary")
+    run("cd spec/examples/#{name} && hecks package binary  #{'-n' if options[:no_cache]}")
   end
 
   def build_lambda_package(name)

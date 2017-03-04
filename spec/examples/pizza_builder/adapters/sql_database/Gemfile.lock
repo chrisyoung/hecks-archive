@@ -1,7 +1,7 @@
 PATH
   remote: ../../../../..
   specs:
-    hecks (0.0.9)
+    hecks (0.0.10)
       activesupport (~> 5.0)
       sinatra (~> 1.4)
       thor (~> 0.19)

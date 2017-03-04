@@ -1,6 +1,8 @@
 class GenerateBinaryPackage < Thor::Group
   include Thor::Actions
 
+  class_option :no_cache, aliases: '-n', desc: 'download resources', default: false, type: :boolean
+
   HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
   OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
   LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
@@ -36,6 +38,7 @@ class GenerateBinaryPackage < Thor::Group
   def package(app_dir, lib_dir, binary, package_dir)
     empty_directory(app_dir)
     empty_directory(lib_dir + '/ruby')
+    return unless options[:no_cache]
     download(binary, lib_dir)
     copy_resources(app_dir, package_dir)
     bundle_with_ruby_2_2_2(app_dir)

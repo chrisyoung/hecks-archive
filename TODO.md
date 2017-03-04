@@ -7,14 +7,18 @@
 * Deploy to Lambda
 * Finish linux package
 * use a query to get back unique pizza toppings
+* Use cache in ci test - provide --no-cache option
 
-## Next Actions
-* Posters
+## Posters
   * DynoDB Database Generator
   * CouchDB Database Generator
   * Schema Validator
   * Package as Docker
-* Defects/Hygiene:
+  * Open source license
+
+## Defects/Hygiene:
+  * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
+  * run with --no-cache if first time building binary package
   * Fix namespacing in generators
   * 12 factor app in Docker
   * Delete intermediate container we created to copy gems
@@ -37,33 +41,36 @@
   * Use invariants (with #fail)
   * Use a struct for value objects
   * Clean up generator comments
-* Break out projects
+
+## Break out projects
   * move code hecks_cli project
   * move code hecks_domain_builder project
   * move code hecks_console project
   * move code hecks_application
   * consider hecks_examples project
-* Default Validator
+
+## Default Validator
   * Handle optional fields
   * Check type in default validator as well as presence
-* Documentation
+
+## Documentation
   * Generate API Docs
   * Generate Rdoc for ruby gems
   * Generate Readme examples
-* Demos
+
+## Demos
   * Hook up pizzas as rack middleware
   * Hook up events example
   * Demo Domain Versioning
   * Python bindings using binary
   * Demonstrate Hexagon Shims for Tanga
-* Open source license
 
 ## Challenges:
-* Generate a different language
-* Figure out scheme to use in_memory db in production and periodically flush to real db
-* Remove all if statements
-* Create Commands from Product Use Cases
-* Create plugin for Asana to show test results on use cases
+  * Generate a different language
+  * Figure out scheme to use in_memory db in production and periodically flush to real db
+  * Remove all if statements
+  * Create Commands from Product Use Cases
+  * Create plugin for Asana to show test results on use cases
 
 ## Notes
 * Just in time compiling of source code?
