@@ -12,7 +12,7 @@ class GenerateDomainMigrations < Thor::Group
 
       def columns
         [@table.name, @column.name].map do |name|
-          Column.new(name: name + '_id', type: 'Integer')
+          Column.new(name: name.singularize + '_id', type: 'Integer')
         end
       end
     end

@@ -3,12 +3,6 @@
 ## In Progress
 * SQL Adapter
   * generate repository/database
-  * join tables should be singular
-  * Handle local references
-  * no separate reference needed for local reference in hecks file
-  * no need for object to domain module references - just use id
-  * stop passing table name through option formatter, etc.
-  * Don't create reference objects or reference them as factories.
 
 ## Current Sprint
 * Use timestamps in migration names

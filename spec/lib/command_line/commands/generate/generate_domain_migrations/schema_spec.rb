@@ -32,7 +32,7 @@ describe GenerateDomainMigrations::MigrationBuilder::Schema do
     end
 
     it 'creates foreign keys for the join' do
-      expect(subject.to_h[:pizzas_toppings].columns.map(&:name)).to include('pizzas_id', 'toppings_id')
+      expect(subject.to_h[:pizzas_toppings].columns.map(&:name)).to include('pizza_id', 'topping_id')
     end
   end
 end
