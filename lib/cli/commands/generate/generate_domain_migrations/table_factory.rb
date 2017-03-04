@@ -71,7 +71,11 @@ class GenerateDomainMigrations < Thor::Group
       end
 
       def fetch_tables
-        @tables ||= @domain_objects.map do |domain_object|
+        @tables ||= tables_from_objects
+      end
+
+      def tables_from_objects
+        @domain_objects.map do |domain_object|
           Table.new(name: domain_object.name, columns: domain_object.attributes.map{|attribute| Column.factory(attribute)})
         end
       end
