@@ -6,23 +6,22 @@
 
 ## Current Sprint
 * Use timestamps in migration names
+* Deploy to Lambda
+* Make a schema based validator
+* Finish linux package
+* use a query to get back unique pizza toppings
+* break hecks_application out of hecks project to reduce size
+* Hook up events example
+* Delete intermediate container we created to copy gems
+
+## Next Actions
+* Package as Docker
+* DynoDB Repository Generator
+* Rename HECKS Hecksfile
 * Handle optional fields
 * CI without downloading, gem building
 * Figure out the right way to load the hecks file
 * Only download gems once when packaging binary
-* Deploy to Lambda
-* Rename HECKS Hecksfile
-* DynoDB Repository Generator
-* Make a schema based validator
-* Finish linux package
-* Use the linux binary when deploying, osx binary on mac
-* use a query to get back unique pizza toppings
-* break hecks_application out of hecks project to reduce size
-* Hook up events example
-* Package as Docker
-* Delete intermediate container we created to copy gems
-
-## Next Actions
 * Change delimiter in hecks file to something like pizza=pizzas::pizza
 * Python bindings using binary
 * Generate Rdoc for ruby gems
