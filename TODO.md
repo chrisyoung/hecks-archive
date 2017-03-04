@@ -1,61 +1,61 @@
 # Hecks 0.4
 
 ## In Progress
-* SQL Adapter
-  * generate repository/database
+* generate sql database to inject with Lambda
 
 ## Current Sprint
-* Use timestamps in migration names
 * Deploy to Lambda
-* Make a schema based validator
 * Finish linux package
 * use a query to get back unique pizza toppings
-* break hecks_application out of hecks project to reduce size
-* Hook up events example
-* Delete intermediate container we created to copy gems
 
 ## Next Actions
-* Package as Docker
-* DynoDB Repository Generator
-* Rename HECKS Hecksfile
-* Handle optional fields
-* CI without downloading, gem building
-* Figure out the right way to load the hecks file
-* Only download gems once when packaging binary
-* Change delimiter in hecks file to something like pizza=pizzas::pizza
-* Python bindings using binary
-* Generate Rdoc for ruby gems
-* Generate Readme examples
-* pizza_builder binary should be outside of lib
-* move code hecks_cli project
-* move code hecks_domain_builder project
-* move code hecks_console project
-* consider hecks_examples project
-* Add result methods to all the crud commands
-* Move generator templates closer to commands
-* Rename the Builder to Hecks::Domain
-* Attach specification to domain instead of Hecks, or make specs available as list
-* Fix text case problems with generators
-* Fix indentation in generators
-* Check type in validator as well as presence
-* Demo Domain Versioning
-* Value Store (Service?)
-* SQL repository generator
-* Validate: Toppings must have at least one entry
-* Use relative hex binary automatically if no gem is installed
-* Auto Generate API Docs
-* Use invariants (fail)
-* Use a struct for value objects
-* CouchDB Persistence Adapter
+* Posters
+  * DynoDB Database Generator
+  * CouchDB Database Generator
+  * Schema Validator
+  * Package as Docker
+Defects/Hygiene:
+  * 12 factor app in Docker
+  * Delete intermediate container we created to copy gems
+  * Use timestamps in sql migration names
+  * Rename HECKS Hecksfile
+  * Figure out the right way to load the hecks file
+  * Add result methods to all the crud commands
+  * Move generator templates closer to commands
+  * Rename the Builder to Hecks::Domain
+  * Attach specification to domain instead of Hecks, or make specs available as list
+  * Fix text case problems with generators
+  * Fix indentation in generators
+  * Change delimiter in hecks file to something like pizza=pizzas::pizza
+  * pizza_builder binary should be outside of lib
+  * Only download gems once when packaging binary
+  * CI without downloading, gem building
+  * Set up guard to build gems
+  * Set up stats module to count lines of code
+  * Use relative hex binary automatically if no gem is installed
+  * Use invariants (with #fail)
+  * Use a struct for value objects
+  * Clean up generator comments
+* Break out projects
+  * move code hecks_cli project
+  * move code hecks_domain_builder project
+  * move code hecks_console project
+  * move code hecks_application
+  * consider hecks_examples project
+* Default Validator
+  * Handle optional fields
+  * Check type in default validator as well as presence
+* Documentation
+  * Generate API Docs
+  * Generate Rdoc for ruby gems
+  * Generate Readme examples
+* Demos
+  * Hook up pizzas as rack middleware
+  * Hook up events example
+  * Demo Domain Versioning
+  * Python bindings using binary
+  * Demonstrate Hexagon Shims for Tanga
 * Open source license
-* Clean up generator comments
-* Set up guard to build gems
-* Set up stats module to count lines of code
-* Demonstrate Hexagon Shims for Tanga
-* Build Gem: hecks build -m pizza_builder
-* Package: hecks package -t docker
-* 12 factor app in Docker
-* Hook up pizzas as rack middleware
 
 ## Challenges:
 * Generate a different language
