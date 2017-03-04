@@ -4,6 +4,7 @@ describe Hecks::Application do
     {
       name: 'White Pizza',
       description: 'white sauce and chicken',
+      chef: {name: "Chef Ramsey"},
       toppings: [{ name: 'chicken' }]
     }
   end

@@ -34,6 +34,7 @@ describe Hecks::Adapters::ResourceServer do
     {
       name: 'The Yuck',
       description: "Worse than it sounds",
+      chef: { name: 'belleboche' },
       toppings: [{ name: 'children'}, { name: 'crickets' }]
     }
   end

@@ -8,6 +8,7 @@ describe Hecks::Adapters::MemoryDatabase do
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
+      chef: { name: 'belleboche' },
       description: 'white sauce and chicken',
       toppings: [{ name: 'chicken' }]
     }

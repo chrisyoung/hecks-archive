@@ -2,16 +2,17 @@ module PizzaBuilder
   module Domain
     module Pizzas
       class Pizza
-        attr_accessor :name, :description, :toppings, :id
-        def initialize(name:, description:, toppings:, id:)
+        attr_accessor :name, :description, :toppings, :chef, :id
+        def initialize(name:, description:, toppings:, chef:, id:)
         @name = name
 @description = description
 @toppings = Topping.factory(toppings)
+@chef = Chef.factory(chef)
 @id = id
         end
 
         def to_json
-          JSON.generate(name: name, description: description, toppings: toppings, id: id)
+          JSON.generate(name: name, description: description, toppings: toppings, chef: chef, id: id)
         end
       end
     end

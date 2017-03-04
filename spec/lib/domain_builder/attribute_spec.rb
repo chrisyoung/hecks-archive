@@ -1,7 +1,7 @@
 describe Hecks::DomainBuilder::Attribute do
   let(:basic)            { described_class.new('description:string', 'line_item') }
   let(:module_reference) { described_class.new('pizza:pizzas::pizza', 'line_item') }
-  let(:basic_list)       { described_class.new('toppings:[topping]', 'line_item') }
+  let(:basic_list)       { described_class.new('toppings:[topping]', 'pizza') }
 
   let(:list_module_reference) do
     described_class.new('toppings:topping::[topping]', 'line_item')
@@ -61,7 +61,7 @@ describe Hecks::DomainBuilder::Attribute do
     it { expect(basic.reference?).to eq false }
     it { expect(basic_list.reference?).to eq false }
     it { expect(module_reference.reference?).to eq true }
-    it { expect(list_module_reference.reference?).to eq true }
+    it { expect(list_module_reference.reference?).to eq false }
   end
 
   describe '#primitive?' do
@@ -71,8 +71,9 @@ describe Hecks::DomainBuilder::Attribute do
     it { expect(list_module_reference.primitive?).to eq false }
   end
 
-  describe '#table' do
+  describe '#referenced_object' do
     it do
+      expect(module_reference.referenced_object).to eq 'pizza'
     end
   end
 

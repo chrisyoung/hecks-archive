@@ -31,7 +31,7 @@ class GenerateDomainMigrations < Thor::Group
       end
 
       def reference?
-        !@referenced_object.nil?
+        @referenced_object
       end
 
       def referenced_table

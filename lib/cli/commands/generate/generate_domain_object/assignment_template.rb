@@ -2,7 +2,7 @@ class GenerateDomainObject
   class AssignmentTemplate
     def initialize(attributes, table_name)
       @attributes = attributes
-      @table_name
+      @table_name = table_name
     end
 
     def render

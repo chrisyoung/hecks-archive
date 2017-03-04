@@ -1,3 +1,4 @@
+load('examples/pizza_builder/HECKS')
 class Hecks::Application
   describe Commands::Create do
     let(:domain) do
@@ -15,6 +16,7 @@ class Hecks::Application
     let(:pizza_attributes) do
       {
         name: 'White Pizza',
+        chef: {name: "Belleboche"},
         description: 'white sauce and chicken',
         toppings: [{ name: 'chicken' }]
       }

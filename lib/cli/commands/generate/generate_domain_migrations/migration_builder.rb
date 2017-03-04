@@ -22,13 +22,13 @@ class GenerateDomainMigrations < Thor::Group
       @table.columns
     end
 
-    private
-
-    attr_reader :domain_spec, :generator
-
     def tables
       Table.factory(domain_spec).tables
     end
+
+    private
+
+    attr_reader :domain_spec, :generator
 
     def file_name(index, object)
       "#{index}_create_#{table_name}.rb"
