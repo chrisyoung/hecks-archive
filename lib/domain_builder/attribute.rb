@@ -4,7 +4,7 @@ module Hecks
       attr_writer :type
       attr_reader :object_name
 
-      def initialize(string, object_name)
+      def initialize(string)
         @string = string
         @object_name = object_name
       end
@@ -28,7 +28,7 @@ module Hecks
       end
 
       def copy(new_values={})
-        result = self.class.new(@string, new_values[:table_name])
+        result = self.class.new(@string)
         result.type = new_values[:type] if new_values[:type]
         result
       end

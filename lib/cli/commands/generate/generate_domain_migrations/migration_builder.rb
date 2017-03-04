@@ -1,12 +1,13 @@
 require_relative 'table'
-require_relative 'table_factory'
+require_relative 'join_table'
 require_relative 'column'
+require_relative 'schema'
 
 class GenerateDomainMigrations < Thor::Group
   class MigrationBuilder
     def initialize(generator, specification)
       @generator = generator
-      @domain_spec = specification
+      @schema = Schema.factory(specification)
     end
 
     def call
@@ -23,12 +24,12 @@ class GenerateDomainMigrations < Thor::Group
     end
 
     def tables
-      Table.factory(domain_spec).tables
+      @schema.tables
     end
 
     private
 
-    attr_reader :domain_spec, :generator
+    attr_reader :generator
 
     def file_name(index, object)
       "#{index}_create_#{table_name}.rb"

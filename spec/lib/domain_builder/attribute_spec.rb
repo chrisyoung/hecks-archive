@@ -1,30 +1,30 @@
 describe Hecks::DomainBuilder::Attribute do
-  let(:basic)            { described_class.new('description:string', 'line_item') }
-  let(:module_reference) { described_class.new('pizza:pizzas::pizza', 'line_item') }
-  let(:basic_list)       { described_class.new('toppings:[topping]', 'pizza') }
+  let(:basic)            { described_class.new('description:string') }
+  let(:module_reference) { described_class.new('pizza:pizzas::pizza') }
+  let(:basic_list)       { described_class.new('toppings:[topping]') }
 
   let(:list_module_reference) do
-    described_class.new('toppings:topping::[topping]', 'line_item')
+    described_class.new('toppings:topping::[topping]')
   end
 
   describe '#==' do
     it 'is not equal if name doesnt match' do
-      other = described_class.new('unmatching:value', 'line_item')
+      other = described_class.new('unmatching:value')
       expect(other).to_not eq basic
     end
 
     it 'is not equal if type doesnt match' do
-      other = described_class.new('description:integer', 'line_item')
+      other = described_class.new('description:integer')
       expect(other).to_not eq basic
     end
 
     it 'is not equal if domain_module doesnt match' do
-      other = described_class.new('pizza:orders::pizza', 'line_item')
+      other = described_class.new('pizza:orders::pizza')
       expect(other).to_not eq module_reference
     end
 
     it 'is equal if everything matches' do
-      other = described_class.new('pizza:pizzas::pizza', 'line_item')
+      other = described_class.new('pizza:pizzas::pizza')
       expect(other).to eq module_reference
     end
   end

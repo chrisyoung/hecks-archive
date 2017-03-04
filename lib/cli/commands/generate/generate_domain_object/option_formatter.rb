@@ -1,9 +1,8 @@
 class GenerateDomainObject
   class OptionFormatter
-    def initialize(attributes, table_name)
-      @table_name = table_name
+    def initialize(attributes)
       @attributes = attributes.map do |attribute|
-        Hecks::DomainBuilder::Attribute.new(attribute, table_name)
+        Hecks::DomainBuilder::Attribute.new(attribute)
       end
     end
 
@@ -22,7 +21,7 @@ class GenerateDomainObject
 
     def attributes(include_id)
       if include_id
-        @attributes + [Hecks::DomainBuilder::Attribute.new('id:value', @table_name)]
+        @attributes + [Hecks::DomainBuilder::Attribute.new('id:value')]
       else
         @attributes
       end

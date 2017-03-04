@@ -1,13 +1,12 @@
 class GenerateDomainObject
   class AssignmentTemplate
-    def initialize(attributes, table_name)
+    def initialize(attributes)
       @attributes = attributes
-      @table_name = table_name
     end
 
     def render
       attributes.map do |attribute|
-        @attribute = Hecks::DomainBuilder::Attribute.new(attribute, @table_name)
+        @attribute = Hecks::DomainBuilder::Attribute.new(attribute)
         do_assignment
       end.join("\n")
     end

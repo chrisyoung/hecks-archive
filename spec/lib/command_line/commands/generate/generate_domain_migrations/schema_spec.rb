@@ -1,4 +1,4 @@
-describe GenerateDomainMigrations::MigrationBuilder::TableFactory do
+describe GenerateDomainMigrations::MigrationBuilder::Schema do
   let(:spec) {
     Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
       pizza_builder.module 'Pizzas' do |pizzas|
@@ -13,7 +13,17 @@ describe GenerateDomainMigrations::MigrationBuilder::TableFactory do
   }
 
   subject do
-    described_class.new(spec).build
+    described_class.factory(spec)
+  end
+
+  describe 'Foreign Keys' do
+    it '' do
+      expect(subject.to_h[:pizzas].columns.map(&:name)).to include('chef_id')
+    end
+  end
+
+  it '#to_h' do
+    expect(subject.to_h[:pizzas_toppings].class).to eq GenerateDomainMigrations::MigrationBuilder::JoinTable
   end
 
   describe 'Joining Tables' do
@@ -24,21 +34,5 @@ describe GenerateDomainMigrations::MigrationBuilder::TableFactory do
     it 'creates foreign keys for the join' do
       expect(subject.to_h[:pizzas_toppings].columns.map(&:name)).to include('pizzas_id', 'toppings_id')
     end
-  end
-
-  describe '#build' do
-    it 'creates tables for domain modules' do
-      expect(subject.tables.map(&:name)).to include('pizzas')
-    end
-  end
-
-  describe 'Foreign Keys' do
-    it '' do
-      expect(subject.to_h[:pizzas].columns.map(&:name)).to include('chef_id')
-    end
-  end
-
-  it '#to_h' do
-    expect(subject.to_h[:pizzas_toppings].class).to eq GenerateDomainMigrations::MigrationBuilder::Table
   end
 end

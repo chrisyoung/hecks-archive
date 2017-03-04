@@ -39,10 +39,6 @@ class GenerateDomainMigrations < Thor::Group
         @referenced_object.pluralize.underscore
       end
 
-      def table_name
-        @table_name.pluralize.underscore
-      end
-
       def name
         @name
       end
@@ -52,7 +48,6 @@ class GenerateDomainMigrations < Thor::Group
           {
             name: self.name,
             referenced_object: self.referenced_object,
-            table_name: self.table_name,
             type: self.type,
             is_list: self.list?
           }.merge(new_attributes)
@@ -62,7 +57,6 @@ class GenerateDomainMigrations < Thor::Group
       def ==(other)
         return false if name != other.name
         return false if referenced_table != other.referenced_table
-        return false if table_name != other.table_name
         true
       end
 

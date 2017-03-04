@@ -1,5 +1,5 @@
 hecks new -n pizza_builder
-hecks generate domain_object -t aggregate -n Pizzas --head_name Pizza -a name:Value description:Value toppings:[Topping] chef:Chef
+hecks generate domain_object -t aggregate -n Pizzas --head_name Pizza -a name:Value description:Value toppings:[Topping] chef:Pizzas::Chef
 hecks generate domain_object -t aggregate -n Orders --head_name Order -a line_items:[LineItem]
 hecks generate domain_object -t value_object -n Chef -m Pizzas -a name:Value
 hecks generate domain_object -t value_object -n Topping -m Pizzas -a name:Value
