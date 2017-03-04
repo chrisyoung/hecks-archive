@@ -8,7 +8,7 @@ describe Hecks::Builder::AggregateCommandLineBuilder do
   end
 
   let(:pizzas_domain_module) do
-    ["generate domain_object", "-t", "aggregate", "-n", "Pizzas", "--head_name", "Pizza", "-a", ["name:Value", "description:Value", "toppings:[Topping]", "chef:Pizzas:Chef"]]
+    ["generate domain_object", "-t", "aggregate", "-n", "Pizzas", "--head_name", "Pizza", "-a", ["name:Value", "description:Value", "toppings:[Topping]", "chef:Chef"]]
   end
 
   let(:orders_domain_module) do

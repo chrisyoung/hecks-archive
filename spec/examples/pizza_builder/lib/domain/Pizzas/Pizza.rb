@@ -7,7 +7,7 @@ module PizzaBuilder
         @name = name
 @description = description
 @toppings = Topping.factory(toppings)
-@chef = ChefReference.factory(chef)
+@chef = Chef.factory(chef)
 @id = id
         end
 

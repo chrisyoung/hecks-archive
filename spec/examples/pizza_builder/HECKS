@@ -5,7 +5,7 @@ Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
       'name:string',
       'description:string',
       'toppings:[topping]',
-      'chef:pizzas::chef'
+      'chef:chef'
     )
 
     pizzas.value("Chef").attributes('name:string')
