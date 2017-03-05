@@ -28,7 +28,7 @@
   * Add result methods to all the crud commands
   * Move generator templates closer to commands
   * Rename the Builder to Hecks::Domain
-  * Attach specification to domain instead of Hecks, or make specs available as list
+  * Attach specification to Domain constant instead of Hecks
   * Fix text case problems with generators
   * Fix indentation in generators
   * Change delimiter in hecks file to something like pizza=pizzas::pizza
