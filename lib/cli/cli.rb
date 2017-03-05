@@ -12,7 +12,7 @@ module Hecks
     subcommand('generate', Generate)
 
     desc 'package', 'package'
-    subcommand('package', Package) if File.file?('HECKS')
+    subcommand('package', Package) if File.file?('Domain')
 
     desc 'test', 'test'
     subcommand('test', Test) if File.file?('hecks.gemspec')
@@ -23,6 +23,6 @@ module Hecks
                    type:     :boolean,
                    desc:     'Output commands without running'
 
-    register(New, 'new', 'new', 'Create a new Domain') if File.file?('HECKS')
+    register(New, 'new', 'new', 'Create a new Domain') if File.file?('Domain')
   end
 end

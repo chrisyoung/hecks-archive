@@ -1,4 +1,4 @@
-load('spec/examples/pizza_builder/HECKS')
+load('spec/examples/pizza_builder/Domain')
 
 describe GenerateDomainMigrations::MigrationBuilder, focus: true do
   let(:generator) { double("Generator", template: nil) }

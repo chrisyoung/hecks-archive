@@ -16,6 +16,6 @@ module SoccerSeason
   end
 
   def self.spec_path
-    File.dirname(__FILE__) + '/../HECKS'
+    File.dirname(__FILE__) + '/../Domain'
   end
 end

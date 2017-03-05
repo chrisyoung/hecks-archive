@@ -24,7 +24,6 @@
   * 12 factor app in Docker
   * Delete intermediate container we created to copy gems
   * Use timestamps in sql migration names
-  * Rename HECKS Hecksfile
   * Figure out the right way to load the hecks file
   * Add result methods to all the crud commands
   * Move generator templates closer to commands

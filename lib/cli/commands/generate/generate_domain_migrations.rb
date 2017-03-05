@@ -5,7 +5,7 @@ class GenerateDomainMigrations < Thor::Group
   attr_writer :migration_builder
 
   def load_domain_spec
-    load('../../Hecks')
+    load('../../Domain')
   end
 
   def self.source_root

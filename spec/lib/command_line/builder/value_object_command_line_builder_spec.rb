@@ -1,4 +1,4 @@
-load('examples/pizza_builder/HECKS')
+load('examples/pizza_builder/Domain')
 describe Hecks::Builder::ValueObjectCommandLineBuilder do
   let(:domain) do
     Hecks.specification

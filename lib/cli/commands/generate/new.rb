@@ -15,7 +15,7 @@ module Hecks
     def load_from_builder
       return if options[:nobuilder]
       Hecks::Builder.new(
-        hecks_file: File.read('HECKS'),
+        hecks_file: File.read('Domain'),
         name:    File.basename(Dir.getwd),
         dry_run: !options[:dry_run].nil?
       ).call

@@ -1,4 +1,4 @@
-load('examples/pizza_builder/HECKS')
+load('examples/pizza_builder/Domain')
 class Hecks::Application
   describe Commands::Create do
     let(:domain) do
