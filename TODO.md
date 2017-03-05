@@ -7,7 +7,7 @@
 * Deploy to Lambda
 * Finish linux package
 * use a query to get back unique pizza toppings
-* Use cache in ci test - provide --no-cache option
+* Only offer to generate domain migrations if in sqlserver adapter folder
 
 ## Posters
   * DynoDB Database Generator

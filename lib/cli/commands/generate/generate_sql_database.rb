@@ -5,11 +5,11 @@ class GenerateSQLDatabase < Thor::Group
     File.dirname(__FILE__) + '/templates/'
   end
 
-  def create_aggregate_folder
-    directory('sql_database', '.')
+  def create_sql_database_folder
+    directory('sql_database/adapters', './adapters')
   end
 
-  def domain
-    File.basename(Dir.getwd)
+  def bundle
+    run 'bundle'
   end
 end

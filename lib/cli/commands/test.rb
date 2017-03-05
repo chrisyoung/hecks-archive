@@ -5,7 +5,6 @@ class Test < Thor
 
   desc 'ci', 'Run and test the generators'
   def ci
-    run "hecks build"
     examples
     packages
     domain_adapters
@@ -32,6 +31,7 @@ class Test < Thor
   private
 
   def generate_sql_database(name)
+    run("cd spec/examples/#{name} && hecks generate sql_database")
     run("cd spec/examples/#{name}/adapters/sql_database && hecks generate domain_migrations")
   end
 

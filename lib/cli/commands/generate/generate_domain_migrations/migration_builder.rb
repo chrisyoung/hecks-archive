@@ -40,7 +40,7 @@ class GenerateDomainMigrations < Thor::Group
         @table = table
         @generator.template(
           "migration.rb.tt",
-          "db/migrations/" + file_name(index, table)
+          "db/migrate/" + file_name(index, table)
         )
       end
     end

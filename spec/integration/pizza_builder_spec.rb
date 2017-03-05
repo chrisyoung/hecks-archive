@@ -15,24 +15,18 @@ class Hecks::Application
 
     def order_attributes(pizza)
       { line_items:
-        [
-          {
-            pizza_name: pizza.name,
-            quantity: 1,
-            price: 5.0,
-            pizza: { id: pizza.id }
-          }
-        ]
+        [{ pizza_name: pizza.name,
+           quantity: 1,
+           price: 5.0,
+           pizza: { id: pizza.id } }]
       }
     end
 
     let(:pizza_attributes) do
-      {
-        name: 'White Pizza',
+      { name: 'White Pizza',
         description: 'white sauce and chicken',
-        chef: {name: 'Chef Ramsey'},
-        toppings: [{ name: 'chicken' }]
-      }
+        chef: { name: 'Chef Ramsey' },
+        toppings: [{ name: 'chicken' }] }
     end
   end
 end
