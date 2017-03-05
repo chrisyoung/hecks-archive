@@ -16,8 +16,9 @@
   * Package as Docker
   * Open source license
 
-## Defects/Hygiene:
+## Hygiene:
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
+  * don't use tmp folder - use '#run'
   * run with --no-cache if first time building binary package
   * Fix namespacing in generators
   * 12 factor app in Docker
