@@ -1,7 +1,4 @@
 describe Hecks::Builder::AggregateCommandLineBuilder do
-  let(:domain) do
-    Hecks.specification
-  end
 
   let(:runner) do
     instance_double(CommandRunner)
@@ -18,6 +15,6 @@ describe Hecks::Builder::AggregateCommandLineBuilder do
   it 'calls the command line runner to generate the module references' do
     expect(runner).to receive(:call).with(pizzas_domain_module)
     expect(runner).to receive(:call).with(orders_domain_module)
-    described_class.build(domain, runner)
+    described_class.build(DOMAIN, runner)
   end
 end

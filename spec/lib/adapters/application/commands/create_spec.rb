@@ -1,14 +1,10 @@
 load('examples/pizza_builder/Domain')
 class Hecks::Application
   describe Commands::Create do
-    let(:domain) do
-      Hecks.specification
-    end
-
     subject do
       Commands::Create.new(
         args: pizza_attributes,
-        domain_module: domain.domain_modules[:Pizzas],
+        domain_module: DOMAIN.domain_modules[:Pizzas],
         repository: PizzaBuilder.repositories[:pizzas]
       )
     end

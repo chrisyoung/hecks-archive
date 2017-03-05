@@ -7,14 +7,6 @@ require_relative 'attribute'
 require_relative 'reference'
 
 module Hecks
-  def self.specification=(value)
-    @specification = value
-  end
-
-  def self.specification
-    @specification
-  end
-
   class DomainBuilder
     Types = { string: 'String', integer: 'Integer', currency: 'Currency'}
 
@@ -31,7 +23,7 @@ module Hecks
     end
 
     def self.build(domain_name, &block)
-      Hecks.specification = new(domain_name: domain_name, &block)
+      new(domain_name: domain_name, &block)
     end
   end
 end

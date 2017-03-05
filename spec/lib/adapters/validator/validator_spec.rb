@@ -1,9 +1,4 @@
 describe Hecks::Adapters::Validator do
-
-  let(:domain) do
-    Hecks.specification
-  end
-
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
@@ -15,7 +10,7 @@ describe Hecks::Adapters::Validator do
     Hecks::Application::Commands::Create.new(
       args: pizza_attributes,
       repository: PizzaBuilder.repositories[:pizzas],
-      domain_module: domain.domain_modules[:Pizzas]
+      domain_module: DOMAIN.domain_modules[:Pizzas]
     )
   }
 

@@ -1,9 +1,5 @@
 load('examples/pizza_builder/Domain')
 describe Hecks::Builder::ValueObjectCommandLineBuilder do
-  let(:domain) do
-    Hecks.specification
-  end
-
   let(:runner) do
     instance_double(CommandRunner)
   end
@@ -20,6 +16,6 @@ describe Hecks::Builder::ValueObjectCommandLineBuilder do
     expect(runner).to receive(:call).with(line_item_command)
     expect(runner).to receive(:call).with(["generate domain_object", "-t", "value_object", "-n", "Chef", "-m", "Pizzas", "-a", ["name:Value"]])
     expect(runner).to receive(:call).with(topping_command)
-    described_class.build(domain, runner)
+    described_class.build(DOMAIN, runner)
   end
 end

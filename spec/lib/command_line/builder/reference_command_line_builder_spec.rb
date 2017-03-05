@@ -1,8 +1,4 @@
 describe Hecks::Builder::ReferenceCommandLineBuilder do
-  let(:domain) do
-    Hecks.specification
-  end
-
   let(:runner) do
     instance_double(CommandRunner)
   end
@@ -13,6 +9,6 @@ describe Hecks::Builder::ReferenceCommandLineBuilder do
 
   it 'calls the command line runner to generate the module references' do
     expect(runner).to receive(:call).with(result)
-    described_class.build(domain, runner)
+    described_class.build(DOMAIN, runner)
   end
 end

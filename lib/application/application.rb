@@ -10,7 +10,7 @@ module Hecks
       @domain      = domain
       @database    = database
       @events_port = Adapters::Events.new(listeners: listeners)
-      @domain_spec = Hecks.specification
+      @domain_spec = DOMAIN
     end
 
     def call(command_name:, module_name:, args: {})
