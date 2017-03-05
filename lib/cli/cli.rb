@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 require 'active_support/inflector'
-require_relative 'command_runner'
-require_relative 'commands'
-require 'pry'
+
+require_relative 'commands/generate'
+require_relative 'commands/package'
+require_relative 'commands/command_runner'
+require_relative 'commands/test' if File.file?('hecks.gemspec')
+require_relative 'commands/build' if File.file?('hecks.gemspec')
+require_relative 'commands/console' if File.file?('Domain')
+require_relative 'commands/test' if File.file?('hecks.gemspec')
+
 
 module Hecks
   class CLI < Thor
@@ -18,10 +24,7 @@ module Hecks
     subcommand('test', Test) if File.file?('hecks.gemspec')
 
     long_desc      'Generate a domain'
-    method_option  :dryrun,
-                   aliases:  '-d',
-                   type:     :boolean,
-                   desc:     'Output commands without running'
+    method_option  :dryrun, aliases: '-d', type: :boolean, desc: 'Output commands without running'
 
     register(New, 'new', 'new', 'Create a new Domain') if File.file?('Domain')
   end
