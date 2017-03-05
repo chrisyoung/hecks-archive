@@ -10,9 +10,10 @@ module Hecks
   class DomainBuilder
     Types = { string: 'String', integer: 'Integer', currency: 'Currency'}
 
-    attr_accessor :domain, :specification
+    attr_accessor :domain, :specification, :name
 
     def initialize(domain_name:, &block)
+      @name = domain_name
       @domain = Domain.new(name: domain_name)
       block.yield(@domain)
       self
