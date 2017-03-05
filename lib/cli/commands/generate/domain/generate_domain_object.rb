@@ -2,8 +2,8 @@
 
 class GenerateDomainObject < Thor::Group; end
 
-require_relative "generate_domain_object/assignment_template"
-require_relative "generate_domain_object/option_formatter"
+require_relative "domain_object/assignment_template"
+require_relative "domain_object/option_formatter"
 
 class GenerateDomainObject
   include Thor::Actions

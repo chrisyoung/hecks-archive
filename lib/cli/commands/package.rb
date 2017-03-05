@@ -1,5 +1,5 @@
-require_relative 'generate/generate_lambda_package'
-require_relative 'generate/generate_binary_package'
+require_relative 'package/generate_lambda_package'
+require_relative 'package/generate_binary_package'
 
 class Package < Thor
   desc 'lambda', 'lambda'

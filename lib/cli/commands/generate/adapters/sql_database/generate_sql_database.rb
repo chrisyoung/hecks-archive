@@ -6,10 +6,13 @@ class GenerateSQLDatabase < Thor::Group
   end
 
   def create_sql_database_folder
-    directory('sql_database/adapters', './adapters')
+    directory('adapters', './adapters')
   end
 
   def bundle
     run 'bundle'
+  end
+
+  def generate_repositories
   end
 end

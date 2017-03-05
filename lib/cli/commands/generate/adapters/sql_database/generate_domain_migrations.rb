@@ -1,4 +1,4 @@
-require_relative 'generate_domain_migrations/migration_builder'
+require_relative 'migration_builder/migration_builder'
 
 class GenerateDomainMigrations < Thor::Group
   include Thor::Actions
@@ -9,7 +9,7 @@ class GenerateDomainMigrations < Thor::Group
   end
 
   def self.source_root
-    File.dirname(__FILE__) + '/templates/sql_database/'
+    File.dirname(__FILE__) + '/templates/'
   end
 
   def create_migration_file
