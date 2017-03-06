@@ -5,7 +5,7 @@ require_relative 'domain_object'
 require_relative 'value'
 require_relative 'head'
 require_relative 'reference'
-require 'pry'
+
 module Hecks
   module Domain
     class DomainBuilder
