@@ -1,4 +1,4 @@
-describe GenerateDomainObject::AssignmentTemplate do
+describe Hecks::Domain::CLI::GenerateDomainObject::AssignmentTemplate do
   it 'assigns values' do
     expect(described_class.new(["name:string"]).render).to eq '@name = name'
   end

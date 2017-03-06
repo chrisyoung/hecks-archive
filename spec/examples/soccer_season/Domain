@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-Hecks::DomainBuilder.build "soccer_season" do |hexagon|
+Hecks::Domain::DomainBuilder.build "soccer_season" do |hexagon|
   hexagon.module 'Pitches' do |pitches|
     pitches.head("Pitch").attributes('name:value')
   end

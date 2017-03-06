@@ -1,6 +1,6 @@
 describe Hecks::DomainAdapters::SQLDatabase::Schema do
   let(:spec) {
-    Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
+    Hecks::Domain::DomainBuilder.build "pizza_builder" do |pizza_builder|
       pizza_builder.module 'Pizzas' do |pizzas|
         pizzas.head("Pizza").attributes('toppings:[topping]', 'chef:chefs::chef')
         pizzas.value("Topping").attributes('name:string')

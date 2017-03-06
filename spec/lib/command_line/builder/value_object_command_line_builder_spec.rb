@@ -1,5 +1,5 @@
 load('examples/pizza_builder/Domain')
-describe Hecks::Builder::ValueObjectCommandLineBuilder do
+describe Hecks::Domain::CLI::CommandBuilder::ValueObjectCommandLineBuilder do
   let(:runner) do
     instance_double(CommandRunner)
   end

@@ -1,4 +1,4 @@
-describe GenerateDomainObject::OptionFormatter do
+describe Hecks::Domain::CLI::GenerateDomainObject::OptionFormatter do
   subject { described_class.new(["name:Value", "size:Value"]) }
 
   describe '#call' do

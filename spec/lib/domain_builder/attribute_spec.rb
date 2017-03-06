@@ -1,4 +1,4 @@
-describe Hecks::DomainBuilder::Attribute do
+describe Hecks::Domain::DomainBuilder::Attribute do
   let(:basic)            { described_class.new('description:string') }
   let(:module_reference) { described_class.new('pizza:pizzas::pizza') }
   let(:internal_reference) { described_class.new('chef:chef') }

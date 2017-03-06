@@ -1,4 +1,4 @@
-describe Hecks::DomainBuilder::Domain do
+describe Hecks::Domain::DomainBuilder::Domain do
 subject { described_class.new(name: 'pizza_builder') }
   describe '#module' do
     it 'adds a domain module' do

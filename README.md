@@ -20,7 +20,7 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	hecks package         # package
 
 ### Create a Domain file in an empty project directory:
-	Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
+	Hecks::Domain::DomainBuilder.build "pizza_builder" do |pizza_builder|
 		pizza_builder.module 'Pizzas' do |pizzas|
 		  pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[topping]')
 		  pizzas.value("Topping").attributes('name:string')

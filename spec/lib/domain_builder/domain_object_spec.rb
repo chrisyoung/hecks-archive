@@ -1,8 +1,8 @@
-describe Hecks::DomainBuilder::DomainObject do
+describe Hecks::Domain::DomainBuilder::DomainObject do
   subject { described_class.new(name: "pizza") }
 
   let(:name_attribute) {
-    Hecks::DomainBuilder::Attribute.new("name:string")
+    Hecks::Domain::DomainBuilder::Attribute.new("name:string")
   }
 
   describe 'name' do

@@ -1,4 +1,4 @@
-describe Hecks::Builder::ReferenceCommandLineBuilder do
+describe Hecks::Domain::CLI::CommandBuilder::ReferenceCommandLineBuilder do
   let(:runner) do
     instance_double(CommandRunner)
   end

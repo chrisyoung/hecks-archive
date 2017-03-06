@@ -1,4 +1,4 @@
-describe Hecks::DomainBuilder do
+describe Hecks::Domain::DomainBuilder do
   subject do
     described_class.build("pizza_builder") do |builder|
       builder.module 'pizzas' do |pizzas|
