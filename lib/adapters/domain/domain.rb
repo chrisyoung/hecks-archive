@@ -1,5 +1,0 @@
-require_relative 'sql_database/column'
-require_relative 'sql_database/join_table'
-require_relative 'sql_database/schema_factory'
-require_relative 'sql_database/schema'
-require_relative 'sql_database/table'

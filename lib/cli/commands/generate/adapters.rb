@@ -1,3 +1,0 @@
-require_relative 'adapters/resource_server/generate_resource_server'
-require_relative 'adapters/sql_database/generate_sql_database'
-require_relative 'adapters/sql_database/generate_domain_migrations'

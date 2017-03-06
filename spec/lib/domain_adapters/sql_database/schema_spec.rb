@@ -1,4 +1,4 @@
-describe Hecks::Adapters::Domain::SQLDatabase::Schema do
+describe Hecks::DomainAdapters::SQLDatabase::Schema do
   let(:spec) {
     Hecks::DomainBuilder.build "pizza_builder" do |pizza_builder|
       pizza_builder.module 'Pizzas' do |pizzas|
@@ -23,7 +23,7 @@ describe Hecks::Adapters::Domain::SQLDatabase::Schema do
   end
 
   it '#to_h' do
-    expect(subject.to_h[:pizzas_toppings].class).to eq Hecks::Adapters::Domain::SQLDatabase::JoinTable
+    expect(subject.to_h[:pizzas_toppings].class).to eq Hecks::DomainAdapters::SQLDatabase::JoinTable
   end
 
   describe 'Joining Tables' do

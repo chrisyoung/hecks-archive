@@ -1,6 +1,6 @@
 load('spec/examples/pizza_builder/Domain')
 
-describe GenerateDomainMigrations::MigrationBuilder, focus: true do
+describe Hecks::DomainAdapters::SQLDatabase::CLI::MigrationBuilder, focus: true do
   let(:generator) { double("Generator", template: nil) }
 
   it 'generates a migration from a template' do
