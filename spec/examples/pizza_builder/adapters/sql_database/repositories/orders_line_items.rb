@@ -1,8 +1,8 @@
-module <%= domain_module_name %>
+module PizzaBuilder
   module Adapters
     module SQLDatabase
       module Repositories
-        class <%= class_name %>
+        class OrdersLineItems
           def self.create attributes = {}
           end
 

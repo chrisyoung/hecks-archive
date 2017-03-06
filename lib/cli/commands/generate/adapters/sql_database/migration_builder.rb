@@ -1,13 +1,8 @@
-require_relative 'table'
-require_relative 'join_table'
-require_relative 'column'
-require_relative 'schema'
-
 class GenerateDomainMigrations < Thor::Group
   class MigrationBuilder
     def initialize(generator, specification)
       @generator = generator
-      @schema = Schema.factory(specification)
+      @schema = Hecks::Adapters::Domain::SQLDatabase::Schema.factory(specification)
     end
 
     def call

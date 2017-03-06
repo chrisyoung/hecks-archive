@@ -1,4 +1,3 @@
-
 class GenerateSQLDatabase < Thor::Group
   include Thor::Actions
 
@@ -16,9 +15,10 @@ class GenerateSQLDatabase < Thor::Group
 
   def generate_repositories
     load('Domain')
-    DOMAIN.domain_modules.values.each do |domain_module|
-      @class_name = domain_module.name.camelize
-      template('repository.rb', './adapters/sql_database/repositories/' + domain_module.name.downcase + '.rb')
+
+    Hecks::Adapters::Domain::SQLDatabase::Schema.factory(DOMAIN).tables.each do |table|
+      @class_name = table.name.camelize
+      template('repository.rb', './adapters/sql_database/repositories/' + table.name + '.rb')
     end
   end
 

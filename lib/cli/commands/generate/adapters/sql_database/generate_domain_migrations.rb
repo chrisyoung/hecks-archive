@@ -1,4 +1,4 @@
-require_relative 'migration_builder/migration_builder'
+require_relative 'migration_builder'
 
 class GenerateDomainMigrations < Thor::Group
   include Thor::Actions

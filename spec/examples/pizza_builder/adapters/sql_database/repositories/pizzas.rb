@@ -3,7 +3,7 @@ module PizzaBuilder
     module SQLDatabase
       module Repositories
         class Pizzas
-          def self.create attributes={}
+          def self.create attributes = {}
           end
 
           def self.update id, attributes
@@ -12,7 +12,7 @@ module PizzaBuilder
           def self.read id
           end
 
-          def self.delete(id)
+          def self.delete id
           end
 
           def self.delete_all
