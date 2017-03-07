@@ -20,13 +20,13 @@ class Generate < Thor
                  'Generate A Resource Server for a domain') if File.file?('Domain')
 
   desc           'sql_database', 'generate SQL database adapter'
-  register(Hecks::DomainAdapters::SQLDatabase::CLI::GenerateSQLDatabase,
+  register(Hecks::Domain::Adapters::SQLDatabase::CLI::GenerateSQLDatabase,
                  'sql_database',
                  'sql_database',
                  'Generate a SQL Server Database adapter') if File.file?('Domain')
 
   desc           'domain_migrations', 'generate migrations for the sql database adapter based on your domain'
-  register(Hecks::DomainAdapters::SQLDatabase::CLI::GenerateDomainMigrations,
+  register(Hecks::Domain::Adapters::SQLDatabase::CLI::GenerateDomainMigrations,
                  'domain_migrations',
                  'domain_migrations',
                  'Generate Domain Migrations')
