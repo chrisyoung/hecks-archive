@@ -21,12 +21,20 @@ module Hecks
             @columns = columns
           end
 
+          def to_foreign_key
+            (name.singularize + '_id').to_sym
+          end
+
           def join_table_columns
             columns.select(&:list?)
           end
 
           def foreign_key_columns
             columns.select(&:reference?)
+          end
+
+          def link_table_name(attribute)
+            "#{name}_#{attribute.name.pluralize.downcase}".to_sym
           end
 
           def name

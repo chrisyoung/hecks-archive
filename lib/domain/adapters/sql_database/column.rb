@@ -28,6 +28,14 @@ module Hecks
             )
           end
 
+          def to_foreign_key
+            (type.downcase + '_id').to_sym
+          end
+
+          def to_table_name
+            name.downcase.pluralize.to_sym
+          end
+
           def list?
             @is_list
           end
