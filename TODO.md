@@ -17,6 +17,7 @@
   * Open source license
 
 ## Hygiene:
+  * Move sqldatabase test out of examples
   * Add a query object to pizzas that can list toppings
   * go back to simple pizza bulder domain.  Build out soccer_season
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
