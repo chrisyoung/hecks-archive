@@ -1,6 +1,7 @@
 require_relative 'update/update_values'
 require_relative 'update/link_to_references'
 require_relative 'update/create_new_value'
+require_relative 'update/delete_references'
 
 module Hecks
   module Domain
@@ -13,6 +14,9 @@ module Hecks
               @attributes = attributes.clone
               @domain_module = domain_module
               @reference_ids = {}
+              @references = @domain_module.head.references
+              @head_table = Table.factory([@domain_module.head]).first
+              @head_dataset = DB[@head_table.name.to_sym]
             end
 
             def call
@@ -27,7 +31,7 @@ module Hecks
             private
 
             def update_references
-              UpdateValues.new(references, @attributes, head_table).call
+              UpdateValues.new(@references, @attributes, @head_table).call
             end
 
             def update_record
@@ -35,23 +39,7 @@ module Hecks
             end
 
             def fetch_record
-              @record = head_dataset.where(id: @attributes.delete(:id))
-            end
-
-            def head
-              @domain_module.head
-            end
-
-            def head_dataset
-              @head_dataset ||= DB[head_table.name.to_sym]
-            end
-
-            def head_table
-              @head_table ||= Table.factory([head]).first
-            end
-
-            def references
-              @references ||= @domain_module.head.references
+              @record = @head_dataset.where(id: @attributes.delete(:id))
             end
           end
         end

@@ -15,16 +15,25 @@ module Hecks
             end
 
             def call
-              if @reference.list?
-                @reference_ids[@reference.name.to_sym].each do |value|
-                  @record[@column.to_foreign_key] = value
-                  @record[@table.to_foreign_key] = @attributes[:id]
-                  DB[@table.link_table_name(@reference)].insert(@record)
-                end
-              else
-                @attributes[@column.to_foreign_key] = @reference_ids[@reference.name]
-              end
+              make_linking_records
+              make_foreign_keys
               self
+            end
+
+            private
+
+            def make_linking_records
+              return unless @reference.list?
+              @reference_ids[@reference.name.to_sym].each do |value|
+                @record[@column.to_foreign_key] = value
+                @record[@table.to_foreign_key] = @attributes[:id]
+                DB[@table.link_table_name(@reference)].insert(@record)
+              end
+            end
+
+            def make_foreign_keys
+              return if @reference.list?
+              @attributes[@column.to_foreign_key] = @reference_ids[@reference.name]
             end
           end
         end

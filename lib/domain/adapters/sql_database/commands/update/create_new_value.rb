@@ -11,18 +11,28 @@ module Hecks
               @attributes = attributes
               @reference_ids = {}
               @column = Column.factory(reference)
+              @column_name = @column.name.to_sym
             end
 
             def call
-              if @reference.list?
-                @attributes[@column.name.to_sym].each do |value|
-                  @reference_ids[@column.name.to_sym] ||= []
-                  @reference_ids[@column.name.to_sym] << DB[@column.to_table_name].insert(value)
-                end
-              else
-                @reference_ids[@reference.name] = DB[@column.to_table_name].insert(@attributes[@column.name.to_sym])
-              end
+              create_values
+              create_value
               self
+            end
+
+            private
+
+            def create_values
+              return unless @reference.list?
+              @attributes[@column_name].each do |value|
+                @reference_ids[@column_name] ||= []
+                @reference_ids[@column_name] << DB[@column.to_table_name].insert(value)
+              end
+            end
+
+            def create_value
+              return if @reference.list?
+              @reference_ids[@reference.name] = DB[@column.to_table_name].insert(@attributes[@column.name.to_sym])
             end
           end
         end

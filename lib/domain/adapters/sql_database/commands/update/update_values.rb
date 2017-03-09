@@ -21,10 +21,6 @@ module Hecks
 
             private
 
-            def table
-              @table ||= Table.factory([head]).first
-            end
-
             def create_new_value(reference)
               @reference_ids = CreateNewValue.new(
                 reference: reference,
@@ -34,14 +30,11 @@ module Hecks
             end
 
             def delete_old_references(reference)
-              where = {}
-              where[@table.to_foreign_key] = @attributes[:id]
-
-              if reference.list?
-                DB[@table.link_table_name(reference)].where(where).delete
-              end
-
-              @attributes.delete(reference.name.to_sym)
+              @attributes = DeleteReferences.new(
+                reference: reference,
+                table: @table,
+                attributes: @attributes
+              ).call.attributes
             end
 
             def link_to_new_values(reference)
