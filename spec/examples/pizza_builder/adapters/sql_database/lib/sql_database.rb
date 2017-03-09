@@ -1,6 +1,27 @@
+require 'rubygems'
+require 'bundler/setup'
+require 'pry'
+require 'sequel'
+require 'hecks'
+
+require_relative 'repositories/repositories'
+require_relative '../../../lib/pizza_builder'
+
+load '../../Domain'
+
+DB = Sequel.connect(ENV["DATABASE_URL"])
+
+module PizzaBuilder
+  module Adapters
+    module SQLDatabase
+    end
+  end
+end
+
+
 # require 'rubygems'
 # require_relative '../../../lib/pizza_builder'
-# require 'mysql2'
+
 #
 # client = Mysql2::Client.new(
 #   host:     "localhost",

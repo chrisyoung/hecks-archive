@@ -17,6 +17,8 @@
   * Open source license
 
 ## Hygiene:
+  * Add a query object to pizzas that can list toppings
+  * go back to simple pizza bulder domain.  Build out soccer_season
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
   * don't use tmp folder - use '#run'
   * run with --no-cache if first time building binary package
@@ -41,6 +43,7 @@
   * Use invariants (with #fail)
   * Use a struct for value objects
   * Clean up generator comments
+  * Use domain explicit object attributes in repositories instead of attribute hash
 
 ## Break out projects
   * move code hecks_cli project

@@ -33,6 +33,7 @@ class Test < Thor
   def generate_sql_database(name)
     run("cd spec/examples/#{name} && hecks generate sql_database")
     run("cd spec/examples/#{name}/adapters/sql_database && hecks generate domain_migrations")
+    run("cd spec/examples/#{name}/adapters/sql_database && rspec")
   end
 
   def reset_example(name)

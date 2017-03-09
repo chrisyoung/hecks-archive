@@ -5,9 +5,10 @@ require_relative 'column'
 
 module Hecks
   module Domain
-      module Adapters
+    module Adapters
       module SQLDatabase
         class Schema
+          attr_reader :tables
           def self.factory(domain_spec)
             SchemaFactory.new(domain_spec).build
           end
@@ -18,10 +19,6 @@ module Hecks
 
           def to_h
             tables.map { |table| [table.name.to_sym, table] }.to_h
-          end
-
-          def tables
-            @tables
           end
         end
       end

@@ -25,6 +25,10 @@ module Hecks
           end
         end
 
+        def references
+          @attributes.reject(&:primitive?)
+        end
+
         private
 
         def type_with_domain_module(attribute)
