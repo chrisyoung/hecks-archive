@@ -10,12 +10,10 @@ module Hecks
         module Commands
           class Update
             attr_reader :id
-            def initialize(attributes:, domain_module:)
+            def initialize(attributes:, head:)
               @attributes = attributes.clone
-              @domain_module = domain_module
-              @reference_ids = {}
-              @references = @domain_module.head.references
-              @head_table = Table.factory([@domain_module.head]).first
+              @references = head.references
+              @head_table = Table.factory([head]).first
               @head_dataset = DB[@head_table.name.to_sym]
             end
 

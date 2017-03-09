@@ -10,7 +10,7 @@ module PizzaBuilder
         def self.update attributes
           Commands::Update.new(
             attributes: attributes,
-            domain_module: DOMAIN.domain_modules[:Pizzas]
+            head: DOMAIN.domain_modules[:Pizzas].head
           ).call
         end
 
