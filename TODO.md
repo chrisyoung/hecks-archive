@@ -7,6 +7,7 @@
   * fix DeleteReferences#where_clause ... Not doing anything currently :(
 
 ## Current Sprint
+* Truncate test database between runs
 * Deploy to Lambda
 * Finish linux package
 * use a query to get back unique pizza toppings
