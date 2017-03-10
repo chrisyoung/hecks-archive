@@ -18,15 +18,6 @@ module Hecks
               run 'bundle'
             end
 
-            def generate_repositories
-              load('Domain')
-
-              Hecks::Adapters::SQLDatabase::Schema.factory(DOMAIN).tables.each do |table|
-                @class_name = table.name.camelize
-                template('repository.rb', './adapters/sql_database/repositories/' + table.name + '.rb')
-              end
-            end
-
             private
 
             def class_name

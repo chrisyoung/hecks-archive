@@ -19,7 +19,10 @@ describe Hecks::Domain::DomainBuilder::DomainObject do
   end
 
   describe '#references' do
-    xit 'sets references'
+    it 'sets references' do
+      subject.attributes("chef:chef")
+      expect(subject.references.map(&:name)).to eq ['chef']
+    end
   end
 
   describe '#attribute_hash' do

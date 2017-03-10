@@ -20,6 +20,7 @@
   * Open source license
 
 ## Hygiene:
+  * hecks test ci should blow up if anything doesn't work
   * Move examples directly under hecks folder (out of spec)
   * Move sqldatabase test out of examples
   * Add a query object to pizzas that can list toppings

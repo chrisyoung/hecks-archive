@@ -1,6 +1,8 @@
 # frozen_string_literal: true
+ENV['DATABASE_URL'] ||= 'mysql2://root:password@localhost/pizza_builder_test'
 require 'simplecov'
 require 'pry'
+
 SimpleCov.start do
   add_filter "/examples/"
 end

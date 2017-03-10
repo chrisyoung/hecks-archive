@@ -32,8 +32,6 @@ class Test < Thor
 
   def generate_sql_database(name)
     run("cd spec/examples/#{name} && hecks generate sql_database")
-    puts("WARNING: Did not run sql adapter tests!, find me in test.rb#generate_sql_database")
-    #run("cd spec/examples/#{name}/adapters/sql_database && hecks generate domain_migrations")
   end
 
   def reset_example(name)

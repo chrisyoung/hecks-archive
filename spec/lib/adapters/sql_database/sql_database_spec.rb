@@ -1,5 +1,4 @@
-describe PizzaBuilder::Adapters::SQLDatabase do
-
+describe Hecks::Adapters::SQLDatabase do
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
@@ -18,7 +17,7 @@ describe PizzaBuilder::Adapters::SQLDatabase do
       let(:app) do
         Hecks::Application.new(
           domain: PizzaBuilder,
-          database: PizzaBuilder::Adapters::SQLDatabase
+          database: Hecks::Adapters::SQLDatabase
         )
       end
 
