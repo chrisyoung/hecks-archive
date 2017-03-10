@@ -1,7 +1,1 @@
-require_relative 'column'
-require_relative 'join_table'
-require_relative 'schema_factory'
-require_relative 'schema'
-require_relative 'table'
 require_relative 'cli/cli'
-require_relative 'commands/commands'

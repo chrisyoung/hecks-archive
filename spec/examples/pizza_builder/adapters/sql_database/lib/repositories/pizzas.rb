@@ -1,4 +1,4 @@
-Commands = Hecks::Domain::Adapters::SQLDatabase::Commands
+Commands = Hecks::Adapters::SQLDatabase::Commands
 module PizzaBuilder
   module Domain
     module Pizzas
