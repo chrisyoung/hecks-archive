@@ -9,6 +9,7 @@ module <%= domain_name.camelize %>
           id              = @last_id + 1
           @collection[id] = <%= options[:head_name].camelize %>.new(attributes.merge(id: id))
           @last_id        = id
+          Struct.new(:id).new(id)
         end
 
         def self.update id, attributes

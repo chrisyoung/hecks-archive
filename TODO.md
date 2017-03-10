@@ -10,6 +10,7 @@
   * Finish linux package
   * use a query to get back unique pizza toppings
   * Only offer to generate domain migrations if in sqldatabase adapter folder
+  * clarify ambiguity between the domain builder and the domain objects
 
 ## Posters
   * DynoDB Database Generator
