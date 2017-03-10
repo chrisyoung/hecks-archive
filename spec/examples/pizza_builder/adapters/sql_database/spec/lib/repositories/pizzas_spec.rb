@@ -37,11 +37,9 @@ describe Hecks::Adapters::SQLDatabase::Repository do
 
   describe '#update' do
     let(:create_result) { subject.create(pizza_attributes) }
-    let!(:update_result) { subject.update(update_attributes) }
 
     let(:update_attributes) do
       pizza_attributes.merge(
-        id:       create_result.id,
         name:     "Belleboche Redux",
         toppings: [{ name: "Sausage" }],
         chef:     { name: "Kathy Griffen" }
@@ -51,14 +49,17 @@ describe Hecks::Adapters::SQLDatabase::Repository do
     let(:pizza) { subject.read(create_result.id) }
 
     it 'updates fields' do
+      subject.update(create_result.id, update_attributes)
       expect(pizza.name).to eq "Belleboche Redux"
     end
 
     it 'updates relationship lists' do
+      subject.update(create_result.id, update_attributes)
       expect(pizza.toppings.map(&:name)).to eq ["Sausage"]
     end
 
     it 'updates relationships' do
+      subject.update(create_result.id, update_attributes)
       expect(pizza.chef.name).to eq "Kathy Griffen"
     end
   end

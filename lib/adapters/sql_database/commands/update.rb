@@ -9,10 +9,12 @@ module Hecks
       module Commands
         class Update
           attr_reader :id
-          def initialize(attributes:, head:)
+
+          def initialize(attributes:, head:, id:)
             @attributes = attributes.clone
             @references = head.references
             @head_table = Table.factory([head]).first
+            @id = id
           end
 
           def call
@@ -27,7 +29,7 @@ module Hecks
           private
 
           def update_references
-            UpdateValues.new(@references, @attributes, @head_table).call
+            UpdateValues.new(@references, @attributes, @head_table, @id).call
           end
 
           def update_record
@@ -35,7 +37,7 @@ module Hecks
           end
 
           def fetch_record
-            @record = DB[@head_table.name.to_sym].where(id: @attributes.delete(:id))
+            @record = DB[@head_table.name.to_sym].where(id: @id)
           end
         end
       end

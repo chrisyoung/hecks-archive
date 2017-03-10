@@ -11,13 +11,16 @@ module Hecks
           Commands::Create.new(attributes: attributes, head: @head).call
         end
 
-        def update attributes
-          Commands::Update.new(attributes: attributes, head: @head).call
+        def update id, attributes
+          Commands::Update.new(id: id, attributes: attributes, head: @head).call
         end
 
         def read id
-          record = Commands::Read.new(id, @head).call
-          domain_object.new(record) if record
+          Commands::Read.new(
+            id: id,
+            head: @head,
+            entity_class: entity_class
+          ).call
         end
 
         def delete id
@@ -26,7 +29,7 @@ module Hecks
 
         private
 
-        def domain_object
+        def entity_class
           DOMAIN.name.camelcase.constantize::Domain.const_get(@module_name).head
         end
       end

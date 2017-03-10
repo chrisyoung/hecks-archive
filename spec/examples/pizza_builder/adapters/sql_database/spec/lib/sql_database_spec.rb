@@ -9,10 +9,29 @@ describe PizzaBuilder::Adapters::SQLDatabase do
     }
   end
 
-  it do
-    Hecks::Application.new(
-      domain: PizzaBuilder,
-      database: PizzaBuilder::Adapters::SQLDatabase
-    )[:Pizzas].create(pizza_attributes)
+  let(:new_attributes) do
+    pizza_attributes.merge name: "ComeAgainPizza"
+  end
+
+  context "Working with Hecks Application" do
+    describe '#create' do
+      let(:app) do
+        Hecks::Application.new(
+          domain: PizzaBuilder,
+          database: PizzaBuilder::Adapters::SQLDatabase
+        )
+      end
+
+      it '#read' do
+        id = app[:Pizzas].create(pizza_attributes).id
+        expect(app[:Pizzas].read(id).name).to eq(pizza_attributes[:name])
+      end
+
+      it '#update' do
+        id = app[:Pizzas].create(pizza_attributes).id
+        app[:Pizzas].update(id, new_attributes)
+        expect(app[:Pizzas].read(id).name).to eq(new_attributes[:name])
+      end
+    end
   end
 end

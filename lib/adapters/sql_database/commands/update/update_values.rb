@@ -4,11 +4,12 @@ module Hecks
       module Commands
         class Update
           class UpdateValues
-            def initialize(references, attributes, table)
+            def initialize(references, attributes, table, id)
               @references = references
               @attributes = attributes
               @reference_ids = {}
               @table = table
+              @id = id
             end
 
             def call
@@ -42,7 +43,8 @@ module Hecks
                 reference: reference,
                 table: @table,
                 reference_ids: @reference_ids,
-                attributes: @attributes
+                attributes: @attributes,
+                id: @id
               ).call
             end
           end

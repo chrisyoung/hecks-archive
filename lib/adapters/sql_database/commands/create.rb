@@ -9,7 +9,7 @@ module Hecks
           attr_reader :id
 
           def initialize(attributes:, head:)
-            @attributes = attributes
+            @attributes = attributes.clone
             @reference_ids = {}
             @head = head
             @references = @head.references

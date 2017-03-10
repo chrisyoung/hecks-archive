@@ -6,16 +6,19 @@ module Hecks
         class Read
           attr_reader :head, :entity, :table, :id
 
-          def initialize(id, head)
+          def initialize(id:, head:, entity_class:)
             @head = head
             @table = Table.factory([@head]).first
             @id = id
+            @entity_class = entity_class
           end
 
           def call
             fetch_entity
             return if @entity.nil?
-            @entity.merge(FetchReferences.new(self).call.reference_map)
+            @entity_class.new(
+              @entity.merge(FetchReferences.new(self).call.reference_map)
+            )
           end
 
           private

@@ -37,7 +37,7 @@ module Hecks
 
         def create
           return if @errors.count.positive?
-          @id = @repository_result = repository.create(args)
+          @id = @repository_result = repository.create(args).id
         end
 
         def validate

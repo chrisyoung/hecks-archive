@@ -5,13 +5,14 @@ module Hecks
         class Update
           class LinkToReferences
             attr_reader :reference_ids
-            def initialize(reference:, table:, reference_ids:, attributes:)
+            def initialize(reference:, table:, reference_ids:, attributes:, id:)
               @reference = reference
               @reference_ids = reference_ids
               @table = table
               @attributes = attributes
               @column = Column.factory(@reference)
               @record = {}
+              @id = id
             end
 
             def call
@@ -26,7 +27,7 @@ module Hecks
               return unless @reference.list?
               @reference_ids[@reference.name.to_sym].each do |value|
                 @record[@column.to_foreign_key] = value
-                @record[@table.to_foreign_key] = @attributes[:id]
+                @record[@table.to_foreign_key] = @id
                 DB[JoinTable.new(@table, @reference).name.to_sym].insert(@record)
               end
             end
