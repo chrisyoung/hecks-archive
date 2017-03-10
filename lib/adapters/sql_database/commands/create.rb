@@ -1,3 +1,6 @@
+require_relative 'create/find_or_create_references'
+require_relative 'create/add_to_join_tables'
+
 module Hecks
   module Adapters
     module SQLDatabase
@@ -9,62 +12,45 @@ module Hecks
             @attributes = attributes
             @reference_ids = {}
             @head = domain_module.head
+            @references = @head.references
+            @table = Table.factory([@head]).first
           end
 
           def call
             DB.transaction do
-              @head.references.each do |reference|
-                find_or_create_reference(reference, @attributes.delete(reference.name.to_sym)) unless reference.list?
-                find_or_create_references(reference, @attributes.delete(reference.name.to_sym)) if reference.list?
-              end
-
+              find_or_create_references
               create
-
-              @head.references.each do |reference|
-                add_to_join_tables(reference) if reference.list?
-              end
+              add_to_join_tables
             end
             self
           end
 
           private
 
-          def find_or_create_reference(reference, attributes)
-            result = DB[reference.type.downcase.pluralize.to_sym].first(attributes)
-            @reference_ids[reference.name] = result ? result[:id] : DB[reference.type.downcase.pluralize].insert(attributes)
+          def find_or_create_references
+            @reference_ids =
+            FindOrCreateReferences.new(
+              head: @head,
+              attributes: @attributes
+            ).call.reference_ids
           end
 
           def create
-            references = @head.references.reject(&:list?)
-            graph = references.map {|reference| [reference.name + '_id', @reference_ids[reference.name]]}.to_h
-            @id = DB[@head.name.pluralize.downcase.to_sym].insert(@attributes.merge(graph))
+            graph = @references.map do |reference|
+              next if reference.list?
+              column = Column.factory(reference)
+              [column.to_foreign_key, @reference_ids[reference.name]]
+            end.compact.to_h
+
+            @id = DB[@table.name.to_sym].insert(@attributes.merge(graph))
           end
 
-          def find_or_create_references(reference, attribute_list)
-            attribute_list.each do |attributes|
-              @reference_ids[reference.name] = [] unless @reference_ids[reference.name]
-
-              result = DB[reference.type.downcase.pluralize.to_sym].first(attributes)
-
-              @reference_ids[reference.name] <<
-              if result
-                result[:id]
-              else
-                DB[reference.type.downcase.pluralize.to_sym].insert(attributes)
-              end
-            end
-          end
-
-          def add_to_join_tables(reference)
-            @reference_ids[reference.name.downcase].each do |id|
-              table_name = "#{@head.name.pluralize.downcase}_#{reference.type.downcase.pluralize}"
-
-              DB[table_name.to_sym].insert(
-                [ ["#{@head.name}_id".to_sym, @id],
-                  [(reference.type.downcase + '_id').to_sym, id]
-                ].to_h
-              )
-            end
+          def add_to_join_tables
+            AddToJoinTables.new(
+              head: @head,
+              id: @id,
+              reference_ids: @reference_ids
+            ).call
           end
         end
       end

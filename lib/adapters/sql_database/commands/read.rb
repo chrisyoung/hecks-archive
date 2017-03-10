@@ -14,6 +14,7 @@ module Hecks
 
           def call
             fetch_entity
+            return if @entity.nil?
             @entity.merge(FetchReferences.new(self).call.reference_map)
           end
 

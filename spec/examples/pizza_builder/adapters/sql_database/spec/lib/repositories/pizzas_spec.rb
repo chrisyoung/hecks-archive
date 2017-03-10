@@ -8,6 +8,18 @@ describe PizzaBuilder::Domain::Pizzas::SQLRepository do
     }
   end
 
+  describe '#delete' do
+    it do
+      id = described_class.create(
+        attributes: pizza_attributes,
+        domain_module: DOMAIN.domain_modules[:Pizzas]
+      ).id
+
+      result = described_class.delete(id)
+      expect(described_class.read(id)).to be nil
+    end
+  end
+
   describe '#create' do
     it do
       result = described_class.create(

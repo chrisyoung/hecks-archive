@@ -8,19 +8,19 @@ module PizzaBuilder
         end
 
         def self.update attributes
-          Commands::Update.new(
-            attributes: attributes,
-            head: DOMAIN.domain_modules[:Pizzas].head
-          ).call
+          head = DOMAIN.domain_modules[:Pizzas].head
+          Commands::Update.new(attributes: attributes, head: head).call
         end
 
         def self.read id
-          value = Commands::Read.new(id, DOMAIN.domain_modules[:Pizzas].head).call
-          Pizza.new(value)
+          head = DOMAIN.domain_modules[:Pizzas].head
+          record = Commands::Read.new(id, head).call
+          Pizza.new(record) if record
         end
 
         def self.delete id
-          Pizza.find(id).destroy
+          head = DOMAIN.domain_modules[:Pizzas].head
+          Commands::Delete.new(id: id, head: head).call
         end
 
         def self.delete_all

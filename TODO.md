@@ -12,6 +12,7 @@
 * Finish linux package
 * use a query to get back unique pizza toppings
 * Only offer to generate domain migrations if in sqlserver adapter folder
+* Stop redeclaring DOMAIN constant
 
 ## Posters
   * DynoDB Database Generator
