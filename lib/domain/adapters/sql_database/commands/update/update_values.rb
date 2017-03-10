@@ -3,47 +3,49 @@ module Hecks
     module Adapters
       module SQLDatabase
         module Commands
-          class UpdateValues
-            def initialize(references, attributes, table)
-              @references = references
-              @attributes = attributes
-              @reference_ids = {}
-              @table = table
-            end
-
-            def call
-              @references.each do |reference|
-                create_new_value(reference)
-                delete_old_references(reference)
-                link_to_new_values(reference)
+          class Update
+            class UpdateValues
+              def initialize(references, attributes, table)
+                @references = references
+                @attributes = attributes
+                @reference_ids = {}
+                @table = table
               end
-            end
 
-            private
+              def call
+                @references.each do |reference|
+                  create_new_value(reference)
+                  delete_old_references(reference)
+                  link_to_new_values(reference)
+                end
+              end
 
-            def create_new_value(reference)
-              @reference_ids = CreateNewValue.new(
-                reference: reference,
-                attributes: @attributes,
-                reference_ids: @reference_ids
-              ).call.reference_ids
-            end
+              private
 
-            def delete_old_references(reference)
-              @attributes = DeleteReferences.new(
-                reference: reference,
-                table: @table,
-                attributes: @attributes
-              ).call.attributes
-            end
+              def create_new_value(reference)
+                @reference_ids = CreateNewValue.new(
+                  reference: reference,
+                  attributes: @attributes,
+                  reference_ids: @reference_ids
+                ).call.reference_ids
+              end
 
-            def link_to_new_values(reference)
-              LinkToReferences.new(
-                reference: reference,
-                table: @table,
-                reference_ids: @reference_ids,
-                attributes: @attributes
-              ).call
+              def delete_old_references(reference)
+                @attributes = DeleteReferences.new(
+                  reference: reference,
+                  table: @table,
+                  attributes: @attributes
+                ).call.attributes
+              end
+
+              def link_to_new_values(reference)
+                LinkToReferences.new(
+                  reference: reference,
+                  table: @table,
+                  reference_ids: @reference_ids,
+                  attributes: @attributes
+                ).call
+              end
             end
           end
         end

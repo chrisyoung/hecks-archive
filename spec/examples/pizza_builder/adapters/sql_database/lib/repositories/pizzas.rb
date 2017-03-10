@@ -15,7 +15,8 @@ module PizzaBuilder
         end
 
         def self.read id
-          Pizza.new Commands::Read.new(id).call
+          value = Commands::Read.new(id, DOMAIN.domain_modules[:Pizzas].head).call
+          Pizza.new(value)
         end
 
         def self.delete id
