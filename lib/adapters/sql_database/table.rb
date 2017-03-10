@@ -32,10 +32,6 @@ module Hecks
           columns.select(&:reference?)
         end
 
-        def link_table_name(attribute)
-          "#{name}_#{attribute.name.pluralize.downcase}".to_sym
-        end
-
         def name
           @name.pluralize.underscore
         end

@@ -11,7 +11,7 @@ module Hecks
               @attributes = attributes
               @reference = reference
               @where_clause = {}
-              @dataset = DB[@table.link_table_name(@reference)]
+              @dataset = DB[JoinTable.new(@table, @reference).name.to_sym]
             end
 
             def call
@@ -24,7 +24,7 @@ module Hecks
             private
 
             def build_where_clause
-              DB[@table.link_table_name(@reference)]
+              DB[JoinTable.new(@table, @reference).name.to_sym]
             end
 
             def remove_references_from_attributes

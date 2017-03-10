@@ -42,7 +42,7 @@ module Hecks
 
               @reference_map[column.name.to_sym] ||= []
 
-              DB[@table.link_table_name(reference).to_sym].where(where_clause).map do |record|
+              DB[JoinTable.new(@table, reference).name.to_sym].where(where_clause).map do |record|
                 value_object = DB[column.to_table_name].first(id: record[column.to_foreign_key])
                 value_object.delete(:id)
                 @reference_map[column.name.to_sym] << value_object

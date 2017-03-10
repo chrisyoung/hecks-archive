@@ -27,7 +27,7 @@ module Hecks
               @reference_ids[@reference.name.to_sym].each do |value|
                 @record[@column.to_foreign_key] = value
                 @record[@table.to_foreign_key] = @attributes[:id]
-                DB[@table.link_table_name(@reference)].insert(@record)
+                DB[JoinTable.new(@table, @reference).name.to_sym].insert(@record)
               end
             end
 
