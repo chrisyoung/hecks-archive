@@ -15,7 +15,7 @@ module Hecks
             end
 
             def call
-              build_where_clause
+              # build_where_clause
               delete_references
               remove_references_from_attributes
               self

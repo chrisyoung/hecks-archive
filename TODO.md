@@ -2,6 +2,9 @@
 
 ## In Progress
 * generate sql database to inject with Lambda
+  * Rewrite create command to be more like update
+  * get rid of link_table_name and use LinkTable class instead
+  * fix DeleteReferences#where_clause ... Not doing anything currently :(
 
 ## Current Sprint
 * Deploy to Lambda
