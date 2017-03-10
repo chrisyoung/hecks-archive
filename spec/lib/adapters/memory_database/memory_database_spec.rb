@@ -21,7 +21,7 @@ describe Hecks::Adapters::MemoryDatabase do
       database: described_class
     )
 
-    expect(PizzaBuilder::Domain::Pizzas::Repository).to receive(:create)
+    expect(PizzaBuilder::Domain::Pizzas::Repository).to receive(:create).and_return(Struct.new(:id).new(1))
     app[:pizzas].create(pizza_attributes)
   end
 end

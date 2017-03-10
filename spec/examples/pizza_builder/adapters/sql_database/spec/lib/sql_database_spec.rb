@@ -24,13 +24,13 @@ describe PizzaBuilder::Adapters::SQLDatabase do
 
       it '#read' do
         id = app[:Pizzas].create(pizza_attributes).id
-        expect(app[:Pizzas].read(id).name).to eq(pizza_attributes[:name])
+        expect(app[:Pizzas].read(id).name).to eq('White Pizza')
       end
 
       it '#update' do
         id = app[:Pizzas].create(pizza_attributes).id
         app[:Pizzas].update(id, new_attributes)
-        expect(app[:Pizzas].read(id).name).to eq(new_attributes[:name])
+        expect(app[:Pizzas].read(id).name).to eq('ComeAgainPizza')
       end
 
       it '#delete' do
