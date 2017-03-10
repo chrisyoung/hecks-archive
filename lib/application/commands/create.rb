@@ -5,7 +5,7 @@ module Hecks
       class Create
         attr_accessor :args, :id, :errors, :repository, :domain_module
 
-        def initialize(args:, repository: , domain_module: )
+        def initialize(args:, repository:, domain_module: )
           @repository      = repository
           @args            = args
           @errors          = {}

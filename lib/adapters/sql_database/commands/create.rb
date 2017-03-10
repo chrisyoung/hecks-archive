@@ -8,10 +8,10 @@ module Hecks
         class Create
           attr_reader :id
 
-          def initialize(attributes:, domain_module:)
+          def initialize(attributes:, head:)
             @attributes = attributes
             @reference_ids = {}
-            @head = domain_module.head
+            @head = head
             @references = @head.references
             @table = Table.factory([@head]).first
           end
