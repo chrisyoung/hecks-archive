@@ -32,6 +32,12 @@ describe PizzaBuilder::Adapters::SQLDatabase do
         app[:Pizzas].update(id, new_attributes)
         expect(app[:Pizzas].read(id).name).to eq(new_attributes[:name])
       end
+
+      it '#delete' do
+        id = app[:Pizzas].create(pizza_attributes).id
+        app[:Pizzas].delete(id)
+        expect(app[:Pizzas].read(id)).to be_nil
+      end
     end
   end
 end
