@@ -23,19 +23,6 @@ module Hecks
             def fetch_entity
               @entity = DB[@table.name.to_sym].first(id: @id)
             end
-
-            def fetch_chef
-              @chef = DB[:chefs].first(id: @pizza.delete(:chef_id))
-              @chef.delete(:id)
-            end
-
-            def fetch_toppings
-              @toppings = DB[:pizzas_toppings].where(pizza_id: @id).map do |pizza_topping|
-                topping = DB[:toppings].first(id: pizza_topping[:topping_id])
-                topping.delete(:id)
-                topping
-              end
-            end
           end
         end
       end
