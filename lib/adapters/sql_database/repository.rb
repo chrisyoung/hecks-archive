@@ -16,7 +16,8 @@ module Hecks
         end
 
         def read id
-          domain_object.new(Commands::Read.new(id, @head).call) if record
+          record = Commands::Read.new(id, @head).call
+          domain_object.new(record) if record
         end
 
         def delete id

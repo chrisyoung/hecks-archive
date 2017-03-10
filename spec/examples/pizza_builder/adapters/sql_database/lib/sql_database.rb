@@ -4,7 +4,6 @@ require 'pry'
 require 'sequel'
 require 'hecks'
 
-require_relative 'repositories/repositories'
 require_relative '../../../lib/pizza_builder'
 
 load '../../Domain'
