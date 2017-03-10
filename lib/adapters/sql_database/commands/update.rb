@@ -13,7 +13,6 @@ module Hecks
             @attributes = attributes.clone
             @references = head.references
             @head_table = Table.factory([head]).first
-            @head_dataset = DB[@head_table.name.to_sym]
           end
 
           def call
@@ -36,7 +35,7 @@ module Hecks
           end
 
           def fetch_record
-            @record = @head_dataset.where(id: @attributes.delete(:id))
+            @record = DB[@head_table.name.to_sym].where(id: @attributes.delete(:id))
           end
         end
       end
