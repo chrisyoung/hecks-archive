@@ -1,6 +1,6 @@
 module PizzaBuilder
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       module Repositories
         class PizzasToppings
           def self.create attributes = {}

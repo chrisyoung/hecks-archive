@@ -5,7 +5,7 @@ require_relative 'column'
 
 module Hecks
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       class Schema
         attr_reader :tables
         def self.factory(domain_spec)

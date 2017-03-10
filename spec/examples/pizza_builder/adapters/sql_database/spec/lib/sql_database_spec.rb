@@ -1,18 +1,18 @@
 describe PizzaBuilder::Adapters::SQLDatabase do
-  # let(:pizza_attributes) do
-  #   {
-  #     name: 'White Pizza',
-  #     description: 'white sauce and chicken',
-  #     toppings: [{ name: 'chicken' }]
-  #   }
-  # end
-  #
-  # it do
-  #   application = Hecks::Application.new(
-  #     domain: PizzaBuilder,
-  #     database: described_class
-  #   )
-  #
-  #   expect(application[:pizzas].create(pizza_attributes).id).to eq 1
-  # end
+
+  let(:pizza_attributes) do
+    {
+      name: 'White Pizza',
+      chef: {name: "Belleboche"},
+      description: 'white sauce and chicken',
+      toppings: [{ name: 'chicken' }]
+    }
+  end
+
+  it do
+    Hecks::Application.new(
+      domain: PizzaBuilder,
+      database: PizzaBuilder::Adapters::SQLDatabase
+    )[:Pizzas].create(pizza_attributes)
+  end
 end

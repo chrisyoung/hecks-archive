@@ -1,6 +1,6 @@
 module Hecks
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       module Commands
         class Update
           class CreateNewValue

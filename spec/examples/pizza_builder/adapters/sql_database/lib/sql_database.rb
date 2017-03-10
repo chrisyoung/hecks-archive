@@ -13,7 +13,15 @@ DB = Sequel.connect(ENV["DATABASE_URL"])
 
 module PizzaBuilder
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
+      def initialize(domain:)
+        @domain = domain
+      end
+
+      def [](value)
+        PizzaBuilder::Domain::Pizzas::SQLRepository
+      end
+
     end
   end
 end

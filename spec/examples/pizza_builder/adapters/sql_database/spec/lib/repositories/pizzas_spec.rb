@@ -10,11 +10,7 @@ describe PizzaBuilder::Domain::Pizzas::SQLRepository do
 
   describe '#delete' do
     it do
-      id = described_class.create(
-        attributes: pizza_attributes,
-        domain_module: DOMAIN.domain_modules[:Pizzas]
-      ).id
-
+      id = described_class.create(pizza_attributes).id
       result = described_class.delete(id)
       expect(described_class.read(id)).to be nil
     end
@@ -22,21 +18,14 @@ describe PizzaBuilder::Domain::Pizzas::SQLRepository do
 
   describe '#create' do
     it do
-      result = described_class.create(
-        attributes: pizza_attributes,
-        domain_module: DOMAIN.domain_modules[:Pizzas]
-      )
-
+      result = described_class.create(pizza_attributes)
       expect(result.id).to_not be_nil
     end
   end
 
   describe '#read' do
     it do
-      result = described_class.create(
-        attributes: pizza_attributes,
-        domain_module: DOMAIN.domain_modules[:Pizzas]
-      )
+      result = described_class.create(pizza_attributes)
 
       pizza = described_class.read(result.id)
       expect(pizza.id).to eq result.id
@@ -44,18 +33,16 @@ describe PizzaBuilder::Domain::Pizzas::SQLRepository do
   end
 
   describe '#update' do
-    it do
-      create_result = described_class.create(
-        attributes: pizza_attributes,
-        domain_module: DOMAIN.domain_modules[:Pizzas]
-      )
+    it 'updates fields' do
+      create_result = described_class.create(pizza_attributes)
 
       update_result = described_class.update(
         pizza_attributes.merge(
           id: create_result.id,
           name: "Belleboche Redux",
-          toppings: [{name: "Sausage"}],
-          chef: {name: "Kathy Griffen"})
+          toppings: [{ name: "Sausage" }],
+          chef: { name: "Kathy Griffen" }
+        )
       )
 
       pizza = described_class.read(create_result.id)

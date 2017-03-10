@@ -24,6 +24,11 @@ module Hecks
         @domain.domain_modules
       end
 
+      def [](module_name)
+        domain_modules[module_name]
+      end
+
+
       def self.build(domain_name, &block)
         new(domain_name: domain_name, &block)
       end

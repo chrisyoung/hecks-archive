@@ -1,6 +1,6 @@
 module Hecks
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       class JoinTable
         def initialize(table, column)
           @table = table

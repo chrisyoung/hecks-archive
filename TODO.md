@@ -2,8 +2,6 @@
 
 ## In Progress
 * generate sql database to inject with Lambda
-  * Rewrite create command to be more like update
-  * Delete command
   * fix DeleteReferences#where_clause ... Not doing anything currently :(
 
 ## Current Sprint

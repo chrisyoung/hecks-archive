@@ -5,7 +5,7 @@ require_relative 'update/delete_references'
 
 module Hecks
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       module Commands
         class Update
           attr_reader :id

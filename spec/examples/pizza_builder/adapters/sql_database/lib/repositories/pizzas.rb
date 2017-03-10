@@ -3,28 +3,27 @@ module PizzaBuilder
   module Domain
     module Pizzas
       class SQLRepository
-        def self.create attributes = {}
-          Commands::Create.new(attributes).call
+        def self.create attributes
+          Commands::Create.new(
+            attributes: attributes,
+            domain_module: DOMAIN[:Pizzas]
+          ).call
         end
 
         def self.update attributes
-          head = DOMAIN.domain_modules[:Pizzas].head
+          head = DOMAIN[:Pizzas].head
           Commands::Update.new(attributes: attributes, head: head).call
         end
 
         def self.read id
-          head = DOMAIN.domain_modules[:Pizzas].head
+          head = DOMAIN[:Pizzas].head
           record = Commands::Read.new(id, head).call
           Pizza.new(record) if record
         end
 
         def self.delete id
-          head = DOMAIN.domain_modules[:Pizzas].head
+          head = DOMAIN[:Pizzas].head
           Commands::Delete.new(id: id, head: head).call
-        end
-
-        def self.delete_all
-          # Not implemented
         end
       end
     end

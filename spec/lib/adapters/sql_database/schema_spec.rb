@@ -1,4 +1,4 @@
-module Hecks::Adapters::SQLDatabase
+class Hecks::Adapters::SQLDatabase
   describe Schema do
     let(:spec) {
       Hecks::Domain::DomainBuilder.build "pizza_builder" do |pizza_builder|

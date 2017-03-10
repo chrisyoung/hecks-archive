@@ -1,6 +1,6 @@
 module Hecks
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       class SchemaFactory
         def initialize(domain_spec)
           @domain_spec = domain_spec

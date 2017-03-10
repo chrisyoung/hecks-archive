@@ -1,6 +1,6 @@
 module <%= domain_module_name %>
   module Adapters
-    module SQLDatabase
+    class SQLDatabase
       module Repositories
         class <%= class_name %>
           def self.create attributes = {}

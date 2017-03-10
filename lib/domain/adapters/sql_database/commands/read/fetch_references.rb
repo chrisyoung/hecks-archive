@@ -1,7 +1,7 @@
 module Hecks
   module Domain
     module Adapters
-      module SQLDatabase
+      class SQLDatabase
         module Commands
           class Read
             class FetchReferences
