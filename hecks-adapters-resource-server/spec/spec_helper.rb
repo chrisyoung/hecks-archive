@@ -3,7 +3,7 @@ require 'simplecov'
 
 require_relative '../../hecks-examples/pizza_builder/lib/pizza_builder'
 require_relative 'sinatra_helper'
-require_relative '../lib/resource_server'
+require_relative '../lib/hecks-adapters-resource-server'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

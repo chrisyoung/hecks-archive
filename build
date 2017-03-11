@@ -1,4 +1,4 @@
-cd ../hecks-domain
+cd hecks-domain
 gem build hecks-domain
 gem install hecks-domain
 
@@ -17,3 +17,11 @@ gem install hecks-packager
 cd ../hecks
 gem build hecks
 gem install hecks
+
+cd ../hecks-adapters-sql-database
+gem build hecks-adapters-sql-database
+gem install hecks-adapters-sql-database
+
+cd ../hecks-adapters-resource-server
+gem build hecks-adapters-resource-server
+gem install hecks-adapters-resource-server

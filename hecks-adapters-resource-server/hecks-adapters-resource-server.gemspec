@@ -1,6 +1,6 @@
 require 'Date'
 Gem::Specification.new do |s|
-  s.name        = 'hecks-domain'
+  s.name        = 'hecks-adapters-resource-server'
   s.homepage    = "https://github.com/chrisyoung/hecks-domain"
   s.version     = File.read("Version").gsub("\n", '')
   s.date        = Date.today
@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
-  s.add_runtime_dependency 'hecks-adatpers-sql-database'
   # s.add_runtime_dependency 'activesupport', "~>5.0"
   # s.add_runtime_dependency 'thor', "~>0.19"
   #

@@ -4,7 +4,7 @@ require 'simplecov'
 require 'pry'
 require 'hecks'
 load('../hecks-examples/pizza_builder/Domain')
-require_relative '../lib/domain'
+require_relative '../lib/hecks-domain'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

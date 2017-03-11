@@ -1,5 +1,5 @@
 require 'sequel'
-require 'hecks'
+require 'hecks-application'
 
 require_relative 'column'
 require_relative 'join_table'

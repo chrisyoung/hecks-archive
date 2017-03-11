@@ -2,7 +2,7 @@
 
 require 'simplecov'
 require_relative '../../hecks-examples/pizza_builder/lib/pizza_builder'
-require_relative '../lib/application.rb'
+require_relative '../lib/hecks-application.rb'
 load('../hecks-examples/pizza_builder/Domain')
 
 RSpec.configure do |config|

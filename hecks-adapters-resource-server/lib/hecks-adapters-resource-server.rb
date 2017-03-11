@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-require 'hecks'
 require 'sinatra'
+require 'hecks-application'
 require 'json'
 require_relative 'methods'
 
