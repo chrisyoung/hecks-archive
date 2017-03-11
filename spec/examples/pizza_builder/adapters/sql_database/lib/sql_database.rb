@@ -1,6 +1,0 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'sequel'
-require 'hecks'
-require_relative '../../../lib/pizza_builder'
-load '../../Domain'
