@@ -8,15 +8,15 @@ model to represent the Ubiquitous language of your business.  Hecks provides the
 tools to iteratively generate this domain as code
 
 # Why the hecks?
-* You want your code to match the expectations of the business
-* You want to eliminate head-gap
 * You want to go fast
+* You want your code to match the language of your business
+* You want to eliminate head-gap across all departments
 * You want to Deliver your product continuously
 * You want to build scalable software
-* You want your code to get better as you use it
+* You want your code to get better over time
 * You want your tests to be fast and clear
 * You want to stop writing boilerplate
-* You want to be able to easily deploy solutions
+* You want to be able to easily deploy solutions across multiple technologies
 * You want to have great documentation but remain agile
 * You want a framework that is easy to build microservices with
 * You want to stop bleeding Business Logic across boundaries
@@ -25,15 +25,20 @@ tools to iteratively generate this domain as code
 * You want documentation that works for all departments
 
 # How the Hecks?
-* Iteratively Develop and Generate a Domain Model
+Rigorously develop the model of the language of your businiess
+* Iteratively Develop a Domain Model
 * Write or use existing Hecks::Adapters to cover technical use cases like
 "Adapters::HTTPResourceServer" and "Package::Lambda"
 * Use the adapters to accomplish Business use cases
 * Verify, Deliver, and Iterate
 
 ## Usage
-**Install Hecks, build a PizzaBuilder Domain, and run an HTTP Resource
-Server.**
+Story: As a client, I should be able to create a Pizza over http
+Tasks:
+	* Install Hecks
+	* Build a PizzaBuilder Domain,
+	* Generate configuration
+	* Run the HTTP Resource Server
 
 ### Install
 Install Hecks using Ruby Gems
@@ -123,7 +128,7 @@ See it work locally
 	$ serverless invoke local -f hello /
 		-d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
-## Note: Ruby on Rails
+## Note: On Ruby on Rails
 Hecks actually started as a way to introduce Domain Driven Design into Rails,
 but there's no need to mix the concepts.  Just import PizzaBuilder and
 Hecks::Application into your Rails project and use them as you see fit.  

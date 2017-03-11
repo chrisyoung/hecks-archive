@@ -13,6 +13,7 @@
   * clarify ambiguity between the domain builder and the domain objects Ruby modules
   * run with --no-cache if first time building binary package
   * Rename ResourceServer to HTTPResourceServer
+  * Git Ignore all the gem files
 
 ## Posters
   * DynoDB Database Generator
