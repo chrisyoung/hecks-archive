@@ -47,10 +47,21 @@ Add a Domain file to your project that formally describes the model you want to 
 Generate the domain model
 	$ hecks new
 
-Hecks generates the Objects that you'll use to interact with the domain.
+Hecks generates the Objects that you'll use to interact with the domain, such as:
+
+	PizzaBuilder::Domain::Pizzas::Pizza
+	PizzaBuilder::Domain::Pizzas::Topping
+	PizzaBuilder::Domain::Pizzas::Chef
 
 ### HTTPResourceServer
-Run a web server gives access to Pizzas and Orders over HTTP.  Expect to have routes to CRUD methods for all of your Domain Modules.
+Run a web server that gives access to Pizzas and Orders over HTTP.  Expect to have routes to CRUD methods for all of your Domain Modules, such as:
+
+	PUT /pizzas
+	POST /pizzas
+	UPDATE /pizzas/1
+	GET /pizzas/1
+
+These methods are also available on the Orders Domain Module
 
 Generate the resource server configuration
 	$ hecks generate:resource_server
@@ -58,17 +69,13 @@ Generate the resource server configuration
 Start a rackup web server
 	$ rackup config.ru
 
-POST /pizzas
+Use curl to create a pizza
 	$ curl -H "Content-Type: application/json" -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' localhost:9292/pizzas
-
-/pizzas and /orders support POST for creates, PUT for updates, Get for reads, and Delete for destroys
 
 ### Command Line
 The command line adapter is currently implemented as a 2.2.2 traveling ruby package.  Hecks provides the means to build that package.
 
 	$ hecks package binary
-	$ cd packages/binary/build/osx/app/
-	$ bundle
 	$ pizza_builder 'module: {'pizzas', args: {...}}'
 
 ### Ruby Console
