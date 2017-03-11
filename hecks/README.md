@@ -1,15 +1,25 @@
 [![Code Climate](https://codeclimate.com/github/chrisyoung/hecks/badges/gpa.svg)](https://codeclimate.com/github/chrisyoung/hecks)[ ![Test Coverage](https://codeclimate.com/github/chrisyoung/hecks/badges/coverage.svg)](https://codeclimate.com/github/chrisyoung/hecks/coverage) [![Gem Version](https://badge.fury.io/rb/hecks.svg)](https://badge.fury.io/rb/hecks)
 
-# Hecks
+# What the Hecks?
 **Use Hecks to build scalable software that matches the language of your business.**
 
-Hecks standardizes the creation of domains in code so that generalized solutions can be developed to adapt to both drive and receive data from business domains.  Hecks describes domains using a small subset of the patterns described in the blue book.
+* Iteratively Develop and Generate a Domain Model
+* Write OO adapters to common technical use cases like "HTTPResourceServer"
+* Use the adapters to accomplish Business use cases
+* Verify, Deliver, and Iterate
 
 ## Usage
-PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll use PizzaBuilder as an example for building a domain model standing up a resource server.
+We'll generate the PizzaBuilder domain.
+
+PizzaBuilder is a ridiculously simplified domain model that Hecks uses as an example Domain across the documentation and tests.
+
+We'll use PizzaBuilder as an example for building a domain model and running an HTTP resource server.
 
 ### Install
+Install Hecks using Ruby Gems
 	$ gem install hecks
+
+Verify the installation
 	$ hecks help
 
 	hecks commands:
@@ -20,6 +30,8 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	hecks package         # package
 
 ### Create a Domain file in an empty project directory:
+Add a Domain file to your project that formally describes the model you want to build.
+
 	Hecks::Domain::DomainBuilder.build "pizza_builder" do |pizza_builder|
 		pizza_builder.module 'Pizzas' do |pizzas|
 		  pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[topping]')
@@ -32,15 +44,24 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 		end
 	end
 
-Now just run this command in the same directory as the Domain file
+Generate the domain model
 	$ hecks new
 
-You should see a bunch of output as hecks builds the Objects that you'll use to interact with the domain.
+Hecks generates the Objects that you'll use to interact with the domain.
 
-### Resource Server
+### HTTPResourceServer
+Run a web server gives access to Pizzas and Orders over HTTP.  Expect to have routes to CRUD methods for all of your Domain Modules.
+
+Generate the resource server configuration
 	$ hecks generate:resource_server
+
+Start a rackup web server
 	$ rackup config.ru
+
+POST /pizzas
 	$ curl -H "Content-Type: application/json" -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' localhost:9292/pizzas
+
+/pizzas and /orders support POST for creates, PUT for updates, Get for reads, and Delete for destroys
 
 ### Command Line
 The command line adapter is currently implemented as a 2.2.2 traveling ruby package.  Hecks provides the means to build that package.

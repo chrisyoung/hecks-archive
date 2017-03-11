@@ -1,6 +1,7 @@
 # Hecks 0.10
 
 ## In Progress
+  * finish moving hecks-adapters
   * fix DeleteReferences#where_clause ... Not doing anything currently :(
 
 ## Current Sprint
@@ -9,8 +10,9 @@
   * Finish linux package
   * use a query to get back unique pizza toppings
   * Only offer to generate domain migrations if in sqldatabase adapter folder
-  * clarify ambiguity between the domain builder and the domain objects
+  * clarify ambiguity between the domain builder and the domain objects Ruby modules
   * run with --no-cache if first time building binary package
+  * Rename ResourceServer to HTTPResourceServer
 
 ## Posters
   * DynoDB Database Generator
@@ -48,13 +50,6 @@
   * Set up stats module to count lines of code
   * Use a struct for value objects
   * pizza_builder binary should be outside of lib
-
-## Break out projects
-  * move code hecks_cli project
-  * move code hecks_domain_builder project
-  * move code hecks_console project
-  * move code hecks_application
-  * consider hecks_examples project
 
 ## Default Validator
   * Handle optional fields

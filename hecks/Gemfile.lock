@@ -3,6 +3,7 @@ PATH
   specs:
     hecks (0.0.10)
       activesupport (~> 5.0)
+      hecks-adapters
       hecks-application
       hecks-cli
       hecks-domain
@@ -39,6 +40,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hecks-adapters (0.0.1)
     hecks-application (0.0.1)
     hecks-cli (0.0.1)
     hecks-domain (0.0.1)
