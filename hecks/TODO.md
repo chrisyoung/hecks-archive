@@ -1,8 +1,7 @@
 # Hecks 0.10
 
 ## In Progress
-  * finish moving hecks-adapters
-  * fix DeleteReferences#where_clause ... Not doing anything currently :(
+  * Add a -d for database option when generating a resource server and lambda package
 
 ## Current Sprint
   * Truncate test database between runs
@@ -23,6 +22,7 @@
   * Open source license
 
 ## Bugs
+  * Fix DeleteReferences#where_clause ... Not doing anything currently :(
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
 
 ## Next Actions
