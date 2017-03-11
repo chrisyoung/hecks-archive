@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'active_support/inflector'
+require 'hecks-packager'
 require_relative 'generate'
 require_relative 'package'
 require_relative 'test'

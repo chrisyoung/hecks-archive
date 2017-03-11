@@ -11,6 +11,10 @@ Gem::Specification.new do |s|
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
+  s.add_runtime_dependency 'hecks-application'
+  s.add_runtime_dependency 'hecks-domain'
+  s.add_runtime_dependency 'hecks-cli'
+  s.add_runtime_dependency 'hecks-packager'
   s.add_runtime_dependency 'activesupport', "~>5.0"
   s.add_runtime_dependency 'thor', "~>0.19"
 

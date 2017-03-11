@@ -1,4 +1,6 @@
 # frozen_string_literal: true
-require_relative '../../hecks-application/lib/application'
-require_relative '../../hecks-domain/lib/domain'
+require 'hecks-application'
+require 'hecks-domain'
+require 'hecks-cli'
+require 'hecks-packager'
 require_relative 'adapters/adapters'
