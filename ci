@@ -1,25 +1,27 @@
 bash build
 
 echo "Hecks Domain"
-cd hecks-domain && gem push
+cd hecks-domain && rspec
 
 echo "Hecks CLI"
-cd ../hecks-cli && gem push
+cd ../hecks-cli && rspec
 
 echo "Hecks Application"
-cd ../hecks-application && gem push
+cd ../hecks-application && rspec
 
 echo "Hecks Packager"
-cd ../hecks-packager && gem push
+cd ../hecks-packager && rspec
 
 echo "Hecks"
-cd ../hecks && gem push
-
-echo "Hecks Adapters"
-cd ../hecks-adapters && gem push
+cd ../hecks && rspec
 
 echo "Hecks SQL Database Adapter"
-cd ../hecks-adapters-sql-database && gem push
+cd ../hecks-adapters-sql-database && rspec
 
 echo "Hecks SQL Resource Server Adapter"
-cd ../hecks-adapters-resource-server && gem push
+cd ../hecks-adapters-resource-server && rspec
+
+echo "Hecks Adapters"
+cd ../hecks-adapters && rspec
+
+cd ../hecks && bundle exec hecks test ci
