@@ -71,6 +71,7 @@ CLI	hecks/lib/cli/console.rb	/^  class CLI < Thor$/;"	c	class:Hecks
 CLI	hecks/lib/packager/generate_binary_package.rb	/^    module CLI$/;"	m	class:Hecks.Packager
 CLI	hecks/lib/packager/generate_lambda_package.rb	/^    module CLI$/;"	m	class:Hecks.Packager
 CRUDHandler	hecks-application/lib/commands/crud_handler.rb	/^      class CRUDHandler$/;"	c	class:Hecks.Application.Commands
+Chef	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^      class Chef$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Chef	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^      class Chef$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Column	hecks-adapters/hecks-adapters-sql-database/lib/column.rb	/^      class Column$/;"	c	class:Hecks.Adapters.SQLDatabase
 CommandBuilder	hecks-domain/lib/cli/builder/aggregate_command_line_builder.rb	/^      class CommandBuilder$/;"	c	class:Hecks.Domain.CLI
@@ -134,6 +135,16 @@ Domain	hecks-domain/lib/domain_builder/domain_object.rb	/^  module Domain$/;"	m	
 Domain	hecks-domain/lib/domain_builder/head.rb	/^  module Domain$/;"	m	class:Hecks
 Domain	hecks-domain/lib/domain_builder/reference.rb	/^  module Domain$/;"	m	class:Hecks
 Domain	hecks-domain/lib/domain_builder/value.rb	/^  module Domain$/;"	m	class:Hecks
+Domain	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Orders/Order.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Orders/Orders.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^  module Domain$/;"	m	class:PizzaBuilder
+Domain	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^  module Domain$/;"	m	class:PizzaBuilder
 Domain	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^  module Domain$/;"	m	class:PizzaBuilder
 Domain	spec/hecks/examples/pizza_builder/lib/domain/Orders/Order.rb	/^  module Domain$/;"	m	class:PizzaBuilder
 Domain	spec/hecks/examples/pizza_builder/lib/domain/Orders/Orders.rb	/^  module Domain$/;"	m	class:PizzaBuilder
@@ -208,6 +219,7 @@ Hecks	hecks-application/lib/hecks-application.rb	/^module Hecks$/;"	m
 Hecks	hecks-application/lib/queries/find_by_id.rb	/^module Hecks$/;"	m
 Hecks	hecks-application/lib/queries/query_runner.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^module Hecks$/;"	m
+Hecks	hecks-domain/lib/adapters/resource_server/resource_server.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/adapters/sql_database/cli/generate_domain_migrations.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/adapters/sql_database/cli/migration_builder.rb	/^module Hecks$/;"	m
@@ -240,6 +252,7 @@ Hecks	hecks/lib/packager/generate_lambda_package.rb	/^module Hecks$/;"	m
 Hecks	spec/hecks-adapters/hecks-adapters-sql-database/lib/adapters/sql_database/schema_spec.rb	/^class Hecks::Adapters::SQLDatabase$/;"	c
 Hecks	spec/hecks/integration/pizza_builder_spec.rb	/^class Hecks::Application$/;"	c
 JoinTable	hecks-adapters/hecks-adapters-sql-database/lib/join_table.rb	/^      class JoinTable$/;"	c	class:Hecks.Adapters.SQLDatabase
+LineItem	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^      class LineItem$/;"	c	class:PizzaBuilder.Domain.Orders
 LineItem	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^      class LineItem$/;"	c	class:PizzaBuilder.Domain.Orders
 LinkToReferences	hecks-adapters/hecks-adapters-sql-database/lib/commands/update/link_to_references.rb	/^          class LinkToReferences$/;"	c	class:Hecks.Adapters.SQLDatabase.Commands.Update
 LinkToReferences	hecks-domain/lib/adapters/sql_database/commands/update/link_to_references.rb	/^            class LinkToReferences$/;"	c	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Update
@@ -253,7 +266,13 @@ Methods	hecks-adapters/hecks-adapters-resource-server/lib/methods/update.rb	/^  
 MigrationBuilder	hecks-domain/lib/adapters/sql_database/cli/migration_builder.rb	/^          class MigrationBuilder$/;"	c	class:Hecks.Domain.Adapters.SQLDatabase.CLI
 New	hecks-domain/lib/cli/new.rb	/^      class New < Thor::Group$/;"	c	class:Hecks.Domain.CLI
 OptionFormatter	hecks-domain/lib/cli/domain_object/option_formatter.rb	/^        class OptionFormatter$/;"	c	class:Hecks.Domain.CLI.GenerateDomainObject
+Order	hecks-examples/pizza_builder/lib/domain/Orders/Order.rb	/^      class Order$/;"	c	class:PizzaBuilder.Domain.Orders
 Order	spec/hecks/examples/pizza_builder/lib/domain/Orders/Order.rb	/^      class Order$/;"	c	class:PizzaBuilder.Domain.Orders
+Orders	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
+Orders	hecks-examples/pizza_builder/lib/domain/Orders/Order.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
+Orders	hecks-examples/pizza_builder/lib/domain/Orders/Orders.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
+Orders	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
+Orders	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
 Orders	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
 Orders	spec/hecks/examples/pizza_builder/lib/domain/Orders/Order.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
 Orders	spec/hecks/examples/pizza_builder/lib/domain/Orders/Orders.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
@@ -262,7 +281,19 @@ Orders	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^    m
 Package	hecks/lib/cli/package.rb	/^class Package < Thor$/;"	c
 Packager	hecks/lib/packager/generate_binary_package.rb	/^  module Packager$/;"	m	class:Hecks
 Packager	hecks/lib/packager/generate_lambda_package.rb	/^  module Packager$/;"	m	class:Hecks
+Pizza	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^      class Pizza$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Pizza	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^      class Pizza$/;"	c	class:PizzaBuilder.Domain.Pizzas
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Orders/Order.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Orders/Orders.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^module PizzaBuilder$/;"	m
+PizzaBuilder	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^module PizzaBuilder$/;"	m
 PizzaBuilder	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^module PizzaBuilder$/;"	m
 PizzaBuilder	spec/hecks/examples/pizza_builder/lib/domain/Orders/Order.rb	/^module PizzaBuilder$/;"	m
 PizzaBuilder	spec/hecks/examples/pizza_builder/lib/domain/Orders/Orders.rb	/^module PizzaBuilder$/;"	m
@@ -274,8 +305,14 @@ PizzaBuilder	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^mod
 PizzaBuilder	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^module PizzaBuilder$/;"	m
 PizzaBuilder	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^module PizzaBuilder$/;"	m
 PizzaBuilder	spec/hecks/examples/pizza_builder/lib/pizza_builder.rb	/^module PizzaBuilder$/;"	m
+PizzaReference	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^      class PizzaReference$/;"	c	class:PizzaBuilder.Domain.Orders
 PizzaReference	spec/hecks/examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^      class PizzaReference$/;"	c	class:PizzaBuilder.Domain.Orders
 PizzaServerHexagonMixin	spec/rack_test_helper.rb	/^module PizzaServerHexagonMixin$/;"	m
+Pizzas	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
+Pizzas	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
+Pizzas	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
+Pizzas	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
+Pizzas	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
 Pizzas	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
 Pizzas	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
 Pizzas	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
@@ -283,7 +320,7 @@ Pizzas	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^    modu
 Pizzas	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^    module Pizzas$/;"	m	class:PizzaBuilder.Domain
 Queries	hecks-application/lib/queries/find_by_id.rb	/^    module Queries$/;"	m	class:Hecks.Application
 QueryRunner	hecks-application/lib/queries/query_runner.rb	/^    class QueryRunner$/;"	c	class:Hecks.Application
-RSpecMixin	spec/hecks-adapters/hecks-adapters-resource-server/sinatra_helper.rb	/^module RSpecMixin$/;"	m
+RSpecMixin	spec/sinatra_helper.rb	/^module RSpecMixin$/;"	m
 Read	hecks-adapters/hecks-adapters-resource-server/lib/methods/read.rb	/^        class Read$/;"	c	class:Hecks.Adapters.ResourceServer.Methods
 Read	hecks-adapters/hecks-adapters-sql-database/lib/commands/read.rb	/^        class Read$/;"	c	class:Hecks.Adapters.SQLDatabase.Commands
 Read	hecks-adapters/hecks-adapters-sql-database/lib/commands/read/fetch_references.rb	/^        class Read$/;"	c	class:Hecks.Adapters.SQLDatabase.Commands
@@ -291,6 +328,8 @@ Read	hecks-domain/lib/adapters/sql_database/commands/read/fetch_references.rb	/^
 Reference	hecks-domain/lib/domain_builder/reference.rb	/^      class Reference$/;"	c	class:Hecks.Domain.DomainBuilder
 ReferenceCommandLineBuilder	hecks-domain/lib/cli/builder/reference_command_line_builder.rb	/^        module ReferenceCommandLineBuilder$/;"	m	class:Hecks.Domain.CLI.CommandBuilder
 Repository	hecks-adapters/hecks-adapters-sql-database/lib/repository.rb	/^      class Repository$/;"	c	class:Hecks.Adapters.SQLDatabase
+Repository	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^      class Repository$/;"	c	class:PizzaBuilder.Domain.Orders
+Repository	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^      class Repository$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Repository	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^      class Repository$/;"	c	class:PizzaBuilder.Domain.Orders
 Repository	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^      class Repository$/;"	c	class:PizzaBuilder.Domain.Pizzas
 ResourceServer	hecks-adapters/hecks-adapters-resource-server/lib/hecks-adapters-resource-server.rb	/^    class ResourceServer < Sinatra::Base$/;"	c	class:Hecks.Adapters
@@ -329,6 +368,7 @@ Schema	hecks-adapters/hecks-adapters-sql-database/lib/schema.rb	/^      class Sc
 SchemaFactory	hecks-adapters/hecks-adapters-sql-database/lib/schema_factory.rb	/^      class SchemaFactory$/;"	c	class:Hecks.Adapters.SQLDatabase
 Table	hecks-adapters/hecks-adapters-sql-database/lib/table.rb	/^      class Table$/;"	c	class:Hecks.Adapters.SQLDatabase
 Test	hecks/lib/cli/test.rb	/^class Test < Thor$/;"	c
+Topping	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^      class Topping$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Topping	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^      class Topping$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Update	hecks-adapters/hecks-adapters-resource-server/lib/methods/update.rb	/^        class Update$/;"	c	class:Hecks.Adapters.ResourceServer.Methods
 Update	hecks-adapters/hecks-adapters-sql-database/lib/commands/update.rb	/^        class Update$/;"	c	class:Hecks.Adapters.SQLDatabase.Commands
@@ -350,8 +390,8 @@ ValueObjectCommandLineBuilder	hecks-domain/lib/cli/builder/value_object_command_
 add_db_reference	hecks-adapters/hecks-adapters-sql-database/lib/schema_factory.rb	/^        def add_db_reference(column, table)$/;"	f	class:Hecks.Adapters.SQLDatabase.SchemaFactory
 add_to_join_tables	hecks-adapters/hecks-adapters-sql-database/lib/commands/create.rb	/^          def add_to_join_tables$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Create.create
 app	hecks/lib/console/commands.rb	/^      def app$/;"	f	class:Hecks.Console.Commands
-app	spec/hecks-adapters/hecks-adapters-resource-server/sinatra_helper.rb	/^  def app$/;"	f	class:RSpecMixin
 app	spec/rack_test_helper.rb	/^  def app$/;"	f	class:PizzaServerHexagonMixin
+app	spec/sinatra_helper.rb	/^  def app$/;"	f	class:RSpecMixin
 assignment_template	hecks-domain/lib/cli/generate_domain_object.rb	/^        def assignment_template(attributes)$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
 attribute_hash	hecks-domain/lib/domain_builder/domain_object.rb	/^        def attribute_hash$/;"	f	class:Hecks.Domain.DomainBuilder.DomainObject
 attribute_names_without_id	hecks-domain/lib/cli/generate_domain_object.rb	/^        def attribute_names_without_id$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
@@ -424,6 +464,8 @@ create	hecks-adapters/hecks-adapters-sql-database/lib/commands/create.rb	/^     
 create	hecks-adapters/hecks-adapters-sql-database/lib/repository.rb	/^        def create attributes$/;"	f	class:Hecks.Adapters.SQLDatabase.Repository
 create	hecks-application/lib/commands/create.rb	/^        def create$/;"	f	class:Hecks.Application.Commands.Create
 create	hecks-application/lib/commands/crud_handler.rb	/^        def create(attributes)$/;"	f	class:Hecks.Application.Commands.CRUDHandler
+create	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.create attributes={}$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
+create	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.create attributes={}$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 create	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.create attributes={}$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
 create	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.create attributes={}$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 create_aggregate_folder	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^            def create_aggregate_folder$/;"	f	class:Hecks.Domain.Adapters.ResourceServer.CLI.GenerateResourceServer
@@ -441,9 +483,13 @@ database	hecks-application/lib/hecks-application.rb	/^    def database$/;"	f	cla
 delete	hecks-adapters/hecks-adapters-sql-database/lib/repository.rb	/^        def delete id$/;"	f	class:Hecks.Adapters.SQLDatabase.Repository
 delete	hecks-application/lib/commands/crud_handler.rb	/^        def delete(id)$/;"	f	class:Hecks.Application.Commands.CRUDHandler
 delete	hecks-application/lib/commands/delete.rb	/^        def delete$/;"	f	class:Hecks.Application.Commands.Delete
+delete	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.delete(id)$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
+delete	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.delete(id)$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 delete	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.delete(id)$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
 delete	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.delete(id)$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 delete_all	hecks-adapters/lib/memory_database/memory_database.rb	/^      def delete_all$/;"	f	class:Hecks.Adapters.MemoryDatabase
+delete_all	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.delete_all$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
+delete_all	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.delete_all$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 delete_all	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.delete_all$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
 delete_all	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.delete_all$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 delete_old_references	hecks-adapters/hecks-adapters-sql-database/lib/commands/update/update_values.rb	/^            def delete_old_references(reference)$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update.UpdateValues
@@ -458,6 +504,7 @@ domain_module	hecks-domain/lib/domain_builder/attribute.rb	/^        def domain_
 domain_module_name	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^            def domain_module_name$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateSQLDatabase
 domain_module_name	hecks-domain/lib/cli/new.rb	/^        def domain_module_name$/;"	f	class:Hecks.Domain.CLI.New
 domain_modules	hecks-domain/lib/domain_builder/domain_builder.rb	/^      def domain_modules$/;"	f	class:Hecks.Domain.DomainBuilder
+domain_modules	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.domain_modules$/;"	F	class:PizzaBuilder
 domain_modules	spec/hecks/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.domain_modules$/;"	F	class:PizzaBuilder
 domain_name	hecks-domain/lib/cli/generate_domain_object.rb	/^        def domain_name$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
 domain_name	hecks/lib/console.rb	/^    def self.domain_name$/;"	F	class:Hecks.Console
@@ -472,6 +519,10 @@ execute_tmpfile	hecks-domain/lib/cli/command_builder.rb	/^        def execute_tm
 factory	hecks-adapters/hecks-adapters-sql-database/lib/column.rb	/^        def self.factory(attribute)$/;"	F	class:Hecks.Adapters.SQLDatabase.Column
 factory	hecks-adapters/hecks-adapters-sql-database/lib/schema.rb	/^        def self.factory(domain_spec)$/;"	F	class:Hecks.Adapters.SQLDatabase.Schema
 factory	hecks-adapters/hecks-adapters-sql-database/lib/table.rb	/^        def self.factory(domain_objects)$/;"	F	class:Hecks.Adapters.SQLDatabase.Table
+factory	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Orders.LineItem
+factory	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Orders.PizzaReference
+factory	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Pizzas.Chef
+factory	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Pizzas.Topping
 factory	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Orders.LineItem
 factory	spec/hecks/examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Orders.PizzaReference
 factory	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^        def self.factory(group_attributes)$/;"	F	class:PizzaBuilder.Domain.Pizzas.Chef
@@ -501,6 +552,8 @@ generate_migrations	hecks-domain/lib/adapters/sql_database/cli/migration_builder
 generate_resource_server	hecks/lib/cli/test.rb	/^  def generate_resource_server(name)$/;"	f	class:Test
 generate_sql_database	hecks/lib/cli/test.rb	/^  def generate_sql_database(name)$/;"	f	class:Test
 head	hecks-domain/lib/domain_builder/domain_module.rb	/^        def head(name=nil)$/;"	f	class:Hecks.Domain.DomainBuilder.DomainModule
+head	hecks-examples/pizza_builder/lib/domain/Orders/Orders.rb	/^      def self.head$/;"	F	class:PizzaBuilder.Domain.Orders
+head	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^      def self.head$/;"	F	class:PizzaBuilder.Domain.Pizzas
 head	spec/hecks/examples/pizza_builder/lib/domain/Orders/Orders.rb	/^      def self.head$/;"	F	class:PizzaBuilder.Domain.Orders
 head	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^      def self.head$/;"	F	class:PizzaBuilder.Domain.Pizzas
 head_name	hecks-domain/lib/cli/generate_domain_object.rb	/^        def head_name$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
@@ -553,6 +606,12 @@ initialize	hecks-domain/lib/domain_builder/domain_builder.rb	/^      def initial
 initialize	hecks-domain/lib/domain_builder/domain_module.rb	/^        def initialize(name:)$/;"	f	class:Hecks.Domain.DomainBuilder.DomainModule
 initialize	hecks-domain/lib/domain_builder/domain_object.rb	/^        def initialize(name:)$/;"	f	class:Hecks.Domain.DomainBuilder.DomainObject
 initialize	hecks-domain/lib/domain_builder/reference.rb	/^        def initialize(reference)$/;"	f	class:Hecks.Domain.DomainBuilder.Reference
+initialize	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def initialize(pizza_name:, quantity:, price:, pizza:)$/;"	f	class:PizzaBuilder.Domain.Orders.LineItem
+initialize	hecks-examples/pizza_builder/lib/domain/Orders/Order.rb	/^        def initialize(line_items:, id:)$/;"	f	class:PizzaBuilder.Domain.Orders.Order
+initialize	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^        def initialize(id:)$/;"	f	class:PizzaBuilder.Domain.Orders.PizzaReference
+initialize	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^        def initialize(name:)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Chef
+initialize	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^        def initialize(name:, description:, toppings:, chef:, id:)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Pizza
+initialize	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^        def initialize(name:)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Topping
 initialize	hecks/lib/cli/command_runner.rb	/^  def initialize(hexagon, name, dry_run = false)$/;"	f	class:CommandRunner
 initialize	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def initialize(pizza_name:, quantity:, price:, pizza:)$/;"	f	class:PizzaBuilder.Domain.Orders.LineItem
 initialize	spec/hecks/examples/pizza_builder/lib/domain/Orders/Order.rb	/^        def initialize(line_items:, id:)$/;"	f	class:PizzaBuilder.Domain.Orders.Order
@@ -576,6 +635,7 @@ missing_attributes	hecks-adapters/lib/validator/validator.rb	/^      def missing
 module	hecks-domain/lib/domain_builder/domain.rb	/^        def module(name, &block)$/;"	f	class:Hecks.Domain.DomainBuilder.Domain
 module_name	hecks-domain/lib/cli/generate_domain_object.rb	/^        def module_name$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
 module_name	hecks-domain/lib/cli/new.rb	/^        def module_name$/;"	f	class:Hecks.Domain.CLI.New
+module_name	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.module_name(domain_module)$/;"	F	class:PizzaBuilder.repositories
 module_name	spec/hecks/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.module_name(domain_module)$/;"	F	class:PizzaBuilder.repositories
 name	hecks-adapters/hecks-adapters-sql-database/lib/column.rb	/^        def name$/;"	f	class:Hecks.Adapters.SQLDatabase.Column
 name	hecks-adapters/hecks-adapters-sql-database/lib/join_table.rb	/^        def name$/;"	f	class:Hecks.Adapters.SQLDatabase.JoinTable
@@ -600,6 +660,8 @@ print_tmpfile	hecks-domain/lib/cli/command_builder.rb	/^        def print_tmpfil
 query	hecks-application/lib/hecks-application.rb	/^    def query(query_name:, module_name:, args: {})$/;"	f	class:Hecks.Application
 read	hecks-adapters/hecks-adapters-sql-database/lib/repository.rb	/^        def read id$/;"	f	class:Hecks.Adapters.SQLDatabase.Repository
 read	hecks-application/lib/commands/crud_handler.rb	/^        def read(id)$/;"	f	class:Hecks.Application.Commands.CRUDHandler
+read	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.read id$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
+read	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.read id$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 read	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.read id$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
 read	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.read id$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 record	hecks-adapters/hecks-adapters-sql-database/lib/commands/create/add_to_join_tables.rb	/^            def record(column, id)$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Create.AddToJoinTables
@@ -616,6 +678,7 @@ remove_domain_columns	hecks-adapters/hecks-adapters-sql-database/lib/schema_fact
 remove_references_from_attributes	hecks-adapters/hecks-adapters-sql-database/lib/commands/update/delete_references.rb	/^            def remove_references_from_attributes$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update.DeleteReferences
 remove_references_from_attributes	hecks-domain/lib/adapters/sql_database/commands/update/delete_references.rb	/^              def remove_references_from_attributes$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Update.DeleteReferences
 render	hecks-domain/lib/cli/domain_object/assignment_template.rb	/^          def render$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject.AssignmentTemplate
+repositories	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.repositories$/;"	F	class:PizzaBuilder
 repositories	spec/hecks/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.repositories$/;"	F	class:PizzaBuilder
 repository	hecks-application/lib/queries/query_runner.rb	/^      def repository$/;"	f	class:Hecks.Application.QueryRunner
 reset_example	hecks/lib/cli/test.rb	/^  def reset_example(name)$/;"	f	class:Test
@@ -634,6 +697,7 @@ source_root	hecks-domain/lib/cli/generate_domain_object.rb	/^        def self.so
 source_root	hecks-domain/lib/cli/new.rb	/^        def self.source_root$/;"	F	class:Hecks.Domain.CLI.New
 source_root	hecks/lib/packager/generate_binary_package.rb	/^        def self.source_root$/;"	F	class:Hecks.Packager.CLI.GenerateBinaryPackage
 source_root	hecks/lib/packager/generate_lambda_package.rb	/^        def self.source_root$/;"	F	class:Hecks.Packager.CLI.GenerateLambdaPackage
+spec_path	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.spec_path$/;"	F	class:PizzaBuilder.repositories
 spec_path	spec/hecks/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.spec_path$/;"	F	class:PizzaBuilder.repositories
 status	hecks-adapters/hecks-adapters-resource-server/lib/methods/create.rb	/^          def status$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Create
 status	hecks-adapters/hecks-adapters-resource-server/lib/methods/delete.rb	/^          def status$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Delete
@@ -648,6 +712,12 @@ to_h	hecks-adapters/hecks-adapters-sql-database/lib/schema.rb	/^        def to_h
 to_h	hecks-application/lib/commands/create.rb	/^        def to_h$/;"	f	class:Hecks.Application.Commands.Create
 to_h	hecks-application/lib/commands/delete.rb	/^        def to_h$/;"	f	class:Hecks.Application.Commands.Delete
 to_h	hecks-application/lib/commands/update.rb	/^        def to_h$/;"	f	class:Hecks.Application.Commands.Update
+to_json	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def to_json(config)$/;"	f	class:PizzaBuilder.Domain.Orders.LineItem
+to_json	hecks-examples/pizza_builder/lib/domain/Orders/Order.rb	/^        def to_json$/;"	f	class:PizzaBuilder.Domain.Orders.Order
+to_json	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^        def to_json(config)$/;"	f	class:PizzaBuilder.Domain.Orders.PizzaReference
+to_json	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^        def to_json(config)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Chef
+to_json	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^        def to_json$/;"	f	class:PizzaBuilder.Domain.Pizzas.Pizza
+to_json	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^        def to_json(config)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Topping
 to_json	spec/hecks/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def to_json(config)$/;"	f	class:PizzaBuilder.Domain.Orders.LineItem
 to_json	spec/hecks/examples/pizza_builder/lib/domain/Orders/Order.rb	/^        def to_json$/;"	f	class:PizzaBuilder.Domain.Orders.Order
 to_json	spec/hecks/examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^        def to_json(config)$/;"	f	class:PizzaBuilder.Domain.Orders.PizzaReference
@@ -661,6 +731,8 @@ type_with_domain_module	hecks-domain/lib/domain_builder/domain_object.rb	/^     
 update	hecks-adapters/hecks-adapters-sql-database/lib/repository.rb	/^        def update id, attributes$/;"	f	class:Hecks.Adapters.SQLDatabase.Repository
 update	hecks-application/lib/commands/crud_handler.rb	/^        def update(id, attributes)$/;"	f	class:Hecks.Application.Commands.CRUDHandler
 update	hecks-application/lib/commands/update.rb	/^        def update$/;"	f	class:Hecks.Application.Commands.Update
+update	hecks-examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.update id, attributes$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
+update	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.update id, attributes$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 update	spec/hecks/examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.update id, attributes$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
 update	spec/hecks/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.update id, attributes$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 update_record	hecks-adapters/hecks-adapters-sql-database/lib/commands/update.rb	/^          def update_record$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update

@@ -51,7 +51,7 @@ describe Hecks::Application do
 
   describe '#call' do
     it 'Runs a command' do
-      subject.call(
+      result = subject.call(
         command_name: :create,
         module_name:  :pizzas,
         args:         pizza_attributes
@@ -61,7 +61,7 @@ describe Hecks::Application do
         subject.query(
           query_name:  :find_by_id,
           module_name: :pizzas,
-          args:        { id: 1 }
+          args:        { id: result.id }
         ).name
       ).to eq 'White Pizza'
     end
