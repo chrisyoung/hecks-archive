@@ -53,9 +53,6 @@ Application	hecks-application/lib/queries/find_by_id.rb	/^  class Application$/;
 Application	hecks-application/lib/queries/query_runner.rb	/^  class Application$/;"	c	class:Hecks
 AssignmentTemplate	hecks-domain/lib/cli/domain_object/assignment_template.rb	/^        class AssignmentTemplate$/;"	c	class:Hecks.Domain.CLI.GenerateDomainObject
 Attribute	hecks-domain/lib/domain_builder/attribute.rb	/^      class Attribute$/;"	c	class:Hecks.Domain.DomainBuilder
-CLI	hecks-cli/lib/build.rb	/^  class CLI < Thor$/;"	c	class:Hecks
-CLI	hecks-cli/lib/console.rb	/^  class CLI < Thor$/;"	c	class:Hecks
-CLI	hecks-cli/lib/hecks-cli.rb	/^  class CLI < Thor$/;"	c	class:Hecks
 CLI	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^        module CLI$/;"	m	class:Hecks.Domain.Adapters.ResourceServer
 CLI	hecks-domain/lib/adapters/sql_database/cli/generate_domain_migrations.rb	/^        module CLI$/;"	m	class:Hecks.Domain.Adapters.SQLDatabase
 CLI	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^        module CLI$/;"	m	class:Hecks.Domain.Adapters.SQLDatabase
@@ -68,8 +65,11 @@ CLI	hecks-domain/lib/cli/domain_object/assignment_template.rb	/^    module CLI$/
 CLI	hecks-domain/lib/cli/domain_object/option_formatter.rb	/^    module CLI$/;"	m	class:Hecks.Domain
 CLI	hecks-domain/lib/cli/generate_domain_object.rb	/^    module CLI$/;"	m	class:Hecks.Domain
 CLI	hecks-domain/lib/cli/new.rb	/^    module CLI$/;"	m	class:Hecks.Domain
-CLI	hecks-packager/lib/cli/generate_binary_package.rb	/^    module CLI$/;"	m	class:Hecks.Packager
-CLI	hecks-packager/lib/cli/generate_lambda_package.rb	/^    module CLI$/;"	m	class:Hecks.Packager
+CLI	hecks/lib/cli.rb	/^  class CLI < Thor$/;"	c	class:Hecks
+CLI	hecks/lib/cli/build.rb	/^  class CLI < Thor$/;"	c	class:Hecks
+CLI	hecks/lib/cli/console.rb	/^  class CLI < Thor$/;"	c	class:Hecks
+CLI	hecks/lib/packager/generate_binary_package.rb	/^    module CLI$/;"	m	class:Hecks.Packager
+CLI	hecks/lib/packager/generate_lambda_package.rb	/^    module CLI$/;"	m	class:Hecks.Packager
 CRUDHandler	hecks-application/lib/commands/crud_handler.rb	/^      class CRUDHandler$/;"	c	class:Hecks.Application.Commands
 Chef	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^      class Chef$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Chef	hecks/spec/examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^      class Chef$/;"	c	class:PizzaBuilder.Domain.Pizzas
@@ -78,7 +78,7 @@ CommandBuilder	hecks-domain/lib/cli/builder/aggregate_command_line_builder.rb	/^
 CommandBuilder	hecks-domain/lib/cli/builder/reference_command_line_builder.rb	/^      class CommandBuilder$/;"	c	class:Hecks.Domain.CLI
 CommandBuilder	hecks-domain/lib/cli/builder/value_object_command_line_builder.rb	/^      class CommandBuilder$/;"	c	class:Hecks.Domain.CLI
 CommandBuilder	hecks-domain/lib/cli/command_builder.rb	/^      class CommandBuilder$/;"	c	class:Hecks.Domain.CLI
-CommandRunner	hecks-cli/lib/command_runner.rb	/^class CommandRunner$/;"	c
+CommandRunner	hecks/lib/cli/command_runner.rb	/^class CommandRunner$/;"	c
 Commands	hecks-adapters-sql-database/lib/commands/create.rb	/^      module Commands$/;"	m	class:Hecks.Adapters.SQLDatabase
 Commands	hecks-adapters-sql-database/lib/commands/create/add_to_join_tables.rb	/^      module Commands$/;"	m	class:Hecks.Adapters.SQLDatabase
 Commands	hecks-adapters-sql-database/lib/commands/create/find_or_create_references.rb	/^      module Commands$/;"	m	class:Hecks.Adapters.SQLDatabase
@@ -171,13 +171,13 @@ FetchReferences	hecks-domain/lib/adapters/sql_database/commands/read/fetch_refer
 FindById	hecks-application/lib/queries/find_by_id.rb	/^      class FindById$/;"	c	class:Hecks.Application.Queries
 FindOrCreateReferences	hecks-adapters-sql-database/lib/commands/create/find_or_create_references.rb	/^          class FindOrCreateReferences$/;"	c	class:Hecks.Adapters.SQLDatabase.Commands.Create
 Fixnum	hecks/spec/examples/pizza_builder/packages/binary/build/resources/pizza_builder.rb	/^class Fixnum$/;"	c
-Generate	hecks-cli/lib/generate.rb	/^class Generate < Thor$/;"	c
-GenerateBinaryPackage	hecks-packager/lib/cli/generate_binary_package.rb	/^      class GenerateBinaryPackage < Thor::Group$/;"	c	class:Hecks.Packager.CLI
+Generate	hecks/lib/cli/generate.rb	/^class Generate < Thor$/;"	c
+GenerateBinaryPackage	hecks/lib/packager/generate_binary_package.rb	/^      class GenerateBinaryPackage < Thor::Group$/;"	c	class:Hecks.Packager.CLI
 GenerateDomainMigrations	hecks-domain/lib/adapters/sql_database/cli/generate_domain_migrations.rb	/^          class GenerateDomainMigrations < Thor::Group$/;"	c	class:Hecks.Domain.Adapters.SQLDatabase.CLI
 GenerateDomainObject	hecks-domain/lib/cli/domain_object/assignment_template.rb	/^      class GenerateDomainObject$/;"	c	class:Hecks.Domain.CLI
 GenerateDomainObject	hecks-domain/lib/cli/domain_object/option_formatter.rb	/^      class GenerateDomainObject$/;"	c	class:Hecks.Domain.CLI
 GenerateDomainObject	hecks-domain/lib/cli/generate_domain_object.rb	/^      class GenerateDomainObject < Thor::Group$/;"	c	class:Hecks.Domain.CLI
-GenerateLambdaPackage	hecks-packager/lib/cli/generate_lambda_package.rb	/^      class GenerateLambdaPackage < Thor::Group$/;"	c	class:Hecks.Packager.CLI
+GenerateLambdaPackage	hecks/lib/packager/generate_lambda_package.rb	/^      class GenerateLambdaPackage < Thor::Group$/;"	c	class:Hecks.Packager.CLI
 GenerateResourceServer	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^          class GenerateResourceServer < Thor::Group$/;"	c	class:Hecks.Domain.Adapters.ResourceServer.CLI
 GenerateSQLDatabase	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^          class GenerateSQLDatabase < Thor::Group$/;"	c	class:Hecks.Domain.Adapters.SQLDatabase.CLI
 Head	hecks-domain/lib/domain_builder/head.rb	/^      class Head < DomainObject$/;"	c	class:Hecks.Domain.DomainBuilder
@@ -218,9 +218,6 @@ Hecks	hecks-application/lib/commands/update.rb	/^module Hecks$/;"	m
 Hecks	hecks-application/lib/hecks-application.rb	/^module Hecks$/;"	m
 Hecks	hecks-application/lib/queries/find_by_id.rb	/^module Hecks$/;"	m
 Hecks	hecks-application/lib/queries/query_runner.rb	/^module Hecks$/;"	m
-Hecks	hecks-cli/lib/build.rb	/^module Hecks$/;"	m
-Hecks	hecks-cli/lib/console.rb	/^module Hecks$/;"	m
-Hecks	hecks-cli/lib/hecks-cli.rb	/^module Hecks$/;"	m
 Hecks	hecks-console/lib/commands.rb	/^module Hecks$/;"	m
 Hecks	hecks-console/lib/console.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^module Hecks$/;"	m
@@ -246,8 +243,11 @@ Hecks	hecks-domain/lib/domain_builder/domain_object.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/domain_builder/head.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/domain_builder/reference.rb	/^module Hecks$/;"	m
 Hecks	hecks-domain/lib/domain_builder/value.rb	/^module Hecks$/;"	m
-Hecks	hecks-packager/lib/cli/generate_binary_package.rb	/^module Hecks$/;"	m
-Hecks	hecks-packager/lib/cli/generate_lambda_package.rb	/^module Hecks$/;"	m
+Hecks	hecks/lib/cli.rb	/^module Hecks$/;"	m
+Hecks	hecks/lib/cli/build.rb	/^module Hecks$/;"	m
+Hecks	hecks/lib/cli/console.rb	/^module Hecks$/;"	m
+Hecks	hecks/lib/packager/generate_binary_package.rb	/^module Hecks$/;"	m
+Hecks	hecks/lib/packager/generate_lambda_package.rb	/^module Hecks$/;"	m
 Hecks	hecks/spec/integration/pizza_builder_spec.rb	/^class Hecks::Application$/;"	c
 JoinTable	hecks-adapters-sql-database/lib/join_table.rb	/^      class JoinTable$/;"	c	class:Hecks.Adapters.SQLDatabase
 LineItem	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^      class LineItem$/;"	c	class:PizzaBuilder.Domain.Orders
@@ -276,9 +276,9 @@ Orders	hecks/spec/examples/pizza_builder/lib/domain/Orders/Order.rb	/^    module
 Orders	hecks/spec/examples/pizza_builder/lib/domain/Orders/Orders.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
 Orders	hecks/spec/examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
 Orders	hecks/spec/examples/pizza_builder/lib/domain/Orders/repository.rb	/^    module Orders$/;"	m	class:PizzaBuilder.Domain
-Package	hecks-cli/lib/package.rb	/^class Package < Thor$/;"	c
-Packager	hecks-packager/lib/cli/generate_binary_package.rb	/^  module Packager$/;"	m	class:Hecks
-Packager	hecks-packager/lib/cli/generate_lambda_package.rb	/^  module Packager$/;"	m	class:Hecks
+Package	hecks/lib/cli/package.rb	/^class Package < Thor$/;"	c
+Packager	hecks/lib/packager/generate_binary_package.rb	/^  module Packager$/;"	m	class:Hecks
+Packager	hecks/lib/packager/generate_lambda_package.rb	/^  module Packager$/;"	m	class:Hecks
 Pizza	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^      class Pizza$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Pizza	hecks/spec/examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^      class Pizza$/;"	c	class:PizzaBuilder.Domain.Pizzas
 PizzaBuilder	hecks-examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^module PizzaBuilder$/;"	m
@@ -365,7 +365,7 @@ SQLDatabase	hecks-domain/lib/adapters/sql_database/commands/update/link_to_refer
 Schema	hecks-adapters-sql-database/lib/schema.rb	/^      class Schema$/;"	c	class:Hecks.Adapters.SQLDatabase
 SchemaFactory	hecks-adapters-sql-database/lib/schema_factory.rb	/^      class SchemaFactory$/;"	c	class:Hecks.Adapters.SQLDatabase
 Table	hecks-adapters-sql-database/lib/table.rb	/^      class Table$/;"	c	class:Hecks.Adapters.SQLDatabase
-Test	hecks-cli/lib/test.rb	/^class Test < Thor$/;"	c
+Test	hecks/lib/cli/test.rb	/^class Test < Thor$/;"	c
 Topping	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^      class Topping$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Topping	hecks/spec/examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^      class Topping$/;"	c	class:PizzaBuilder.Domain.Pizzas
 Update	hecks-adapters-resource-server/lib/methods/update.rb	/^        class Update$/;"	c	class:Hecks.Adapters.ResourceServer.Methods
@@ -402,20 +402,20 @@ attributes_without_id	hecks-domain/lib/cli/generate_domain_object.rb	/^        d
 attributes_without_id_as_string	hecks-domain/lib/cli/generate_domain_object.rb	/^        def attributes_without_id_as_string$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
 broadcast	hecks-application/lib/commands/runner.rb	/^      def broadcast$/;"	f	class:Hecks.Application.Runner
 build	hecks-adapters-sql-database/lib/schema_factory.rb	/^        def build$/;"	f	class:Hecks.Adapters.SQLDatabase.SchemaFactory
-build	hecks-cli/lib/build.rb	/^    def build$/;"	f	class:Hecks.CLI
 build	hecks-domain/lib/cli/builder/aggregate_command_line_builder.rb	/^          def self.build(domain, runner)$/;"	F	class:Hecks.Domain.CLI.CommandBuilder.AggregateCommandLineBuilder
 build	hecks-domain/lib/cli/builder/reference_command_line_builder.rb	/^          def self.build(domain, runner)$/;"	F	class:Hecks.Domain.CLI.CommandBuilder.ReferenceCommandLineBuilder
 build	hecks-domain/lib/cli/builder/value_object_command_line_builder.rb	/^          def self.build(domain, runner)$/;"	F	class:Hecks.Domain.CLI.CommandBuilder.ValueObjectCommandLineBuilder
 build	hecks-domain/lib/domain_builder/domain_builder.rb	/^      def self.build(domain_name, &block)$/;"	F	class:Hecks.Domain.DomainBuilder
-build	hecks-packager/lib/cli/generate_binary_package.rb	/^        def build$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
-build_binary_package	hecks-cli/lib/test.rb	/^  def build_binary_package(name)$/;"	f	class:Test
+build	hecks/lib/cli/build.rb	/^    def build$/;"	f	class:Hecks.CLI
+build	hecks/lib/packager/generate_binary_package.rb	/^        def build$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+build_binary_package	hecks/lib/cli/test.rb	/^  def build_binary_package(name)$/;"	f	class:Test
 build_join_tables	hecks-adapters-sql-database/lib/schema_factory.rb	/^        def build_join_tables(table)$/;"	f	class:Hecks.Adapters.SQLDatabase.SchemaFactory
 build_json	hecks-adapters-resource-server/lib/methods/create.rb	/^          def build_json$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Create
-build_lambda_package	hecks-cli/lib/test.rb	/^  def build_lambda_package(name)$/;"	f	class:Test
+build_lambda_package	hecks/lib/cli/test.rb	/^  def build_lambda_package(name)$/;"	f	class:Test
 build_where_clause	hecks-adapters-sql-database/lib/commands/update/delete_references.rb	/^            def build_where_clause$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update.DeleteReferences
 build_where_clause	hecks-domain/lib/adapters/sql_database/commands/update/delete_references.rb	/^              def build_where_clause$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Update.DeleteReferences
 bundle	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^            def bundle$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateSQLDatabase
-bundle_with_ruby_2_2_2	hecks-packager/lib/cli/generate_binary_package.rb	/^        def bundle_with_ruby_2_2_2(app_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+bundle_with_ruby_2_2_2	hecks/lib/packager/generate_binary_package.rb	/^        def bundle_with_ruby_2_2_2(app_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
 call	hecks-adapters-resource-server/lib/methods/create.rb	/^          def call(body:, module_name:)$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Create
 call	hecks-adapters-resource-server/lib/methods/delete.rb	/^          def call(id:, module_name:)$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Delete
 call	hecks-adapters-resource-server/lib/methods/read.rb	/^          def call(id:, module_name:)$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Read
@@ -439,25 +439,25 @@ call	hecks-application/lib/commands/update.rb	/^        def call$/;"	f	class:Hec
 call	hecks-application/lib/hecks-application.rb	/^    def call(command_name:, module_name:, args: {})$/;"	f	class:Hecks.Application
 call	hecks-application/lib/queries/find_by_id.rb	/^        def call(params)$/;"	f	class:Hecks.Application.Queries.FindById
 call	hecks-application/lib/queries/query_runner.rb	/^      def call()$/;"	f	class:Hecks.Application.QueryRunner
-call	hecks-cli/lib/command_runner.rb	/^  def call(command)$/;"	f	class:CommandRunner
 call	hecks-domain/lib/adapters/sql_database/cli/migration_builder.rb	/^            def call$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.MigrationBuilder
 call	hecks-domain/lib/adapters/sql_database/commands/read/fetch_references.rb	/^              def call$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Read.FetchReferences
 call	hecks-domain/lib/adapters/sql_database/commands/update/delete_references.rb	/^              def call$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Update.DeleteReferences
 call	hecks-domain/lib/adapters/sql_database/commands/update/link_to_references.rb	/^              def call$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Update.LinkToReferences
 call	hecks-domain/lib/cli/command_builder.rb	/^        def call$/;"	f	class:Hecks.Domain.CLI.CommandBuilder
 call	hecks-domain/lib/cli/domain_object/option_formatter.rb	/^          def call(format, include_id: false)$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject.OptionFormatter
-ci	hecks-cli/lib/test.rb	/^  def ci$/;"	f	class:Test
+call	hecks/lib/cli/command_runner.rb	/^  def call(command)$/;"	f	class:CommandRunner
+ci	hecks/lib/cli/test.rb	/^  def ci$/;"	f	class:Test
 class_name	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^            def class_name$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateSQLDatabase
 columns	hecks-adapters-sql-database/lib/join_table.rb	/^        def columns$/;"	f	class:Hecks.Adapters.SQLDatabase.JoinTable
 columns	hecks-domain/lib/adapters/sql_database/cli/migration_builder.rb	/^            def columns$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.MigrationBuilder
 condensed_module_name	hecks-domain/lib/cli/new.rb	/^        def condensed_module_name$/;"	f	class:Hecks.Domain.CLI.New
-console	hecks-cli/lib/console.rb	/^    def console$/;"	f	class:Hecks.CLI
+console	hecks/lib/cli/console.rb	/^    def console$/;"	f	class:Hecks.CLI
 convert_to_json	hecks-adapters-resource-server/lib/methods/delete.rb	/^          def convert_to_json$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Delete
 convert_to_json	hecks-adapters-resource-server/lib/methods/read.rb	/^          def convert_to_json$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Read
 convert_to_json	hecks-adapters-resource-server/lib/methods/update.rb	/^          def convert_to_json$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Update
 copy	hecks-adapters-sql-database/lib/column.rb	/^        def copy(new_attributes={})$/;"	f	class:Hecks.Adapters.SQLDatabase.Column
 copy	hecks-domain/lib/domain_builder/attribute.rb	/^        def copy(new_values={})$/;"	f	class:Hecks.Domain.DomainBuilder.Attribute
-copy_resources	hecks-packager/lib/cli/generate_binary_package.rb	/^        def copy_resources(app_dir, package_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+copy_resources	hecks/lib/packager/generate_binary_package.rb	/^        def copy_resources(app_dir, package_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
 create	hecks-adapters-sql-database/lib/commands/create.rb	/^          def create$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Create
 create	hecks-adapters-sql-database/lib/repository.rb	/^        def create attributes$/;"	f	class:Hecks.Adapters.SQLDatabase.Repository
 create	hecks-application/lib/commands/create.rb	/^        def create$/;"	f	class:Hecks.Application.Commands.Create
@@ -468,12 +468,12 @@ create	hecks/spec/examples/pizza_builder/lib/domain/Orders/repository.rb	/^     
 create	hecks/spec/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.create attributes={}$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 create_aggregate_folder	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^            def create_aggregate_folder$/;"	f	class:Hecks.Domain.Adapters.ResourceServer.CLI.GenerateResourceServer
 create_aggregate_folder	hecks-domain/lib/cli/generate_domain_object.rb	/^        def create_aggregate_folder$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
-create_function	hecks-packager/lib/cli/generate_lambda_package.rb	/^        def create_function$/;"	f	class:Hecks.Packager.CLI.GenerateLambdaPackage
+create_function	hecks/lib/packager/generate_lambda_package.rb	/^        def create_function$/;"	f	class:Hecks.Packager.CLI.GenerateLambdaPackage
 create_hexagon_folder	hecks-domain/lib/cli/new.rb	/^        def create_hexagon_folder$/;"	f	class:Hecks.Domain.CLI.New
 create_migration_file	hecks-domain/lib/adapters/sql_database/cli/generate_domain_migrations.rb	/^            def create_migration_file$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateDomainMigrations
 create_new_value	hecks-adapters-sql-database/lib/commands/update/update_values.rb	/^            def create_new_value(reference)$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update.UpdateValues
-create_package_folder	hecks-packager/lib/cli/generate_binary_package.rb	/^        def create_package_folder$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
-create_package_folder	hecks-packager/lib/cli/generate_lambda_package.rb	/^        def create_package_folder$/;"	f	class:Hecks.Packager.CLI.GenerateLambdaPackage
+create_package_folder	hecks/lib/packager/generate_binary_package.rb	/^        def create_package_folder$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+create_package_folder	hecks/lib/packager/generate_lambda_package.rb	/^        def create_package_folder$/;"	f	class:Hecks.Packager.CLI.GenerateLambdaPackage
 create_sql_database_folder	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^            def create_sql_database_folder$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateSQLDatabase
 create_value	hecks-adapters-sql-database/lib/commands/update/create_new_value.rb	/^            def create_value$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update.CreateNewValue
 create_values	hecks-adapters-sql-database/lib/commands/update/create_new_value.rb	/^            def create_values$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Update.CreateNewValue
@@ -497,7 +497,7 @@ delete_tmpfile	hecks-domain/lib/cli/command_builder.rb	/^        def delete_tmpf
 do_assignment	hecks-domain/lib/cli/domain_object/assignment_template.rb	/^          def do_assignment$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject.AssignmentTemplate.render
 domain	hecks-console/lib/console.rb	/^    def self.domain$/;"	F	class:Hecks.Console
 domain	hecks-domain/lib/adapters/resource_server/cli/generate_resource_server.rb	/^            def domain$/;"	f	class:Hecks.Domain.Adapters.ResourceServer.CLI.GenerateResourceServer
-domain_adapters	hecks-cli/lib/test.rb	/^  def domain_adapters$/;"	f	class:Test
+domain_adapters	hecks/lib/cli/test.rb	/^  def domain_adapters$/;"	f	class:Test
 domain_module	hecks-domain/lib/domain_builder/attribute.rb	/^        def domain_module$/;"	f	class:Hecks.Domain.DomainBuilder.Attribute
 domain_module_name	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^            def domain_module_name$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateSQLDatabase
 domain_module_name	hecks-domain/lib/cli/new.rb	/^        def domain_module_name$/;"	f	class:Hecks.Domain.CLI.New
@@ -506,13 +506,13 @@ domain_modules	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.do
 domain_modules	hecks/spec/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.domain_modules$/;"	F	class:PizzaBuilder
 domain_name	hecks-console/lib/console.rb	/^    def self.domain_name$/;"	F	class:Hecks.Console
 domain_name	hecks-domain/lib/cli/generate_domain_object.rb	/^        def domain_name$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
-domain_name	hecks-packager/lib/cli/generate_binary_package.rb	/^        def domain_name$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
-domain_name	hecks-packager/lib/cli/generate_lambda_package.rb	/^        def domain_name$/;"	f	class:Hecks.Packager.CLI.GenerateLambdaPackage
+domain_name	hecks/lib/packager/generate_binary_package.rb	/^        def domain_name$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+domain_name	hecks/lib/packager/generate_lambda_package.rb	/^        def domain_name$/;"	f	class:Hecks.Packager.CLI.GenerateLambdaPackage
 domain_objects	hecks-adapters-sql-database/lib/schema_factory.rb	/^        def domain_objects$/;"	f	class:Hecks.Adapters.SQLDatabase.SchemaFactory
-download	hecks-packager/lib/cli/generate_binary_package.rb	/^        def download(binary, lib_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+download	hecks/lib/packager/generate_binary_package.rb	/^        def download(binary, lib_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
 entity_class	hecks-adapters-sql-database/lib/repository.rb	/^        def entity_class$/;"	f	class:Hecks.Adapters.SQLDatabase.Repository
 event_name	hecks-adapters/lib/events/events.rb	/^      def event_name$/;"	f	class:Hecks.Adapters.Events
-examples	hecks-cli/lib/test.rb	/^  def examples$/;"	f	class:Test
+examples	hecks/lib/cli/test.rb	/^  def examples$/;"	f	class:Test
 execute_tmpfile	hecks-domain/lib/cli/command_builder.rb	/^        def execute_tmpfile$/;"	f	class:Hecks.Domain.CLI.CommandBuilder
 factory	hecks-adapters-sql-database/lib/column.rb	/^        def self.factory(attribute)$/;"	F	class:Hecks.Adapters.SQLDatabase.Column
 factory	hecks-adapters-sql-database/lib/schema.rb	/^        def self.factory(domain_spec)$/;"	F	class:Hecks.Adapters.SQLDatabase.Schema
@@ -543,12 +543,12 @@ find_or_create_references	hecks-adapters-sql-database/lib/commands/create.rb	/^ 
 find_or_create_references	hecks-adapters-sql-database/lib/commands/create/find_or_create_references.rb	/^            def find_or_create_references$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Create.FindOrCreateReferences
 foreign_key_column	hecks-adapters-sql-database/lib/schema_factory.rb	/^        def foreign_key_column(column_name, is_list = false)$/;"	f	class:Hecks.Adapters.SQLDatabase.SchemaFactory
 foreign_key_columns	hecks-adapters-sql-database/lib/table.rb	/^        def foreign_key_columns$/;"	f	class:Hecks.Adapters.SQLDatabase.Table
-full_command	hecks-cli/lib/command_runner.rb	/^  def full_command(command)$/;"	f	class:CommandRunner
+full_command	hecks/lib/cli/command_runner.rb	/^  def full_command(command)$/;"	f	class:CommandRunner
 full_path	hecks-console/lib/console.rb	/^    def self.full_path$/;"	F	class:Hecks.Console
 generate	hecks-domain/lib/cli/command_builder.rb	/^        def generate(command)$/;"	f	class:Hecks.Domain.CLI.CommandBuilder
 generate_migrations	hecks-domain/lib/adapters/sql_database/cli/migration_builder.rb	/^            def generate_migrations$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.MigrationBuilder
-generate_resource_server	hecks-cli/lib/test.rb	/^  def generate_resource_server(name)$/;"	f	class:Test
-generate_sql_database	hecks-cli/lib/test.rb	/^  def generate_sql_database(name)$/;"	f	class:Test
+generate_resource_server	hecks/lib/cli/test.rb	/^  def generate_resource_server(name)$/;"	f	class:Test
+generate_sql_database	hecks/lib/cli/test.rb	/^  def generate_sql_database(name)$/;"	f	class:Test
 head	hecks-domain/lib/domain_builder/domain_module.rb	/^        def head(name=nil)$/;"	f	class:Hecks.Domain.DomainBuilder.DomainModule
 head	hecks-examples/pizza_builder/lib/domain/Orders/Orders.rb	/^      def self.head$/;"	F	class:PizzaBuilder.Domain.Orders
 head	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizzas.rb	/^      def self.head$/;"	F	class:PizzaBuilder.Domain.Pizzas
@@ -591,7 +591,6 @@ initialize	hecks-application/lib/commands/update.rb	/^        def initialize(arg
 initialize	hecks-application/lib/hecks-application.rb	/^    def initialize(database: nil, listeners: [], domain:)$/;"	f	class:Hecks.Application
 initialize	hecks-application/lib/queries/find_by_id.rb	/^        def initialize(repository:)$/;"	f	class:Hecks.Application.Queries.FindById
 initialize	hecks-application/lib/queries/query_runner.rb	/^      def initialize(query_name:, application:, module_name:, args:)$/;"	f	class:Hecks.Application.QueryRunner
-initialize	hecks-cli/lib/command_runner.rb	/^  def initialize(hexagon, name, dry_run = false)$/;"	f	class:CommandRunner
 initialize	hecks-domain/lib/adapters/sql_database/cli/migration_builder.rb	/^            def initialize(generator, specification)$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.CLI.MigrationBuilder
 initialize	hecks-domain/lib/adapters/sql_database/commands/read/fetch_references.rb	/^              def initialize(read_command)$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Read.FetchReferences
 initialize	hecks-domain/lib/adapters/sql_database/commands/update/delete_references.rb	/^              def initialize(table:, attributes:, reference:)$/;"	f	class:Hecks.Domain.Adapters.SQLDatabase.Commands.Update.DeleteReferences
@@ -611,6 +610,7 @@ initialize	hecks-examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^ 
 initialize	hecks-examples/pizza_builder/lib/domain/Pizzas/Chef.rb	/^        def initialize(name:)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Chef
 initialize	hecks-examples/pizza_builder/lib/domain/Pizzas/Pizza.rb	/^        def initialize(name:, description:, toppings:, chef:, id:)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Pizza
 initialize	hecks-examples/pizza_builder/lib/domain/Pizzas/Topping.rb	/^        def initialize(name:)$/;"	f	class:PizzaBuilder.Domain.Pizzas.Topping
+initialize	hecks/lib/cli/command_runner.rb	/^  def initialize(hexagon, name, dry_run = false)$/;"	f	class:CommandRunner
 initialize	hecks/spec/examples/pizza_builder/lib/domain/Orders/LineItem.rb	/^        def initialize(pizza_name:, quantity:, price:, pizza:)$/;"	f	class:PizzaBuilder.Domain.Orders.LineItem
 initialize	hecks/spec/examples/pizza_builder/lib/domain/Orders/Order.rb	/^        def initialize(line_items:, id:)$/;"	f	class:PizzaBuilder.Domain.Orders.Order
 initialize	hecks/spec/examples/pizza_builder/lib/domain/Orders/pizza_reference.rb	/^        def initialize(id:)$/;"	f	class:PizzaBuilder.Domain.Orders.PizzaReference
@@ -647,8 +647,8 @@ name	hecks-domain/lib/domain_builder/attribute.rb	/^        def name$/;"	f	class
 name	hecks-domain/lib/domain_builder/reference.rb	/^        def name$/;"	f	class:Hecks.Domain.DomainBuilder.Reference
 option_format	hecks-domain/lib/cli/generate_domain_object.rb	/^        def option_format(format, include_id: false)$/;"	f	class:Hecks.Domain.CLI.GenerateDomainObject
 order_attributes	hecks/spec/integration/pizza_builder_spec.rb	/^    def order_attributes(pizza)$/;"	f	class:Hecks
-package	hecks-packager/lib/cli/generate_binary_package.rb	/^        def package(app_dir, lib_dir, binary, package_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
-packages	hecks-cli/lib/test.rb	/^  def packages$/;"	f	class:Test
+package	hecks/lib/packager/generate_binary_package.rb	/^        def package(app_dir, lib_dir, binary, package_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+packages	hecks/lib/cli/test.rb	/^  def packages$/;"	f	class:Test
 params	hecks-adapters-resource-server/lib/methods/create.rb	/^          def params$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Create
 params	hecks-adapters-resource-server/lib/methods/update.rb	/^          def params$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Update
 positive?	hecks/spec/examples/pizza_builder/packages/binary/build/resources/pizza_builder.rb	/^  def positive?$/;"	f	class:Fixnum
@@ -662,7 +662,7 @@ read	hecks-examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def 
 read	hecks/spec/examples/pizza_builder/lib/domain/Orders/repository.rb	/^        def self.read id$/;"	F	class:PizzaBuilder.Domain.Orders.Repository
 read	hecks/spec/examples/pizza_builder/lib/domain/Pizzas/repository.rb	/^        def self.read id$/;"	F	class:PizzaBuilder.Domain.Pizzas.Repository
 record	hecks-adapters-sql-database/lib/commands/create/add_to_join_tables.rb	/^            def record(column, id)$/;"	f	class:Hecks.Adapters.SQLDatabase.Commands.Create.AddToJoinTables
-reduce_package_size	hecks-packager/lib/cli/generate_binary_package.rb	/^        def reduce_package_size(app_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
+reduce_package_size	hecks/lib/packager/generate_binary_package.rb	/^        def reduce_package_size(app_dir)$/;"	f	class:Hecks.Packager.CLI.GenerateBinaryPackage
 reference	hecks-domain/lib/domain_builder/domain_module.rb	/^        def reference(name)$/;"	f	class:Hecks.Domain.DomainBuilder.DomainModule
 reference?	hecks-adapters-sql-database/lib/column.rb	/^        def reference?$/;"	f	class:Hecks.Adapters.SQLDatabase.Column
 reference?	hecks-domain/lib/domain_builder/attribute.rb	/^        def reference?$/;"	f	class:Hecks.Domain.DomainBuilder.Attribute
@@ -678,7 +678,7 @@ render	hecks-domain/lib/cli/domain_object/assignment_template.rb	/^          def
 repositories	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.repositories$/;"	F	class:PizzaBuilder
 repositories	hecks/spec/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.repositories$/;"	F	class:PizzaBuilder
 repository	hecks-application/lib/queries/query_runner.rb	/^      def repository$/;"	f	class:Hecks.Application.QueryRunner
-reset_example	hecks-cli/lib/test.rb	/^  def reset_example(name)$/;"	f	class:Test
+reset_example	hecks/lib/cli/test.rb	/^  def reset_example(name)$/;"	f	class:Test
 respond_to?	hecks-adapters/lib/logger/logger.rb	/^      def respond_to?(name)$/;"	f	class:Hecks.Adapters.Logger
 result	hecks-application/lib/commands/create.rb	/^        def result$/;"	f	class:Hecks.Application.Commands.Create
 run_command	hecks-adapters-resource-server/lib/methods/create.rb	/^          def run_command$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Create
@@ -692,8 +692,8 @@ source_root	hecks-domain/lib/adapters/sql_database/cli/generate_domain_migration
 source_root	hecks-domain/lib/adapters/sql_database/cli/generate_sql_database.rb	/^            def self.source_root$/;"	F	class:Hecks.Domain.Adapters.SQLDatabase.CLI.GenerateSQLDatabase
 source_root	hecks-domain/lib/cli/generate_domain_object.rb	/^        def self.source_root$/;"	F	class:Hecks.Domain.CLI.GenerateDomainObject
 source_root	hecks-domain/lib/cli/new.rb	/^        def self.source_root$/;"	F	class:Hecks.Domain.CLI.New
-source_root	hecks-packager/lib/cli/generate_binary_package.rb	/^        def self.source_root$/;"	F	class:Hecks.Packager.CLI.GenerateBinaryPackage
-source_root	hecks-packager/lib/cli/generate_lambda_package.rb	/^        def self.source_root$/;"	F	class:Hecks.Packager.CLI.GenerateLambdaPackage
+source_root	hecks/lib/packager/generate_binary_package.rb	/^        def self.source_root$/;"	F	class:Hecks.Packager.CLI.GenerateBinaryPackage
+source_root	hecks/lib/packager/generate_lambda_package.rb	/^        def self.source_root$/;"	F	class:Hecks.Packager.CLI.GenerateLambdaPackage
 spec_path	hecks-examples/pizza_builder/lib/pizza_builder.rb	/^  def self.spec_path$/;"	F	class:PizzaBuilder.repositories
 spec_path	hecks/spec/examples/pizza_builder/lib/pizza_builder.rb	/^  def self.spec_path$/;"	F	class:PizzaBuilder.repositories
 status	hecks-adapters-resource-server/lib/methods/create.rb	/^          def status$/;"	f	class:Hecks.Adapters.ResourceServer.Methods.Create

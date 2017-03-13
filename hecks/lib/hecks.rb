@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'hecks-application'
 require 'hecks-domain'
-require 'hecks-cli'
-require 'hecks-packager'
+require_relative 'packager'
+require_relative 'cli'
 require 'hecks-adapters'

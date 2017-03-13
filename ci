@@ -3,14 +3,8 @@ bash build
 echo "Hecks Domain"
 cd hecks-domain && rspec
 
-echo "Hecks CLI"
-cd ../hecks-cli && rspec
-
 echo "Hecks Application"
 cd ../hecks-application && rspec
-
-echo "Hecks Packager"
-cd ../hecks-packager && rspec
 
 echo "Hecks"
 cd ../hecks && rspec

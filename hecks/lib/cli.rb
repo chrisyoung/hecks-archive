@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 require 'active_support/inflector'
-require 'hecks-packager'
-require_relative 'generate'
-require_relative 'package'
-require_relative 'test'
-require_relative 'console'
-require_relative 'command_runner'
-require_relative 'build'
+require_relative 'cli/generate'
+require_relative 'cli/package'
+require_relative 'cli/test'
+require_relative 'cli/console'
+require_relative 'cli/command_runner'
+require_relative 'cli/build'
 
 module Hecks
   class CLI < Thor

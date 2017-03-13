@@ -1,0 +1,2 @@
+require_relative 'packager/generate_binary_package'
+require_relative 'packager/generate_lambda_package'

@@ -2,17 +2,9 @@ cd hecks-domain
 gem build hecks-domain
 gem install hecks-domain
 
-cd ../hecks-cli
-gem build hecks-cli
-gem install hecks-cli
-
 cd ../hecks-application
 gem build hecks-application
 gem install hecks-application
-
-cd ../hecks-packager
-gem build hecks-packager
-gem install hecks-packager
 
 cd ../hecks
 gem build hecks

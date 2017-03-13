@@ -5,9 +5,7 @@ PATH
       activesupport (~> 5.0)
       hecks-adapters
       hecks-application
-      hecks-cli
       hecks-domain
-      hecks-packager
       thor (~> 0.19)
 
 GEM
@@ -42,9 +40,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     hecks-adapters (0.0.1)
     hecks-application (0.0.1)
-    hecks-cli (0.0.1)
     hecks-domain (0.0.1)
-    hecks-packager (0.0.1)
     i18n (0.8.1)
     json (2.0.2)
     listen (3.1.5)
