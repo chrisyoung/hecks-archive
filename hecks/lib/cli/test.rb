@@ -31,26 +31,26 @@ class Test < Thor
   private
 
   def generate_sql_database(name)
-    run("cd spec/examples/#{name} && hecks generate sql_database")
+    run("cd ../hecks-examples/#{name} && hecks generate sql_database")
   end
 
   def reset_example(name)
-    run("cd spec/examples/#{name} && rm -rf lib")
-    run("cd spec/examples/#{name} && rm -rf spec")
-    run("cd spec/examples/#{name} && hecks new")
+    run("cd ../hecks-examples/#{name} && rm -rf lib")
+    run("cd ../hecks-examples/#{name} && rm -rf spec")
+    run("cd ../hecks-examples/#{name} && hecks new")
   end
 
   def build_binary_package(name)
-    run("cd spec/examples/#{name} && hecks package binary  #{'-n' if options[:no_cache]}")
+    run("cd ../hecks-examples/#{name} && hecks package binary  #{'-n' if options[:no_cache]}")
   end
 
   def build_lambda_package(name)
-    run("cd spec/examples/#{name} && hecks package lambda")
+    run("cd ../hecks-examples/#{name} && hecks package lambda")
   end
 
   def generate_resource_server(name)
-    run("cd spec/examples/#{name} && rm -rf config.ru")
-    run("cd spec/examples/#{name} && hecks generate resource_server")
-    run("cd spec/examples/#{name}")
+    run("cd ../hecks-examples/#{name} && rm -rf config.ru")
+    run("cd ../hecks-examples/#{name} && hecks generate resource_server")
+    run("cd ../hecks-examples/#{name}")
   end
 end

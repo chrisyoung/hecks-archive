@@ -26,7 +26,8 @@
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
 
 ## Next Actions
-  * Run integration tests as part of cik, skip when running guard or maybe rspec itself
+  * Build everything in a Docker Container
+  * Run integration tests as part of ci, skip when running guard or maybe rspec itself
   * hecks test ci should blow up if anything doesn't work
   * Add a query object to pizzas that can list toppings
   * Delete intermediate container we created to copy gems

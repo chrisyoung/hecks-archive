@@ -1,7 +1,7 @@
 require 'Date'
 Gem::Specification.new do |s|
-  s.name        = 'hecks-adapters'
-  s.homepage    = "https://github.com/chrisyoung/heckson"
+  s.name        = 'hecks-adapters-sql-database'
+  s.homepage    = "https://github.com/chrisyoung/hecks-domain"
   s.version     = File.read("Version").gsub("\n", '')
   s.date        = Date.today
   s.summary     = "DDD and Hexagonal Code Generators"
@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
-  s.add_runtime_dependency 'hecks-adapters-resource-server', '~>0.0'
-  s.add_runtime_dependency 'hecks-adapters-sql-database', '~>0.0'
+  s.add_runtime_dependency 'hecks-application', '~> 0.0'
+  s.add_runtime_dependency 'mysql2', '~> 0.4'
+  s.add_runtime_dependency 'sequel', '~> 4.43'
 end

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+cd hecks-adapters/hecks-adapters-sql-database
+gem build hecks-adapters-sql-database
+gem install ./hecks-adapters-sql-database-0.0.1.gem
+
+cd ../hecks-adapters-resource-server
+gem build hecks-adapters-resource-server
+gem install ./hecks-adapters-resource-server-0.0.1.gem
+
+cd ../
+gem build hecks-adapters
+gem install ./hecks-adapters-0.0.1.gem
+
+cd ../hecks-application
+gem build hecks-application
+gem install ./hecks-application-0.0.1.gem
+
+cd ../hecks-domain
+gem build hecks-domain
+gem install ./hecks-domain-0.0.1.gem
+
+cd ../hecks
+gem build hecks
+gem install ./hecks-0.1.0.gem
