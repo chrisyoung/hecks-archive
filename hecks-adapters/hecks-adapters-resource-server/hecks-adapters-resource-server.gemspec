@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'hecks-application', '~> 0.0'
   s.add_runtime_dependency 'sinatra', '~> 1.4'
+  s.add_runtime_dependency 'rack-test', '~> 0.6'
 end

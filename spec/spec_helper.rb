@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 ENV['DATABASE_URL'] ||= 'mysql2://root:password@localhost/pizza_builder_test'
 
-require 'simplecov'
-require 'pry'
 require_relative 'sinatra_helper'
+require_relative '../hecks/lib/hecks'
+load('hecks-examples/pizza_builder/Domain')
 require_relative '../hecks-examples/pizza_builder/lib/pizza_builder'
 require_relative '../hecks-adapters/hecks-adapters-sql-database/lib/hecks-adapters-sql-database'
 require_relative '../hecks-adapters/hecks-adapters-resource-server/lib/hecks-adapters-resource-server'
+require 'simplecov'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

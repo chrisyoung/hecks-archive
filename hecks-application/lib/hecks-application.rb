@@ -1,4 +1,4 @@
-require 'hecks'# frozen_string_literal: true
+# frozen_string_literal: true
 require_relative 'commands/commands'
 require_relative 'queries/queries'
 

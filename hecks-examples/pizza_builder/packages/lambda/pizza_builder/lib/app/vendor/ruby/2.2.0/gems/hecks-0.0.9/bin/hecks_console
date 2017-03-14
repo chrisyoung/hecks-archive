@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/console/console'
+require Hecks::Console.full_path
+
+puts "Hecks Loaded!"
+puts "Using the " + Hecks::Console.domain_name + " domain"
+
+IRB::ExtendCommandBundle.include(Hecks::Console::Commands)
+IRB.start

@@ -23,7 +23,6 @@ module Hecks
         end
 
         def create_package_folder
-          run("rm -rf packages/binary")
           directory('binary_package', './packages/binary')
         end
 
@@ -41,11 +40,16 @@ module Hecks
         def package(app_dir, lib_dir, binary, package_dir)
           empty_directory(app_dir)
           empty_directory(lib_dir + '/ruby')
-          return unless options[:no_cache]
+          return unless refresh_cache?(app_dir)
           download(binary, lib_dir)
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
           reduce_package_size(app_dir)
+        end
+
+        def refresh_cache?(app_dir)
+          return true if options[:no_cache]
+          return Dir[app_dir + '/*'].empty?
         end
 
         def copy_resources(app_dir, package_dir)

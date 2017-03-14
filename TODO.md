@@ -13,6 +13,7 @@
   * run with --no-cache if first time building binary package
   * Rename ResourceServer to HTTPResourceServer
   * Git Ignore all the gem files
+  * Get rid of test command on hecks - use the hecks/bin folder instead
 
 ## Posters
   * DynoDB Database Generator
