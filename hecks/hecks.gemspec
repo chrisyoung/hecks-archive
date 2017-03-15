@@ -15,8 +15,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'hecks-application', "=#{version}"
   s.add_runtime_dependency 'hecks-domain', "=#{version}"
   s.add_runtime_dependency 'hecks-adapters', "=#{version}"
-  s.add_runtime_dependency 'activesupport', "~>5.0"
-  s.add_runtime_dependency 'thor', "~>0.19"
 
   s.add_development_dependency "codeclimate-test-reporter", "~> 1.0"
   s.add_development_dependency 'guard-rspec', "~>4.7"
