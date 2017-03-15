@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/chrisyoung/hecks-domain"
   s.version     = version
   s.date        = Date.today
-  s.summary     = "DDD and Hexagonal Code Generators"
+  s.summary     = "Here be Domain Driven Design Generators and Specifications"
   s.description = "Make the Domain the center of your programming world"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'
