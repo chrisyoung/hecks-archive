@@ -13,9 +13,9 @@ module PizzaBuilder
 
         def initialize(pizza_name:, quantity:, price:, pizza:)
           @pizza_name = pizza_name
-          @quantity = quantity
-          @price = price
-          @pizza = PizzaReference.factory(pizza)
+@quantity = quantity
+@price = price
+@pizza = PizzaReference.factory(pizza)
         end
 
         def to_json(config)
