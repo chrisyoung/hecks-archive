@@ -3,6 +3,7 @@
 # What the Hecks?
 **Use Hecks to build scalable software that matches the language of your
 business.**
+
 Hecks uses a workflow borrowed from Domain Driven Design, ie: build a domain
 model to represent the Ubiquitous language of your business.  Hecks provides the
 tools to iteratively generate this domain as code
@@ -60,6 +61,7 @@ Verify the installation
 ## Create a Domain file in an empty project directory:
 **Add a Domain file to your project that formally describes the model you want
 to build.**
+
 PizzaBuilder is a ridiculously simplified domain model that Hecks uses as an
 example Domain across the documentation and tests.
 
