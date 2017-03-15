@@ -45,6 +45,7 @@ Install Hecks using Ruby Gems
 	$ gem install hecks
 
 Verify the installation
+
 	$ hecks help
 
 	hecks commands:
