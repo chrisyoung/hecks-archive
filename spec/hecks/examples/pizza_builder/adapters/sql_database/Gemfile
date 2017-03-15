@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'hecks', path: '../../../../..'
+gem 'hecks-adapter-sql-database', '=0.1.7rc'
 gem 'thor'
 gem 'pry'
 gem 'rspec'

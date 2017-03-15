@@ -1,4 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'hecks'
-gem '<%= domain_name %>'

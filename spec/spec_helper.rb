@@ -5,6 +5,7 @@ require_relative 'sinatra_helper'
 require_relative '../hecks/lib/hecks'
 load('hecks-examples/pizza_builder/Domain')
 require_relative '../hecks-examples/pizza_builder/lib/pizza_builder'
+require_relative '../hecks-application/lib/hecks-application'
 require_relative '../hecks-adapters/hecks-adapters-sql-database/lib/hecks-adapters-sql-database'
 require_relative '../hecks-adapters/hecks-adapters-resource-server/lib/hecks-adapters-resource-server'
 require 'simplecov'
