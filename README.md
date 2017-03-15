@@ -137,14 +137,14 @@ and use adapters like `Hecks::Adapters::ResourceServer` and
 `Hecks::Adapters::SQLDatabase`.
 
 ### Domain Modules
-Hecks treats Domain Modules and Aggregates interchangeably.  For example, PizzaBuilder::Pizzas and PizzaBuilder::Orders are both Domain modules.  These
+Hecks treats Domain Modules and Aggregates interchangeably.  For example, `PizzaBuilder::Pizzas` and `PizzaBuilder::Orders` are both Domain modules.  These
 modules contain the actual objects that can be used to interact with the domain,
 such as `Pizzas::Pizza`, `Pizzas::Chef` and `Orders::LineItem`.
 
 ### Aggregates
 An Aggregate is always accessed through a single "head" object.  A head is
 always an entity.  You can find out the head object like so:
-	`PizzaBuilder::Pizzas`.head
+	`PizzaBuilder::Pizzas#head`
 In this case, the Aggregate is Pizzas and the `#head` method will return
 `PizzaBuilder::Pizzas::Pizza`.
 
@@ -171,8 +171,8 @@ operations.  By default all of the domain modules use an "In memory" database.
 
 ## Note: On Ruby on Rails
 Hecks actually started as a way to introduce Domain Driven Design into Rails,
-but there's no need to mix the concepts.  Just import PizzaBuilder and
-Hecks::Application into your Rails project and use them as you see fit.  
+but there's no need to mix the concepts.  Just import `PizzaBuilder` and
+`Hecks::Application` into your Rails project and use them as you see fit.  
 There are plans to make the interaction between Hecks and Rails very sweet
 (Maybe Hecks Domain as a Rails Engine?)
 
