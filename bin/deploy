@@ -2,6 +2,7 @@
 
 cd hecks-application/lib
 while read -r version; do VERSION=$version; done < Version
+cd ..
 gem push ./hecks-application-$VERSION.gem
 cd ..
 
@@ -13,9 +14,6 @@ gem push  ./hecks-adapters-resource-server-$VERSION.gem
 
 cd ../
 gem push  ./hecks-adapters-$VERSION.gem
-
-cd ../hecks-application
-gem push ./hecks-application-$VERSION.gem
 
 cd ../hecks-domain
 gem push  ./hecks-domain-$VERSION.gem

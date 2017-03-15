@@ -41,7 +41,7 @@ module Hecks
           empty_directory(app_dir)
           empty_directory(lib_dir + '/ruby')
           return unless refresh_cache?(app_dir)
-          # download(binary, lib_dir)
+          download(binary, lib_dir)
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
           reduce_package_size(app_dir)
