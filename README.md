@@ -108,8 +108,8 @@ Start a rackup web server
 Use curl to create a pizza
 
 	$ curl -H "Content-Type: application/json" /
-				 -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' /
-				 localhost:9292/pizzas
+	-d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' /
+	localhost:9292/pizzas
 
 ## Access your domain from the command line
 The command line adapter is currently implemented as a 2.2.2 traveling ruby
