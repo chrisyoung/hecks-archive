@@ -1,9 +1,11 @@
-# Hecks 0.10
+# Hecks
 
 ## In Progress
-  * Add a -d for database option when generating a resource server and lambda package
+  * Version System
 
 ## Current Sprint
+  * Yank all the bad gems
+  * Add a -d for database option when generating a resource server and lambda package
   * Truncate test database between runs
   * Deploy to Lambda
   * Finish linux package
@@ -13,7 +15,7 @@
   * Rename ResourceServer to HTTPResourceServer
   * Get rid of test command on hecks - use the hecks/bin folder instead
   * Delete cache from Lambda package
-  * Yank all the bad gems
+  * Don't use join tables for value objects - value objects belong to their parents.
 
 ## Posters
   * DynoDB Database Generator

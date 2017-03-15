@@ -128,6 +128,25 @@ See it work locally
 	$ serverless invoke local -f hello /
 		-d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
+## Domain Driven Design (DDD) Primer
+
+### Domain Modules
+Hecks treats Domain Modules and Aggregates interchangeably.  For example, PizzaBuilder::Pizzas and PizzaBuilder::Orders are both Domain modules.  These modules contain the actual objects that can be used to interact with the domain, such as Pizzas::Pizza, Pizzas::Chef and Orders::LineItem.
+
+### Aggregates
+An Aggregate is always accessed through a single "head" object.  A head is always an entity.  You can find out the head object like so:
+	PizzaBuilder::Pizzas.head
+In this case, the Aggregate is Pizzas and the #head method will return PizzaBuilder::Pizzas::Pizza.
+
+### Entities
+An Entity is a domain object that you track over time.  Entities rely on unique ids.  For instance, a person can change their name but retain their identity (for example, a social security number). Entities are often, but not always, the heads of Aggregates.  A Pizza is an example of an entity, you can change its name but its identity will remain the same.
+
+### Values
+A value object does not have an identity that persists over time.  For instance, a topping in the PizzaBuilder domain is a value.  "Pepperoni" will always be "Pepperoni", it is not expected to ever change its name to "Mushroom".  Value objects can be thrown away and replaced on updates with new values without having to rely on any lifecycle management.
+
+### Repositories
+A repository is an abstraction for accessing databases.  In Hecks, repositories are grouped into Databases.  Databases work like adapters in that you can write a database adapter to map Hecks Domain operations to specific technologies like "SQL Server", and "CouchDB".  Out of the box, Hecks repositories support CRUD operations.  By default all of the domain modules use an "In memory" database.
+
 ## Note: On Ruby on Rails
 Hecks actually started as a way to introduce Domain Driven Design into Rails,
 but there's no need to mix the concepts.  Just import PizzaBuilder and
