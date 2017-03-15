@@ -4,8 +4,8 @@ require_relative 'queries/queries'
 
 module Hecks
   def self.version
-    path = "#{File.dirname(__FILE__)}/Version".gsub("\n", '')
-    File.read(path)
+    path = "#{File.dirname(__FILE__)}/Version"
+    File.read(path).gsub("\n", '')
   end
 
   class Application

@@ -1,7 +1,7 @@
 describe Hecks do
   describe ".version" do
     it 'Matches the file' do
-      expect(Hecks.version).to eq File.read("Version").gsub("\n", '')
+      expect(Hecks.version).to eq File.read("hecks-application/lib/Version").gsub("\n", '')
     end
 
     it 'is not be empty' do
