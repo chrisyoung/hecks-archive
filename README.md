@@ -78,6 +78,7 @@ example Domain across the documentation and tests.
 	end
 
 Generate the domain model
+
 	$ hecks new
 
 Hecks generates the Objects that you'll use to interact with the domain, such
