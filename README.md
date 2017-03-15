@@ -33,12 +33,14 @@ Rigorously develop the model of the language of your businiess
 * Verify, Deliver, and Iterate
 
 # Usage
-Story: As a client, I should be able to create a Pizza over http
-Tasks:
-	* Install Hecks
-	* Build a PizzaBuilder Domain,
-	* Generate configuration
-	* Run the HTTP Resource Server
+## Story
+As a client, I should be able to create a Pizza over http
+
+## Tasks:
+* Install Hecks
+* Build a PizzaBuilder Domain,
+* Generate configuration
+* Run the HTTP Resource Server
 
 ## Install
 Install Hecks using Ruby Gems
@@ -87,6 +89,7 @@ as:
 **Run a web server that gives access to Pizzas and Orders over HTTP.**
 
 Expect to have routes to CRUD methods for all of your Domain Modules, such as:
+
 	Create: POST /pizzas
 	Read: GET /pizzas/1
 	Update: PUT /pizzas
@@ -95,12 +98,15 @@ Expect to have routes to CRUD methods for all of your Domain Modules, such as:
 These methods are also available on the Orders Domain Module
 
 Generate the resource server configuration
+
 	$ hecks generate:resource_server
 
 Start a rackup web server
+
 	$ rackup config.ru
 
 Use curl to create a pizza
+
 	$ curl -H "Content-Type: application/json" /
 				 -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' /
 				 localhost:9292/pizzas
@@ -123,9 +129,11 @@ Hecks is friends with serverless to generate a deployable function.  Here's how
 to see if it worlks locally:
 
 Make a deployable Lambda package
+
 	$ hecks package lambda
 
 See it work locally
+
 	$ serverless invoke local -f hello /
 		-d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
