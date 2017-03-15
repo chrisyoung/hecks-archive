@@ -3,6 +3,11 @@ require_relative 'commands/commands'
 require_relative 'queries/queries'
 
 module Hecks
+  def self.version
+    path = "#{File.dirname(__FILE__)}/Version".gsub("\n", '')
+    File.read(path)
+  end
+
   class Application
     attr_reader :database, :domain_spec, :events_port
     def initialize(database: nil, listeners: [], domain:)

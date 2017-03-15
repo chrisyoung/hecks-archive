@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'hecks-adapters-sql-database', '0.1.6.rc'
-gem '<%= domain_name %>'
+gem 'pizza_builder'

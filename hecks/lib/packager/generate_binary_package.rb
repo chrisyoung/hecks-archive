@@ -53,7 +53,7 @@ module Hecks
         end
 
         def copy_resources(app_dir, package_dir)
-          run("cp #{RESOURCES_DIR}/Gemfile #{app_dir}")
+          template "Gemfile", "app_dir/Gemfile"
           run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
           run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
           run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")

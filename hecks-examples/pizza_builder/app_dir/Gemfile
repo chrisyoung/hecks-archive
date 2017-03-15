@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+gem 'hecks-adapters-sql-database', 0.1.7.rc
+
+gem 'pizza_builder'

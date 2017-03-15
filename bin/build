@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+cd hecks-application/lib
 while read -r version; do VERSION=$version; done < Version
+cd ..
 
-cd hecks-application
 gem build hecks-application
 gem install --no-rdoc --no-ri  -q ./hecks-application-$VERSION.gem
 

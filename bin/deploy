@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+cd hecks-application/lib
 while read -r version; do VERSION=$version; done < Version
+gem push ./hecks-application-$VERSION.gem
+cd ..
 
 cd hecks-adapters/hecks-adapters-sql-database
 gem push ./hecks-adapters-sql-database-$VERSION.gem

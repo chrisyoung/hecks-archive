@@ -1,5 +1,5 @@
 current directory: /usr/src/app/vendor/ruby/2.2.0/gems/mysql2-0.4.5/ext/mysql2
-/usr/local/bin/ruby -r ./siteconf20170314-7-oxop9m.rb extconf.rb 
+/usr/local/bin/ruby -r ./siteconf20170315-7-19bk4u9.rb extconf.rb 
 checking for rb_absint_size()... yes
 checking for rb_absint_singlebit_p()... yes
 checking for ruby/thread.h... yes
@@ -36,4 +36,4 @@ linking shared-object mysql2/mysql2.so
 
 current directory: /usr/src/app/vendor/ruby/2.2.0/gems/mysql2-0.4.5/ext/mysql2
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 mysql2.so ./.gem.20170314-7-g5uqu8/mysql2
+/usr/bin/install -c -m 0755 mysql2.so ./.gem.20170315-7-14zrq5c/mysql2
