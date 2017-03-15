@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version     = version
   s.date        = Date.today
   s.summary     = "Adapts various technologies to Domains built with Hecks::Domain generators"
-  s.description = "Make the Domain the center of your programming world"
+  s.description = "Hecks Adapters"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'
   s.files       = Dir["lib/**/*"]

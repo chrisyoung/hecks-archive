@@ -13,6 +13,7 @@
   * Rename ResourceServer to HTTPResourceServer
   * Get rid of test command on hecks - use the hecks/bin folder instead
   * Delete cache from Lambda package
+  * Yank all the bad gems
 
 ## Posters
   * DynoDB Database Generator

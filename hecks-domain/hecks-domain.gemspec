@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/chrisyoung/hecks-domain"
   s.version     = version
   s.date        = Date.today
-  s.summary     = "Here be Domain Driven Design Generators and Specifications"
-  s.description = "Make the Domain the center of your programming world"
+  s.summary     = "Here be Domain Driven Design Generators and Builders"
+  s.description = "Hecks Domain"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'
   s.files       = Dir["lib/**/*"]
