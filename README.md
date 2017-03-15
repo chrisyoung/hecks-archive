@@ -129,6 +129,8 @@ See it work locally
 		-d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
 ## Domain Driven Design (DDD) Primer
+This primer contains the design principles used to build Hecks Domains
+like PizzaBuilder.  These are a small sub-section of patterns described in Domain Driven Design by Eric Evans.  Designing the Ubiquitous Language of your Domain with these concepts will allow you to use Hecks to generate your domain and use adapters like Hecks::Adapters::ResourceServer and Hecks::Adapters::SQLDatabase.
 
 ### Domain Modules
 Hecks treats Domain Modules and Aggregates interchangeably.  For example, PizzaBuilder::Pizzas and PizzaBuilder::Orders are both Domain modules.  These modules contain the actual objects that can be used to interact with the domain, such as Pizzas::Pizza, Pizzas::Chef and Orders::LineItem.

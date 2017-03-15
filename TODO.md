@@ -16,6 +16,7 @@
   * Get rid of test command on hecks - use the hecks/bin folder instead
   * Delete cache from Lambda package
   * Don't use join tables for value objects - value objects belong to their parents.
+  * Add a drawing of PizzaServer to the domain
 
 ## Posters
   * DynoDB Database Generator
