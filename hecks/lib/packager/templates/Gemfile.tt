@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'hecks-adapters-sql-database', <%= Hecks.version %>
+gem 'hecks-adapters', '<%= Hecks.version %>'
 gem '<%= domain_name %>'

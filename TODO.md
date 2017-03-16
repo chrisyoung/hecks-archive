@@ -1,9 +1,12 @@
 # Hecks
 
 ## In Progress
-  * Version System
+  * Get the binary to run with new gem craziness
 
 ## Current Sprint
+  * Stop using traveling ruby sql gem in sqldatabase adapter
+  * Supply a sqldatabase specifically for binary packaging
+  * Break out all the adapters into their own gems
   * Yank all the bad gems
   * Add a -d for database option when generating a resource server and lambda package
   * Truncate test database between runs

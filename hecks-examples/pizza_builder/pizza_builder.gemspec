@@ -7,6 +7,6 @@ Gem::Specification.new do |s|
   s.description = "Description"
   s.authors     = ["Author"]
   s.email       = 'email@example.com'
-  s.files       = Dir["lib/**/*"]
+  s.files       = Dir["lib/**/*"] + ['Domain']
   s.license     = 'MIT'
 end

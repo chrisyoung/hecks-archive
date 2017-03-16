@@ -1,4 +1,5 @@
-require 'hecks'
+require 'hecks-application'
+require 'hecks-adapters-sql-database'
 require 'pizza_builder'
 
 app = Hecks::Application.new(domain: PizzaBuilder)

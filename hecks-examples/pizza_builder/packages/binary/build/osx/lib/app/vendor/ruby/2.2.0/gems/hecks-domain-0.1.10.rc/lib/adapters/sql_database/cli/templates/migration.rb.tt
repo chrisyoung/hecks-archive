@@ -1,0 +1,14 @@
+Sequel.migration do
+  up do
+    create_table(:<%= migration_builder.table_name %>) do
+      primary_key :id
+      <%- migration_builder.columns.each do |column| -%>
+      <%= column.type.camelcase %> :<%= column.name.to_sym %>, :null=>false
+      <%- end -%>
+    end
+  end
+
+  down do
+    drop_table(:<%= migration_builder.table_name %>)
+  end
+end

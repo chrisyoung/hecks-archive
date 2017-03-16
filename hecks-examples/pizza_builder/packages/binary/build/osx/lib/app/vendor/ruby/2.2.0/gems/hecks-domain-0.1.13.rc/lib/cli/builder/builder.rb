@@ -1,0 +1,3 @@
+require_relative 'value_object_command_line_builder'
+require_relative 'aggregate_command_line_builder'
+require_relative 'reference_command_line_builder'

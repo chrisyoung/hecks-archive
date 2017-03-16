@@ -1,7 +1,11 @@
-require 'hecks'
+require 'hecks-application'
+require 'hecks-adapters'
 require 'pizza_builder'
 
-app = Hecks::Application.new(domain: PizzaBuilder)
+app = Hecks::Application.new(
+  domain: PizzaBuilder,
+  database: Hecks::Adapters::SQLDatabase
+)
 
 # Ruby 2.2.2 doesn't support Fixnum#positive?, so monkey patch it.
 class Fixnum

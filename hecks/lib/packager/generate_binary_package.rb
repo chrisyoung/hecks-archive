@@ -9,6 +9,7 @@ module Hecks
         HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
         OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
         LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
+        MYSQL_GEM     = 'traveling-ruby-gems-20150715-2.2.2-osx/mysql2-0.3.18.tar.gz'
         BUILD_DIR     = 'packages/binary/build'
         RESOURCES_DIR = BUILD_DIR     + '/resources'
         OSX_DIR       = BUILD_DIR     + '/osx'
@@ -32,7 +33,7 @@ module Hecks
 
         def build
           package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
-          package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
+          # package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
         end
 
         private
@@ -40,11 +41,26 @@ module Hecks
         def package(app_dir, lib_dir, binary, package_dir)
           empty_directory(app_dir)
           empty_directory(lib_dir + '/ruby')
-          return unless refresh_cache?(app_dir)
-          download(binary, lib_dir)
+          if refresh_cache?(app_dir)
+            download_binary(binary, lib_dir)
+            download_gem(MYSQL_GEM, RESOURCES_DIR)
+            remove_native_extensions
+            unpack_gem(MYSQL_GEM, OSX_LIB_DIR)
+          end
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
           reduce_package_size(app_dir)
+        end
+
+        def unpack_gem(ruby_gem, lib_dir)
+          run("tar -xzf #{RESOURCES_DIR}/#{ruby_gem} -C #{lib_dir}/ruby")
+        end
+
+        def remove_native_extensions
+          run("rm -rf #{OSX_APP_DIR}/vendor/ruby/*/extensions")
+          run("find #{OSX_APP_DIR}/vendor/ruby/*/gems -name '*.so' | xargs rm -f")
+          run("find #{OSX_APP_DIR}/vendor/ruby/*/gems -name '*.bundle' | xargs rm -f")
+          run("find #{OSX_APP_DIR}/vendor/ruby/*/gems -name '*.o' | xargs rm -f")
         end
 
         def refresh_cache?(app_dir)
@@ -53,16 +69,21 @@ module Hecks
         end
 
         def copy_resources(app_dir, package_dir)
-          template "Gemfile", "app_dir/Gemfile"
+          template "Gemfile", "#{RESOURCES_DIR}/Gemfile"
+          run("cp -rf #{RESOURCES_DIR}/Gemfile #{app_dir}/Gemfile")
           run("cp -rf #{RESOURCES_DIR}/bundle #{app_dir}/.bundle")
           run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
           run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
           run("cd #{package_dir} && chmod 744 #{domain_name}")
         end
 
-        def download(binary, lib_dir)
+        def download_binary(binary, lib_dir)
           run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{binary}")
           run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
+        end
+
+        def download_gem(ruby_gem, lib_dir)
+          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{ruby_gem}")
         end
 
         def bundle_with_ruby_2_2_2(app_dir)

@@ -119,7 +119,7 @@ The command line adapter is currently implemented as a 2.2.2 traveling ruby
 package.  Hecks provides the means to build that package.
 
 	$ hecks package binary
-	$ pizza_builder 'module: {'pizzas', args: {...}}'
+	$ pizza_builder pizzas create '{"name":"White Pizza","description":"white sauce and chicken","chef":{"name":"Chef Ramsey"},"toppings":[{"name":"chicken"}]}'
 
 ## Access your domain from a Ruby Console
 Move into your domain's directory (the one creared with hecks new)
