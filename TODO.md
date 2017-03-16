@@ -4,6 +4,7 @@
   * Get the binary to run with new gem craziness
 
 ## Current Sprint
+  * Get rid of all the old gems in the binary package vendor folder
   * Stop using traveling ruby sql gem in sqldatabase adapter
   * Supply a sqldatabase specifically for binary packaging
   * Break out all the adapters into their own gems
