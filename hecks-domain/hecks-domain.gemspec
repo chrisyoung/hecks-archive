@@ -11,6 +11,4 @@ Gem::Specification.new do |s|
   s.email       = 'chris@example.com'
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
-
-  s.add_runtime_dependency 'hecks-adapters-sql-database', "=#{version}"
 end
