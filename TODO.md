@@ -4,6 +4,7 @@
 
 ## Current Sprint
   * Shouldn't have to build gems to develop
+  * Choose gem path for gem server dynamically.
   * Finish linux package
   * Deploy to Lambda  
   * Get rid of all the old gems in the binary package vendor folder
