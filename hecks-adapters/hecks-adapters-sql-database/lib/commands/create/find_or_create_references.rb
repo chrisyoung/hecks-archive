@@ -28,7 +28,7 @@ module Hecks
                 result = DB[column.to_table_name].first(attributes)
 
                 @reference_ids[reference.name] = result[:id] and return if result
-                @reference_ids[reference.name] = DB[column.as_table_name].insert(attributes)
+                @reference_ids[reference.name] = DB[column.to_table_name].insert(attributes)
               end
             end
 

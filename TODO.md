@@ -1,6 +1,7 @@
 # Hecks
 
 ## In Progress
+  * Load from local gemfiles instead of relying on rubygems when packaging
   * Get the binary to run with new gem craziness
 
 ## Current Sprint
@@ -23,11 +24,13 @@
   * Add a drawing of PizzaServer to the domain
 
 ## Posters
+  * Hecks in Python
   * DynoDB Database Generator
   * CouchDB Database Generator
   * Schema Validator
   * Package as Docker
   * Open source license
+
 
 ## Bugs
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
@@ -45,6 +48,7 @@
   * Use relative hex binary automatically if no gem is installed
   * Use invariants (with #fail)
   * Clean up generator comments
+  * Repress cache cleanup output after binary package
 
 ## Hygiene:
   * Move examples directly under hecks folder (out of spec)

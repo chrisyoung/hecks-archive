@@ -1,8 +1,0 @@
-require_relative "lib/<%= domain %>.rb"
-require 'hecks'
-
-run Hecks::Adapters::ResourceServer.new(
-  application_adapter: Hecks::Application.new(
-    domain: <%= domain.camelize %>
-  )
-)

@@ -19,11 +19,15 @@ tools to iteratively generate this domain as code
 * You want to stop writing boilerplate
 * You want to be able to easily deploy solutions across multiple technologies
 * You want to have great documentation but remain agile
-* You want a framework that is easy to build microservices with
+* You want a framework that is ea sy to build microservices with
 * You want to stop bleeding Business Logic across boundaries
 * You want to stop writing code to protect against row locking
 * You want to separate technology decisions from how you describe your business
 * You want documentation that works for all departments
+* You want to cut out the work it takes to adapt your domain to production environments
+* You want to shim your legacy code to a modern understanding of what your company does
+* You want to continue to develop Iteratively
+* You want to understand the entire context of your business
 
 # How the Hecks?
 Rigorously develop the model of the language of your businiess

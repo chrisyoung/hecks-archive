@@ -8,12 +8,7 @@ describe Hecks::Application::Commands::Create do
   end
 
   let(:pizza_attributes) do
-    {
-      name: 'White Pizza',
-      chef: {name: "Belleboche"},
-      description: 'white sauce and chicken',
-      toppings: [{ name: 'chicken' }]
-    }
+    { name: 'White Pizza', chef: { name: "Belleboche" }, description: 'white sauce and chicken', toppings: [{ name: 'chicken' }] }
   end
 
   describe '#call' do

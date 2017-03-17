@@ -1,4 +1,5 @@
 require 'sequel'
+require 'mysql2'
 require 'hecks-application'
 
 require_relative 'column'

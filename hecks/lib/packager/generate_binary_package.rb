@@ -4,13 +4,18 @@ module Hecks
       class GenerateBinaryPackage < Thor::Group
         include Thor::Actions
 
-        class_option :no_cache, aliases: '-n', desc: 'download resources', default: false, type: :boolean
+        class_option :cache, aliases: '-c', desc: 'skip downloading resources', default: true, type: :boolean
+        class_option :download, aliases: '-d', desc: 'download', default: true, type: :boolean
+        class_option :reduce_package_size, aliases: '-r', desc: 'delete unneeded cruft in gems', default: true, type: :boolean
+        class_option :latest, aliases: '-l', desc: 'Use the latest gem', default: true, type: :boolean
 
         HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
         OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
         LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
-        MYSQL_GEM     = 'traveling-ruby-gems-20150715-2.2.2-osx/mysql2-0.3.18.tar.gz'
+        GEM_FOLDER    = 'traveling-ruby-gems-20150715-2.2.2-osx'
+        MYSQL_GEM     = 'mysql2-0.3.18.tar.gz'
         BUILD_DIR     = 'packages/binary/build'
+        GEM_SERVER    = 'http://0.0.0.0:8808'
         RESOURCES_DIR = BUILD_DIR     + '/resources'
         OSX_DIR       = BUILD_DIR     + '/osx'
         OSX_LIB_DIR   = OSX_DIR       + '/lib'
@@ -18,6 +23,14 @@ module Hecks
         LINUX_DIR     = BUILD_DIR     + '/linux-x86_64'
         LINUX_LIB_DIR = LINUX_DIR     + 'lib'
         LINUX_APP_DIR = LINUX_LIB_DIR + '/app'
+        HECKS_GEMS = %w(
+          hecks-application
+          hecks-adapters
+          hecks-adapters-sql-database
+          hecks-adapters-resource-server
+          hecks-domain
+        )
+
 
         def self.source_root
           File.dirname(__FILE__) + '/templates'
@@ -42,18 +55,18 @@ module Hecks
           empty_directory(app_dir)
           empty_directory(lib_dir + '/ruby')
           if refresh_cache?(app_dir)
-            download_binary(binary, lib_dir)
-            download_gem(MYSQL_GEM, RESOURCES_DIR)
-            remove_native_extensions
-            unpack_gem(MYSQL_GEM, OSX_LIB_DIR)
+            download_binary(binary, lib_dir) if options[:download]
+            download_gem(MYSQL_GEM, RESOURCES_DIR) if options[:download]
           end
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
-          reduce_package_size(app_dir)
+          remove_native_extensions
+          unpack_gem(MYSQL_GEM, OSX_APP_DIR)
+          reduce_package_size(app_dir) if options[:reduce_package_size]
         end
 
         def unpack_gem(ruby_gem, lib_dir)
-          run("tar -xzf #{RESOURCES_DIR}/#{ruby_gem} -C #{lib_dir}/ruby")
+          run("tar -xzf #{RESOURCES_DIR}/#{ruby_gem} -C #{OSX_APP_DIR}/vendor/ruby")
         end
 
         def remove_native_extensions
@@ -83,21 +96,30 @@ module Hecks
         end
 
         def download_gem(ruby_gem, lib_dir)
-          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{ruby_gem}")
+          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{GEM_FOLDER}/#{ruby_gem}")
         end
 
         def bundle_with_ruby_2_2_2(app_dir)
           run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
           run("cp #{domain_name}-0.0.0.gem #{app_dir}")
+          fetch_gems(app_dir)
           run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
           container = `docker create pizza_builder:latest`.gsub("\n", '')
           run("docker cp #{container}:/usr/src/app/vendor #{app_dir}")
         end
 
+        def fetch_gems(app_dir)
+          return unless options[:latest]
+
+          HECKS_GEMS.each do |name|
+            run("cd #{app_dir} && gem fetch #{name} -s #{GEM_SERVER}")
+          end
+        end
+
         def reduce_package_size(app_dir)
           files = %w(test tests spec features benchmark README* CHANGE* Change*
-            COPYING* LICENSE* MIT-LICENSE* TODO *.txt *.md *.rdoc doc docs example
-            examples sample doc-api)
+            COPYING* LICENSE* MIT-LICENSE* TODO *.txt *.md *.rdoc doc docs
+            example examples sample doc-api)
 
           files.each do |file|
             run("rm -rf #{app_dir}/vendor/ruby/*/gems/*/#{file}")
