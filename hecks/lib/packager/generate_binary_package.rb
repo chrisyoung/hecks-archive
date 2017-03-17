@@ -31,7 +31,6 @@ module Hecks
           hecks-domain
         )
 
-
         def self.source_root
           File.dirname(__FILE__) + '/templates'
         end
