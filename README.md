@@ -33,7 +33,7 @@ tools to iteratively generate this domain as code
 Rigorously develop the model of the language of your businiess
 * Iteratively Develop a Domain Model
 * Write or use existing Hecks::Adapters to cover technical use cases like
-`Adapters::HTTPResourceServer` and `Package::Lambda`
+`Hecks::Adapters::HTTPResourceServer` and `Hecks::Package::Lambda`
 * Use the adapters to accomplish Business use cases
 * Verify, Deliver, and Iterate
 
@@ -49,6 +49,7 @@ As a client, I should be able to create a Pizza over http
 
 ## Install
 Install Hecks using Ruby Gems
+
 	$ gem install hecks
 
 Verify the installation
@@ -141,8 +142,7 @@ Make a deployable Lambda package
 
 See it work locally
 
-	$ serverless invoke local -f hello /
-		-d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
+	$ DATABASE_URL='mysql2://root:password@localhost/pizza_builder_test' serverless invoke local -f pizza_builder -d '{"module": "Pizzas", "method": "create", "data": {"name":"White Pizza","description":"white sauce and chicken","chef":{"name":"Chef Ramsey"},"toppings":[{"name":"chicken"}]}}'
 
 # Domain Driven Design (DDD) Primer
 This primer contains the design principles used to build Hecks Domains
