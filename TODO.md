@@ -1,10 +1,10 @@
 # Hecks
 
 ## In Progress
-  * Load from local gemfiles instead of relying on rubygems when packaging
-  * Get the binary to run with new gem craziness
+  * Finish linux package
 
 ## Current Sprint
+  * Deploy to Lambda  
   * Get rid of all the old gems in the binary package vendor folder
   * Stop using traveling ruby sql gem in sqldatabase adapter
   * Supply a sqldatabase specifically for binary packaging
@@ -12,8 +12,7 @@
   * Yank all the bad gems
   * Add a -d for database option when generating a resource server and lambda package
   * Truncate test database between runs
-  * Deploy to Lambda
-  * Finish linux package
+
   * use a query to get back unique pizza toppings
   * Only offer to generate domain migrations if in sqldatabase adapter folder
   * clarify ambiguity between the domain builder and the domain objects Ruby modules
@@ -31,10 +30,10 @@
   * Package as Docker
   * Open source license
 
-
 ## Bugs
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
+  * Making 2 pizzas with each post
 
 ## Next Actions
   * Build everything in a Docker Container
