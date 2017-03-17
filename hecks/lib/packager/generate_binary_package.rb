@@ -110,6 +110,8 @@ module Hecks
         def fetch_gems(app_dir)
           return unless options[:latest]
 
+          run("gem server -d /Users/chrisyoung/.rvm/gems/ruby-2.4.0 --daemon")
+
           HECKS_GEMS.each do |name|
             run("cd #{app_dir} && gem fetch #{name} -s #{GEM_SERVER}")
           end

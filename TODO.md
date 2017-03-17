@@ -1,9 +1,10 @@
 # Hecks
 
 ## In Progress
-  * Finish linux package
 
 ## Current Sprint
+  * Shouldn't have to build gems to develop
+  * Finish linux package
   * Deploy to Lambda  
   * Get rid of all the old gems in the binary package vendor folder
   * Stop using traveling ruby sql gem in sqldatabase adapter
@@ -12,7 +13,6 @@
   * Yank all the bad gems
   * Add a -d for database option when generating a resource server and lambda package
   * Truncate test database between runs
-
   * use a query to get back unique pizza toppings
   * Only offer to generate domain migrations if in sqldatabase adapter folder
   * clarify ambiguity between the domain builder and the domain objects Ruby modules
