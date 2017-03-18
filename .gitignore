@@ -3,3 +3,4 @@
 coverage
 spec/tmp
 **/*.gem
+hecks-examples/**/packages
