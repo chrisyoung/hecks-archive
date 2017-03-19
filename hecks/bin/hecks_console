@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/console/console'
+require_relative '../lib/hecks'
 require Hecks::Console.full_path
+
+puts File.dirname(__FILE__)
 
 puts "Hecks Loaded!"
 puts "Using the " + Hecks::Console.domain_name + " domain"

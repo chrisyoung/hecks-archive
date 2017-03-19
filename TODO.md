@@ -3,7 +3,6 @@
 ## In Progress
 
 ## Current Sprint
-  * Shouldn't have to build gems to develop
   * Choose gem path for gem server dynamically.
   * Finish linux package
   * Deploy to Lambda  
@@ -35,6 +34,8 @@
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
   * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
   * Making 2 pizzas with each post
+  * Coverage report showing 100%
+  * Stop reloading constants
 
 ## Next Actions
   * Build everything in a Docker Container

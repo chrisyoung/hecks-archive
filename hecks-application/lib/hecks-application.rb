@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 require_relative 'commands/commands'
 require_relative 'queries/queries'
-require 'hecks-domain'
+
+if ENV['HECKS_PATH']
+  require_relative '../../hecks-domain/lib/hecks-domain'
+else
+  require 'hecks-domain'
+end
 
 module Hecks
   def self.version
