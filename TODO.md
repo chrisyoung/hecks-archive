@@ -1,10 +1,9 @@
 # Hecks
 
 ## In Progress
-
+  * Finish linux package
 ## Current Sprint
   * Choose gem path for gem server dynamically.
-  * Finish linux package
   * Deploy to Lambda  
   * Get rid of all the old gems in the binary package vendor folder
   * Stop using traveling ruby sql gem in sqldatabase adapter

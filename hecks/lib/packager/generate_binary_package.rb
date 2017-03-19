@@ -46,6 +46,7 @@ module Hecks
         end
 
         def build
+          fetch_hecks_gems
           package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR, OSX_MY_SQL_GEM_FOLDER)
           package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR, LINUX_MY_SQL_GEM_FOLDER)
         end
@@ -57,17 +58,17 @@ module Hecks
           empty_directory(lib_dir + '/ruby')
           if refresh_cache?(app_dir)
             download_binary(binary, lib_dir) if options[:download]
-            download_gem(mysql_gem_folder, RESOURCES_DIR, mysql_gem_folder) if options[:download]
+            download_gem(mysql_gem_folder)
+            reduce_package_size(app_dir) if options[:reduce_package_size]
           end
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
-          remove_native_extensions
+          # remove_native_extensions
           unpack_gem(app_dir)
-          reduce_package_size(app_dir) if options[:reduce_package_size]
         end
 
         def unpack_gem(app_dir)
-          run("tar -xzf #{RESOURCES_DIR}/#{MYSQL_GEM} -C #{app_dir}/vendor/ruby")
+          # run("tar -xzf #{RESOURCES_DIR}/#{MYSQL_GEM} -C #{app_dir}/vendor/ruby")
         end
 
         def remove_native_extensions
@@ -78,8 +79,8 @@ module Hecks
         end
 
         def refresh_cache?(app_dir)
-          return true unless options[:cache]
-          return Dir[app_dir + '/*'].empty?
+          return true if !options[:cache]
+          Dir[app_dir + '*'].empty?
         end
 
         def copy_resources(app_dir, package_dir)
@@ -96,26 +97,27 @@ module Hecks
           run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
         end
 
-        def download_gem(ruby_gem, lib_dir, gem_folder)
-          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{gem_folder}/#{ruby_gem}")
+        def download_gem(gem_folder)
+          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{gem_folder}/#{MYSQL_GEM}")
         end
 
         def bundle_with_ruby_2_2_2(app_dir)
           run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
           run("cp #{domain_name}-0.0.0.gem #{app_dir}")
-          fetch_gems(app_dir)
           run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
           container = `docker create pizza_builder:latest`.gsub("\n", '')
           run("docker cp #{container}:/usr/src/app/vendor #{app_dir}")
         end
 
-        def fetch_gems(app_dir)
+        def cache_folder
+          `which hecks`.split('/')[0..-3].join('/') + '/cache'
+        end
+
+        def fetch_hecks_gems
           return unless options[:latest]
 
-          run("gem server -d /Users/chrisyoung/.rvm/gems/ruby-2.4.0 --daemon")
-
           HECKS_GEMS.each do |name|
-            run("cd #{app_dir} && gem fetch #{name} -s #{GEM_SERVER}")
+            run("cd #{RESOURCES_DIR} && cp #{cache_folder}/#{name}-#{Hecks.version}.gem .")
           end
         end
 
