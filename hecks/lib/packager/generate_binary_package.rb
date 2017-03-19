@@ -12,8 +12,9 @@ module Hecks
         HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
         OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
         LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
-        GEM_FOLDER    = 'traveling-ruby-gems-20150715-2.2.2-osx'
         MYSQL_GEM     = 'mysql2-0.3.18.tar.gz'
+        OSX_MY_SQL_GEM_FOLDER = "traveling-ruby-gems-20150715-2.2.2-osx"
+        LINUX_MY_SQL_GEM_FOLDER = "traveling-ruby-gems-20150715-2.2.2-linux-x86_64"
         BUILD_DIR     = 'packages/binary/build'
         GEM_SERVER    = 'http://0.0.0.0:8808'
         RESOURCES_DIR = BUILD_DIR     + '/resources'
@@ -23,6 +24,7 @@ module Hecks
         LINUX_DIR     = BUILD_DIR     + '/linux-x86_64'
         LINUX_LIB_DIR = LINUX_DIR     + 'lib'
         LINUX_APP_DIR = LINUX_LIB_DIR + '/app'
+
         HECKS_GEMS = %w(
           hecks-application
           hecks-adapters
@@ -44,28 +46,28 @@ module Hecks
         end
 
         def build
-          package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
-          # package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
+          package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR, OSX_MY_SQL_GEM_FOLDER)
+          package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR, LINUX_MY_SQL_GEM_FOLDER)
         end
 
         private
 
-        def package(app_dir, lib_dir, binary, package_dir)
+        def package(app_dir, lib_dir, binary, package_dir, mysql_gem_folder)
           empty_directory(app_dir)
           empty_directory(lib_dir + '/ruby')
           if refresh_cache?(app_dir)
             download_binary(binary, lib_dir) if options[:download]
-            download_gem(MYSQL_GEM, RESOURCES_DIR) if options[:download]
+            download_gem(mysql_gem_folder, RESOURCES_DIR, mysql_gem_folder) if options[:download]
           end
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
           remove_native_extensions
-          unpack_gem(MYSQL_GEM, OSX_APP_DIR)
+          unpack_gem(app_dir)
           reduce_package_size(app_dir) if options[:reduce_package_size]
         end
 
-        def unpack_gem(ruby_gem, lib_dir)
-          run("tar -xzf #{RESOURCES_DIR}/#{ruby_gem} -C #{OSX_APP_DIR}/vendor/ruby")
+        def unpack_gem(app_dir)
+          run("tar -xzf #{RESOURCES_DIR}/#{MYSQL_GEM} -C #{app_dir}/vendor/ruby")
         end
 
         def remove_native_extensions
@@ -76,7 +78,7 @@ module Hecks
         end
 
         def refresh_cache?(app_dir)
-          return true if options[:no_cache]
+          return true unless options[:cache]
           return Dir[app_dir + '/*'].empty?
         end
 
@@ -94,8 +96,8 @@ module Hecks
           run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
         end
 
-        def download_gem(ruby_gem, lib_dir)
-          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{GEM_FOLDER}/#{ruby_gem}")
+        def download_gem(ruby_gem, lib_dir, gem_folder)
+          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{gem_folder}/#{ruby_gem}")
         end
 
         def bundle_with_ruby_2_2_2(app_dir)

@@ -1,3 +1,5 @@
 bash bin/build
-cd hecks && hecks test ci
-cd .. && rspec -f d
+cd hecks-examples/pizza_builder
+hecks new
+cd ../..
+rspec -f d

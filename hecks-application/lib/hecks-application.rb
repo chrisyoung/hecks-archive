@@ -3,7 +3,7 @@ require_relative 'commands/commands'
 require_relative 'queries/queries'
 
 if ENV['HECKS_PATH']
-  require_relative '../../hecks-domain/lib/hecks-domain'
+  require_relative "#{File.dirname(__FILE__)}/../../hecks-domain/lib/hecks-domain"
 else
   require 'hecks-domain'
 end

@@ -7,14 +7,13 @@ module Hecks
     end
 
     def self.dev_mode?
-      ENV['HECKS_PATH']
+      !!ENV['HECKS_PATH']
     end
 
     def self.require_local
-      require_relative 'memory_database/memory_database'
-      require_relative 'events/events'
-      require_relative 'logger/logger'
-      require_relative 'validator/validator'
+      require_relative '../../hecks-application/lib/hecks-application'
+      require_relative '../hecks-adapters-resource-server/lib/hecks-adapters-resource-server'
+      require_relative '../hecks-adapters-sql-database/lib/hecks-adapters-sql-database'
     end
 
     def self.require_gems
@@ -24,5 +23,10 @@ module Hecks
     end
   end
 end
+
+require_relative 'memory_database/memory_database'
+require_relative 'events/events'
+require_relative 'logger/logger'
+require_relative 'validator/validator'
 
 Hecks::Adapters.require_dependencies

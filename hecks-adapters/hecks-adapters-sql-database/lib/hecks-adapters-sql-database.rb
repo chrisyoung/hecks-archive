@@ -1,6 +1,11 @@
 require 'sequel'
 require 'mysql2'
-require 'hecks-application'
+
+if ENV['HECKS_PATH']
+  require_relative '../../../hecks-application/lib/hecks-application'
+else
+  require 'hecks-application'
+end
 
 require_relative 'column'
 require_relative 'join_table'

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 require 'sinatra'
-require 'hecks-application'
+if ENV['HECKS_PATH']
+  require_relative "../../../hecks-application/lib/hecks-application"
+else
+  require 'hecks-application'
+end
+
 require 'json'
 require_relative 'methods'
 
