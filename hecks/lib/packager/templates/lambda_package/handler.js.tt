@@ -1,12 +1,25 @@
-'use strict';
-
-const spawn = require('child_process').spawn;
-
 module.exports.<%= domain_name %> = (event, context, callback) => {
-  var app = '<%= domain_name %>/<%= domain_name %>'
+  var binary_build = process.env.BINARY_BUILD || 'osx'
+  var app = '<%= domain_name %>.' + binary_build + '/<%= domain_name %>'
   var data = JSON.stringify(event['data'])
   var command = app + ' ' + event['module'] + ' ' + event['method'] + ' ' + JSON.stringify(data)
-  const child = exec(command, (result) => {
-    context.done(result);
+
+  const child = exec(command, (error, stdout, stderr) => {
+    if (error) {
+      console.error("error: " + error);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`);
   });
+
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Go Serverless v1.0! Your function executed successfully!',
+      input: event,
+    }),
+  };
+
+  callback(null, response);
 };
