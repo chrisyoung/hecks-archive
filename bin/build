@@ -24,8 +24,6 @@ cd ../
 gem build hecks-adapters
 gem install --no-rdoc --no-ri -q ./hecks-adapters-$VERSION.gem
 
-
-
 cd ../hecks
 gem build hecks
 gem install --no-rdoc --no-ri -q ./hecks-$VERSION.gem

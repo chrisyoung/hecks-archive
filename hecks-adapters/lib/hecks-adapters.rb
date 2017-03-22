@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+require 'thor'
+
 module Hecks
   module Adapters
     def self.require_dependencies

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 require 'thor'
 
-
-
 if `gem list`.include?('hecks (')
   require 'hecks-application'
   require 'hecks-domain'
@@ -14,6 +12,7 @@ else
   require_relative '../../hecks-domain/lib/hecks-domain'
   require_relative '../../hecks-adapters/lib/hecks-adapters'
 end
+
 require_relative 'console'
 require_relative 'packager'
 require_relative 'cli'

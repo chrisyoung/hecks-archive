@@ -28,6 +28,7 @@ tools to iteratively generate this domain as code
 * You want to shim your legacy code to a modern understanding of what your company does
 * You want to continue to develop Iteratively
 * You want to understand the entire context of your business
+* You want a solution to consistently organizing your code
 
 # How the Hecks?
 Rigorously develop the model of the language of your businiess
@@ -196,6 +197,24 @@ There are plans to make the interaction between Hecks and Rails very sweet
 Here are some commands that will be helpful if you would like to develop new
 features for Hecks
 
-	$ hecks build # Builds and installs the hecks gem locally
-	$ hecks test ci # run the full test suite for continuous integration
+	$ bash bin/build # Builds and installs the hecks gem locally
+	$ hecks bin/ci # run the full test suite for continuous integration
 	$ rspec # run the spec suite (fast)
+	$ guard # run the tests when you save a file
+
+# Features
+* Dev mode if gem isn't installed
+* Vernacular (UL) is robust and persists
+* No dependencies in the domain
+* Tell don't ask
+* Build tests around generated examples
+* Default In Memory Repository
+* Model with OOP
+* Technologies are adapted to the domain
+* Domain Driven Design
+* Hexagonal Architecture
+* Generate configurations
+* Fast, iterative development through cli
+* Adapters access the domain through Hecks::Application
+* Operations are accomplished through command objects
+* Query attaches to a separate database

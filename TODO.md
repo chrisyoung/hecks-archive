@@ -1,5 +1,15 @@
 # Hecks
 
+
+# pizza_builder gem run without dependency on hecks ()
+
+
+
+
+# Change name to Vernacular
+# Architecture concerned with domestic and functional rather than monumental buildings.
+  *https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=vernacular&*&dobs=vernacular
+
 ## In Progress
   * Finish linux package
   * Shouldn't have to build hecks to run lambda package
