@@ -2,7 +2,11 @@
 
 ## In Progress
   * Finish linux package
+  * Shouldn't have to build hecks to run lambda package
+
 ## Current Sprint
+  * Invoke local lambda from domain folder
+  * Stop generating hecks/spec/examples
   * Choose gem path for gem server dynamically.
   * Deploy to Lambda  
   * Get rid of all the old gems in the binary package vendor folder
