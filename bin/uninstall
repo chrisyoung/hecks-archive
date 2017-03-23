@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+cd hecks-application/lib
+while read -r version; do VERSION=$version; done < Version
+cd ../..
+
+cd hecks-domain
+gem uninstall hecks-domain --force -x
+
+cd ../hecks-application
+gem uninstall hecks-application --force -x
+
+cd ../hecks-adapters/hecks-adapters-sql-database
+gem uninstall hecks-adapters-sql-database --force -x
+
+cd ../hecks-adapters-resource-server
+gem uninstall hecks-adapters-resource-server --force -x
+
+cd ../
+gem uninstall hecks-adapters --force -x
+
+cd ../hecks
+gem uninstall hecks --force -x

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+cd hecks-application/lib
+while read -r version; do VERSION=$version; done < Version
+cd ../..
+
+cd hecks-domain
+gem install --no-rdoc --no-ri -q ./hecks-domain-$VERSION.gem
+
+cd ../hecks-application
+gem install --no-rdoc --no-ri  -q ./hecks-application-$VERSION.gem
+
+cd ../hecks-adapters/hecks-adapters-sql-database
+gem install --no-rdoc --no-ri -q ./hecks-adapters-sql-database-$VERSION.gem
+
+cd ../hecks-adapters-resource-server
+gem install --no-rdoc --no-ri -q ./hecks-adapters-resource-server-$VERSION.gem
+
+cd ../
+gem install --no-rdoc --no-ri -q ./hecks-adapters-$VERSION.gem
+
+cd ../hecks
+gem install --no-rdoc --no-ri -q ./hecks-$VERSION.gem

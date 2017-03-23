@@ -1,10 +1,7 @@
 # Hecks
 
 
-# pizza_builder gem run without dependency on hecks ()
-
-
-
+# pizza_builder gem run without dependency on hecks
 
 # Change name to Vernacular
 # Architecture concerned with domestic and functional rather than monumental buildings.
