@@ -12,6 +12,6 @@ Gem::Specification.new do |s|
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
-  s.add_runtime_dependency 'thor', '~>0.19'
   s.add_runtime_dependency 'activesupport', '~>5.0'
+  s.add_development_dependency 'thor', '~>0.19'
 end
