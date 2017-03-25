@@ -1,0 +1,10 @@
+#!/bin/bash
+HECKS_DIR=`pwd`
+PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
+
+set -ex
+cd $PIZZA_BUILDER_DIR
+hecks new
+cd $HECKS_DIR
+rspec -f d
+set +ex

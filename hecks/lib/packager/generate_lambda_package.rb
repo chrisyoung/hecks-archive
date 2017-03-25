@@ -17,7 +17,6 @@ module Hecks
         end
 
         def create_function
-          binding.pry
           run("rm -rf packages/lambda/#{domain_name}")
           run("cp -rf packages/binary/build/linux-x86_64 packages/lambda/#{domain_name}.production")
           run("cp -rf packages/binary/build/osx packages/lambda/#{domain_name}.dev")

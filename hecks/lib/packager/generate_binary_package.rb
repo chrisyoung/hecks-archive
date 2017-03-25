@@ -46,7 +46,6 @@ module Hecks
           package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
           package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
           run("cp #{OSX_APP_DIR}/Gemfile.lock #{LINUX_APP_DIR}")
-          binding.pry
         end
 
         private
