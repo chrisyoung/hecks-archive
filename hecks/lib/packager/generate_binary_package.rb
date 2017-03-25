@@ -12,8 +12,6 @@ module Hecks
         HOST          = "http://d6r77u77i8pq3.cloudfront.net/releases"
         OSX_BINARY    = "traveling-ruby-20150715-2.2.2-osx.tar.gz"
         LINUX_BINARY  = 'traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz'
-        MYSQL_GEM     = 'mysql2-0.3.18.tar.gz'
-        OSX_MY_SQL_GEM_FOLDER = "traveling-ruby-gems-20150715-2.2.2-osx"
         LINUX_MY_SQL_GEM_FOLDER = "traveling-ruby-gems-20150715-2.2.2-linux-x86_64"
         BUILD_DIR     = 'packages/binary/build'
         GEM_SERVER    = 'http://0.0.0.0:8808'
@@ -22,14 +20,12 @@ module Hecks
         OSX_LIB_DIR   = OSX_DIR       + '/lib'
         OSX_APP_DIR   = OSX_LIB_DIR   + '/app'
         LINUX_DIR     = BUILD_DIR     + '/linux-x86_64'
-        LINUX_LIB_DIR = LINUX_DIR     + 'lib'
+        LINUX_LIB_DIR = LINUX_DIR     + '/lib'
         LINUX_APP_DIR = LINUX_LIB_DIR + '/app'
 
         HECKS_GEMS = %w(
           hecks-application
           hecks-adapters
-          hecks-adapters-sql-database
-          hecks-adapters-resource-server
           hecks-domain
         )
 
@@ -47,18 +43,19 @@ module Hecks
 
         def build
           fetch_hecks_gems
-          package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR, OSX_MY_SQL_GEM_FOLDER)
-          package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR, LINUX_MY_SQL_GEM_FOLDER)
+          package(OSX_APP_DIR, OSX_LIB_DIR, OSX_BINARY, OSX_DIR)
+          package(LINUX_APP_DIR, LINUX_LIB_DIR, LINUX_BINARY, LINUX_DIR)
+          run("cp #{OSX_APP_DIR}/Gemfile.lock #{LINUX_APP_DIR}")
+          binding.pry
         end
 
         private
 
-        def package(app_dir, lib_dir, binary, package_dir, mysql_gem_folder)
+        def package(app_dir, lib_dir, binary, package_dir)
           empty_directory(app_dir)
           empty_directory(lib_dir + '/ruby')
           if refresh_cache?(app_dir)
             download_binary(binary, lib_dir) if options[:download]
-            download_gem(mysql_gem_folder)
             reduce_package_size(app_dir) if options[:reduce_package_size]
           end
           copy_resources(app_dir, package_dir)
@@ -90,6 +87,7 @@ module Hecks
           run("cp -rf #{RESOURCES_DIR}/#{domain_name}.rb #{app_dir}/#{domain_name}.rb")
           run("cp -rf #{RESOURCES_DIR}/wrapper #{package_dir}/#{domain_name}")
           run("cd #{package_dir} && chmod 744 #{domain_name}")
+          run("cd #{package_dir} && chmod +x #{domain_name}")
         end
 
         def download_binary(binary, lib_dir)
@@ -97,15 +95,12 @@ module Hecks
           run("tar -xzf #{RESOURCES_DIR}/#{binary} -C #{lib_dir}/ruby")
         end
 
-        def download_gem(gem_folder)
-          run("cd #{RESOURCES_DIR} && curl -O #{HOST}/#{gem_folder}/#{MYSQL_GEM}")
-        end
-
         def bundle_with_ruby_2_2_2(app_dir)
           run("cp -rf #{RESOURCES_DIR}/Dockerfile #{app_dir}")
           run("cp #{domain_name}-0.0.0.gem #{app_dir}")
+          run("cp #{RESOURCES_DIR}/*.gem #{app_dir}")
           run("cd #{app_dir} && docker build -t #{domain_name} --no-cache .")
-          container = `docker create pizza_builder:latest`.gsub("\n", '')
+          container = `cd #{app_dir} && docker create pizza_builder:latest`.gsub("\n", '')
           run("docker cp #{container}:/usr/src/app/vendor #{app_dir}")
         end
 

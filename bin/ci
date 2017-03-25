@@ -1,6 +1,6 @@
 #!/bin/bash
 DATABASE_URL='mysql2://root:password@localhost/pizza_builder_test'
-BINARY='./pizza_builder Pizzas create'
+BINARY='./pizza_builder pizzas create'
 BINARY_ATTRIBUTES='{"name":"White Pizza","description":"white sauce and chicken","chef":{"name":"Chef Ramsey"},"toppings":[{"name":"chicken"}]}'
 SERVERLESS_COMMAND='serverless invoke local -f pizza_builder -d'
 set -ex
@@ -26,5 +26,5 @@ cd $HECKS_DIR
 cd $PIZZA_BUILDER_DIR
 hecks package lambda
 cd packages/lambda/
-DATABASE_URL=$DATABASE_URL $SERVERLESS_COMMAND "{\"module\": \"Pizzas\", \"method\": \"create\", \"data\": $BINARY_ATTRIBUTES}"
+DATABASE_URL=$DATABASE_URL $SERVERLESS_COMMAND "{\"module\": \"pizzas\", \"method\": \"create\", \"data\": $BINARY_ATTRIBUTES}"
 set +ex

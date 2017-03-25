@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'thor'
 
-if `gem list`.include?('hecks (')
+if `gem list`.include?('hecks')
   require 'hecks-application'
   require 'hecks-domain'
   require 'hecks-adapters'

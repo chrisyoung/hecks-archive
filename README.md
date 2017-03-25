@@ -218,3 +218,8 @@ features for Hecks
 * Adapters access the domain through Hecks::Application
 * Operations are accomplished through command objects
 * Query attaches to a separate database
+
+# Constraints
+* Drive tests with CI
+* No dependencies in the domain (Simple Ruby Objects)
+* Use a head entity to do operations on a module, traverse references

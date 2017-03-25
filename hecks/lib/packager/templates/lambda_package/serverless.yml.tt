@@ -41,17 +41,15 @@ provider:
 #            - "Ref" : "ServerlessDeploymentBucket"
 
 # you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+  environment:
+    BINARY_BUILD: ${opt:stage}
 
 # you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+package:
+  include:
+    <%= domain_name %>.production/**
+  exclude:
+    <%= domain_name %>.dev/**
 
 functions:
   <%= domain_name %>:

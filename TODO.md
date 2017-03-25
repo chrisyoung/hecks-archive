@@ -1,21 +1,15 @@
 # Hecks
-
-
-# pizza_builder gem run without dependency on hecks
-
-# Change name to Vernacular
-# Architecture concerned with domestic and functional rather than monumental buildings.
-  *https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=vernacular&*&dobs=vernacular
-
 ## In Progress
-  * Finish linux package
+  * Deploy to Lambda  
   * Shouldn't have to build hecks to run lambda package
 
 ## Current Sprint
+  * Why isn't Gemfile.lock showing up in production package!!!!!!
+  * Use activesupport-inflector instead of activesupport
+  * Set executable bit on binary packages
+  * Don't use join tables for value objects - value objects belong to their parents.
   * Invoke local lambda from domain folder
   * Stop generating hecks/spec/examples
-  * Choose gem path for gem server dynamically.
-  * Deploy to Lambda  
   * Get rid of all the old gems in the binary package vendor folder
   * Stop using traveling ruby sql gem in sqldatabase adapter
   * Supply a sqldatabase specifically for binary packaging
@@ -29,7 +23,6 @@
   * Rename ResourceServer to HTTPResourceServer
   * Get rid of test command on hecks - use the hecks/bin folder instead
   * Delete cache from Lambda package
-  * Don't use join tables for value objects - value objects belong to their parents.
   * Add a drawing of PizzaServer to the domain
 
 ## Posters
@@ -48,6 +41,7 @@
   * Stop reloading constants
 
 ## Next Actions
+  * Fix directory structure in binary packager
   * Build everything in a Docker Container
   * Run integration tests as part of ci, skip when running guard or maybe rspec itself
   * hecks test ci should blow up if anything doesn't work

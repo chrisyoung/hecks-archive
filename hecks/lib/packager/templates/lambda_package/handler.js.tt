@@ -1,5 +1,11 @@
+const exec = require('child_process').exec;
 module.exports.<%= domain_name %> = (event, context, callback) => {
-  var binary_build = process.env.BINARY_BUILD || 'osx'
+  if (process.env.BINARY_BUILD == 'undefined') {
+    var binary_build = 'dev'
+  } else {
+    var binary_build = process.env.BINARY_BUILD
+  }
+
   var app = '<%= domain_name %>.' + binary_build + '/<%= domain_name %>'
   var data = JSON.stringify(event['data'])
   var command = app + ' ' + event['module'] + ' ' + event['method'] + ' ' + JSON.stringify(data)

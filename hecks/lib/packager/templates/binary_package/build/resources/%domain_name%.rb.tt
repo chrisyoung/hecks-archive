@@ -3,8 +3,7 @@ require 'hecks-adapters'
 require '<%= domain_name %>'
 
 app = Hecks::Application.new(
-  domain: <%= domain_name.camelcase %>,
-  database: Hecks::Adapters::SQLDatabase
+  domain: <%= domain_name.camelcase %>
 )
 
 # Ruby 2.2.2 doesn't support Fixnum#positive?, so monkey patch it.

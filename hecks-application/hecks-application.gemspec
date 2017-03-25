@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'hecks-domain', "=#{version}"
+  s.add_runtime_dependency 'hecks-adapters', "=#{version}"
 end

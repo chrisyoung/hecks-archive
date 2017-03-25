@@ -7,7 +7,7 @@ module Hecks
       end
 
       def [](module_name)
-        @repositories[module_name]
+        @repositories[module_name.to_s.downcase.to_sym]
       end
 
       def delete_all
