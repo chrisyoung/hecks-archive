@@ -25,6 +25,7 @@
   * Get rid of test command on hecks - use the hecks/bin folder instead
   * Delete cache from Lambda package
   * Add a drawing of PizzaServer to the domain
+  * Why do we see "No entry for terminal type "xterm-256color";" when using binary
 
 ## Posters
   * Hecks in Python
