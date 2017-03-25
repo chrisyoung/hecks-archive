@@ -1,48 +1,26 @@
-# Hecks
 ## In Progress
-  * Deploy to Lambda  
   * Shouldn't have to build hecks to run lambda package
 
 ## Current Sprint
   * Fix relative pathing (some mechanizm other than checking for gem files)
-  * Why isn't Gemfile.lock showing up in production package!!!!!!
-  * Use activesupport-inflector instead of activesupport
-  * Set executable bit on binary packages
-  * Don't use join tables for value objects - value objects belong to their parents.
-  * Invoke local lambda from domain folder
-  * Stop generating hecks/spec/examples
-  * Get rid of all the old gems in the binary package vendor folder
-  * Stop using traveling ruby sql gem in sqldatabase adapter
-  * Supply a sqldatabase specifically for binary packaging
-  * Break out all the adapters into their own gems
-  * Yank all the bad gems
-  * Add a -d for database option when generating a resource server and lambda package
-  * Truncate test database between runs
-  * use a query to get back unique pizza toppings
-  * Only offer to generate domain migrations if in sqldatabase adapter folder
-  * clarify ambiguity between the domain builder and the domain objects Ruby modules
-  * Rename ResourceServer to HTTPResourceServer
-  * Get rid of test command on hecks - use the hecks/bin folder instead
-  * Delete cache from Lambda package
+  * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaServer to the domain
-  * Why do we see "No entry for terminal type "xterm-256color";" when using binary
-
-## Posters
-  * Hecks in Python
-  * DynoDB Database Generator
-  * CouchDB Database Generator
-  * Schema Validator
-  * Package as Docker
-  * Open source license
-
-## Bugs
-  * Fix DeleteReferences#where_clause ... Not doing anything currently :(
-  * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
-  * Making 2 pizzas with each post
-  * Coverage report showing 100%
-  * Stop reloading constants
+  * Make a demo video
+  * Make a tutorial
 
 ## Next Actions
+  * Delete cache from Lambda package
+  * Rename ResourceServer to HTTPResourceServer
+  * Clarify ambiguity between the domain builder and the domain objects Ruby modules
+  * Only offer to generate domain migrations if in sqldatabase adapter folder
+  * Truncate test database between runs
+  * Add a -d for database option when generating a resource server and lambda package
+  * Yank all the bad gems
+  * Break out all the adapters into their own gems
+  * Stop using traveling ruby sql gem in sqldatabase adapter
+  * Get rid of all the old gems in the binary package vendor folder
+  * Use activesupport-inflector instead of activesupport
+  * Don't use join tables for value objects - value objects belong to their parents.
   * Fix directory structure in binary packager
   * Build everything in a Docker Container
   * Run integration tests as part of ci, skip when running guard or maybe rspec itself
@@ -56,6 +34,24 @@
   * Use invariants (with #fail)
   * Clean up generator comments
   * Repress cache cleanup output after binary package
+
+## Posters
+  * Hecks in Python
+  * DynoDB Database Generator
+  * CouchDB Database Generator
+  * Schema Validator
+  * Package as Docker
+  * Open source license
+
+## Bugs
+  * Why do we see "No entry for terminal type "xterm-256color";" when using binary
+  * Why isn't lambda dev being excluded?
+  * Fix DeleteReferences#where_clause ... Not doing anything currently :(
+  * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
+  * Making 2 pizzas with each post
+  * Coverage report showing 100%
+  * Stop reloading constants
+  * Stop generating hecks/spec/examples
 
 ## Hygiene:
   * Move examples directly under hecks folder (out of spec)
