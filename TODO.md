@@ -4,6 +4,7 @@
   * Shouldn't have to build hecks to run lambda package
 
 ## Current Sprint
+  * Fix relative pathing (some mechanizm other than checking for gem files)
   * Why isn't Gemfile.lock showing up in production package!!!!!!
   * Use activesupport-inflector instead of activesupport
   * Set executable bit on binary packages
