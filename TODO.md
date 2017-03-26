@@ -1,14 +1,15 @@
 ## In Progress
-  * Shouldn't have to build hecks to run lambda package
+
 
 ## Current Sprint
-  * Fix relative pathing (some mechanizm other than checking for gem files)
+  * Fix relative paths (some mechanism other than checking for gem files)
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaServer to the domain
   * Make a demo video
   * Make a tutorial
 
 ## Next Actions
+  * Shouldn't have to build hecks to run lambda package
   * Delete cache from Lambda package
   * Rename ResourceServer to HTTPResourceServer
   * Clarify ambiguity between the domain builder and the domain objects Ruby modules
@@ -91,7 +92,7 @@
   * Create Commands from Product Use Cases
   * Create plugin for Asana to show test results on use cases
 
-## Notes
+## Musings:
 * Just in time compiling of source code?
   * Generators are functions.  What if the code is generated for the function to complete?
   * Generate the code > Run the code > Delete the code
