@@ -5,8 +5,6 @@ BINARY_ATTRIBUTES='{"name":"White Pizza","description":"white sauce and chicken"
 LOCAL_CREATE_PIZZZA_COMMAND='serverless invoke local -f pizza_builder -l -d'
 REMOTE_CREATE_PIZZZA_COMMAND='serverless invoke -f pizza_builder -l -s production -d'
 
-set -ex
-
 cd $PIZZA_BUILDER_DIR
 
 hecks package lambda
@@ -16,6 +14,3 @@ serverless deploy -f pizza_builder -s production
 $REMOTE_CREATE_PIZZZA_COMMAND "{\"module\": \"pizzas\", \"method\": \"create\", \"data\": $BINARY_ATTRIBUTES}"
 
 cd $HECKS_DIR
-
-
-set +ex

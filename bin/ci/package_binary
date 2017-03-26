@@ -5,7 +5,6 @@ PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
 BINARY='./pizza_builder pizzas create'
 BINARY_ATTRIBUTES='{"name":"White Pizza","description":"white sauce and chicken","chef":{"name":"Chef Ramsey"},"toppings":[{"name":"chicken"}]}'
 
-set -ex
 rm -rf packages/binary
 cd $PIZZA_BUILDER_DIR
 hecks package binary -c false
@@ -13,4 +12,3 @@ cd packages/binary/build/osx
 $BINARY "$BINARY_ATTRIBUTES"
 
 cd $HECKS_DIR
-set +ex

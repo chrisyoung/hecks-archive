@@ -1,7 +1,4 @@
 #!/bin/bash
-set -ex
 
 bash bin/build
 bash bin/install
-
-set +ex
