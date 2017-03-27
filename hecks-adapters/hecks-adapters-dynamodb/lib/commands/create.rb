@@ -5,9 +5,9 @@ module Hecks
         class Create
           attr_reader :id
 
-          def initialize(args)
+          def initialize(args, head)
             @args = args
-            @id = 'anid'
+            @head = head
 
             File.dirname(__FILE__)
             creds = YAML.load(File.read(File.dirname(__FILE__) + '/../../aws_config'))
@@ -16,23 +16,20 @@ module Hecks
           end
 
           def call
-            # create_table
             put_item
-            # get_item
-
             self
           end
 
           private
 
-          attr_reader :dynamodb, :args
+          attr_reader :dynamodb, :args, :head
 
           def put_item
             @id = SecureRandom.uuid
             dynamodb.put_item({
               item: args.merge(id: @id),
               return_consumed_capacity: 'TOTAL',
-              table_name: "Pizza"
+              table_name: head.name
             })
           end
 
@@ -41,7 +38,7 @@ module Hecks
               attribute_definitions: [
                 { attribute_name: 'id', attribute_type: 'S' }
               ],
-              table_name: "Pizza",
+              table_name: head.name,
               key_schema: [
                 { attribute_name: 'id', key_type: 'HASH' }
               ],

@@ -10,7 +10,7 @@ module Hecks
       end
 
       def [](value)
-        { Pizzas: Repository.new() }[value]
+        Repository.new(DOMAIN[value].head)
       end
     end
   end

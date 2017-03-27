@@ -3,28 +3,26 @@ module Hecks
     class DynamoDB
       module Commands
         class Delete
-          def initialize(id)
+          def initialize(id, head)
+            @head = head
             @id = id
             creds = YAML.load(File.read(File.dirname(__FILE__) + '/../../aws_config'))
-
-            @dynamodb = Aws::DynamoDB::Client.new(region: 'us-east-1')
+            @client = Aws::DynamoDB::Client.new(region: 'us-east-1')
           end
 
           def call
-            delete_pizza
+            delete_item
             self
           end
 
           private
 
-          attr_reader :dynamodb
+          attr_reader :client, :head
 
-          def delete_pizza
-            dynamodb.delete_item(
-              key: {
-                "id" => @id
-              },
-              table_name: "Pizza"
+          def delete_item
+            client.delete_item(
+              key: { "id" => @id },
+              table_name: head.name
             )
           end
         end
