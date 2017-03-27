@@ -9,6 +9,9 @@
   * Make a tutorial
 
 ## Next Actions
+  * Generate boilerplate for a database adapter
+  * Commands should always take the same arguments, the result should be a data structure.
+  * Use #should_behave_like to test database adapters
   * Shouldn't have to build hecks to run lambda package
   * Delete cache from Lambda package
   * Rename ResourceServer to HTTPResourceServer
