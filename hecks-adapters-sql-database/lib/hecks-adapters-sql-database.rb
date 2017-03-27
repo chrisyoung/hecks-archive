@@ -2,7 +2,7 @@ require 'sequel'
 require 'mysql2'
 
 if ENV['HECKS_PATH']
-  require_relative '../../../hecks-application/lib/hecks-application'
+  require_relative '../../hecks-application/lib/hecks-application'
 else
   require 'hecks-application'
 end

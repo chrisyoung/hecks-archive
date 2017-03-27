@@ -10,8 +10,11 @@ gem uninstall hecks-domain --force -x
 cd ../hecks-application
 gem uninstall hecks-application --force -x
 
-cd ../hecks-adapters/hecks-adapters-sql-database
+cd ../hecks-adapters-sql-database
 gem uninstall hecks-adapters-sql-database --force -x
+
+cd ../hecks-adapters-dynamodb
+gem uninstall hecks-adapters-dynamodb --force -x
 
 cd ../hecks-adapters-resource-server
 gem uninstall hecks-adapters-resource-server --force -x

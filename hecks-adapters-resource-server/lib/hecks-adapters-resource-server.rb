@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'sinatra'
 if ENV['HECKS_PATH']
-  require_relative "../../../hecks-application/lib/hecks-application"
+  require_relative "../../hecks-application/lib/hecks-application"
 else
   require 'hecks-application'
 end
