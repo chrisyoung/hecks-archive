@@ -3,11 +3,10 @@ module Hecks
     class DynamoDB
       module Commands
         class Delete
-          def initialize(id, head)
+          def initialize(id, head, client)
             @head = head
             @id = id
-            creds = YAML.load(File.read(File.dirname(__FILE__) + '/../../aws_config'))
-            @client = Aws::DynamoDB::Client.new(region: 'us-east-1')
+            @client = client
           end
 
           def call

@@ -3,11 +3,10 @@ module Hecks
     class DynamoDB
       module Commands
         class Update
-          def initialize(id, attributes, head)
+          def initialize(id, attributes, head, client)
             @head = head
             @attributes = attributes
-            creds = YAML.load(File.read(File.dirname(__FILE__) + '/../../aws_config'))
-            @dynamodb = Aws::DynamoDB::Client.new(region: 'us-east-1')
+            @client = client
             @id = id
           end
 
@@ -18,14 +17,14 @@ module Hecks
 
           private
 
-          attr_reader :head, :attributes
+          attr_reader :head, :attributes, :client
 
           def update_item
             update_expression = "SET " + @attributes.map{|a| "##{a[0].upcase} = :#{a[0]}"}.join(", ")
             attribute_names = @attributes.map{|a| ["##{a[0].upcase}", a[0].to_s]}.to_h
             attribute_values = @attributes.map{|a| [":#{a[0]}", a[1]]}.to_h
 
-            @dynamodb.update_item(
+            client.update_item(
               expression_attribute_names: attribute_names,
               expression_attribute_values: attribute_values,
               table_name: @head.name,

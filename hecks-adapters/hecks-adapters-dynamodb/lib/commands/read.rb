@@ -3,10 +3,8 @@ module Hecks
     class DynamoDB
       module Commands
         class Read
-          def initialize(id, head)
-            File.dirname(__FILE__)
-            creds = YAML.load(File.read(File.dirname(__FILE__) + '/../../aws_config'))
-            @dynamodb = Aws::DynamoDB::Client.new(region: 'us-east-1')
+          def initialize(id, head, client)
+            @client = client
             @id = id
             @head = head
           end
@@ -19,11 +17,11 @@ module Hecks
 
           private
 
-          attr_reader :dynamodb, :head
+          attr_reader :client, :head
 
           def get_item
             symbolize(
-            dynamodb.get_item(
+            client.get_item(
               key: { id: @id },
               table_name: head.name
             ).item)
