@@ -2,13 +2,13 @@
 require_relative 'commands/commands'
 require_relative 'queries/queries'
 
-if `gem list`.include?('hecks')
-  require 'hecks-domain'
-  require 'hecks-adapters'
-else
+if ['development', 'test'].include?(ENV['HECKS_ENVIRONMENT'])
   ENV['HECKS_PATH'] = File.dirname(__FILE__) + '/../hecks/lib/hecks'
   require_relative "#{File.dirname(__FILE__)}/../../hecks-domain/lib/hecks-domain"
   require_relative "#{File.dirname(__FILE__)}/../../hecks-adapters/lib/hecks-adapters"
+else
+  require 'hecks-domain'
+  require 'hecks-adapters'
 end
 
 module Hecks

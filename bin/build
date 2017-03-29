@@ -6,7 +6,7 @@ gem build hecks-domain
 cd ../hecks-application
 gem build hecks-application
 
-cd ../hecks-adapters/hecks-adapters-sql-database
+cd ../hecks-adapters-sql-database
 gem build hecks-adapters-sql-database
 
 cd ../hecks-adapters-resource-server
@@ -15,7 +15,7 @@ gem build hecks-adapters-resource-server
 cd ../hecks-adapters-dynamodb
 gem build hecks-adapters-dynamodb
 
-cd ../
+cd ../hecks-adapters
 gem build hecks-adapters
 
 cd ../hecks

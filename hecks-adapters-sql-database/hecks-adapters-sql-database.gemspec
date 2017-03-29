@@ -1,6 +1,6 @@
 require 'Date'
 Gem::Specification.new do |s|
-  version = File.read("../../hecks-application/lib/Version").gsub("\n", '')
+  version = File.read("../hecks-application/lib/Version").gsub("\n", '')
   s.name        = 'hecks-adapters-sql-database'
   s.homepage    = "https://github.com/chrisyoung/hecks-domain"
   s.version     = version

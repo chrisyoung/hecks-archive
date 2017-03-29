@@ -1,8 +1,7 @@
 ## In Progress
-
+  * Why isn't gemfile.lock in the lambda package?
 
 ## Current Sprint
-  * Fix relative paths (some mechanism other than checking for gem files)
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaServer to the domain
   * Make a demo video
