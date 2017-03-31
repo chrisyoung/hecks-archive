@@ -6,31 +6,28 @@
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
-  * Drop the Adapters module as a prefix
   * Rename Hecks::Adapters::MemoryDatabase to
   * Drop Domain Prefix in PizzaBuilder
 
-  Make it so:
-    Hecks::Application
+## Scratch
     Hecks::Domain
-    Hecks::CLI
-    Hecks::Console
     Hecks::Packager
+    Hecks::CLI
+    Hecks::Event
+    Hecks::Application
+    Hecks::Database
 
-    Hecks::Adapters::Database
-    Hecks::Adapters::Events
-    Hecks::Adapters::Logger
-    Hecks::Adapters::Validator
-    Hecks::Adapters::ResourceServer
-    Hecks::Adapters::SQL
-    Hecks::Adapters::DynamoDB
+    Hecks::Adapter::Validator
+    Hecks::Adapter::Logger
+    Hecks::Adapter::ResourceServer
+    Hecks::Adapter::Console
 
-    PizzaResteraunt::Pizzas
-    PizzaResteraunt::Orders
+    Hecks::Database::Memory
+    Hecks::Database::SQL
+    Hecks::Database::DynamoDB
 
     Hecks::Domain[:PizzaResteraunt].head.references
     Hecks::Domain[:PizzaResteraunt].references
-
 
 ## Next Actions
   * Generate boilerplate for a database adapter

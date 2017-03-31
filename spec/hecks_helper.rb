@@ -10,3 +10,21 @@ RSpec.configure do |config|
     # Hecks::Adapters::DynamoDB::Migrate.new(client: client, domain: PizzaBuilder).call
   end
 end
+
+RSpec.configure do |config|
+  # config.expect_with :rspec do |expectations|
+  #   expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  # end
+
+  config.before(:example) { |a|
+    if a.file_path.include?('integration')
+      WebMock.allow_net_connect!
+    end
+  }
+
+  config.after(:example) { |a|
+    if a.file_path.include?('integration')
+      WebMock.disable_net_connect!
+    end
+  }
+end
