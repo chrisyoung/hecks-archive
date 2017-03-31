@@ -1,4 +1,5 @@
 #!/bin/bash
+set -xe
 HECKS_DIR=`pwd`
 PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
 

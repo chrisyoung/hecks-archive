@@ -1,4 +1,7 @@
 require_relative 'repository'
+require_relative 'migrate'
+require_relative 'drop_all'
+
 require 'aws-sdk'
 require 'yaml'
 

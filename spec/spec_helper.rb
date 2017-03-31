@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'pry'
+require 'webmock/rspec'
 require_relative 'coverage_helper'
 require_relative 'sinatra_helper'
 require_relative 'hecks_helper'

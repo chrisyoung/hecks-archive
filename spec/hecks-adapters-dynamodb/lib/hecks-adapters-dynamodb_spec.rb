@@ -1,4 +1,4 @@
-describe Hecks::Adapters::SQLDatabase do
+describe Hecks::Adapters::DynamoDB do
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
@@ -18,24 +18,29 @@ describe Hecks::Adapters::SQLDatabase do
     let(:app) do
       Hecks::Application.new(
         domain: PizzaBuilder,
-        database: Hecks::Adapters::SQLDatabase
+        database: Hecks::Adapters::DynamoDB
       )
     end
 
     describe '#create' do
-      xit { expect(app[:Pizzas].create(pizza_attributes).id).to_not be_nil }
+      xit do
+        result = app[:Pizzas].create(pizza_attributes)
+        expect(result.id).to_not be_nil
+      end
     end
 
     describe "#read" do
       xit '' do
-        expect(app[:Pizzas].read(id).name).to eq('White Pizza')
+        r = app[:Pizzas].read(id)
+        expect(r.name).to eq('White Pizza')
       end
     end
 
     describe '#update' do
       xit do
         app[:Pizzas].update(id, new_attributes)
-        expect(app[:Pizzas].read(id).name).to eq('ComeAgainPizza')
+        result = app[:Pizzas].read(id)
+        expect(result.name).to eq('ComeAgainPizza')
       end
     end
 

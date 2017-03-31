@@ -38,6 +38,10 @@ module Hecks
           !primitive? && !list?
         end
 
+        def domain_reference?
+          @string.include?('::')
+        end
+
         def referenced_object
           return unless reference?
           return @string.split("::").last if @string.include?("::")

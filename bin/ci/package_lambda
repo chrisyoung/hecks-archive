@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -ex
+
 HECKS_DIR=`pwd`
 PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
 BINARY_ATTRIBUTES='{"name":"White Pizza","description":"white sauce and chicken","chef":{"name":"Chef Ramsey"},"toppings":[{"name":"chicken"}]}'

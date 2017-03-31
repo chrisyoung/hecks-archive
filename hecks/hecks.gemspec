@@ -25,6 +25,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov', '~>0.12'
   s.add_development_dependency 'rack-test', '~>0.6'
   s.add_development_dependency 'pry', '~>0.10'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
+
 
   s.executables << 'hecks'
   s.executables << 'hecks_console'

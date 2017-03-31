@@ -1,11 +1,36 @@
 ## In Progress
-  * Why isn't gemfile.lock in the lambda package?
+  * Start testing the integration folder
 
 ## Current Sprint
   * Use a query to get back unique pizza toppings
-  * Add a drawing of PizzaServer to the domain
+  * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
+  * Drop the Adapters module as a prefix
+  * Rename Hecks::Adapters::MemoryDatabase to
+  * Drop Domain Prefix in PizzaBuilder
+
+  Make it so:
+    Hecks::Application
+    Hecks::Domain
+    Hecks::CLI
+    Hecks::Console
+    Hecks::Packager
+
+    Hecks::Adapters::Database
+    Hecks::Adapters::Events
+    Hecks::Adapters::Logger
+    Hecks::Adapters::Validator
+    Hecks::Adapters::ResourceServer
+    Hecks::Adapters::SQL
+    Hecks::Adapters::DynamoDB
+
+    PizzaResteraunt::Pizzas
+    PizzaResteraunt::Orders
+
+    Hecks::Domain[:PizzaResteraunt].head.references
+    Hecks::Domain[:PizzaResteraunt].references
+
 
 ## Next Actions
   * Generate boilerplate for a database adapter

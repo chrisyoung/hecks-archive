@@ -23,23 +23,23 @@ describe Hecks::Adapters::SQLDatabase do
     end
 
     describe '#create' do
-      xit { expect(app[:Pizzas].create(pizza_attributes).id).to_not be_nil }
+      it { expect(app[:Pizzas].create(pizza_attributes).id).to_not be_nil }
     end
 
     describe "#read" do
-      xit '' do
+      it '' do
         expect(app[:Pizzas].read(id).name).to eq('White Pizza')
       end
     end
 
     describe '#update' do
-      xit do
+      it do
         app[:Pizzas].update(id, new_attributes)
         expect(app[:Pizzas].read(id).name).to eq('ComeAgainPizza')
       end
     end
 
-    xit '#delete' do
+    it '#delete' do
       app[:Pizzas].delete(id)
       expect(app[:Pizzas].read(id)).to be_nil
     end
