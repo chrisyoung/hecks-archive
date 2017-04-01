@@ -8,26 +8,8 @@
   * Make a tutorial
   * Rename Hecks::Adapters::MemoryDatabase to
   * Drop Domain Prefix in PizzaBuilder
-
-## Scratch
-    Hecks::Domain
-    Hecks::Packager
-    Hecks::CLI
-    Hecks::Event
-    Hecks::Application
-    Hecks::Database
-
-    Hecks::Adapter::Validator
-    Hecks::Adapter::Logger
-    Hecks::Adapter::ResourceServer
-    Hecks::Adapter::Console
-
-    Hecks::Database::Memory
-    Hecks::Database::SQL
-    Hecks::Database::DynamoDB
-
-    Hecks::Domain[:PizzaResteraunt].head.references
-    Hecks::Domain[:PizzaResteraunt].references
+  * Fix up guard so it works with "unit" and "integration"
+  * Redo netrecorder
 
 ## Next Actions
   * Generate boilerplate for a database adapter
@@ -69,6 +51,7 @@
   * Open source license
 
 ## Bugs
+  * Why is ci still building 10.1.5.1?
   * Why do we see "No entry for terminal type "xterm-256color";" when using binary
   * Why isn't lambda dev being excluded?
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(

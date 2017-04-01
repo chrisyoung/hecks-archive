@@ -4,6 +4,7 @@ require 'webmock/rspec'
 require_relative 'coverage_helper'
 require_relative 'sinatra_helper'
 require_relative 'hecks_helper'
+require_relative 'integration_helper'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
