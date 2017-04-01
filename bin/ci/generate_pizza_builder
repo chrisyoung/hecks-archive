@@ -7,4 +7,3 @@ cd $PIZZA_BUILDER_DIR
 gem build pizza_builder
 hecks new
 cd $HECKS_DIR
-rspec -f d
