@@ -5,3 +5,4 @@ spec/tmp
 **/*.gem
 hecks-examples/**/packages
 fixtures/
+spec/integration/http_interactions/
