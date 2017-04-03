@@ -6,6 +6,7 @@ RUN ls /usr/src/app
 RUN cd /usr/src/app/ && gem install hecks-application -v <%= Hecks.version %>
 RUN cd /usr/src/app/ && gem install hecks-adapters -v <%= Hecks.version %>
 RUN cd /usr/src/app/ && gem install hecks-domain -v <%= Hecks.version %>
+RUN cd /usr/src/app/ && gem install hecks-adapters-dynamodb -v <%= Hecks.version %>
 RUN cd /usr/src/app/ && gem install <%= domain_name %>
 
 COPY Gemfile /usr/src/app/Gemfile

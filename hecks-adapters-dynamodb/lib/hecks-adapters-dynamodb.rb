@@ -13,7 +13,7 @@ module Hecks
       end
 
       def [](value)
-        Repository.new(DOMAIN[value].head)
+        Repository.new(DOMAIN[value.downcase].head)
       end
     end
   end

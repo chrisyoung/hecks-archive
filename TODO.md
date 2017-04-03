@@ -1,5 +1,5 @@
 ## In Progress
-  * Start testing the integration folder
+  * Used DynmoDB with Lambda
 
 ## Current Sprint
   * Use a query to get back unique pizza toppings

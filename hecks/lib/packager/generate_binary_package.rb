@@ -27,6 +27,7 @@ module Hecks
           hecks-application
           hecks-adapters
           hecks-domain
+          hecks-adapters-dynamodb
         )
 
         def self.source_root
@@ -59,19 +60,6 @@ module Hecks
           end
           copy_resources(app_dir, package_dir)
           bundle_with_ruby_2_2_2(app_dir)
-          # remove_native_extensions
-          unpack_gem(app_dir)
-        end
-
-        def unpack_gem(app_dir)
-          # run("tar -xzf #{RESOURCES_DIR}/#{MYSQL_GEM} -C #{app_dir}/vendor/ruby")
-        end
-
-        def remove_native_extensions
-          run("rm -rf #{OSX_APP_DIR}/vendor/ruby/*/extensions")
-          run("find #{OSX_APP_DIR}/vendor/ruby/*/gems -name '*.so' | xargs rm -f")
-          run("find #{OSX_APP_DIR}/vendor/ruby/*/gems -name '*.bundle' | xargs rm -f")
-          run("find #{OSX_APP_DIR}/vendor/ruby/*/gems -name '*.o' | xargs rm -f")
         end
 
         def refresh_cache?(app_dir)
