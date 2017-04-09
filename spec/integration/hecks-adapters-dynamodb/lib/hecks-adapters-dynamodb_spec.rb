@@ -24,7 +24,7 @@ describe Hecks::Adapters::DynamoDB do
 
     describe '#create' do
       it do
-        result = app[:Pizzas].create(pizza_attributes)
+        result = app[:pizzas].create(pizza_attributes)
         expect(result.id).to_not be_nil
       end
     end

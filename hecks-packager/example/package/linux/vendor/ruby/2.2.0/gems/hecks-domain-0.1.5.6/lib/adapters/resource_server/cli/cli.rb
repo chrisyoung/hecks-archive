@@ -1,0 +1,1 @@
+require_relative 'generate_resource_server'
