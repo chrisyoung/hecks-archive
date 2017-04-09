@@ -41,3 +41,6 @@ DEPENDENCIES
   hecks-adapters-dynamodb (= 0.1.5.6)
   hecks-application (= 0.1.5.6)
   pizza_builder (= 0.0.1)
+
+BUNDLED WITH
+   1.14.5
