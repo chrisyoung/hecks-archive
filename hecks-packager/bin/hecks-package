@@ -1,3 +1,6 @@
+resources_path = File.expand_path(File.dirname(__FILE__)) + '/../resources'
+lib_path = File.expand_path(File.dirname(__FILE__)) + '/../lib'
+
 bash_script =
 <<-BASH_SCRIPT
   rm -rf package_build
@@ -9,7 +12,7 @@ bash_script =
   cp Hecksfile package_build
 
   bundle package --gemfile package_build/Gemfile
-  cp ../resources/Dockerfile package_build
+  cp #{resources_path}/Dockerfile package_build
 
   mkdir -p package_build/package/linux/ruby
   mkdir -p package_build/package/linux/lib
@@ -19,8 +22,8 @@ bash_script =
   mkdir -p package_build/package/osx/lib
   mkdir -p package_build/package/osx/.bundle
 
-  tar -xzf ../resources/traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz -C package_build/package/linux/ruby
-  tar -xzf ../resources/traveling-ruby-20150715-2.2.2-osx.tar.gz -C package_build/package/osx/ruby
+  tar -xzf #{resources_path}/traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz -C package_build/package/linux/ruby
+  tar -xzf #{resources_path}/traveling-ruby-20150715-2.2.2-osx.tar.gz -C package_build/package/osx/ruby
 
   docker build package_build -t binary_builder
 
@@ -37,14 +40,14 @@ bash_script =
   cp -r package_build/vendor package_build/package/linux
   cp -r package_build/vendor package_build/package/osx
 
-  cp ../resources/app_binary package_build/package/linux/app
-  cp ../resources/app_binary package_build/package/osx/app
+  cp #{resources_path}/app_binary package_build/package/linux/app
+  cp #{resources_path}/app_binary package_build/package/osx/app
 
-  cp ../resources/bundle_config package_build/package/linux/.bundle/config
-  cp ../resources/bundle_config package_build/package/osx/.bundle/config
+  cp #{resources_path}/bundle_config package_build/package/linux/.bundle/config
+  cp #{resources_path}/bundle_config package_build/package/osx/.bundle/config
 
-  cp -r ../lib/** package_build/package/osx/lib
-  cp -r ../lib/** package_build/package/linux/lib
+  cp -r #{lib_path}/** package_build/package/osx/lib
+  cp -r #{lib_path}/** package_build/package/linux/lib
 
   cp -r package_build/package .
 

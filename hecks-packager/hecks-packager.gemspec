@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = "Hecks Packager"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'
-  s.files       = Dir["lib/**/*"] + Dir["build/**/*"]
+  s.files       = Dir["lib/**/*"] + Dir["build/**/*"] + Dir["resources/**/*"]
   s.license     = 'MIT'
 
   s.executables << 'hecks-package'
