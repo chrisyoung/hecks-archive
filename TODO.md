@@ -16,6 +16,7 @@
   * Redo netrecorder
 
 ## Next Actions
+  * Add a rake file to hecks
   * Generate boilerplate for a database adapter
   * Commands should always take the same arguments, the result should be a data structure.
   * Use #should_behave_like to test database adapters
