@@ -1,12 +1,11 @@
 ## In Progress
-  * Used DynmoDB with Lambda
+  * Use DynmoDB with Lambda
+  * Put new packager on ci
+  * Find old readme
 
 ## Current Sprint
   * Copy binaries into a resources folder
   * Build the gems in a container
-
-
-
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
