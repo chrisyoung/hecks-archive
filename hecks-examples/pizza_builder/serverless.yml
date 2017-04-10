@@ -55,8 +55,24 @@ exclude:
  - tmp/**
  - package/osx/**
 functions:
+  # PIZZAS
   pizzas.create:
     handler: serverless/pizzas.create
+  pizzas.read:
+    handler: serverless/pizzas.read
+  pizzas.update:
+    handler: serverless/pizzas.update
+  pizzas.delete:
+    handler: serverless/pizzas.update
+  # ORDERS
+  orders.create:
+    handler: serverless/orders.create
+  orders.read:
+    handler: serverless/orders.read
+  orders.update:
+    handler: serverless/orders.update
+  orders.delete:
+    handler: serverless/orders.update
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
