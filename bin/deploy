@@ -6,14 +6,14 @@ cd ..
 gem push ./hecks-application-$VERSION.gem
 cd ..
 
-cd hecks-adapters/hecks-adapters-sql-database
+cd hecks-adapters-sql-database
 gem push ./hecks-adapters-sql-database-$VERSION.gem
 
 cd ../hecks-adapters-resource-server
 gem push  ./hecks-adapters-resource-server-$VERSION.gem
 
-cd ../
-gem push  ./hecks-adapters-$VERSION.gem
+cd ../hecks-adapters
+gem push ./hecks-adapters-$VERSION.gem
 
 cd ../hecks-domain
 gem push  ./hecks-domain-$VERSION.gem
