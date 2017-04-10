@@ -15,9 +15,6 @@ module Hecks
     desc 'generate', 'generate'
     subcommand('generate', Generate)
 
-    desc 'package', 'package'
-    subcommand('package', Package) if File.file?('Domain')
-
     desc 'test', 'test'
     subcommand('test', Test) if File.file?('hecks.gemspec')
 
