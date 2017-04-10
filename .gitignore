@@ -1,7 +1,7 @@
 .tags*
 **/.DS_Store
 coverage
-spec/tmp
+**/tmp
 **/*.gem
 hecks-examples/**/package
 fixtures/
