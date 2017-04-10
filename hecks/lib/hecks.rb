@@ -17,5 +17,4 @@ else
 end
 
 require_relative 'console'
-require_relative 'packager'
 require_relative 'cli'

@@ -2,7 +2,6 @@
 require 'active_support/inflector'
 require_relative 'cli'
 require_relative 'cli/generate'
-require_relative 'cli/package'
 require_relative 'cli/test'
 require_relative 'cli/console'
 require_relative 'cli/command_runner'

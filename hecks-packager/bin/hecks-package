@@ -32,10 +32,10 @@ bash_script =
   docker cp $CONTAINER_ID:/usr/src/app/vendor package_build
   docker rm $CONTAINER_ID
 
-  cp -r Gemfile package_build/package/linux
-  cp -r Gemfile package_build/package/osx
-  cp -r Gemfile.lock package_build/package/linux
-  cp -r Gemfile.lock package_build/package/osx
+  cp -r package_build/Gemfile package_build/package/linux
+  cp -r package_build/Gemfile package_build/package/osx
+  cp -r package_build/Gemfile.lock package_build/package/linux
+  cp -r package_build/Gemfile.lock package_build/package/osx
 
   cp -r package_build/vendor package_build/package/linux
   cp -r package_build/vendor package_build/package/osx
