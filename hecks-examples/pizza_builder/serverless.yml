@@ -63,7 +63,7 @@ functions:
   pizzas.update:
     handler: serverless/pizzas.update
   pizzas.delete:
-    handler: serverless/pizzas.update
+    handler: serverless/pizzas.delete
   # ORDERS
   orders.create:
     handler: serverless/orders.create
@@ -72,7 +72,7 @@ functions:
   orders.update:
     handler: serverless/orders.update
   orders.delete:
-    handler: serverless/orders.update
+    handler: serverless/orders.delete
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

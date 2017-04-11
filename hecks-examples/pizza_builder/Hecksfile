@@ -1,4 +1,4 @@
-Hecks::Application.new(
+HecksApp = Hecks::Application.new(
   domain:   PizzaBuilder,
   database: Hecks::Adapters::DynamoDB
 )

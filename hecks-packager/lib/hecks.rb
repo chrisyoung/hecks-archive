@@ -6,4 +6,4 @@ require_relative 'compatibility/fixnum'
 require_relative 'app_runner'
 
 HecksApp = load('Hecksfile')
-AppRunner.new(args: ARGV, application: HecksApp).call
+puts AppRunner.new(args: ARGV, application: HecksApp).call.result
