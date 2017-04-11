@@ -7,9 +7,11 @@ module.exports.create = (event, context, callback) => {
   exec(command, (err, stdout, stderr) => {
     if (err) { console.error(err); return }
 
+    var result = JSON.parse(stdout)
+    console.log(stderr)
     const response = {
       statusCode: stderr ? 500 : 200,
-      body: { message: 'create command called on the pizzas module', input: event, result: JSON.parse(stdout), error: stderr}
+      body: { message: 'create command called on the pizzas module', input: event, result: result, errors: result['errors']}
     };
     callback(null, response);
   });
