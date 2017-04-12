@@ -10,4 +10,4 @@ export BUNDLE_GEMFILE="$SELFDIR/Gemfile"
 unset BUNDLE_IGNORE_CONFIG
 
 # Run the actual app using the bundled Ruby interpreter, with Bundler activated.
-exec "$SELFDIR/ruby/bin/ruby" -rbundler/setup "$SELFDIR/lib/hecks.rb" "$@"
+exec "$SELFDIR/ruby/bin/ruby" -rbundler/setup -rreadline "$SELFDIR/lib/hecks.rb" "$@"
