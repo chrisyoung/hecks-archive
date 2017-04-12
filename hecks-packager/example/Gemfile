@@ -1,6 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'hecks-application', '0.1.5.6'
-gem 'hecks-adapters', '0.1.5.6'
-gem 'hecks-adapters-dynamodb', '0.1.5.6'
-gem 'pizza_builder', '0.0.1'
