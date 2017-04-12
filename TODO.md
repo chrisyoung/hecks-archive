@@ -1,21 +1,18 @@
 ## In Progress
-  * Use DynmoDB with Lambda
-  * Put new packager on ci
-  * Find old readme
+  Build serverless files dynamically
 
 ## Current Sprint
-  * Copy binaries into a resources folder
-  * Build the gems in a container
+  * Run tests for serverless and package in ci
+  * Find old readme
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
-  * Rename Hecks::Adapters::MemoryDatabase to
   * Drop Domain Prefix in PizzaBuilder
   * Fix up guard so it works with "unit" and "integration"
-  * Redo netrecorder
 
 ## Next Actions
+  * New Project: netrecorder
   * Add a rake file to hecks
   * Generate boilerplate for a database adapter
   * Commands should always take the same arguments, the result should be a data structure.
