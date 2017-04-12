@@ -56,6 +56,7 @@
   * Open source license
 
 ## Bugs
+  * Why do we have to run ci twice - once to build the gem and once to install
   * Why is ci still building 10.1.5.1?
   * Why do we see "No entry for terminal type "xterm-256color";" when using binary
   * Why isn't lambda dev being excluded?
