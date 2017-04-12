@@ -10,6 +10,7 @@
   * Make a tutorial
   * Drop Domain Prefix in PizzaBuilder
   * Fix up guard so it works with "unit" and "integration"
+  * Add package and serverless to hecks binary
 
 ## Next Actions
   * New Project: netrecorder
@@ -17,8 +18,7 @@
   * Generate boilerplate for a database adapter
   * Commands should always take the same arguments, the result should be a data structure.
   * Use #should_behave_like to test database adapters
-  * Shouldn't have to build hecks to run lambda package
-  * Delete cache from Lambda package
+  * Delete cache from binary package
   * Rename ResourceServer to HTTPResourceServer
   * Clarify ambiguity between the domain builder and the domain objects Ruby modules
   * Only offer to generate domain migrations if in sqldatabase adapter folder
@@ -27,10 +27,8 @@
   * Yank all the bad gems
   * Break out all the adapters into their own gems
   * Stop using traveling ruby sql gem in sqldatabase adapter
-  * Get rid of all the old gems in the binary package vendor folder
   * Use activesupport-inflector instead of activesupport
   * Don't use join tables for value objects - value objects belong to their parents.
-  * Fix directory structure in binary packager
   * Build everything in a Docker Container
   * Run integration tests as part of ci, skip when running guard or maybe rspec itself
   * hecks test ci should blow up if anything doesn't work
@@ -38,11 +36,8 @@
   * Delete intermediate container we created to copy gems
   * Figure out the right way to load the hecks file
   * Fix text case problems with generators
-  * Only download gems once when packaging binary
-  * Use relative hex binary automatically if no gem is installed
   * Use invariants (with #fail)
   * Clean up generator comments
-  * Repress cache cleanup output after binary package
 
 ## Posters
   * Hecks in Python
@@ -55,10 +50,8 @@
 ## Bugs
   * Why do we have to run ci twice - once to build the gem and once to install
   * Why is ci still building 10.1.5.1?
-  * Why do we see "No entry for terminal type "xterm-256color";" when using binary
   * Why isn't lambda dev being excluded?
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
-  * rm: packages/binary/build/osx/lib/app/vendor/ruby/2.2.0/gems/pizza_builder-0.0.0: is a directory
   * Making 2 pizzas with each post
   * Coverage report showing 100%
   * Stop reloading constants
@@ -77,7 +70,6 @@
   * Change delimiter in hecks file to something like pizza=pizzas::pizza
   * Set up stats module to count lines of code
   * Use a struct for value objects
-  * pizza_builder binary should be outside of lib
 
 ## Default Validator
   * Handle optional fields
