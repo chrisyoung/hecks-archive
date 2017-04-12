@@ -2,7 +2,7 @@
 const exec = require('child_process').exec
 
 module.exports.create = (event, context, callback) => {
-  var command = 'package/osx/app pizzas create \'' + JSON.stringify(event) + "'"
+  var command = 'package/osx/app -m pizzas -c create -d \'' + JSON.stringify(event) + "'"
 
   exec(command, (err, stdout, stderr) => {
     if (err) { console.error(err); return }
