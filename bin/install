@@ -21,5 +21,11 @@ gem install --no-rdoc --no-ri -q ./hecks-adapters-resource-server-$VERSION.gem
 cd ../hecks-adapters
 gem install --no-rdoc --no-ri -q ./hecks-adapters-$VERSION.gem
 
+cd ../hecks-packager
+gem install --no-rdoc --no-ri -q ./hecks-packager-$VERSION.gem
+
+cd ../hecks-serverless
+gem install --no-rdoc --no-ri -q ./hecks-serverless-$VERSION.gem
+
 cd ../hecks
 gem install --no-rdoc --no-ri -q ./hecks-$VERSION.gem

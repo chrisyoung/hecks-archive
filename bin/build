@@ -18,5 +18,11 @@ gem build hecks-adapters-dynamodb
 cd ../hecks-adapters
 gem build hecks-adapters
 
+cd ../hecks-packager
+gem build hecks-packager
+
+cd ../hecks-serverless
+gem build hecks-serverless
+
 cd ../hecks
 gem build hecks

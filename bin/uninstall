@@ -22,5 +22,11 @@ gem uninstall hecks-adapters-resource-server --force -x
 cd ../
 gem uninstall hecks-adapters --force -x
 
+cd ../
+gem uninstall hecks-packager --force -x
+
+cd ../
+gem uninstall hecks-serverless --force -x
+
 cd ../hecks
 gem uninstall hecks --force -x

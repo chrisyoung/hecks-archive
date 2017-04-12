@@ -18,5 +18,11 @@ gem push ./hecks-adapters-$VERSION.gem
 cd ../hecks-domain
 gem push  ./hecks-domain-$VERSION.gem
 
+cd ../hecks-packager
+gem push  ./hecks-packager-$VERSION.gem
+
+cd ../hecks-serverless
+gem push  ./hecks-serverless-$VERSION.gem
+
 cd ../hecks
 gem push  ./hecks-$VERSION.gem
