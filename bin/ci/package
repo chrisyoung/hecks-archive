@@ -1,0 +1,6 @@
+#!/bin/bash
+set -xe
+
+PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
+cd $PIZZA_BUILDER_DIR
+hecks-package
