@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'hecks'
+require 'pry'
+load('Domain')
+
+module Hecks
+  class Serverless
+    class CLI < Thor
+      include Thor::Actions
+      package_name 'hecks_serverless'
+
+      def self.source_root
+        File.dirname(__FILE__) + '/resources'
+      end
+
+      desc "generate", "generate config for running a function on lambda"
+      def generate
+
+
+        copy_file "serverless.yml"
+
+          DOMAIN.domain_modules.values.each do |dmodule|
+            ['create', 'read', 'update', 'delete'].each do |function|
+              insert_into_file "serverless.yml", "\n  #{dmodule.name.downcase}.#{function}:\n    handler: serverless/#{dmodule.name.downcase}.#{function}", :after => "functions:"
+          end
+        end
+      end
+    end
+  end
+end
+
+Hecks::Serverless::CLI.start(ARGV)

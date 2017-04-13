@@ -8,32 +8,29 @@
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
-  * Drop Domain Prefix in PizzaBuilder
-  * Fix up guard so it works with "unit" and "integration"
-  * Add package and serverless to hecks binary
 
 ## Next Actions
+  * Break out all the adapters into their own gems
+  * Figure out a way to namespace dynamodb tables
+  * Fix up guard so it works with "unit" and "integration"
+  * Drop Domain Prefix in PizzaBuilder
+  * consider using .yml on all the config files
   * New Project: netrecorder
   * Add a rake file to hecks
   * Generate boilerplate for a database adapter
   * Commands should always take the same arguments, the result should be a data structure.
+  * Run commands asynchronously - supply an id that will eventually fetch the resource
   * Use #should_behave_like to test database adapters
   * Delete cache from binary package
   * Rename ResourceServer to HTTPResourceServer
   * Clarify ambiguity between the domain builder and the domain objects Ruby modules
   * Only offer to generate domain migrations if in sqldatabase adapter folder
   * Truncate test database between runs
-  * Add a -d for database option when generating a resource server and lambda package
   * Yank all the bad gems
-  * Break out all the adapters into their own gems
-  * Stop using traveling ruby sql gem in sqldatabase adapter
   * Use activesupport-inflector instead of activesupport
   * Don't use join tables for value objects - value objects belong to their parents.
-  * Build everything in a Docker Container
   * Run integration tests as part of ci, skip when running guard or maybe rspec itself
   * hecks test ci should blow up if anything doesn't work
-  * Add a query object to pizzas that can list toppings
-  * Delete intermediate container we created to copy gems
   * Figure out the right way to load the hecks file
   * Fix text case problems with generators
   * Use invariants (with #fail)
@@ -49,16 +46,11 @@
 
 ## Bugs
   * Why do we have to run ci twice - once to build the gem and once to install
-  * Why is ci still building 10.1.5.1?
   * Why isn't lambda dev being excluded?
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
-  * Making 2 pizzas with each post
-  * Coverage report showing 100%
-  * Stop reloading constants
-  * Stop generating hecks/spec/examples
+  * Making 2 pizzas with each post?
 
 ## Hygiene:
-  * Move examples directly under hecks folder (out of spec)
   * Set up guard to build gems
   * go back to simple pizza bulder domain.  Build out soccer_season
   * don't use tmp folder - use '#run'

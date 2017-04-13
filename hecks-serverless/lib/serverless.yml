@@ -1,0 +1,26 @@
+service: aws-nodejs # NOTE: update this with your service name
+provider:
+  name: aws
+  runtime: nodejs4.3
+exclude:
+#  - exclude-me.js
+ - spec/**
+ - tmp/**
+ - package/osx/**
+functions:
+  orders.delete:
+    handler: serverless/orders.delete
+  orders.update:
+    handler: serverless/orders.update
+  orders.read:
+    handler: serverless/orders.read
+  orders.create:
+    handler: serverless/orders.create
+  pizzas.delete:
+    handler: serverless/pizzas.delete
+  pizzas.update:
+    handler: serverless/pizzas.update
+  pizzas.read:
+    handler: serverless/pizzas.read
+  pizzas.create:
+    handler: serverless/pizzas.create

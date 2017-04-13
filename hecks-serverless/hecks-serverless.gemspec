@@ -13,4 +13,6 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.executables << 'hecks-serverless'
+
+  s.add_runtime_dependency 'thor', '~>0.19'
 end
