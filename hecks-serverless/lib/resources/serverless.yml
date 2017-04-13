@@ -1,9 +1,8 @@
-service: aws-nodejs # NOTE: update this with your service name
+service: pizza-builder
 provider:
   name: aws
   runtime: nodejs4.3
 exclude:
-#  - exclude-me.js
  - spec/**
  - tmp/**
  - package/osx/**
