@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
   s.description = "Hecks Serverless"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'
-  s.files       = Dir["lib/**/*"] + Dir["resources/**/*"]
+  s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
 
-  s.executables << 'hecks-serverless'
+  s.executables << 'hecks_serverless'
 
   s.add_runtime_dependency 'thor', '~>0.19'
 end

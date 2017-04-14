@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'hecks'
-require 'pry'
-load('Domain')
+load(File.dirname(__FILE__) + '/../lib/Domain')
 
 module Hecks
   class Serverless
@@ -10,7 +9,7 @@ module Hecks
       package_name 'hecks_serverless'
 
       def self.source_root
-        File.dirname(__FILE__) + '/resources'
+        File.dirname(__FILE__) + '/../lib/resources'
       end
 
       desc "generate", "generate config for running a function on lambda"
@@ -34,7 +33,7 @@ module Hecks
       private
 
       def domain_module
-        @domain_module
+        @domain_module.name.downcase
       end
 
       def line(domain_module, function)
