@@ -2,32 +2,33 @@ service: pizza-builder
 provider:
   name: aws
   runtime: nodejs4.3
-exclude:
- - spec/**
- - tmp/**
- - package/osx/**
+package:
+  exclude:
+   - spec/**
+   - tmp/**
+   - package/osx/**
 functions:
-  pizzas.create:
+  pizzas_create:
     handler: serverless/pizzas.create
 
-  pizzas.read:
+  pizzas_read:
     handler: serverless/pizzas.read
 
-  pizzas.update:
+  pizzas_update:
     handler: serverless/pizzas.update
 
-  pizzas.delete:
+  pizzas_delete:
     handler: serverless/pizzas.delete
 
-  orders.create:
+  orders_create:
     handler: serverless/orders.create
 
-  orders.read:
+  orders_read:
     handler: serverless/orders.read
 
-  orders.update:
+  orders_update:
     handler: serverless/orders.update
 
-  orders.delete:
+  orders_delete:
     handler: serverless/orders.delete
 
