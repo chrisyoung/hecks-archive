@@ -12,31 +12,29 @@ gem push ./hecks-adapters-sql-database-$VERSION.gem
 cd ../hecks-adapters-dynamodb
 gem push ./hecks-adapters-dynamodb-$VERSION.gem
 
-
 cd ../hecks-adapters-resource-server
-gem push  ./hecks-adapters-resource-server-$VERSION.gem
+gem push ./hecks-adapters-resource-server-$VERSION.gem
 
 cd ../hecks-domain
-gem push  ./hecks-domain-$VERSION.gem
+gem push ./hecks-domain-$VERSION.gem
 
 cd ../hecks-packager
-gem push  ./hecks-packager-$VERSION.gem
+gem push ./hecks-packager-$VERSION.gem
 
 cd ../hecks-serverless
-gem push  ./hecks-serverless-$VERSION.gem
+gem push ./hecks-serverless-$VERSION.gem
 
 cd ../hecks-events
-gem push  ./hecks-events-$VERSION.gem
+gem push ./hecks-events-$VERSION.gem
 
 cd ../hecks-logger
-gem push  ./hecks-logger-$VERSION.gem
+gem push ./hecks-logger-$VERSION.gem
 
 cd ../hecks-memory-database
-gem push  ./hecks-memory-database-$VERSION.gem
+gem push ./hecks-memory-database-$VERSION.gem
 
 cd ../hecks-validator
-gem push  ./hecks-validator-$VERSION.gem
-
+gem push ./hecks-validator-$VERSION.gem
 
 cd ../hecks
-gem push  ./hecks-$VERSION.gem
+gem push ./hecks-$VERSION.gem
