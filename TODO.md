@@ -1,5 +1,5 @@
 ## In Progress
-  * Run pizzas.create on Amazon Lambda
+  * Configure lambda user to be able to run dynamodb
 
 ## Current Sprint
   * Figure out a way to share pizza params so its easy to run examples
