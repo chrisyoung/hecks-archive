@@ -2,8 +2,9 @@ service: pizza-builder
 provider:
   name: aws
   runtime: nodejs4.3
-exclude:
- - spec/**
- - tmp/**
- - package/osx/**
+package:
+  exclude:
+   - spec/**
+   - tmp/**
+   - package/osx/**
 functions:
