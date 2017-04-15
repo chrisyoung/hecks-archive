@@ -38,7 +38,7 @@ module Hecks
 
       def line(domain_module, function)
 <<-LINE
-  #{domain_module.name.downcase}.#{function}:
+  #{domain_module.name.downcase}_#{function}:
     handler: serverless/#{domain_module.name.downcase}.#{function}
 LINE
       end
