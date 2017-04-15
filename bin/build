@@ -15,14 +15,23 @@ gem build hecks-adapters-resource-server
 cd ../hecks-adapters-dynamodb
 gem build hecks-adapters-dynamodb
 
-cd ../hecks-adapters
-gem build hecks-adapters
-
 cd ../hecks-packager
 gem build hecks-packager
 
 cd ../hecks-serverless
 gem build hecks-serverless
+
+cd ../hecks-events
+gem build hecks-events
+
+cd ../hecks-logger
+gem build hecks-logger
+
+cd ../hecks-memory-database
+gem build hecks-memory-database
+
+cd ../hecks-validator
+gem build hecks-validator
 
 cd ../hecks
 gem build hecks

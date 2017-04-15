@@ -19,14 +19,23 @@ gem uninstall hecks-adapters-dynamodb --force -x
 cd ../hecks-adapters-resource-server
 gem uninstall hecks-adapters-resource-server --force -x
 
-cd ../
-gem uninstall hecks-adapters --force -x
-
-cd ../
+cd ../hecks-packager
 gem uninstall hecks-packager --force -x
 
-cd ../
+cd ../hecks-serverless
 gem uninstall hecks-serverless --force -x
+
+cd ../hecks-events
+gem uninstall hecks-events --force -x
+
+cd ../hecks-logger
+gem uninstall hecks-logger --force -x
+
+cd ../hecks-memory-database
+gem uninstall hecks-memory-database --force -x
+
+cd ../hecks-validator
+gem uninstall hecks-validator --force -x
 
 cd ../hecks
 gem uninstall hecks --force -x

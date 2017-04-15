@@ -5,10 +5,16 @@ require_relative 'queries/queries'
 if ['development', 'test'].include?(ENV['HECKS_ENVIRONMENT'])
   ENV['HECKS_PATH'] = File.dirname(__FILE__) + '/../hecks/lib/hecks'
   require_relative "#{File.dirname(__FILE__)}/../../hecks-domain/lib/hecks-domain"
-  require_relative "#{File.dirname(__FILE__)}/../../hecks-adapters/lib/hecks-adapters"
+  require_relative "#{File.dirname(__FILE__)}/../../hecks-events/lib/hecks-events"
+  require_relative "#{File.dirname(__FILE__)}/../../hecks-logger/lib/hecks-logger"
+  require_relative "#{File.dirname(__FILE__)}/../../hecks-validator/lib/hecks-validator"
+  require_relative "#{File.dirname(__FILE__)}/../../hecks-memory-database/lib/hecks-memory-database"
 else
   require 'hecks-domain'
-  require 'hecks-adapters'
+  require 'hecks-events'
+  require 'hecks-logger'
+  require 'hecks-validator'
+  require 'hecks-memory-database'
 end
 
 module Hecks
