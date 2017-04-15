@@ -1,21 +1,22 @@
 ## In Progress
-  Build serverless files dynamically
+  * Run pizzas.create on Amazon Lambda
 
 ## Current Sprint
-  * Run tests for serverless and package in ci
   * Find old readme
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
-
-## Next Actions
   * Break out all the adapters into their own gems
   * Figure out a way to namespace dynamodb tables
+
+## Next Actions
+  * script to destroy all gems
+  * Put calls behind a queue
+  * Use local version of dynamo db for testing
   * Fix up guard so it works with "unit" and "integration"
   * Drop Domain Prefix in PizzaBuilder
   * consider using .yml on all the config files
-  * New Project: netrecorder
   * Add a rake file to hecks
   * Generate boilerplate for a database adapter
   * Commands should always take the same arguments, the result should be a data structure.
@@ -37,6 +38,7 @@
   * Clean up generator comments
 
 ## Posters
+  * New Project: netrecorder
   * Hecks in Python
   * DynoDB Database Generator
   * CouchDB Database Generator

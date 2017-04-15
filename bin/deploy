@@ -9,6 +9,10 @@ cd ..
 cd hecks-adapters-sql-database
 gem push ./hecks-adapters-sql-database-$VERSION.gem
 
+cd ../hecks-adapters-dynamodb
+gem push ./hecks-adapters-dynamodb-$VERSION.gem
+
+
 cd ../hecks-adapters-resource-server
 gem push  ./hecks-adapters-resource-server-$VERSION.gem
 
