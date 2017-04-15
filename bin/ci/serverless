@@ -3,4 +3,7 @@ set -xe
 
 PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
 cd $PIZZA_BUILDER_DIR
+rm serverless.yml
+rm -rf serverless
 hecks_serverless generate
+serverless invoke local -f pizzas.create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'
