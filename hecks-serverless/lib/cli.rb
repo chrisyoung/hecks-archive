@@ -4,7 +4,7 @@ module Hecks
       include Thor::Actions
       package_name 'hecks_serverless'
       SELF_PATH        = File.dirname(__FILE__)
-      DESCRIPTION      = "Generate config for running a function on lambda"
+      DESCRIPTION      = "Generate domain functions on lambda"
       COMMAND_NAME     = "generate"
       RESOURCES_FOLDER = "#{SELF_PATH}/../lib/resources"
       SERVERLESS_FILE  = "serverless.yml"
@@ -43,6 +43,8 @@ module Hecks
         self.locals = {domain_module: dmodule.name.downcase}
         template HANDLER_TEMPLATE, "serverless/#{dmodule.name.downcase}.js"
         copy_file ENVIRONMENT_FILE, 'serverless/environment.js'
+        copy_file 'run_binary.js', 'serverless/run_binary.js'
+        copy_file 'command_name.js', 'serverless/command_name.js'
       end
 
       def locals=(value)
