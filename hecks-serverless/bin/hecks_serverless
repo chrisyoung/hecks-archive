@@ -3,5 +3,4 @@ require 'hecks'
 load(File.dirname(__FILE__) + '/../lib/Domain')
 require_relative(File.dirname(__FILE__) + '/../lib/cli')
 
-
 Hecks::Serverless::CLI.start(ARGV)

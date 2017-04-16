@@ -8,3 +8,21 @@ module.exports.create = (event, context, callback) => {
     callback(null, runBinary('create', 'pizzas', err, stdout, stderr, event));
   });
 };
+
+module.exports.read = (event, context, callback) => {
+  exec(commandName(context, event, 'read'), (err, stdout, stderr) => {
+    callback(null, runBinary('read', 'pizzas', err, stdout, stderr, event));
+  });
+};
+
+module.exports.update = (event, context, callback) => {
+  exec(commandName(context, event, 'update'), (err, stdout, stderr) => {
+    callback(null, runBinary('update', 'pizzas', err, stdout, stderr, event));
+  });
+};
+
+module.exports.delete = (event, context, callback) => {
+  exec(commandName(context, event, 'delete'), (err, stdout, stderr) => {
+    callback(null, runBinary('delete', 'pizzas', err, stdout, stderr, event));
+  });
+};

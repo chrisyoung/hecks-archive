@@ -1,0 +1,7 @@
+#!/bin/bash
+set -xe
+
+PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
+cd $PIZZA_BUILDER_DIR
+
+serverless invoke local -f pizzas_create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'
