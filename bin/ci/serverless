@@ -7,3 +7,5 @@ rm serverless.yml
 rm -rf serverless
 hecks_serverless generate
 serverless invoke local -f pizzas_create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'
+serverless deploy -s production
+serverless invoke -s production -l -f pizzas_create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'

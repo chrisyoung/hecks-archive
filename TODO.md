@@ -1,19 +1,15 @@
 ## In Progress
-  * Configure lambda user to be able to run dynamodb
 
 ## Current Sprint
-  * Figure out a way to share pizza params so its easy to run examples
-  * Find old readme
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
-  * Break out all the adapters into their own gems
   * Figure out a way to namespace dynamodb tables
   * Move build and install into the same script
-  * Suppress Docker Output
 
 ## Next Actions
+  * Figure out a way to share pizza params so its easy to run examples
   * Put calls behind a queue
   * Use local version of dynamo db for testing
   * Fix up guard so it works with "unit" and "integration"

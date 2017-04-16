@@ -2,11 +2,6 @@ service: pizza-builder
 provider:
   name: aws
   runtime: nodejs4.3
-package:
-  exclude:
-   - spec/**
-   - tmp/**
-   - package/osx/**
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -17,4 +12,9 @@ package:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/*"
+package:
+  exclude:
+   - spec/**
+   - tmp/**
+   - package/osx/**
 functions:
