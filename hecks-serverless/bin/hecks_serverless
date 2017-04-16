@@ -1,50 +1,7 @@
 #!/usr/bin/env ruby
 require 'hecks'
 load(File.dirname(__FILE__) + '/../lib/Domain')
+require_relative(File.dirname(__FILE__) + '/../lib/cli')
 
-module Hecks
-  class Serverless
-    class CLI < Thor
-      include Thor::Actions
-      package_name 'hecks_serverless'
-
-      def self.source_root
-        File.dirname(__FILE__) + '/../lib/resources'
-      end
-
-      desc "generate", "generate config for running a function on lambda"
-      def generate
-        copy_file "serverless.yml"
-        domain_modules = DOMAIN.domain_modules.values
-
-        text = domain_modules.flat_map do |dmodule|
-          @domain_module = dmodule
-          template "handler.js", "serverless/#{dmodule.name.downcase}.js"
-          copy_file 'environment.js', 'serverless/environment.js'
-          ['create', 'read', 'update', 'delete'].flat_map do |function|
-            line(dmodule, function)
-          end
-        end
-
-        insert_into_file "serverless.yml",
-                         "\n" + text.join("\n"),
-                         :after => "functions:"
-      end
-
-      private
-
-      def domain_module
-        @domain_module.name.downcase
-      end
-
-      def line(domain_module, function)
-<<-LINE
-  #{domain_module.name.downcase}_#{function}:
-    handler: serverless/#{domain_module.name.downcase}.#{function}
-LINE
-      end
-    end
-  end
-end
 
 Hecks::Serverless::CLI.start(ARGV)
