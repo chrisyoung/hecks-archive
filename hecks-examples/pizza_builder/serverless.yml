@@ -2,11 +2,13 @@ service: pizza-builder
 provider:
   name: aws
   runtime: nodejs4.3
+
 package:
   exclude:
    - spec/**
    - tmp/**
    - package/osx/**
+
 functions:
   pizzas_create:
     handler: serverless/pizzas.create
@@ -31,4 +33,3 @@ functions:
 
   orders_delete:
     handler: serverless/orders.delete
-
