@@ -6,4 +6,4 @@ cd $PIZZA_BUILDER_DIR
 rm serverless.yml
 rm -rf serverless
 hecks_serverless generate
-serverless invoke local -f pizzas.create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'
+serverless invoke local -f pizzas_create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'

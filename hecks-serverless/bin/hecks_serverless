@@ -20,6 +20,7 @@ module Hecks
         text = domain_modules.flat_map do |dmodule|
           @domain_module = dmodule
           template "handler.js", "serverless/#{dmodule.name.downcase}.js"
+          copy_file 'environment.js'
           ['create', 'read', 'update', 'delete'].flat_map do |function|
             line(dmodule, function)
           end
