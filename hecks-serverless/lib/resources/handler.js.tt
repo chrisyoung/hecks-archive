@@ -3,14 +3,14 @@ const exec = require('child_process').exec
 var environment = require('./environment')
 
 module.exports.create = (event, context, callback) => {
-  var command = "package/" + environment(context['functionName']) + "/app -m <%= domain_module %> -c create -d '" + JSON.stringify(event) + "'"
+  var command = "package/" + environment(context['functionName']) + "/app -m <%= locals[:domain_module] %> -c create -d '" + JSON.stringify(event) + "'"
   exec(command, (err, stdout, stderr) => {
     if (err) { console.error(err); return }
     var result = JSON.parse(stdout)
     console.error(stderr)
     const response = {
       statusCode: Object.keys(result.errors).length > 0 ? 500 : 200,
-      body: { message: 'create command called on the <%= domain_module %> module', input: event, result: result, errors: result['errors']}
+      body: { message: 'create command called on the <%= locals[:domain_module] %> module', input: event, result: result, errors: result['errors']}
     };
     callback(null, response);
   });

@@ -25,6 +25,8 @@ module Hecks
 
       private
 
+      attr_reader :locals
+
       def insert_handlers_into_serverless_file
         insert_into_file SERVERLESS_FILE, handlers, :after => "functions:"
       end
@@ -38,34 +40,33 @@ module Hecks
       end
 
       def create_handler_files(dmodule)
-        @domain_module = dmodule #make the module available to the template
+        self.locals = {domain_module: dmodule.name.downcase}
         template HANDLER_TEMPLATE, "serverless/#{dmodule.name.downcase}.js"
         copy_file ENVIRONMENT_FILE, 'serverless/environment.js'
       end
 
+      def locals=(value)
+        @locals ||= {}
+        @locals.merge!(value)
+      end
+
       def handlers
-        domain_modules.flat_map { |mod|
-          @domain_module = mod
-          crud
-        }.join("\n")
+        domain_modules.flat_map { |mod| crud(mod) }.join("\n")
       end
 
-      def crud
-        CRUD_METHODS.flat_map {|function| line(function)}
-      end
-
-      def domain_module
-        @domain_module.name.downcase
+      def crud(domain_module)
+        self.locals = {domain_module: domain_module.name.downcase}
+        CRUD_METHODS.flat_map {|function| line(function, domain_module)}
       end
 
       def domain_modules
         DOMAIN.domain_modules.values
       end
 
-      def line(function)
+      def line(function, domain_module)
         <<~HEREDOC
-          #{domain_module}_#{function}:
-            handler: serverless/#{domain_module}.#{function}
+          #{domain_module.name.downcase}_#{function}:
+            handler: serverless/#{domain_module.name.downcase}.#{function}
         HEREDOC
       end
     end
