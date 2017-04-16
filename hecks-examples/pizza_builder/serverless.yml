@@ -17,27 +17,28 @@ package:
    - spec/**
    - tmp/**
    - package/osx/**
-functions:pizzas_create:
-  handler: serverless/pizzas.create
+functions:
+  pizzas_create:
+    handler: serverless/pizzas.create
 
-pizzas_read:
-  handler: serverless/pizzas.read
+  pizzas_read:
+    handler: serverless/pizzas.read
 
-pizzas_update:
-  handler: serverless/pizzas.update
+  pizzas_update:
+    handler: serverless/pizzas.update
 
-pizzas_delete:
-  handler: serverless/pizzas.delete
+  pizzas_delete:
+    handler: serverless/pizzas.delete
 
-orders_create:
-  handler: serverless/orders.create
+  orders_create:
+    handler: serverless/orders.create
 
-orders_read:
-  handler: serverless/orders.read
+  orders_read:
+    handler: serverless/orders.read
 
-orders_update:
-  handler: serverless/orders.update
+  orders_update:
+    handler: serverless/orders.update
 
-orders_delete:
-  handler: serverless/orders.delete
+  orders_delete:
+    handler: serverless/orders.delete
 

@@ -51,7 +51,7 @@ module Hecks
       end
 
       def handlers
-        domain_modules.flat_map { |mod| crud(mod) }.join("\n")
+        "\n" + domain_modules.flat_map { |mod| crud(mod) }.join("\n")
       end
 
       def crud(domain_module)
@@ -64,9 +64,9 @@ module Hecks
       end
 
       def line(function, domain_module)
-        <<~HEREDOC
-          #{domain_module.name.downcase}_#{function}:
-            handler: serverless/#{domain_module.name.downcase}.#{function}
+        <<-HEREDOC
+  #{domain_module.name.downcase}_#{function}:
+    handler: serverless/#{domain_module.name.downcase}.#{function}
         HEREDOC
       end
     end
