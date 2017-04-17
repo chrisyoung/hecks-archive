@@ -8,6 +8,7 @@
   * Make a tutorial
   * Figure out a way to namespace dynamodb tables
   * Move build and install into the same script
+  * run lambda stuff as an real integration test
 
 ## Next Actions
   * Figure out a way to share pizza params so its easy to run examples
