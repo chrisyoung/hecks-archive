@@ -1,14 +1,14 @@
 ## In Progress
-  Hookup RUD
-
+  * run lambda stuff as an real integration test
 ## Current Sprint
+  * automate delete test
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
   * Figure out a way to namespace dynamodb tables
   * Move build and install into the same script
-  * run lambda stuff as an real integration test
+
 
 ## Next Actions
   * Figure out a way to share pizza params so its easy to run examples
