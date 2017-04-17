@@ -3,9 +3,9 @@ module Hecks
     class DynamoDB
       module Commands
         class Read
-          def initialize(id, head, client)
+          def initialize(query, head, client)
             @client = client
-            @id = id
+            @query = query
             @head = head
           end
 
@@ -17,12 +17,12 @@ module Hecks
 
           private
 
-          attr_reader :client, :head
+          attr_reader :client, :head, :query
 
           def get_item
             symbolize(
             client.get_item(
-              key: { id: @id },
+              key: query,
               table_name: head.name
             ).item)
           end

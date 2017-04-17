@@ -6,6 +6,7 @@ Bundler.require
 require_relative 'args'
 require_relative 'compatibility/fixnum'
 require_relative 'app_runner'
+require_relative 'query_runner'
 
 load('Hecksfile')
 
@@ -24,9 +25,15 @@ opts.each do |opt, arg|
     domain_module = arg
   when '--command'
     command = arg
+  when '--query'
+    query = arg
   when '--data'
     data = arg
   end
 end
 
-puts AppRunner.new(args: [domain_module, command, data], application: HecksApp).call.result.to_json
+if command == 'read'
+  puts QueryRunner.new(args: [domain_module, command, data], application: HecksApp).call.to_json
+else
+  puts AppRunner.new(args: [domain_module, command, data], application: HecksApp).call.result.to_json
+end

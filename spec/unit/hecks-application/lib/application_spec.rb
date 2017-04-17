@@ -1,14 +1,5 @@
 # frozen_string_literal: true
 describe Hecks::Application do
-  let(:pizza_attributes) do
-    {
-      name: 'White Pizza',
-      description: 'white sauce and chicken',
-      chef: {name: "Chef Ramsey"},
-      toppings: [{ name: 'chicken' }]
-    }
-  end
-
   let(:log_output) {[]}
 
   subject do
@@ -21,29 +12,29 @@ describe Hecks::Application do
 
   describe '#create' do
     it do
-      id = subject[:pizzas].create(pizza_attributes).id
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
       expect(subject[:pizzas].read(id).name).to eq 'White Pizza'
     end
   end
 
   describe '#read' do
     it do
-      id = subject[:pizzas].create(pizza_attributes).id
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
       expect(subject[:pizzas].read(id).name).to eq 'White Pizza'
     end
   end
 
   describe '#update' do
     it do
-      id = subject[:pizzas].create(pizza_attributes).id
-      res = subject[:pizzas].update(id, pizza_attributes.merge(name: "Green Pizza"))
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
+      res = subject[:pizzas].update(id, PIZZA_ATTRIBUTES.merge(name: "Green Pizza"))
       expect(subject[:pizzas].read(id).name).to eq 'Green Pizza'
     end
   end
 
   describe '#delete' do
     it do
-      id = subject[:pizzas].create(pizza_attributes).id
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
       res = subject[:pizzas].delete(id)
       expect(subject[:pizzas].read(id)).to eq nil
     end
@@ -54,7 +45,7 @@ describe Hecks::Application do
       result = subject.call(
         command_name: :create,
         module_name:  :pizzas,
-        args:         pizza_attributes
+        args:         PIZZA_ATTRIBUTES
       )
 
       expect(
@@ -70,7 +61,7 @@ describe Hecks::Application do
       subject.call(
         command_name: :create,
         module_name:  :pizzas,
-        args:         pizza_attributes
+        args:         PIZZA_ATTRIBUTES
       )
       expect(log_output.first).to include('pizzas_create')
     end

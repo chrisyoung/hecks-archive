@@ -6,7 +6,7 @@ class Hecks::Application
         database:  Hecks::Adapters::MemoryDatabase
       )
 
-      create_pizza = app[:pizzas].create(pizza_attributes)
+      create_pizza = app[:pizzas].create(PIZZA_ATTRIBUTES)
       pizza =        app[:pizzas].read(create_pizza.id)
       create_order = app[:orders].create(order_attributes(pizza))
       order =        app[:orders].read(create_order.id)
@@ -20,13 +20,6 @@ class Hecks::Application
            price: 5.0,
            pizza: { id: pizza.id } }]
       }
-    end
-
-    let(:pizza_attributes) do
-      { name: 'White Pizza',
-        description: 'white sauce and chicken',
-        chef: { name: 'Chef Ramsey' },
-        toppings: [{ name: 'chicken' }] }
     end
   end
 end

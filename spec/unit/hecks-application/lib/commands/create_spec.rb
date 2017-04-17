@@ -1,14 +1,14 @@
 describe Hecks::Application::Commands::Create do
   subject do
     described_class.new(
-      args: pizza_attributes,
+      args: PIZZA_ATTRIBUTES,
       domain_module: DOMAIN.domain_modules[:Pizzas],
       repository: PizzaBuilder.repositories[:pizzas]
     )
   end
 
   let(:pizza_attributes) do
-    { name: 'White Pizza', chef: { name: "Belleboche" }, description: 'white sauce and chicken', toppings: [{ name: 'chicken' }] }
+    PIZZA_ATTRIBUTES.clone
   end
 
   describe '#call' do

@@ -5,16 +5,6 @@ describe Hecks::Adapters::MemoryDatabase do
     subject
   end
 
-  let(:pizza_attributes) do
-    {
-      name: 'White Pizza',
-      chef: { name: 'belleboche' },
-      description: 'white sauce and chicken',
-      toppings: [{ name: 'chicken' }]
-    }
-  end
-
-
   it 'Works with the Hecks Application' do
     app = Hecks::Application.new(
       domain: PizzaBuilder,
@@ -22,6 +12,6 @@ describe Hecks::Adapters::MemoryDatabase do
     )
 
     expect(PizzaBuilder::Domain::Pizzas::Repository).to receive(:create).and_return(Struct.new(:id).new(1))
-    app[:pizzas].create(pizza_attributes)
+    app[:pizzas].create(PIZZA_ATTRIBUTES)
   end
 end

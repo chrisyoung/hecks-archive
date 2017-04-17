@@ -1,17 +1,8 @@
 describe Hecks::Adapters::SQLDatabase do
-  let(:pizza_attributes) do
-    {
-      name: 'White Pizza',
-      chef: { name: "Belleboche" },
-      description: 'white sauce and chicken',
-      toppings: [{ name: 'chicken' }]
-    }
-  end
-
-  let(:id) { app[:Pizzas].create(pizza_attributes).id }
+  let(:id) { app[:Pizzas].create(PIZZA_ATTRIBUTES).id }
 
   let(:new_attributes) do
-    pizza_attributes.merge name: "ComeAgainPizza"
+    PIZZA_ATTRIBUTES.merge name: "ComeAgainPizza"
   end
 
   context "Working with Hecks Application" do
@@ -23,7 +14,7 @@ describe Hecks::Adapters::SQLDatabase do
     end
 
     describe '#create' do
-      it { expect(app[:Pizzas].create(pizza_attributes).id).to_not be_nil }
+      it { expect(app[:Pizzas].create(PIZZA_ATTRIBUTES).id).to_not be_nil }
     end
 
     describe "#read" do

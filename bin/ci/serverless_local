@@ -4,4 +4,5 @@ set -xe
 PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
 cd $PIZZA_BUILDER_DIR
 
-serverless invoke local -f pizzas_create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'
+serverless invoke local -f pizzas_create -d '{"name": "white pizza", "toppings": [{"name": "cheese"}], "description": "only the best", "chef": {"name": "me"}}'
+serverless invoke local -f pizzas_read -d '{"id": "125adaf3-b90d-4425-a6e2-345cca5e18d5"}'
