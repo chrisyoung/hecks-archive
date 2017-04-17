@@ -1,3 +1,0 @@
-#!/bin/bash
-bash bin/build
-bash bin/install

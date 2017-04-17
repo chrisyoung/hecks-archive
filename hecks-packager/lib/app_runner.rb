@@ -5,7 +5,13 @@ class AppRunner
   end
 
   def call
-    domain_module.send(args.method, args.data).call
+    case args.method
+    when 'create', 'read', 'delete'
+      domain_module.send(args.method, args.data).call
+    when 'update'
+      id = args.data.delete(:id)
+      domain_module.send(args.method, id, args.data).call
+    end
   end
 
   private

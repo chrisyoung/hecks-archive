@@ -24,6 +24,10 @@ module Hecks
           { errors: errors, args: args }
         end
 
+        def result
+          { id: args[:id], errors: errors, args: args }
+        end
+
         private
 
         attr_accessor :command_result, :repository

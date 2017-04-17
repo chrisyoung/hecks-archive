@@ -3,9 +3,9 @@ module Hecks
     class DynamoDB
       module Commands
         class Delete
-          def initialize(id, head, client)
+          def initialize(query, head, client)
             @head = head
-            @id = id
+            @query = query
             @client = client
           end
 
@@ -16,13 +16,10 @@ module Hecks
 
           private
 
-          attr_reader :client, :head
+          attr_reader :client, :head, :query
 
           def delete_item
-            client.delete_item(
-              key: { "id" => @id },
-              table_name: head.name
-            )
+            client.delete_item(key: query, table_name: head.name)
           end
         end
       end

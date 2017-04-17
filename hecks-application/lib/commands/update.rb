@@ -21,6 +21,10 @@ module Hecks
           self
         end
 
+        def result
+          { id: id, errors: errors, args: args }
+        end
+
         def to_h
           { id: id, args: args }
         end
