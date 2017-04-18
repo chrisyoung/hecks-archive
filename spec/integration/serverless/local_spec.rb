@@ -37,7 +37,7 @@ describe 'Serverless Tests' do
     let(:id) { run("create -d '#{pizza_attributes}'")[:body][:result][:id] }
     it do
       run("delete -d '{\"id\": \"#{id}\"}'")
-      expect(run("read -d '{\"id\": \"#{id}\"}'")).to eq nil
+      expect(run("read -d '{\"id\": \"#{id}\"}'")).to be_nil
     end
   end
 end
