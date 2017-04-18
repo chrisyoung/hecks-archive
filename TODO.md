@@ -2,6 +2,7 @@
   * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
+  * Commands should always take one argument and have a response
   * Add Remote spec for serverless
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
@@ -10,6 +11,7 @@
   * Figure out a way to namespace dynamodb tables
   * Move build and install into the same script
   * Figure out a way to hold open the dynamodb connection
+  * Don't use eval in test => Calls to Serverless should return real json
 
 ## Next Actions
   * Figure out a way to share pizza params so its easy to run examples
