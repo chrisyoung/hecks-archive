@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'thor'
 
-if ['development', 'test'].include?(ENV['HECKS_ENVIRONMENT'])
+if ['development', 'test'].include?(ENV['HECKS_ENVIRONMENT']) && !ENV['USE_HECKS_GEMS']
   ENV['HECKS_PATH'] = File.dirname(__FILE__) + '/../hecks/lib/hecks'
   require_relative '../../hecks-application/lib/hecks-application'
   require_relative '../../hecks-adapters-sql-database/lib/hecks-adapters-sql-database'

@@ -2,7 +2,7 @@
 require_relative 'commands/commands'
 require_relative 'queries/queries'
 
-if ['development', 'test'].include?(ENV['HECKS_ENVIRONMENT'])
+if ['development', 'test'].include?(ENV['HECKS_ENVIRONMENT']) && !ENV['USE_HECKS_GEMS']
   ENV['HECKS_PATH'] = File.dirname(__FILE__) + '/../hecks/lib/hecks'
   require_relative "#{File.dirname(__FILE__)}/../../hecks-domain/lib/hecks-domain"
   require_relative "#{File.dirname(__FILE__)}/../../hecks-events/lib/hecks-events"
