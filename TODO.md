@@ -1,14 +1,15 @@
 ## In Progress
-  * run lambda stuff as an real integration test
+  * Cannot read property 'errors' of null in integration spec
+
 ## Current Sprint
-  * automate delete test
+  * Add Remote spec for serverless
   * Use a query to get back unique pizza toppings
   * Add a drawing of PizzaBuilder to the docs
   * Make a demo video
   * Make a tutorial
   * Figure out a way to namespace dynamodb tables
   * Move build and install into the same script
-
+  * Figure out a way to hold open the dynamodb connection
 
 ## Next Actions
   * Figure out a way to share pizza params so its easy to run examples
