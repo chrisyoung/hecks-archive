@@ -1,0 +1,9 @@
+#!/bin/bash
+set -xe
+bash bin/install
+bash bin/continuous_integration/generate_pizza_builder
+bash bin/continuous_integration/package
+bash bin/continuous_integration/serverless_generation
+bash bin/continuous_integration/serverless_production
+rspec spec/unit
+USE_HECKS_GEMS=true rspec spec/integration
