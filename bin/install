@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
--xe
+set -xe
 
 cd hecks-application/lib
 while read -r version; do VERSION=$version; done < Version
