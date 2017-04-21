@@ -3,7 +3,7 @@ class HecksApplication
     it 'A playground for pizza builder' do
       app = HecksApplication.new(
         domain:    PizzaBuilder,
-        database:  Hecks::Adapters::MemoryDatabase
+        database:  HecksAdapters::MemoryDatabase
       )
 
       create_pizza = app[:pizzas].create(PIZZA_ATTRIBUTES)

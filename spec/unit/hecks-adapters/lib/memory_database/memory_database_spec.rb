@@ -1,4 +1,4 @@
-describe Hecks::Adapters::MemoryDatabase do
+describe HecksAdapters::MemoryDatabase do
   subject { described_class.new(domain: PizzaBuilder) }
 
   it 'exists' do

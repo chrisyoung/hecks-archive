@@ -5,7 +5,7 @@ describe HecksApplication do
   subject do
     HecksApplication.new(
       domain:    PizzaBuilder,
-      database:  Hecks::Adapters::MemoryDatabase,
+      database:  HecksAdapters::MemoryDatabase,
       listeners: [Hecks::Adapters::Logger.new(output: log_output)]
     )
   end

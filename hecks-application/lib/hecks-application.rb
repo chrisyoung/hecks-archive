@@ -48,6 +48,6 @@ class HecksApplication
 
   def database
     return @database.new(domain: @domain) if @database
-    return Hecks::Adapters::MemoryDatabase.new(domain: @domain)
+    return HecksAdapters::MemoryDatabase.new(domain: @domain)
   end
 end
