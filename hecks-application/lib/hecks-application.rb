@@ -20,7 +20,7 @@ class HecksApplication
     load(domain.spec_path)
     @domain      = domain
     @database    = database
-    @events_port = Hecks::Adapters::Events.new(listeners: listeners)
+    @events_port = HecksEvents.new(listeners: listeners)
     @domain_spec = DOMAIN
   end
 
