@@ -1,8 +1,10 @@
 describe HecksAdapters::DynamoDB::DropAll do
   let(:client) do
-    double('Client',
+    double(
+      'Client',
       create_table: nil,
-      list_tables: double('ListTablesResult',
+      list_tables: double(
+        'ListTablesResult',
         table_names: ["Existing Table To Delete"]
       ),
       delete_table: nil
