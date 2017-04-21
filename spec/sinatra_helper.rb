@@ -5,7 +5,7 @@ module RSpecMixin
   include Rack::Test::Methods
 
   def app
-    adapter = Hecks::Application.new(
+    adapter = HecksApplication.new(
       domain: PizzaBuilder
     )
     described_class.new(application_adapter: adapter)

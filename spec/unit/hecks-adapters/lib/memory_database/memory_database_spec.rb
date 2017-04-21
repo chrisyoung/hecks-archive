@@ -6,7 +6,7 @@ describe Hecks::Adapters::MemoryDatabase do
   end
 
   it 'Works with the Hecks Application' do
-    app = Hecks::Application.new(
+    app = HecksApplication.new(
       domain: PizzaBuilder,
       database: described_class
     )

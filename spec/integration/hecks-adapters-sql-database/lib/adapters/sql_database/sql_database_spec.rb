@@ -7,7 +7,7 @@ describe Hecks::Adapters::SQLDatabase do
 
   context "Working with Hecks Application" do
     let(:app) do
-      Hecks::Application.new(
+      HecksApplication.new(
         domain: PizzaBuilder,
         database: Hecks::Adapters::SQLDatabase
       )

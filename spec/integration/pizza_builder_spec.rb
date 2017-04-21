@@ -1,7 +1,7 @@
-class Hecks::Application
+class HecksApplication
   describe 'Pizza Builder' do
     it 'A playground for pizza builder' do
-      app = Hecks::Application.new(
+      app = HecksApplication.new(
         domain:    PizzaBuilder,
         database:  Hecks::Adapters::MemoryDatabase
       )

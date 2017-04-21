@@ -1,41 +1,39 @@
 # frozen_string_literal: true
-module Hecks
-  class Application
-    module Commands
-      class Delete
-        attr_accessor :args, :errors, :repository
+class HecksApplication
+  module Commands
+    class Delete
+      attr_accessor :args, :errors, :repository
 
-        def initialize(args: nil, repository:, domain_module:)
-          @args            = args || chained_command.args
-          @repository      = repository
-          @errors          = { base: [] }
-        end
+      def initialize(args: nil, repository:, domain_module:)
+        @args            = args || chained_command.args
+        @repository      = repository
+        @errors          = { base: [] }
+      end
 
-        def call
-          delete
-          self
-        end
+      def call
+        delete
+        self
+      end
 
-        def name
-          self.class.to_s.split('::').last.underscore
-        end
+      def name
+        self.class.to_s.split('::').last.underscore
+      end
 
-        def to_h
-          { errors: errors, args: args }
-        end
+      def to_h
+        { errors: errors, args: args }
+      end
 
-        def result
-          { id: args[:id], errors: errors, args: args }
-        end
+      def result
+        { id: args[:id], errors: errors, args: args }
+      end
 
-        private
+      private
 
-        attr_accessor :command_result, :repository
+      attr_accessor :command_result, :repository
 
-        def delete
-          @result = repository.delete(args[:id])
-          @errors[:base] << "cound not find #{args[:id]}" unless @result
-        end
+      def delete
+        @result = repository.delete(args[:id])
+        @errors[:base] << "cound not find #{args[:id]}" unless @result
       end
     end
   end

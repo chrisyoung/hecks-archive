@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-describe Hecks::Application do
+describe HecksApplication do
   let(:log_output) {[]}
 
   subject do
-    Hecks::Application.new(
+    HecksApplication.new(
       domain:    PizzaBuilder,
       database:  Hecks::Adapters::MemoryDatabase,
       listeners: [Hecks::Adapters::Logger.new(output: log_output)]

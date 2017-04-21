@@ -1,4 +1,4 @@
-describe Hecks::Application::Commands::Create do
+describe HecksApplication::Commands::Create do
   subject do
     described_class.new(
       args: PIZZA_ATTRIBUTES,
