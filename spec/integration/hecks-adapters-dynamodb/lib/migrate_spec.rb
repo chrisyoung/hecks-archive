@@ -1,4 +1,4 @@
-describe Hecks::Adapters::DynamoDB::Migrate do
+describe HecksAdapters::DynamoDB::Migrate do
   let(:client) do
     double(
       "Client",

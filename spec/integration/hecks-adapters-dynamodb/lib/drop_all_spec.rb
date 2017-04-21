@@ -1,4 +1,4 @@
-describe Hecks::Adapters::DynamoDB::DropAll do
+describe HecksAdapters::DynamoDB::DropAll do
   let(:client) do
     double('Client',
       create_table: nil,
@@ -12,7 +12,7 @@ describe Hecks::Adapters::DynamoDB::DropAll do
 
   describe '#call' do
     it 'Deletes existing tables' do
-      Hecks::Adapters::DynamoDB::Migrate.new(
+      HecksAdapters::DynamoDB::Migrate.new(
         client: client,
         domain: PizzaBuilder
       ).call

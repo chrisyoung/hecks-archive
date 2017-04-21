@@ -5,16 +5,14 @@ require_relative 'drop_all'
 require 'aws-sdk'
 require 'yaml'
 
-module Hecks
-  module Adapters
-    class DynamoDB
-      def initialize(domain:)
-        @domain = domain
-      end
+module HecksAdapters
+  class DynamoDB
+    def initialize(domain:)
+      @domain = domain
+    end
 
-      def [](value)
-        Repository.new(DOMAIN[value.to_s.titleize.to_sym].head)
-      end
+    def [](value)
+      Repository.new(DOMAIN[value.to_s.titleize.to_sym].head)
     end
   end
 end

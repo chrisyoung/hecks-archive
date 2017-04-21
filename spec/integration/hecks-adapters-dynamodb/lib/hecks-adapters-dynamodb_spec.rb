@@ -1,4 +1,4 @@
-describe Hecks::Adapters::DynamoDB do
+describe HecksAdapters::DynamoDB do
   let(:id) { app[:Pizzas].create(PIZZA_ATTRIBUTES).id }
 
   let(:new_attributes) do
@@ -9,7 +9,7 @@ describe Hecks::Adapters::DynamoDB do
     let(:app) do
       HecksApplication.new(
         domain: PizzaBuilder,
-        database: Hecks::Adapters::DynamoDB
+        database: HecksAdapters::DynamoDB
       )
     end
 

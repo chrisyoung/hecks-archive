@@ -1,6 +1,6 @@
 HecksApp = HecksApplication.new(
   domain:   PizzaBuilder,
-  database: Hecks::Adapters::DynamoDB
+  database: HecksAdapters::DynamoDB
 )
 
 Hecks::Domain::DomainBuilder.build "pizza_builder" do |pizza_builder|

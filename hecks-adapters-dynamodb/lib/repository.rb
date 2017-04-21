@@ -3,37 +3,35 @@ require_relative 'commands/read'
 require_relative 'commands/update'
 require_relative 'commands/delete'
 
-module Hecks
-  module Adapters
-    class DynamoDB
-      class Repository
-        attr_reader :id
+module HecksAdapters
+  class DynamoDB
+    class Repository
+      attr_reader :id
 
-        def initialize(head)
-          @head = head
-          @client = Aws::DynamoDB::Client.new(region: 'us-east-1')
-        end
-
-        def create(args)
-          Commands::Create.new(args, head, client).call
-        end
-
-        def delete(id)
-          Commands::Delete.new(id, head, client).call
-        end
-
-        def read(id)
-          Commands::Read.new(id, head, client).call
-        end
-
-        def update(id, attributes)
-          Commands::Update.new(id, attributes, head, client).call
-        end
-
-        private
-
-        attr_reader :head, :client
+      def initialize(head)
+        @head = head
+        @client = Aws::DynamoDB::Client.new(region: 'us-east-1')
       end
+
+      def create(args)
+        Commands::Create.new(args, head, client).call
+      end
+
+      def delete(id)
+        Commands::Delete.new(id, head, client).call
+      end
+
+      def read(id)
+        Commands::Read.new(id, head, client).call
+      end
+
+      def update(id, attributes)
+        Commands::Update.new(id, attributes, head, client).call
+      end
+
+      private
+
+      attr_reader :head, :client
     end
   end
 end
