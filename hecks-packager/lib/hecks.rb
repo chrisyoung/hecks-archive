@@ -33,7 +33,7 @@ opts.each do |opt, arg|
 end
 
 if command == 'read'
-  puts QueryRunner.new(args: [domain_module, command, data], application: HecksApp).call.to_json
+  puts HecksPackager::QueryRunner.new(args: [domain_module, command, data], application: HecksApp).call.to_json
 else
-  puts AppRunner.new(args: [domain_module, command, data], application: HecksApp).call.result.to_json
+  puts HecksPackager::AppRunner.new(args: [domain_module, command, data], application: HecksApp).call.result.to_json
 end
