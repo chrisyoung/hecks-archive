@@ -1,6 +1,7 @@
 #!/bin/bash
 set -xe
 bash bin/clean
+bash bin/uninstall
 bash bin/install
 bash bin/continuous_integration/generate_pizza_builder
 bash bin/continuous_integration/package

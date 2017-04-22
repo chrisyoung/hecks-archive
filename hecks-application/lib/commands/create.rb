@@ -8,7 +8,7 @@ class HecksApplication
         @repository      = repository
         @args            = args
         @errors          = {}
-        @validator       = Hecks::Adapters::Validator
+        @validator       = HecksAdapters::Validator
         @domain_module   = domain_module
       end
 
