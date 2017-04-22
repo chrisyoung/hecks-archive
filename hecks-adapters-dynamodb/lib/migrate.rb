@@ -1,5 +1,6 @@
 module HecksAdapters
   class DynamoDB
+    # Creates tables according to your domain spec
     class Migrate
       def initialize(client:, domain:)
         @client           = client

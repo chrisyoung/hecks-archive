@@ -2,6 +2,7 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Update
+        # Update values
         class UpdateValues
           def initialize(references, attributes, table, id)
             @references = references

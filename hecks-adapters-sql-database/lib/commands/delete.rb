@@ -1,6 +1,7 @@
 module HecksAdapters
   class SQLDatabase
     module Commands
+      # Delete a resource
       class Delete
         def initialize(id:, head:)
           @id = id

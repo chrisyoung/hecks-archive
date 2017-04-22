@@ -4,6 +4,7 @@ require 'pathname'
 module Hecks
   module Domain
     module CLI
+      # Class for generating domain objects
       class CommandBuilder
         def initialize(name:, dry_run: false)
           @name   = name

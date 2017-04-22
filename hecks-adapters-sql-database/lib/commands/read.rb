@@ -2,6 +2,7 @@ require_relative 'read/fetch_references'
 module HecksAdapters
   class SQLDatabase
     module Commands
+      # Read a resource
       class Read
         attr_reader :head, :entity, :table, :id
 

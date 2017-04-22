@@ -2,6 +2,8 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Read
+        # Look up any references so we can fill in relationship data on the
+        # object
         class FetchReferences
           attr_reader :reference_map
           def initialize(read_command)

@@ -8,12 +8,13 @@ require 'hecks-logger'
 require 'hecks-validator'
 require 'hecks-memory-database'
 
+# The Applicaiton port.  Adapters usually talk to the domain through
+# HecksApplication
 class HecksApplication
   def self.version
     path = "#{File.dirname(__FILE__)}/Version"
     File.read(path).gsub("\n", '')
   end
-
 
   attr_reader :database, :domain_spec, :events_port
   def initialize(database: nil, listeners: [], domain:)

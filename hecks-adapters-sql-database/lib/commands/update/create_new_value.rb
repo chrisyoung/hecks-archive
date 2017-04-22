@@ -2,6 +2,7 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Update
+        # Create any new values
         class CreateNewValue
           attr_reader :reference_ids
 

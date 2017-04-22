@@ -1,12 +1,8 @@
 require 'sequel'
 require 'mysql2'
+require 'hecks-application'
 
-if ENV['HECKS_PATH']
-  require_relative '../../hecks-application/lib/hecks-application'
-else
-  require 'hecks-application'
-end
-
+require_relative 'cli/cli'
 require_relative 'column'
 require_relative 'join_table'
 require_relative 'schema_factory'
@@ -20,6 +16,7 @@ if ENV["DATABASE_URL"]
 end
 
 module HecksAdapters
+  # The Hecks Database interface
   class SQLDatabase
     def initialize(domain:)
       @domain = domain

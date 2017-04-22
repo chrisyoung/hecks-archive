@@ -1,6 +1,7 @@
 require 'Date'
+version = File.read("../hecks-application/lib/Version").gsub("\n", '')
+
 Gem::Specification.new do |s|
-  version = File.read("../hecks-application/lib/Version").gsub("\n", '')
   s.name        = 'hecks-cli'
   s.homepage    = "https://github.com/chrisyoung/hecks"
   s.version     = version
@@ -11,4 +12,6 @@ Gem::Specification.new do |s|
   s.email       = 'chris@example.com'
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
+
+  s.add_runtime_dependency 'hecks-adapters-resource-server', "=#{version}"
 end

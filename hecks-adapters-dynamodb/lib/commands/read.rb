@@ -1,6 +1,7 @@
 module HecksAdapters
   class DynamoDB
     module Commands
+      # Read a resource on DynamoDB
       class Read
         def initialize(query, head, client)
           @client = client

@@ -2,6 +2,7 @@
 module HecksAdapters
   class ResourceServer < Sinatra::Base
     class Methods
+      # Delete a resource
       class Delete
         attr_reader :result
 

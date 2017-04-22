@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class HecksApplication
   module Commands
+    # Delete a resource.
     class Delete
       attr_accessor :args, :errors, :repository
 

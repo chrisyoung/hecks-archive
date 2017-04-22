@@ -1,5 +1,6 @@
 module HecksAdapters
   class SQLDatabase
+    # Build a Schema Factory
     class SchemaFactory
       def initialize(domain_spec)
         @domain_spec = domain_spec

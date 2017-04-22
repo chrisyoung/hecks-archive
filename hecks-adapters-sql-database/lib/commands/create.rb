@@ -4,6 +4,7 @@ require_relative 'create/add_to_join_tables'
 module HecksAdapters
   class SQLDatabase
     module Commands
+      # Create a resource
       class Create
         attr_reader :id
 

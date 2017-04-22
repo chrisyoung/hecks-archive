@@ -1,5 +1,6 @@
 module HecksAdapters
   class SQLDatabase
+    # Represents a SQL Table with information about object references
     class JoinTable
       def initialize(table, column)
         @table = table

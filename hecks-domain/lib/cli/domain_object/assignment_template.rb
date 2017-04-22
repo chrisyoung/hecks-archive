@@ -1,6 +1,7 @@
 module Hecks
   module Domain
     module CLI
+      # Helpful methods for supporting object creation
       class GenerateDomainObject
         class AssignmentTemplate
           def initialize(attributes)

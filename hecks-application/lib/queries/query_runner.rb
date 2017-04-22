@@ -1,4 +1,6 @@
 class HecksApplication
+
+  # Call queries by name
   class QueryRunner
     def initialize(query_name:, application:, module_name:, args:)
       @query_name = query_name

@@ -1,5 +1,6 @@
 module HecksAdapters
   class SQLDatabase
+    # Translates calls from an application into SQL Commands
     class Repository
       def initialize(module_name:)
         @module_name = module_name
@@ -15,11 +16,7 @@ module HecksAdapters
       end
 
       def read id
-        Commands::Read.new(
-          id: id,
-          head: @head,
-          entity_class: entity_class
-        ).call
+        Commands::Read.new(id: id, head: @head, entity_class: entity_class).call
       end
 
       def delete id

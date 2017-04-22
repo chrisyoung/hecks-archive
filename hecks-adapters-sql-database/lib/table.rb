@@ -1,5 +1,6 @@
 module HecksAdapters
   class SQLDatabase
+    # Represents a SQL Table
     class Table
       attr_accessor :columns
 

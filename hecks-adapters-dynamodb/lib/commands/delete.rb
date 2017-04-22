@@ -1,6 +1,7 @@
 module HecksAdapters
   class DynamoDB
     module Commands
+      # Delete a resource on Dynamo DB
       class Delete
         def initialize(query, head, client)
           @head = head

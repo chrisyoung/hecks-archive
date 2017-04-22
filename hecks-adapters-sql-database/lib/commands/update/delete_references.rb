@@ -2,6 +2,7 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Update
+        # Delete references to old values
         class DeleteReferences
           attr_reader :attributes
 

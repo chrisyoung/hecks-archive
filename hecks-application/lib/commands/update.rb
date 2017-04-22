@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class HecksApplication
   module Commands
+    # Update a resource
     class Update
       attr_accessor :args, :errors, :id, :repository
 

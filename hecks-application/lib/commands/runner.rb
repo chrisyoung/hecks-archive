@@ -1,4 +1,5 @@
 class HecksApplication
+  # Run an application command, with validations and broacast lifecycle events
   class Runner
     attr_reader :module_name, :command
 

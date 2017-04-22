@@ -2,6 +2,7 @@ module Hecks
   module Domain
     module CLI
       class GenerateDomainObject
+        # Generates options in templates
         class OptionFormatter
           def initialize(attributes)
             @attributes = attributes.map do |attribute|

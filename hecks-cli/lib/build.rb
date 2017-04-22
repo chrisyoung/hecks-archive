@@ -1,4 +1,5 @@
 module Hecks
+  # Build subcommands
   class CLI < Thor
     include Thor::Actions
 

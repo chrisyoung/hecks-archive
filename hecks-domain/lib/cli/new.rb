@@ -3,6 +3,7 @@ load('Domain') if File.exist?('Domain')
 module Hecks
   module Domain
     module CLI
+      # Generate a new domain project
       class New < Thor::Group
         namespace :hecks
         include Thor::Actions

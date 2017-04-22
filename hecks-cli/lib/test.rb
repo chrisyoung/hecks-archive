@@ -1,3 +1,4 @@
+# Test subcommands
 class Test < Thor
   include Thor::Actions
 

@@ -1,5 +1,6 @@
 class HecksApplication
   module Commands
+    # Map resourceful methods to the domain
     class CRUDHandler
       attr_reader :module_name, :application
 

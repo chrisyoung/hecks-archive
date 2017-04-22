@@ -6,6 +6,7 @@ require 'aws-sdk'
 require 'yaml'
 
 module HecksAdapters
+  # Hecks Repository interface
   class DynamoDB
     def initialize(domain:)
       @domain = domain

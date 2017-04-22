@@ -1,5 +1,6 @@
 module HecksAdapters
   class SQLDatabase
+    # Represents a SQL Column
     class Column
       attr_reader :referenced_object
       TYPE_MAP = {

@@ -2,6 +2,7 @@
 module HecksAdapters
   class ResourceServer < Sinatra::Base
     class Methods
+      # Update a resource
       class Update
         attr_reader :result
 

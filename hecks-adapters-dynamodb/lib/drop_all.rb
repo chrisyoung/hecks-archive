@@ -1,5 +1,6 @@
 module HecksAdapters
   class DynamoDB
+    # Drop all tables!
     class DropAll
       def initialize(client:, domain:)
         @client = client

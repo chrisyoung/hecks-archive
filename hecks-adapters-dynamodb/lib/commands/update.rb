@@ -1,6 +1,7 @@
 module HecksAdapters
   class DynamoDB
     module Commands
+      # Update a resource on DynamoDB
       class Update
         def initialize(id, attributes, head, client)
           @head = head

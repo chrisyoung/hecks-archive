@@ -2,6 +2,7 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Create
+        # Find and update, or create Reference Rows
         class FindOrCreateReferences
           attr_reader :reference_ids
 

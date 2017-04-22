@@ -29,9 +29,6 @@ cd ../hecks-console
 gem build hecks-console
 gem install --no-rdoc --no-ri  -q ./hecks-console-$VERSION.gem
 
-cd ../hecks-cli
-gem build hecks-cli
-gem install --no-rdoc --no-ri  -q ./hecks-cli-$VERSION.gem
 
 cd ../hecks-memory-database
 gem build hecks-memory-database
@@ -48,6 +45,10 @@ gem install --no-rdoc --no-ri  -q ./hecks-adapters-sql-database-$VERSION.gem
 cd ../hecks-adapters-resource-server
 gem build hecks-adapters-resource-server
 gem install --no-rdoc --no-ri  -q ./hecks-adapters-resource-server-$VERSION.gem
+
+cd ../hecks-cli
+gem build hecks-cli
+gem install --no-rdoc --no-ri  -q ./hecks-cli-$VERSION.gem
 
 cd ../hecks-adapters-dynamodb
 gem build hecks-adapters-dynamodb

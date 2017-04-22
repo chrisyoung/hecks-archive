@@ -5,6 +5,7 @@ require_relative 'commands/delete'
 
 module HecksAdapters
   class DynamoDB
+    # Use the Aws::DynamoDB::Client to persist your domain resources
     class Repository
       attr_reader :id
 

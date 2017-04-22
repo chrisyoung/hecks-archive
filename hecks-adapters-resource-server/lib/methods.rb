@@ -6,6 +6,7 @@ require_relative 'methods/delete'
 
 module HecksAdapters
   class ResourceServer
+    # CRUD methods for your domain
     class Methods
       attr_reader :create, :read, :update, :delete
 

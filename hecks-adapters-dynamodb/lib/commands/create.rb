@@ -1,6 +1,7 @@
 module HecksAdapters
   class DynamoDB
     module Commands
+      # Create a resource on DynamoDB
       class Create
         attr_reader :id
 

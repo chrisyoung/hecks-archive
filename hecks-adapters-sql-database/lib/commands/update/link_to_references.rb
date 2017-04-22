@@ -2,6 +2,7 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Update
+        # Link to any new references
         class LinkToReferences
           attr_reader :reference_ids
           def initialize(reference:, table:, reference_ids:, attributes:, id:)

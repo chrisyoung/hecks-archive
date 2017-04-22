@@ -2,6 +2,7 @@ module HecksAdapters
   class SQLDatabase
     module Commands
       class Create
+        # Update data in joining tables
         class AddToJoinTables
           attr_reader :reference_ids
           def initialize(head:, reference_ids:, id:)

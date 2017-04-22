@@ -2,6 +2,7 @@
 module HecksAdapters
   class ResourceServer < Sinatra::Base
     class Methods
+      # Read a resource
       class Read
         attr_reader :result, :status
         def initialize(application_adapter:)

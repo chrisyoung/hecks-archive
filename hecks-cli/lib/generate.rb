@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Generate Subcommands
 class Generate < Thor
   desc          'domain_objects', 'generate domain objects'
   method_option :type,
@@ -14,19 +16,19 @@ class Generate < Thor
                 'Generate Domain Objects') if File.file?('Domain')
 
   desc           'resource_server', 'generate resource_server adapter'
-  register(Hecks::Domain::Adapters::ResourceServer::CLI::GenerateResourceServer,
+  register(HecksAdapters::ResourceServer::CLI::GenerateResourceServer,
                  'resource_server',
                  'resource_server',
                  'Generate A Resource Server for a domain') if File.file?('Domain')
 
   desc           'sql_database', 'generate SQL database adapter'
-  register(Hecks::Domain::Adapters::SQLDatabase::CLI::GenerateSQLDatabase,
+  register(HecksAdapters::SQLDatabase::CLI::GenerateSQLDatabase,
                  'sql_database',
                  'sql_database',
                  'Generate a SQL Server Database adapter') if File.file?('Domain')
 
   desc           'domain_migrations', 'generate migrations for the sql database adapter based on your domain'
-  register(Hecks::Domain::Adapters::SQLDatabase::CLI::GenerateDomainMigrations,
+  register(HecksAdapters::SQLDatabase::CLI::GenerateDomainMigrations,
                  'domain_migrations',
                  'domain_migrations',
                  'Generate Domain Migrations')

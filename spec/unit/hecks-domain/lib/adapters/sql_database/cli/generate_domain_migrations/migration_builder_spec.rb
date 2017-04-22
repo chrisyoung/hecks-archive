@@ -1,4 +1,4 @@
-describe Hecks::Domain::Adapters::SQLDatabase::CLI::MigrationBuilder, focus: true do
+describe HecksAdapters::SQLDatabase::CLI::MigrationBuilder, focus: true do
   let(:generator) { double("Generator", template: nil) }
 
   it 'generates a migration from a template' do

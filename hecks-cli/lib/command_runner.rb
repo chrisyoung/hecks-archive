@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 class CommandRunner
+  # Runs CLI Commands
   def initialize(hexagon, name, dry_run = false)
     @hexagon = hexagon
     @dry_run = dry_run

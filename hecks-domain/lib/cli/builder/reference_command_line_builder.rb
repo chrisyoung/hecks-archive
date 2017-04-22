@@ -2,6 +2,7 @@ module Hecks
   module Domain
     module CLI
       class CommandBuilder
+        # Build a Reference object
         module ReferenceCommandLineBuilder
           def self.build(domain, runner)
             domain.domain_modules.values.each do |domain_module|

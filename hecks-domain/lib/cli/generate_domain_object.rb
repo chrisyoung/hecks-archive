@@ -2,6 +2,7 @@
 module Hecks
   module Domain
     module CLI
+      # Generate a domain object
       class GenerateDomainObject < Thor::Group
         include Thor::Actions
 

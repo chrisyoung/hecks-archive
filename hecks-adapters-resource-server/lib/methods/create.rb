@@ -2,6 +2,7 @@
 module HecksAdapters
   class ResourceServer < Sinatra::Base
     class Methods
+      # Create a resource
       class Create
         attr_reader :result
 

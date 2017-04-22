@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class HecksApplication
   module Queries
+    # Find a resource by id
     class FindById
       def initialize(repository:)
         @repository = repository

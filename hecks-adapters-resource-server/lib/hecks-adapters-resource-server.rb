@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 require 'sinatra'
 require 'hecks-application'
-
-
 require 'json'
 require_relative 'methods'
+require_relative 'cli/cli'
 
 module HecksAdapters
+  # Wrap your domain in a cozy Resource Server.  This file maps the routes to
+  # methods on your domain models
   class ResourceServer < Sinatra::Base
     configure do
       set :raise_errors, true

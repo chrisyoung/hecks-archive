@@ -1,4 +1,5 @@
 module Hecks
+  # Run a console with easy access to your domain
   class CLI < Thor
     desc 'console','REPL with domain helpers'
     def console

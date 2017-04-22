@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class HecksApplication
   module Commands
+    # Create a resource
     class Create
       attr_accessor :args, :id, :errors, :repository, :domain_module
 
