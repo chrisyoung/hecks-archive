@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/chrisyoung/hecks-domain"
   s.version     = version
   s.date        = Date.today
-  s.summary     = "Drive a resourceful web server with Domains created using Hecks::Domain generators"
+  s.summary     = "Drive a resourceful web server with Domains created using HecksDomain generators"
   s.description = "Hecks HTTP Resource Server"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'

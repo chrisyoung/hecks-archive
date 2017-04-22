@@ -1,4 +1,4 @@
-describe Hecks::Domain::CLI::CommandBuilder::ValueObjectCommandLineBuilder do
+describe HecksDomain::CLI::CommandBuilder::ValueObjectCommandLineBuilder do
   let(:runner) do
     instance_double(CommandRunner)
   end

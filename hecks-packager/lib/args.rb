@@ -1,4 +1,5 @@
 module HecksPackager
+  # represents the args passed in
   class Args
     attr_reader :method
 

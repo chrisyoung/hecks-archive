@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module HecksAdapters
+  # The default database adapter
   class MemoryDatabase
     def initialize(domain:)
       @repositories = domain.repositories

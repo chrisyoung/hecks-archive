@@ -1,4 +1,4 @@
-describe Hecks::Domain::CLI::CommandBuilder::AggregateCommandLineBuilder do
+describe HecksDomain::CLI::CommandBuilder::AggregateCommandLineBuilder do
 
   let(:runner) do
     instance_double(CommandRunner)

@@ -1,4 +1,5 @@
 class HecksDomainBuilder
+  # Represents a reference object
   class Reference
     def initialize(reference)
       @reference = reference

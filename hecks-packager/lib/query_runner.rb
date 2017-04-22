@@ -1,4 +1,5 @@
 module HecksPackager
+  # A Query runner
   class QueryRunner
     def initialize(args:, application:)
       @args = Args.new(args)

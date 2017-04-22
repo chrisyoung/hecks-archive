@@ -1,4 +1,5 @@
 class HecksDomainBuilder
+  # A domain
   class Domain
     attr_reader :domain_modules, :name
     def initialize(name:)

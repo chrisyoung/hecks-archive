@@ -10,7 +10,7 @@ class Generate < Thor
                 banner:   '[OBJECT_TYPE]',
                 enum:     %w(entity value_object aggregate reference) if File.file?('Domain') || File.file?('hecks.gemspec')
 
-  register(Hecks::Domain::CLI::GenerateDomainObject,
+  register(HecksDomain::CLI::GenerateDomainObject,
                 'domain_object',
                 'domain_object',
                 'Generate Domain Objects') if File.file?('Domain')

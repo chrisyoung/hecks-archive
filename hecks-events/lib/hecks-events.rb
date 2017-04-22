@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Send lifecycle events to listeners
 class HecksEvents
   def initialize(listeners: [])
     @listeners = listeners

@@ -1,4 +1,5 @@
 module HecksPackager
+  # Runs operations on the domain
   class AppRunner
     def initialize(args:, application:)
       @args = Args.new(args)

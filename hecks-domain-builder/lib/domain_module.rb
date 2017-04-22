@@ -1,4 +1,5 @@
 class HecksDomainBuilder
+  # A domain module
   class DomainModule
     attr_reader :objects, :name, :references
 

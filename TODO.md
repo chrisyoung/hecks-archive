@@ -2,6 +2,7 @@
   * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
+  * Add console to CI
   * Commands should always take one argument and have a response
   * Add Remote spec for serverless
   * Use a query to get back unique pizza toppings
@@ -14,6 +15,8 @@
   * Don't use eval in test => Calls to Serverless should return real json
 
 ## Next Actions
+  * Move adapters into their own project
+  * Should be hecks-adapters-memory-database
   * Figure out a way to share pizza params so its easy to run examples
   * Put calls behind a queue
   * Use local version of dynamo db for testing

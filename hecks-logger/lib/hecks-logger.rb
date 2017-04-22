@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+
+# Simple logger
 class HecksLogger
   def initialize(output: [])
     @output = output

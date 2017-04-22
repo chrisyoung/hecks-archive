@@ -1,4 +1,5 @@
 module HecksServerless
+  # Generators to build a serverless config
   class CLI < Thor
     include Thor::Actions
     package_name 'hecks_serverless'

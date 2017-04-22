@@ -6,6 +6,7 @@ require_relative 'value'
 require_relative 'head'
 require_relative 'reference'
 
+# Represents information about your domain
 class HecksDomainBuilder
   Types = {
     string:   'String',

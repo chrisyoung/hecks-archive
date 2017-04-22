@@ -1,4 +1,5 @@
 class HecksDomainBuilder
+  # A Domain Object attribute
   class Attribute
     attr_writer :type
     attr_reader :object_name

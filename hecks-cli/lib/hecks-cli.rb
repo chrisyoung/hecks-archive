@@ -20,5 +20,5 @@ class HecksCLI < Thor
   long_desc      'Generate a domain'
   method_option  :dryrun, aliases: '-d', type: :boolean, desc: 'Output commands without running'
 
-  register(Hecks::Domain::CLI::New, 'new', 'new', 'Create a new Domain') if File.file?('Domain')
+  register(HecksDomain::CLI::New, 'new', 'new', 'Create a new Domain') if File.file?('Domain')
 end

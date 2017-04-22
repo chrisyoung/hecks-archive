@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/chrisyoung/hecks"
   s.version     = version
   s.date        = Date.today
-  s.summary     = "Drive DynamoDB with Domains created with Hecks::Domain"
+  s.summary     = "Drive DynamoDB with Domains created with HecksDomain"
   s.description = "Hecks DynamoDB Database"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'

@@ -1,4 +1,5 @@
 module HecksAdapters
+  # Looks for the presence of require fields and
   class Validator
     attr_reader :errors
 

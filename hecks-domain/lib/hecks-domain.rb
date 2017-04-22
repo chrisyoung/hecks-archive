@@ -1,5 +1,4 @@
 require 'thor'
 require 'hecks-domain-builder'
-require_relative 'adapters/adapters'
 require_relative 'cli/cli'
 require 'active_support/inflector'
