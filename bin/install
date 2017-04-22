@@ -25,6 +25,10 @@ cd ../hecks-validator
 gem build hecks-validator
 gem install --no-rdoc --no-ri  -q ./hecks-validator-$VERSION.gem
 
+cd ../hecks-console
+gem build hecks-console
+gem install --no-rdoc --no-ri  -q ./hecks-console-$VERSION.gem
+
 cd ../hecks-memory-database
 gem build hecks-memory-database
 gem install --no-rdoc --no-ri  -q ./hecks-memory-database-$VERSION.gem

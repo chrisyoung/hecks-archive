@@ -3,6 +3,7 @@ ENV['HECKS_ENVIRONMENT'] ||= 'test'
 
 require_relative '../hecks/lib/hecks'
 require_relative '../hecks-application/lib/hecks-application'
+require_relative '../hecks-console/lib/hecks-console'
 require_relative '../hecks-adapters-dynamodb/lib/hecks-adapters-dynamodb'
 require_relative '../hecks-examples/pizza_builder/lib/pizza_builder'
 
