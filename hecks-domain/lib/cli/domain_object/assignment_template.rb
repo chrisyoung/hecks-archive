@@ -9,7 +9,7 @@ module Hecks
 
           def render
             attributes.map do |attribute|
-              @attribute = Hecks::Domain::DomainBuilder::Attribute.new(attribute)
+              @attribute = HecksDomainBuilder::Attribute.new(attribute)
               do_assignment
             end.join("\n")
           end
@@ -19,7 +19,7 @@ module Hecks
           attr_reader :attributes, :attribute
 
           def do_assignment
-            return value_assignment if Hecks::Domain::DomainBuilder::Types.values.include?(@attribute.type)
+            return value_assignment if HecksDomainBuilder::Types.values.include?(@attribute.type)
             return value_assignment if @attribute.type == 'Value'
             return reference_factory_assignment if attribute.domain_module
             return factory_assignment

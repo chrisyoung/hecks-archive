@@ -37,5 +37,8 @@ gem uninstall hecks-memory-database --force -x
 cd ../hecks-validator
 gem uninstall hecks-validator --force -x
 
+cd ../hecks-domain-builder
+gem uninstall hecks-domain-builder --force -x
+
 cd ../hecks
 gem uninstall hecks --force -x

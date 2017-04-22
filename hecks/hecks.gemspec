@@ -28,7 +28,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
 
-
   s.executables << 'hecks'
   s.executables << 'hecks_console'
 end

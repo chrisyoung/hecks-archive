@@ -1,5 +1,5 @@
-describe Hecks::Domain::DomainBuilder::Head do
+describe HecksDomainBuilder::Head do
   it 'is a domain object' do
-    expect(described_class.superclass).to be Hecks::Domain::DomainBuilder::DomainObject
+    expect(described_class.superclass).to be HecksDomainBuilder::DomainObject
   end
 end

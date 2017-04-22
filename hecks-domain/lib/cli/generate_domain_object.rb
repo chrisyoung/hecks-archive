@@ -55,7 +55,7 @@ module Hecks
         end
 
         def attributes_without_id_as_string
-          attributes_without_id.map { |attribute| ':' + Hecks::Domain::DomainBuilder::Attribute.new(attribute).name }.join ', '
+          attributes_without_id.map { |attribute| ':' + HecksDomainBuilder::Attribute.new(attribute).name }.join ', '
         end
 
         def attributes

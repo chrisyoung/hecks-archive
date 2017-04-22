@@ -5,7 +5,7 @@ module Hecks
         class OptionFormatter
           def initialize(attributes)
             @attributes = attributes.map do |attribute|
-              Hecks::Domain::DomainBuilder::Attribute.new(attribute)
+              HecksDomainBuilder::Attribute.new(attribute)
             end
           end
 
@@ -24,7 +24,7 @@ module Hecks
 
           def attributes(include_id)
             if include_id
-              @attributes + [Hecks::Domain::DomainBuilder::Attribute.new('id:value')]
+              @attributes + [HecksDomainBuilder::Attribute.new('id:value')]
             else
               @attributes
             end

@@ -5,13 +5,17 @@ cd hecks-application/lib
 while read -r version; do VERSION=$version; done < Version
 cd ../..
 
-cd hecks-domain
-gem build hecks-domain
-gem install --no-rdoc --no-ri -q ./hecks-domain-$VERSION.gem
-
-cd ../hecks-events
+cd hecks-events
 gem build hecks-events
 gem install --no-rdoc --no-ri  -q ./hecks-events-$VERSION.gem
+
+cd ../hecks-domain-builder
+gem build hecks-domain-builder
+gem install --no-rdoc --no-ri  -q ./hecks-domain-builder-$VERSION.gem
+
+cd ../hecks-domain
+gem build hecks-domain
+gem install --no-rdoc --no-ri -q ./hecks-domain-$VERSION.gem
 
 cd ../hecks-logger
 gem build hecks-logger
@@ -48,6 +52,7 @@ gem install --no-rdoc --no-ri  -q ./hecks-packager-$VERSION.gem
 cd ../hecks-serverless
 gem build hecks-serverless
 gem install --no-rdoc --no-ri  -q ./hecks-serverless-$VERSION.gem
+
 
 cd ../hecks
 gem build hecks

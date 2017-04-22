@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/chrisyoung/hecks"
   s.version     = version
   s.date        = Date.today
-  s.summary     = "A basic eventing interface for your hecks application"
+  s.summary     = "The events port will "
   s.description = "Hecks Events"
   s.authors     = ["Chris Young"]
   s.email       = 'chris@example.com'

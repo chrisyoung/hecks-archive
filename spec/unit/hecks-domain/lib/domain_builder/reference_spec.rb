@@ -1,4 +1,4 @@
-describe Hecks::Domain::DomainBuilder::Reference do
+describe HecksDomainBuilder::Reference do
   subject {described_class.new("pizzas::pizza")}
 
   it '#name' do
