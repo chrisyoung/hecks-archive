@@ -19,16 +19,14 @@ if ENV["DATABASE_URL"]
   DB = Sequel.connect(ENV["DATABASE_URL"])
 end
 
-module Hecks
-  module Adapters
-    class SQLDatabase
-      def initialize(domain:)
-        @domain = domain
-      end
+module HecksAdapters
+  class SQLDatabase
+    def initialize(domain:)
+      @domain = domain
+    end
 
-      def [](module_name)
-        Repository.new(module_name: module_name)
-      end
+    def [](module_name)
+      Repository.new(module_name: module_name)
     end
   end
 end

@@ -6,7 +6,7 @@ module Hecks
           class MigrationBuilder
             def initialize(generator, specification)
               @generator = generator
-              @schema = Hecks::Adapters::SQLDatabase::Schema.factory(specification)
+              @schema = HecksAdapters::SQLDatabase::Schema.factory(specification)
             end
 
             def call
