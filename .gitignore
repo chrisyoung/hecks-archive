@@ -7,3 +7,4 @@ hecks-examples/**/package
 fixtures/
 spec/integration/http_interactions/
 hecks-examples/**/.serverless/
+doc/
