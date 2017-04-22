@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rdoc -x hecks-examples -m README.md

@@ -1,0 +1,10 @@
+#!/bin/bash
+set -xe
+bash bin/clean
+bash bin/uninstall
+bash bin/install
+bash ci/generate_pizza_builder
+bash ci/package_pizza_builder
+bash ci/generate_serverless_config
+bash ci/deploy_serverless
+rspec

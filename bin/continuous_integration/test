@@ -1,5 +1,0 @@
-#!/bin/bash
-set -xe
-
-rspec spec/unit
-USE_HECKS_GEMS=true rspec spec/integration
