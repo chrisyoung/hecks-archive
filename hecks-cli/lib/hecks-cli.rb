@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 require 'active_support/inflector'
-require_relative 'cli'
-require_relative 'cli/generate'
-require_relative 'cli/test'
-require_relative 'cli/console'
-require_relative 'cli/command_runner'
-require_relative 'cli/build'
+require_relative 'generate'
+require_relative 'test'
+require_relative 'console'
+require_relative 'command_runner'
+require_relative 'build'
 
 
 module Hecks
