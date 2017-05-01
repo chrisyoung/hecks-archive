@@ -6,3 +6,6 @@ require 'hecks-adapters-resource-server'
 require 'hecks-adapters-dynamodb'
 require 'hecks-console'
 require 'hecks-cli'
+
+module Hecks
+end
