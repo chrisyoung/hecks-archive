@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-require 'hecks'
-load(File.dirname(__FILE__) + '/../lib/Domain')
-require_relative(File.dirname(__FILE__) + '/../lib/cli')
-
-HecksServerless::CLI.start(ARGV)

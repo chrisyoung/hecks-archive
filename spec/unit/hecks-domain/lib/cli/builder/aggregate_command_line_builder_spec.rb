@@ -1,7 +1,7 @@
 describe HecksDomain::CLI::CommandBuilder::AggregateCommandLineBuilder do
 
   let(:runner) do
-    instance_double(CommandRunner)
+    double('runner')
   end
 
   let(:pizzas_domain_module) do

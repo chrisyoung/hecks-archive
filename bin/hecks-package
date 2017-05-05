@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+resources_path = File.expand_path(File.dirname(__FILE__)) + '/../lib/packager/resources'
+lib_path = File.expand_path(File.dirname(__FILE__)) + '/../lib/packager'
+
+bash_script =
+<<-BASH_SCRIPT
+  rm -rf package_build
+  rm -rf package
+  mkdir -p package_build
+
+  cp Gemfile package_build
+
+  cp Hecksfile package_build
+
+  bundle package --gemfile package_build/Gemfile
+  cp #{resources_path}/Dockerfile package_build
+
+  mkdir -p package_build/package/linux/ruby
+  mkdir -p package_build/package/linux/lib
+  mkdir -p package_build/package/linux/.bundle
+
+  mkdir -p package_build/package/osx/ruby
+  mkdir -p package_build/package/osx/lib
+  mkdir -p package_build/package/osx/.bundle
+
+  tar -xzf #{resources_path}/traveling-ruby-20150715-2.2.2-linux-x86_64.tar.gz -C package_build/package/linux/ruby
+  tar -xzf #{resources_path}/traveling-ruby-20150715-2.2.2-osx.tar.gz -C package_build/package/osx/ruby
+
+  docker build package_build -t binary_builder
+
+  CONTAINER_ID=`docker create binary_builder:latest`
+
+  docker cp $CONTAINER_ID:/usr/src/app/vendor package_build
+  docker cp $CONTAINER_ID:/usr/src/app/Gemfile.lock package_build
+  docker rm $CONTAINER_ID
+
+  cp -r package_build/Gemfile package_build/package/linux
+  cp -r package_build/Gemfile package_build/package/osx
+  cp -r package_build/Gemfile.lock package_build/package/linux
+  cp -r package_build/Gemfile.lock package_build/package/osx
+
+  cp -r package_build/vendor package_build/package/linux
+  cp -r package_build/vendor package_build/package/osx
+
+  cp #{resources_path}/app_binary package_build/package/linux/app
+  cp #{resources_path}/app_binary package_build/package/osx/app
+
+  cp #{resources_path}/bundle_config package_build/package/linux/.bundle/config
+  cp #{resources_path}/bundle_config package_build/package/osx/.bundle/config
+
+  cp -r #{lib_path}/** package_build/package/osx/lib
+  cp -r #{lib_path}/** package_build/package/linux/lib
+
+  cp -r package_build/package .
+  cp package_build/Gemfile.lock package/linux/osx
+  cp package_build/Gemfile.lock package/linux/linux
+
+  rm -rf package_build
+BASH_SCRIPT
+
+bash_script.split("/n").each do |command|
+  puts `#{command}`
+end

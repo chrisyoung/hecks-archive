@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -xe
+
+while read -r version; do VERSION=$version; done < Version
+
+export HECKS_VERSION=$VERSION
+
+ROOT=`pwd`
+
+cd $ROOT/domain
+gem build hecks-domain
+gem install --no-rdoc --no-ri -q ./hecks-domain-$HECKS_VERSION.gem
+
+cd $ROOT/adapters/memory_database
+gem build hecks-memory-database
+gem install --no-rdoc --no-ri  -q ./hecks-memory-database-$HECKS_VERSION.gem
+
+cd $ROOT/application
+gem build hecks-application
+gem install --no-rdoc --no-ri  -q ./hecks-application-$HECKS_VERSION.gem
+
+cd $ROOT/adapters/sql_database
+gem build hecks-adapters-sql-database
+gem install --no-rdoc --no-ri  -q ./hecks-adapters-sql-database-$HECKS_VERSION.gem
+
+cd $ROOT/adapters/dynamodb
+gem build hecks-adapters-dynamodb
+gem install --no-rdoc --no-ri  -q ./hecks-adapters-dynamodb-$HECKS_VERSION.gem
+
+cd $ROOT/adapters/resource_server
+gem build hecks-adapters-resource-server
+gem install --no-rdoc --no-ri  -q ./hecks-adapters-resource-server-$HECKS_VERSION.gem
+
+cd $ROOT
+gem build hecks
+gem install --no-rdoc --no-ri -q ./hecks-$HECKS_VERSION.gem

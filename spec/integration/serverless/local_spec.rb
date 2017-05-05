@@ -1,6 +1,6 @@
 describe 'Serverless Tests' do
   def run(command)
-    result = `cd hecks-examples/pizza_builder && serverless invoke local -f pizzas_#{command}`.gsub("result ", '')
+    result = `cd example/pizza_builder && serverless invoke local -f pizzas_#{command}`.gsub("result ", '')
     eval(result) if result != "null\n"
   end
 

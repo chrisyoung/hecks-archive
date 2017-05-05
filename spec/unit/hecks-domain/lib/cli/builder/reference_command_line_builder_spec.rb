@@ -1,6 +1,6 @@
 describe HecksDomain::CLI::CommandBuilder::ReferenceCommandLineBuilder do
   let(:runner) do
-    instance_double(CommandRunner)
+    double('runner')
   end
 
   let(:result) do

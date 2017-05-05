@@ -3,8 +3,8 @@
 coverage
 **/tmp
 **/*.gem
-hecks-examples/**/package
+example/**/package
 fixtures/
 spec/integration/http_interactions/
-hecks-examples/**/.serverless/
+example/**/.serverless/
 doc/

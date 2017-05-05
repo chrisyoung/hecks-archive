@@ -3,7 +3,7 @@ describe HecksDomain::CLI::CommandBuilder do
     described_class.new(name: 'pizza_builder')
   end
 
-  it '' do
+  it 'exists' do
     subject
   end
 end

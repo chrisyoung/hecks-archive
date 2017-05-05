@@ -1,7 +1,0 @@
-#!/bin/bash
-set -xe
-
-PIZZA_BUILDER_DIR='hecks-examples/pizza_builder'
-cd $PIZZA_BUILDER_DIR
-hecks-package
-./package/osx/app -m pizzas -c create -d '{"name": "white pizza", "toppings": [{"name": "cheese"}], "description": "only the best", "chef": {"name": "me"}}'

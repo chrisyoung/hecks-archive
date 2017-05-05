@@ -1,0 +1,10 @@
+#!/bin/bash
+set -xe
+HECKS_DIR=`pwd`
+PIZZA_BUILDER_DIR='example/pizza_builder'
+
+cd $PIZZA_BUILDER_DIR
+gem build pizza_builder
+hecks new
+bundle update
+cd $HECKS_DIR

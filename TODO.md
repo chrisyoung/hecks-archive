@@ -2,6 +2,7 @@
   * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
+  * Move sql database generators into project folder (out of hecks-cli)
   * Add console to CI
   * Commands should always take one argument and have a response
   * Add Remote spec for serverless
@@ -15,6 +16,8 @@
   * Don't use eval in test => Calls to Serverless should return real json
 
 ## Next Actions
+  * Use Ruby for binaries instead of bash
+  * Hecks build cli command
   * Move adapters into their own project
   * Should be hecks-adapters-memory-database
   * Figure out a way to share pizza params so its easy to run examples
