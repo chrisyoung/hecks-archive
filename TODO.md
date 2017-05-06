@@ -2,16 +2,12 @@
   * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
-  * Release version 0.2.0
-  * Yank all the bad gems
   * Run commands asynchronously - supply an id that will eventually fetch the resource
-  * Add console to CI
-  * Use a query to get back unique pizza toppings
   * API routes on serverless
-
-## Next Actions
-  * Don't use eval in test => Calls to Serverless should return real json
-  * Add a rake file to hecks
+  * Use a query to get back unique pizza toppings
+  * Add console to CI
+  * Yank all the bad gems
+  * Release version 0.2.0 :)
 
 ## Demo
   * Add a drawing of PizzaBuilder to the docs
@@ -21,9 +17,10 @@
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
   * Move sql database generators into project folder (out of hecks-cli)
-  * Generate ids
+  * Generate ids instead of relying on DB
 
 ## Tests
+  * Don't use eval in test => Calls to Serverless should return real json
   * Add Remote spec for serverless
   * Truncate test database between runs
   * Fix up guard so it works with "unit" and "integration"  
@@ -56,6 +53,7 @@
   * Rename ResourceServer to HTTPResourceServer
   * Figure out the right way to load the hecks file
   * Use invariants (with #fail)
+  * Add a rake file to hecks
 
 ## Application
   * Put calls behind a queue

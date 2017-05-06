@@ -16,7 +16,6 @@
 # An Order has many line items
 # A Line Item has a a pizza, pizza_name, a quantity and a price
 
-
 DOMAIN ||= HecksDomainBuilder.build "pizza_builder" do |pizza_builder|
   pizza_builder.module 'Pizzas' do |pizzas|
     pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[topping]', 'chef:chef')

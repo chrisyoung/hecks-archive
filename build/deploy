@@ -36,8 +36,5 @@ gem push ./hecks-memory-database-$VERSION.gem
 cd ../hecks-validator
 gem push ./hecks-validator-$VERSION.gem
 
-cd ../hecks-domain-builder
-gem push ./hecks-domain-builder-$VERSION.gem
-
 cd ../hecks
 gem push ./hecks-$VERSION.gem
