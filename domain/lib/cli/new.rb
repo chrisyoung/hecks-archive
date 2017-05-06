@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-binding.pry
 load('Domain') if File.exist?('Domain')
 
 puts File.dirname(__FILE__)
