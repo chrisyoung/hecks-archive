@@ -4,7 +4,7 @@ HECKS_DIR=`pwd`
 PIZZA_BUILDER_DIR='example/pizza_builder'
 
 cd $PIZZA_BUILDER_DIR
-gem build pizza_builder
 hecks new
+gem build pizza_builder
 bundle update
 cd $HECKS_DIR

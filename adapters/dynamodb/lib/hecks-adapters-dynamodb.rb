@@ -12,6 +12,12 @@ module HecksAdapters
       @domain = domain
     end
 
+    # Look up a domain module
+    # hecks_app[:pizzas]
+    #
+    # Returns a domain module
+    #
+    # eg: PizzaBuilder::Pizzas
     def [](value)
       Repository.new(DOMAIN[value.to_s.titleize.to_sym].head)
     end

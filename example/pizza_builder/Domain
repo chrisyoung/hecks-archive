@@ -1,5 +1,19 @@
 #!/usr/bin/env ruby
 
+DOMAIN ||= HecksDomainBuilder.build "pizza_builder" do |pizza_builder|
+  pizza_builder.module 'Pizzas' do |pizzas|
+    pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[topping]', 'chef:chef')
+    pizzas.value("Topping").attributes('name:string')
+    pizzas.value("Chef").attributes('name:string')
+  end
+
+  pizza_builder.module 'Orders' do |orders|
+    orders.head("Order").attributes('line_items:[line_item]')
+    orders.value("LineItem").attributes('pizza_name:string', 'quantity:integer', 'price:currency', "pizza:pizzas::pizza")
+    orders.reference("pizzas::pizza")
+  end
+end
+
 # New builder format (drop the types!):
 #   Pizzas::Pizza(:name, :description)
 #     *Toppings
@@ -15,17 +29,3 @@
 # A chef has a name
 # An Order has many line items
 # A Line Item has a a pizza, pizza_name, a quantity and a price
-
-DOMAIN ||= HecksDomainBuilder.build "pizza_builder" do |pizza_builder|
-  pizza_builder.module 'Pizzas' do |pizzas|
-    pizzas.head("Pizza").attributes('name:string', 'description:string', 'toppings:[topping]', 'chef:chef')
-    pizzas.value("Topping").attributes('name:string')
-    pizzas.value("Chef").attributes('name:string')
-  end
-
-  pizza_builder.module 'Orders' do |orders|
-    orders.head("Order").attributes('line_items:[line_item]')
-    orders.value("LineItem").attributes('pizza_name:string', 'quantity:integer', 'price:currency', "pizza:pizzas::pizza")
-    orders.reference("pizzas::pizza")
-  end
-end
