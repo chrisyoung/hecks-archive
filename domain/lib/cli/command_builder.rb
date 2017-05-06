@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 require 'pathname'
 
+if ENV['HECKS_DOMAIN_PATH']
+  load(ENV['HECKS_DOMAIN_PATH'])
+else
+  load('Domain') if File.exist?('Domain')
+end
+
 module HecksDomain
   module CLI
     # Class for generating domain objects
