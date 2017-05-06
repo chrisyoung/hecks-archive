@@ -1,5 +1,9 @@
 # frozen_string_literal: true
+binding.pry
 load('Domain') if File.exist?('Domain')
+
+puts File.dirname(__FILE__)
+
 module HecksDomain
   module CLI
     # Generate a new domain project

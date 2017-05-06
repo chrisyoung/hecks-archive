@@ -65,16 +65,5 @@ describe HecksApplication do
       )
       expect(log_output.first).to include('pizzas_create')
     end
-
-    describe ".version" do
-      it 'Matches the file' do
-        expect(HecksApplication.version).to eq File.read("Version").gsub("\n", '')
-      end
-
-      it 'is not be empty' do
-        expect(HecksApplication.version).to_not eq ''
-        expect(HecksApplication.version).to_not be_nil
-      end
-    end
   end
 end
