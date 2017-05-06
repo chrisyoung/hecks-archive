@@ -21,6 +21,7 @@
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
   * Move sql database generators into project folder (out of hecks-cli)
+  * Generate ids
 
 ## Tests
   * Add Remote spec for serverless
