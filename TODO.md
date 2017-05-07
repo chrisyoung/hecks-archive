@@ -10,16 +10,6 @@
   * Release version 0.2.0 :)
   * Run arbitrary command
 
-## Demo
-  * Make resource server return json type
-  * Make a landing page for hecks resourceserver
-  * Need a way to list pizzas
-  * Add a drawing of PizzaBuilder to the docs
-  * Make a demo video
-  * Make a tutorial
-  * Generate domain gemfile
-  * Generate hecksfile
-
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
   * Move sql database generators into project folder (out of hecks-cli)
