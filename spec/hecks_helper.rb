@@ -7,7 +7,7 @@ require_relative '../lib/hecks'
 require_relative '../example/pizza_builder/lib/pizza_builder'
 
 PIZZA_ATTRIBUTES = {
-  name: 'White Pizza',
+  name:        'White Pizza',
   description: 'white sauce and chicken',
-  chef:        { name: "Chef Ramsey" },
-  toppings:    [{ name: 'chicken' }] }
+  chef:        { name:  'Chef Ramsey' },
+  toppings:    [{ name: 'Chicken' }, {name: 'Cheese'}] }

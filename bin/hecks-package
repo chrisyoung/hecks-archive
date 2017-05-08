@@ -4,6 +4,8 @@ lib_path = File.expand_path(File.dirname(__FILE__)) + '/../lib/packager'
 
 bash_script =
 <<-BASH_SCRIPT
+  set -xe
+
   rm -rf package_build
   rm -rf package
   mkdir -p package_build
