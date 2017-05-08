@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
 
   s.add_runtime_dependency 'hecks-application', "=#{version}"
-  s.add_runtime_dependency 'mysql2', '=0.3.18'
+  s.add_runtime_dependency 'mysql2', '~>0.4'
   s.add_runtime_dependency 'sequel', '~> 4.43'
 end
