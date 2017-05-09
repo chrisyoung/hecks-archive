@@ -2,14 +2,21 @@ ENV['DATABASE_URL'] ||= 'mysql2://root:password@localhost/pizza_builder_test'
 ENV['HECKS_ENVIRONMENT'] ||= 'test'
 ENV['HECKS_DOMAIN_PATH'] ||= File.dirname(__FILE__) + '/../example/pizza_builder/Domain'
 
-require_relative '../domain/lib/hecks-domain'
-require_relative '../adapters/dynamodb/lib/hecks-adapters-dynamodb'
-require_relative '../adapters/memory_database/lib/hecks-memory-database'
-require_relative '../adapters/resource_server/lib/hecks-adapters-resource-server'
-require_relative '../adapters/sql_database/lib/hecks-adapters-sql-database'
+# Adding these folders to the load path allows specs to be run
+# with no gems installed, ie. require hecks-application
+[ '/../adapters/dynamodb/lib/',
+  '/../adapters/resource_server/lib/',
+  '/../adapters/memory_database/lib/',
+  '/../adapters/sql_database/lib/',
+  '/../application/lib/',
+  '/../domain/lib/' ].each do |file|
+  $LOAD_PATH.unshift(File.dirname(__FILE__) + file)
+end
+
 require_relative '../lib/hecks'
 require_relative '../example/pizza_builder/lib/pizza_builder'
 
+# Easy way to grab a valid pizza when playing with apis
 PIZZA_ATTRIBUTES = {
   name:        'White Pizza',
   description: 'white sauce and chicken',
