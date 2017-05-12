@@ -1,8 +1,12 @@
 describe HecksAdapters::DynamoDB do
-  let(:id) { app[:Pizzas].create(PIZZA_ATTRIBUTES).id }
+  let(:id) { app[:Pizzas].create(PIZZA_ATTRIBUTES).result[:id] }
 
   let(:new_attributes) do
     PIZZA_ATTRIBUTES.merge name: "ComeAgainPizza"
+  end
+
+  let(:updated_attributes) do
+    new_attributes.merge(id: id)
   end
 
   context "Working with Hecks Application" do
@@ -15,8 +19,8 @@ describe HecksAdapters::DynamoDB do
 
     describe '#create' do
       it do
-        result = app[:pizzas].create(PIZZA_ATTRIBUTES)
-        expect(result.id).to_not be_nil
+        result = app[:pizzas].create(PIZZA_ATTRIBUTES).result
+        expect(result[:id]).to_not be_nil
       end
     end
 
@@ -29,7 +33,7 @@ describe HecksAdapters::DynamoDB do
 
     describe '#update' do
       it do
-        app[:Pizzas].update(id, new_attributes)
+        app[:Pizzas].update(updated_attributes)
         result = app[:Pizzas].read(id: id)
         expect(result.name).to eq('ComeAgainPizza')
       end

@@ -1,4 +1,4 @@
-ENV['DATABASE_URL'] ||= 'mysql2://root:password@localhost/pizza_builder_test'
+ENV['DATABASE_URL']      ||= 'mysql2://root:password@localhost/pizza_builder_test'
 ENV['HECKS_ENVIRONMENT'] ||= 'test'
 ENV['HECKS_DOMAIN_PATH'] ||= File.dirname(__FILE__) + '/../example/pizza_builder/Domain'
 
@@ -22,4 +22,4 @@ PIZZA_ATTRIBUTES = {
   name:        'White Pizza',
   description: 'white sauce and chicken',
   chef:        { name:  'Chef Ramsey' },
-  toppings:    [{ name: 'Chicken' }, {name: 'Cheese'}] }
+  toppings:    [{ name: 'Chicken' }, { name: 'Cheese' }] }

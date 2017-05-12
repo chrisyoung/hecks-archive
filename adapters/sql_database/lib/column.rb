@@ -3,7 +3,7 @@ module HecksAdapters
     # Represents a SQL Column
     class Column
       attr_reader :referenced_object
-      TYPE_MAP = {
+      TYPE_MAP ||= {
         'Currency' => "BigDecimal",
         'String'   => 'String',
         'Integer'  => 'Integer'

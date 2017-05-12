@@ -7,13 +7,7 @@ module HecksPackager
     end
 
     def call
-      case args.method
-      when 'create', 'read', 'delete'
-        domain_module.send(args.method, args.data).call
-      when 'update'
-        id = args.data.delete(:id)
-        domain_module.send(args.method, id, args.data).call
-      end
+      domain_module.send(args.method, args.data).call
     end
 
     private

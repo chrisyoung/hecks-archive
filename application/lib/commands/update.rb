@@ -3,7 +3,7 @@ class HecksApplication
   module Commands
     # Update a resource
     class Update
-      attr_accessor :args, :errors, :id, :repository
+      attr_accessor :args, :repository
 
       def initialize(args: nil, repository: Repository, domain_module:)
         @repository      = repository
@@ -22,7 +22,7 @@ class HecksApplication
       end
 
       def result
-        { id: id, errors: errors, args: args }
+        { success: errors.empty?, errors: errors, args: args }
       end
 
       def to_h
@@ -31,7 +31,7 @@ class HecksApplication
 
       private
 
-      attr_reader :repository_result
+      attr_reader :repository_result, :id, :errors
 
       def update
         return if @errors.count.positive?

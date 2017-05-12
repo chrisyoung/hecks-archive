@@ -12,7 +12,7 @@ require_relative 'repository'
 require_relative 'commands/commands'
 
 if ENV["DATABASE_URL"]
-  DB = Sequel.connect(ENV["DATABASE_URL"])
+  DB ||= Sequel.connect(ENV["DATABASE_URL"])
 end
 
 module HecksAdapters

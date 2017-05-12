@@ -8,7 +8,7 @@ require_relative 'reference'
 
 # Represents information about your domain
 class HecksDomainBuilder
-  Types = {
+  Types ||= {
     string:   'String',
     integer:  'Integer',
     currency: 'Currency'

@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+
 require 'hecks-memory-database'
 require 'hecks-domain'
 

@@ -12,30 +12,34 @@ describe HecksApplication do
 
   describe '#create' do
     it do
-      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).result[:id]
       expect(subject[:pizzas].read(id).name).to eq 'White Pizza'
     end
   end
 
   describe '#read' do
     it do
-      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).result[:id]
       expect(subject[:pizzas].read(id).name).to eq 'White Pizza'
     end
   end
 
   describe '#update' do
     it do
-      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
-      res = subject[:pizzas].update(id, PIZZA_ATTRIBUTES.merge(name: "Green Pizza"))
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).result[:id]
+      res = subject[:pizzas].update(
+        PIZZA_ATTRIBUTES.merge(
+          id:   id,
+          name: "Green Pizza"
+        ))
       expect(subject[:pizzas].read(id).name).to eq 'Green Pizza'
     end
   end
 
   describe '#delete' do
     it do
-      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).id
-      res = subject[:pizzas].delete(id)
+      id = subject[:pizzas].create(PIZZA_ATTRIBUTES).result[:id]
+      subject[:pizzas].delete(id)
       expect(subject[:pizzas].read(id)).to eq nil
     end
   end
@@ -46,13 +50,13 @@ describe HecksApplication do
         command_name: :create,
         module_name:  :pizzas,
         args:         PIZZA_ATTRIBUTES
-      )
+      ).result
 
       expect(
         subject.query(
           query_name:  :find_by_id,
           module_name: :pizzas,
-          args:        { id: result.id }
+          args:        { id: result[:id] }
         ).name
       ).to eq 'White Pizza'
     end

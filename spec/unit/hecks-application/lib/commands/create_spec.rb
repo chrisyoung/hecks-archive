@@ -19,7 +19,7 @@ describe HecksApplication::Commands::Create do
 
   describe '#id' do
     it 'has an id if the command is successful' do
-      expect(subject.call.id).to_not be_nil
+      expect(subject.call.result[:id]).to_not be_nil
     end
   end
 

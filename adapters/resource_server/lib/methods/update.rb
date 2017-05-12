@@ -20,20 +20,20 @@ module HecksAdapters
         end
 
         def status
-          return 500 if command_result.errors.count.positive?
+          return 500 if command.result[:errors].count.positive?
           200
         end
 
         private
 
-        attr_accessor :application_adapter, :id, :body, :module_name, :command_result
+        attr_accessor :application_adapter, :id, :body, :module_name, :command
 
         def convert_to_json
-          @result = JSON.generate(command_result.to_h)
+          @result = JSON.generate(command.to_h)
         end
 
         def run_command
-          @command_result = application_adapter.call(
+          @command = application_adapter.call(
             module_name:  module_name,
             command_name: :update,
             args:         params

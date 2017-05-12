@@ -7,9 +7,9 @@ class HecksApplication
       )
 
       create_pizza = app[:pizzas].create(PIZZA_ATTRIBUTES)
-      pizza =        app[:pizzas].read(create_pizza.id)
+      pizza =        app[:pizzas].read(create_pizza.result[:id])
       create_order = app[:orders].create(order_attributes(pizza))
-      order =        app[:orders].read(create_order.id)
+      order =        app[:orders].read(create_order.result[:id])
       expect(order.line_items.first.pizza_name).to eq pizza.name
     end
 

@@ -13,7 +13,7 @@ describe HecksAdapters::DynamoDB::DropAll do
   subject { described_class.new(client: client, domain: PizzaBuilder)}
 
   describe '#call' do
-    it 'Deletes existing tables' do
+    xit 'Deletes existing tables' do
       HecksAdapters::DynamoDB::Migrate.new(
         client: client,
         domain: PizzaBuilder

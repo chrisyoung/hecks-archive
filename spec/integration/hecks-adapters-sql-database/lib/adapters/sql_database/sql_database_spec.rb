@@ -1,8 +1,12 @@
 describe HecksAdapters::SQLDatabase do
-  let(:id) { app[:Pizzas].create(PIZZA_ATTRIBUTES).id }
+  let(:id) { app[:Pizzas].create(PIZZA_ATTRIBUTES).result[:id] }
 
   let(:new_attributes) do
     PIZZA_ATTRIBUTES.merge name: "ComeAgainPizza"
+  end
+
+  let(:updated_attributes) do
+    new_attributes.merge(id: id)
   end
 
   context "Working with Hecks Application" do
@@ -14,7 +18,7 @@ describe HecksAdapters::SQLDatabase do
     end
 
     describe '#create' do
-      it { expect(app[:Pizzas].create(PIZZA_ATTRIBUTES).id).to_not be_nil }
+      it { expect(app[:Pizzas].create(PIZZA_ATTRIBUTES).result[:id]).to_not be_nil }
     end
 
     describe "#read" do
@@ -25,7 +29,7 @@ describe HecksAdapters::SQLDatabase do
 
     describe '#update' do
       it do
-        app[:Pizzas].update(id, new_attributes)
+        app[:Pizzas].update(updated_attributes)
         expect(app[:Pizzas].read(id).name).to eq('ComeAgainPizza')
       end
     end

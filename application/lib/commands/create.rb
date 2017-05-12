@@ -3,7 +3,7 @@ class HecksApplication
   module Commands
     # Create a resource
     class Create
-      attr_accessor :args, :id, :errors, :repository, :domain_module
+      attr_accessor :args, :result, :errors, :repository, :domain_module
 
       def initialize(args:, repository:, domain_module: )
         @repository      = repository
@@ -33,7 +33,7 @@ class HecksApplication
 
       private
 
-      attr_reader :repository_result
+      attr_reader :repository_result, :id
 
       def create
         return if @errors.count.positive?
