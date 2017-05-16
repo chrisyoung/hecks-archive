@@ -28,7 +28,20 @@ class HecksApplication
       end
 
       def result
-        { id: id, success: !id.nil?, errors: errors, args: args }
+        {
+          id: id,
+          success: !id.nil?,
+          errors:  errors,
+          args:    args
+        }
+      end
+
+      # This represents what the object will look like when it is persisted,
+      # making it easy for the client to contintue easily with operations,
+      # blissfully unaware that the operations are being committed from a
+      # command bus.
+      def head
+        args.merge(id: id)
       end
 
       private

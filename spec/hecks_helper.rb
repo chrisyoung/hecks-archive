@@ -23,3 +23,10 @@ PIZZA_ATTRIBUTES = {
   description: 'white sauce and chicken',
   chef:        { name:  'Chef Ramsey' },
   toppings:    [{ name: 'Chicken' }, { name: 'Cheese' }] }
+
+ORDER_ATTRIBUTES = {
+  line_items: [{
+    pizza_name: "White Pizza",
+    quantity: 1,
+    price: 5.0
+  }]}

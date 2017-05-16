@@ -1,5 +1,6 @@
 ## In Progress
   * Cannot read property 'errors' of null in integration spec
+  * Move validations out of the command
 
 ## Current Sprint
   * Run commands asynchronously - supply an id that will eventually fetch the resource
