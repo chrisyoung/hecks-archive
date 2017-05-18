@@ -1,6 +1,7 @@
-require_relative 'bus_runner'
-# Holds a list of commands to be run
+require_relative 'command_bus_runner'
+
 class HecksApplication
+  # Manages a list of commands to be run
   class CommandBus
     include Singleton
 
@@ -8,6 +9,7 @@ class HecksApplication
 
     def initialize
       @queue = []
+      CommandBusRunner.run
     end
 
     def self.enqueue(command, id)
@@ -23,7 +25,7 @@ class HecksApplication
         command.call
         instance.queue.delete(command)
       end
-      BUS_RUNNER_THREAD.join
+      CommandBusRunner.thread.join
     end
   end
 end
