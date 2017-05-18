@@ -10,6 +10,7 @@
   * Yank all the bad gems
   * Release version 0.2.0 :)
   * Run arbitrary command
+  * Use singletons (eg, repository)
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.

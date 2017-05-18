@@ -5,12 +5,13 @@ class HecksApplication
     class Create
       attr_accessor :args, :result, :errors, :repository, :domain_module
 
-      def initialize(args:, repository:, domain_module: )
+      def initialize(args:, repository:, domain_module:, id:)
         @repository      = repository
         @args            = args
         @errors          = {}
         @validator       = HecksAdapters::Validator
         @domain_module   = domain_module
+        @id              = id
       end
 
       def call
@@ -20,7 +21,7 @@ class HecksApplication
       end
 
       def to_h
-        { errors: errors, id: repository_result, args: args }
+        { errors: errors, id: id, args: args }
       end
 
       def name
@@ -46,11 +47,11 @@ class HecksApplication
 
       private
 
-      attr_reader :repository_result, :id
+      attr_reader :id
 
       def create
         return if @errors.count.positive?
-        @id = @repository_result = repository.create(args).id
+        repository.create(id, args)
       end
 
       def validate

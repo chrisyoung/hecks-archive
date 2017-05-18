@@ -5,8 +5,7 @@ module PizzaBuilder
         @collection = {}
         @last_id    = 0
 
-        def self.create attributes={}
-          id              = @last_id + 1
+        def self.create id, attributes
           @collection[id] = Pizza.new(attributes.merge(id: id))
           @last_id        = id
           Struct.new(:id).new(id)

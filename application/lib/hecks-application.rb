@@ -10,6 +10,7 @@ require_relative 'queries/queries'
 require_relative 'events'
 require_relative 'logger'
 require_relative 'validator'
+require_relative 'command_bus'
 
 # The Applicaiton port.  Adapters usually talk to the domain through
 # HecksApplication
@@ -29,7 +30,7 @@ class HecksApplication
       module_name:  module_name,
       args:         args,
       application:  self
-    ).call
+    ).run
   end
 
   def [](module_name)
