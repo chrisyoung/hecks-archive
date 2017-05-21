@@ -3,12 +3,13 @@ class HecksApplication
   class CommandRunner
     attr_reader :module_name, :command
 
-    def initialize(command_name:, module_name:, args:, application:)
+    def initialize(command_name:, module_name:, args:, application:, queue: CommandQueue)
       @command_name = command_name
       @module_name  = module_name
       @args         = args
       @application  = application
       @domain_spec  = application.domain_spec
+      @queue        = queue
     end
 
     def run()
@@ -26,7 +27,7 @@ class HecksApplication
 
     private
 
-    attr_reader :command_name, :args, :application, :domain_spec, :id
+    attr_reader :command_name, :args, :application, :domain_spec, :id, :queue
 
     def generate_id
       @id = SecureRandom.uuid
@@ -37,7 +38,7 @@ class HecksApplication
     end
 
     def enqueue_command
-      CommandBus.enqueue(command, id)
+      queue.enqueue(command, id)
     end
 
     def call_command

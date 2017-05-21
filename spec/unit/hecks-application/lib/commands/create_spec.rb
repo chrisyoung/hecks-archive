@@ -3,7 +3,8 @@ describe HecksApplication::Commands::Create do
     described_class.new(
       args: PIZZA_ATTRIBUTES,
       domain_module: DOMAIN.domain_modules[:Pizzas],
-      repository: PizzaBuilder.repositories[:pizzas]
+      repository: PizzaBuilder.repositories[:pizzas],
+      id: 'arbitrary'
     )
   end
 

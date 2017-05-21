@@ -10,7 +10,7 @@ require_relative 'queries/queries'
 require_relative 'events'
 require_relative 'logger'
 require_relative 'validator'
-require_relative 'command_bus'
+require_relative 'command_queue'
 
 # The Applicaiton port.  Adapters usually talk to the domain through
 # HecksApplication

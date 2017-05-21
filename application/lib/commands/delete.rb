@@ -5,10 +5,11 @@ class HecksApplication
     class Delete
       attr_accessor :args, :errors, :repository
 
-      def initialize(args: nil, repository:, domain_module:)
+      def initialize(args: nil, repository:, domain_module:, id: )
         @args            = args || chained_command.args
         @repository      = repository
         @errors          = { base: [] }
+        @id = id
       end
 
       def call

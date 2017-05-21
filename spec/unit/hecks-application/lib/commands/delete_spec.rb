@@ -5,7 +5,8 @@ class HecksApplication
         Create.new(
           args:          PIZZA_ATTRIBUTES,
           domain_module: domain_module,
-          repository:    repository
+          repository:    repository,
+          id: 'arbitrary'
         ).call.result[:id]
       end
 
@@ -13,7 +14,8 @@ class HecksApplication
         described_class.new(
           args:          { id: pizza_id },
           domain_module: domain_module,
-          repository:    repository
+          repository:    repository,
+          id: 'arbitrary'
         )
       end
 

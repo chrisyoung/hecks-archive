@@ -5,7 +5,7 @@ class HecksApplication
     class Update
       attr_accessor :args, :repository
 
-      def initialize(args: nil, repository: Repository, domain_module:)
+      def initialize(args: nil, repository: Repository, domain_module:, id: id)
         @repository      = repository
         @args            = args
         @errors          = []
