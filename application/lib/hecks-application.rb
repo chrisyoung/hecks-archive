@@ -3,12 +3,13 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'hecks-memory-database'
 require 'hecks-domain'
+require 'sidekiq'
 
 require_relative 'commands/commands'
 require_relative 'command_runner'
 require_relative 'queries/queries'
 require_relative 'events'
-require_relative 'logger'
+require_relative 'hecks_logger'
 require_relative 'validator'
 require_relative 'command_queue'
 
