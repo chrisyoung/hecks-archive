@@ -8,3 +8,4 @@ fixtures/
 spec/integration/http_interactions/
 example/**/.serverless/
 doc/
+dump.rdb

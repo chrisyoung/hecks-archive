@@ -5,12 +5,18 @@ class HecksApplication
   class CommandQueue
     include Singleton
 
+    # a list of commands
     attr_reader :queue
 
+    # The "Queue" is just a basic array
     def initialize
       @queue = []
     end
 
+    # HecksCommandQueue calls the command immediately.  However your client should not
+    # rely on the response but should use the query interface instead, as it is
+    # likely that in production the app will be running on a robust queue like
+    # Redis
     def self.enqueue(command, id)
       instance.queue << command
       command.call

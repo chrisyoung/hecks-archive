@@ -1,6 +1,7 @@
 class HecksApplication
   module Commands
-    # Map resourceful methods to the domain
+    # The CRUD Handler is a strange beast from a forgotten time before the
+    # age of rationality.  It also maps CRUD actions to default Hecks commands
     class CRUDHandler
       attr_reader :module_name, :application
 

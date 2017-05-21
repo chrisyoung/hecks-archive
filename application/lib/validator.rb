@@ -1,5 +1,6 @@
 module HecksAdapters
-  # Looks for the presence of require fields and
+  # Looks for the presence of required fields.  In production you'll likely want
+  # to used a schema based valildator
   class Validator
     attr_reader :errors
 
