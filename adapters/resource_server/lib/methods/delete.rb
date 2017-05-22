@@ -28,7 +28,7 @@ module HecksAdapters
         attr_reader :application_adapter, :module_name, :id, :command_result
 
         def convert_to_json
-          @result = JSON.generate(command_result.to_h)
+          @result = JSON.generate(command_result.command.to_h)
         end
 
         def run_command

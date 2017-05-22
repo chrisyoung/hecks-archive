@@ -14,7 +14,7 @@ module HecksAdapters
         @client = Aws::DynamoDB::Client.new(region: 'us-east-1')
       end
 
-      def create(args)
+      def create(id, args)
         Commands::Create.new(args, head, client).call
       end
 

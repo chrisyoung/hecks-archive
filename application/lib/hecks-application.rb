@@ -4,7 +4,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'hecks-memory-database'
 require 'hecks-domain'
 
-
 require_relative 'commands/commands'
 require_relative 'command_runner'
 require_relative 'queries/queries'
@@ -17,15 +16,16 @@ require_relative 'hecks-delayed-command-queue'
 # The Applicaiton port.  Adapters usually talk to the domain through
 # an HecksApplication instance.
 class HecksApplication
-  attr_reader :database, :domain_spec, :events_port, :command_queue
+  attr_reader :database, :domain_spec, :events_port, :command_queue, :domain
 
-  def initialize(database: nil, listeners: [], domain:, command_queue: HecksApplication::CommandQueue)
+  def initialize(config)
+    @domain        = config[:domain]
     load(domain.spec_path)
-    @domain        = domain
-    @database      = database
-    @events_port   = HecksEvents.new(listeners: listeners)
     @domain_spec   = DOMAIN
-    @command_queue = command_queue
+    @domain        = config[:domain]
+    @database      = config[:database]
+    @events_port   = HecksEvents.new(listeners: config[:listeners] || [])
+    @command_queue = config[:command_queue] || HecksApplication::CommandQueue
   end
 
   # This runs an arbitrarily named command.  Would be nice to unify it into the

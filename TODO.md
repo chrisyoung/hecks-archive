@@ -1,6 +1,8 @@
 ## In Progress
+  * Figure out how to reconstruct commands from sidekiq adapter
   * Cannot read property 'errors' of null in integration spec
   * Move validations out of the command
+  * Make the sql adapter use UUIDS :(
 
 ## Current Sprint
   * Run commands asynchronously - supply an id that will eventually fetch the resource
@@ -11,6 +13,7 @@
   * Release version 0.2.0 :)
   * Run arbitrary command
   * Use singletons (eg, repository)
+  * rename cli command runner
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.

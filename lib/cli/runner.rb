@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class HecksCLI < Thor
-  class CommandRunner
+  class Runner
     # Runs CLI Commands
     def initialize(hexagon, name, dry_run = false)
       @hexagon = hexagon

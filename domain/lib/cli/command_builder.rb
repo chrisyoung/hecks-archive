@@ -15,7 +15,7 @@ module HecksDomain
         @name   = name
         @domain = DOMAIN
         @dry_run = dry_run
-        @runner = HecksCLI::CommandRunner.new(domain, name, dry_run)
+        @runner = HecksCLI::Runner.new(domain, name, dry_run)
       end
 
       def call

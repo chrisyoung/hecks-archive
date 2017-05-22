@@ -13,7 +13,7 @@ class HecksApplication
       @queue        = queue
     end
 
-    # This is basically the "entry point" for running an opperation in hecks.
+    # This is basically the "entry point" for running an opperation in Hecks.
     def run
       generate_id
       configure_command

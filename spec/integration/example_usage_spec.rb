@@ -14,7 +14,6 @@ class HecksApplication
       # order_id = app[:orders].create(pizza_order_attributes(pizza_id)).result[:id]
 
       # Eventually, we can read these back
-      sleep(0.001)
       pizza = app[:pizzas].read(pizza_id)
 
       expect(pizza.name).to eq 'White Pizza'
@@ -28,8 +27,12 @@ class HecksApplication
       # to reference command results.  This should translate into an "eventually
       # consistent" persistence model
       app = HecksApplication.new(
-        domain: PizzaBuilder
+        domain: PizzaBuilder,
+        command_queue: HecksDelayedCommandQueue
       )
+      pizza_id = app[:pizzas].create(PIZZA_ATTRIBUTES).result[:id]
+      pizza = app[:pizzas].read(pizza_id)
+      expect(pizza.name).to eq 'White Pizza'
 
       # The result of using these in memory default adapters is that Hecks is
       # miminmally configured and FAST out of the box.

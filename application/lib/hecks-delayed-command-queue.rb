@@ -19,8 +19,6 @@ class HecksDelayedCommandQueue
 end
 
 class HecksDelayedCommandQueue
-  include Singleton
-
   def self.enqueue(command, id)
     HecksJob.perform_async(command, id)
   end
