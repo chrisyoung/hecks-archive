@@ -11,7 +11,6 @@ require_relative 'events'
 require_relative 'hecks_logger'
 require_relative 'validator'
 require_relative 'command_queue'
-require_relative 'hecks-delayed-command-queue'
 
 # The Applicaiton port.  Adapters usually talk to the domain through
 # an HecksApplication instance.
@@ -26,18 +25,19 @@ class HecksApplication
     @database      = config[:database]
     @events_port   = HecksEvents.new(listeners: config[:listeners] || [])
     @command_queue = config[:command_queue] || HecksApplication::CommandQueue
+    @command_queue.application = self
   end
 
   # This runs an arbitrarily named command.  Would be nice to unify it into the
   # #[] syntax
   def call(command_name:, module_name:, args: {})
-    CommandRunner.new(
-      command_name: command_name,
-      module_name:  module_name,
-      args:         args,
-      application:  self,
-      queue:        command_queue
-    ).run
+    command_queue.enqueue(
+      command: {
+        name:   command_name,
+        module: module_name,
+        args:   args
+      }
+    )
   end
 
   # app[:domain_module].crud_command

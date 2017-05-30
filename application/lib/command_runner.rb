@@ -4,20 +4,19 @@ class HecksApplication
     # Public Attributes
     attr_reader :command_name, :module_name, :command, :args
 
-    def initialize(command_name:, module_name:, args:, application:, queue: HecksApplication::CommandQueue)
-      @command_name = command_name
-      @module_name  = module_name
-      @args         = args
+    def initialize(command:, application:)
+      @command_name = command[:name]
+      @module_name  = command[:module]
+      @args         = command[:args]
       @application  = application
       @domain_spec  = application.domain_spec
-      @queue        = queue
     end
 
     # This is basically the "entry point" for running an opperation in Hecks.
     def run
       generate_id
       configure_command
-      enqueue_command
+      run_command
       broadcast
       self
     end
@@ -31,7 +30,7 @@ class HecksApplication
     private
 
     # The private api for this class
-    attr_reader :command_name, :args, :application, :domain_spec, :id, :queue
+    attr_reader :command_name, :args, :application, :domain_spec, :id
 
     # This is an id that can be used to query for the results of this operations
     # later
@@ -50,8 +49,8 @@ class HecksApplication
 
     # As far as hecks is concerned, commands will always be run "later".  This
     # is essential for CQRS support
-    def enqueue_command
-      queue.enqueue(command, id)
+    def run_command
+      command.call
     end
 
     # Look up the command and configure it

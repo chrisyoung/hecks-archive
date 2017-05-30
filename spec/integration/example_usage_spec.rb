@@ -27,11 +27,12 @@ class HecksApplication
       # to reference command results.  This should translate into an "eventually
       # consistent" persistence model
       app = HecksApplication.new(
-        domain: PizzaBuilder,
+        domain:        PizzaBuilder,
         command_queue: HecksDelayedCommandQueue
       )
       pizza_id = app[:pizzas].create(PIZZA_ATTRIBUTES).result[:id]
-      pizza = app[:pizzas].read(pizza_id)
+      pizza    = app[:pizzas].read(pizza_id)
+
       expect(pizza.name).to eq 'White Pizza'
 
       # The result of using these in memory default adapters is that Hecks is

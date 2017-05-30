@@ -37,7 +37,6 @@ module HecksAdapters
             command_name: :create,
             args:         params
           )
-          binding.pry
         end
 
         def params

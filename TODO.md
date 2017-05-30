@@ -14,6 +14,7 @@
   * Run arbitrary command
   * Use singletons (eg, repository)
   * rename cli command runner
+  * move validator up to the runner
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
