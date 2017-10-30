@@ -1,4 +1,4 @@
-describe HecksAdapters::Validator do
+describe HecksApplication::Validator do
   let(:pizza_attributes) do
     {
       name: 'White Pizza',
