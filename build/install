@@ -31,6 +31,10 @@ cd $ROOT/adapters/resource_server
 gem build hecks-adapters-resource-server
 gem install --no-rdoc --no-ri  -q ./hecks-adapters-resource-server-$HECKS_VERSION.gem
 
+cd $ROOT/plugins/json_validator
+gem build hecks-plugins-json-validator
+gem install --no-rdoc --no-ri  -q ./hecks-plugins-json-validator-$HECKS_VERSION.gem
+
 cd $ROOT
 gem build hecks
 gem install --no-rdoc --no-ri -q ./hecks-$HECKS_VERSION.gem

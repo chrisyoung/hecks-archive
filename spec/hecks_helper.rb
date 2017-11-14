@@ -4,7 +4,8 @@ ENV['HECKS_DOMAIN_PATH'] ||= File.dirname(__FILE__) + '/../example/pizza_builder
 
 # Adding these folders to the load path allows specs to be run
 # with no gems installed, ie. require hecks-application
-%w{ /../adapters/dynamodb/lib/
+%w{ /../plugins/json_validator/lib/
+    /../adapters/dynamodb/lib/
     /../adapters/resource_server/lib/
     /../adapters/memory_database/lib/
     /../adapters/sql_database/lib/

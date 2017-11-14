@@ -2,11 +2,12 @@ class HecksApplication
   module Commands
     # Map resourceful methods to the domain
     class CRUDHandler
-      attr_reader :module_name, :application
+      attr_reader :module_name, :application, :validator
 
-      def initialize(module_name:, application:)
+      def initialize(module_name:, application:, validator:)
         @module_name = module_name
         @application = application
+        @validator = validator
       end
 
       def create(args)

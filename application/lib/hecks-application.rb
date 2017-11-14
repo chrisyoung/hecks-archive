@@ -14,13 +14,14 @@ require_relative 'validator'
 # The Applicaiton port.  Adapters usually talk to the domain through
 # HecksApplication
 class HecksApplication
-  attr_reader :database, :domain_spec, :events_port
-  def initialize(database: nil, listeners: [], domain:)
+  attr_reader :database, :domain_spec, :events_port, :validator
+  def initialize(database: nil, listeners: [], domain:, validator: HecksApplication::Validator)
     load(domain.spec_path)
     @domain      = domain
     @database    = database
     @events_port = HecksEvents.new(listeners: listeners)
     @domain_spec = DOMAIN
+    @validator   = validator
   end
 
   def call(command_name:, module_name:, args: {})
@@ -33,7 +34,11 @@ class HecksApplication
   end
 
   def [](module_name)
-    Commands::CRUDHandler.new(module_name: module_name, application: self)
+    Commands::CRUDHandler.new(
+      module_name: module_name,
+      application: self,
+      validator:   validator
+    )
   end
 
   def query(query_name:, module_name:, args: {})
