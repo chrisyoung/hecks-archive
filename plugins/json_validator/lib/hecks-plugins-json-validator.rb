@@ -1,20 +1,14 @@
 require 'json-schema'
+require_relative 'matchers'
 
 module HecksPlugins
   class JSONValidator
     attr_reader :errors
 
-    MATCHERS = [
-      {
-        regex: /did not contain a required property of '(.*)'/,
-        message: 'missing'
-      }
-    ]
-
     def initialize(command:)
-      @args = command.args
-      @head_spec = command.domain_module.head
-      @errors = {}
+      @args       = command.args
+      @head_spec  = command.domain_module.head
+      @errors     = {}
       @properties = {}
     end
 
@@ -42,8 +36,8 @@ module HecksPlugins
 
     def parse_schema
       @schema = {
-        "type" => "object",
-        "required" => required_fields,
+        "type"       => "object",
+        "required"   => required_fields,
         "properties" => @properties
       }
     end
