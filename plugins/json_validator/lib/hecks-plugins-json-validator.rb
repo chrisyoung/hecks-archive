@@ -4,6 +4,9 @@ require_relative 'parsers/schema_parser'
 require_relative 'parsers/message_parser'
 
 module HecksPlugins
+  # A validator that is built on top of json-schema to provide more
+  # functionality than the basic hecks validator.  Builds a json schema
+  # from a head spec and validates the user's input against it.
   class JSONValidator
     attr_reader :errors
 

@@ -1,5 +1,6 @@
 module HecksPlugins
   class JSONValidator
+    # Turn the json-schema messages into easy to understand errors for the user
     class MessageParser
       attr_reader :message, :field_name
 

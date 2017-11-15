@@ -1,5 +1,6 @@
 module HecksPlugins
   class JSONValidator
+    # Create a JSON Schema from the head_spec
     class SchemaParser
       attr_reader :schema
 
