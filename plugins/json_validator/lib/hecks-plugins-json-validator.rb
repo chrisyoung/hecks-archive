@@ -4,9 +4,11 @@ module HecksPlugins
   class JSONValidator
     attr_reader :errors
 
-    MATCHERS=[
-      { regex: /did not contain a required property of '(.*)'/,
-        message: 'missing' }
+    MATCHERS = [
+      {
+        regex: /did not contain a required property of '(.*)'/,
+        message: 'missing'
+      }
     ]
 
     def initialize(command:)
