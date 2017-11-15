@@ -3,7 +3,6 @@ require_relative 'matchers'
 require_relative 'parsers/schema_parser'
 require_relative 'parsers/message_parser'
 
-
 module HecksPlugins
   class JSONValidator
     attr_reader :errors
