@@ -1,7 +1,7 @@
 require 'json-schema'
 require_relative 'matchers'
-require_relative 'schema_parser'
-require_relative 'message_parser'
+require_relative 'parsers/schema_parser'
+require_relative 'parsers/message_parser'
 
 
 module HecksPlugins
@@ -9,11 +9,11 @@ module HecksPlugins
     attr_reader :errors
 
     def initialize(command:)
-      @args       = command.args
-      @head_spec  = command.domain_module.head
-      @errors     = {}
-      @schema_parser     = SchemaParser.new(head_spec: head_spec).call
-      @validator  = JSON::Validator
+      @args          = command.args
+      @head_spec     = command.domain_module.head
+      @errors        = {}
+      @schema_parser = SchemaParser.new(head_spec: head_spec).call
+      @validator     = JSON::Validator
     end
 
     def call
