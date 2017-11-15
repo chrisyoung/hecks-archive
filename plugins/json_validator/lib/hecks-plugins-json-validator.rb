@@ -1,5 +1,8 @@
 require 'json-schema'
+require_relative 'matchers'
 require_relative 'schema_parser'
+require_relative 'message_parser'
+
 
 module HecksPlugins
   class JSONValidator
@@ -9,7 +12,7 @@ module HecksPlugins
       @args       = command.args
       @head_spec  = command.domain_module.head
       @errors     = {}
-      @parser     = SchemaParser.new(head_spec: head_spec).call
+      @schema_parser     = SchemaParser.new(head_spec: head_spec).call
       @validator  = JSON::Validator
     end
 
@@ -21,18 +24,19 @@ module HecksPlugins
 
     private
 
-    attr_reader :args, :head_spec, :schema, :parser, :validator
+    attr_reader :args, :head_spec, :schema, :schema_parser, :validator
 
     def parse_schema
-      @schema = parser.schema
+      @schema = schema_parser.schema
     end
 
     def validate
       MATCHERS.each do |matcher|
         validator.fully_validate(schema, args).each do |error|
-          field_name = error.match(matcher[:regex])[1].to_sym
-          errors[field_name] ||= []
-          errors[field_name] << matcher[:message]
+          parser = MessageParser.new(matcher: matcher, error: error).call
+          next unless parser.message
+          errors[parser.field_name] ||= []
+          errors[parser.field_name] << parser.message
         end
       end
     end

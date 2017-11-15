@@ -1,5 +1,3 @@
-require_relative 'matchers'
-
 module HecksPlugins
   class JSONValidator
     class SchemaParser
@@ -35,7 +33,9 @@ module HecksPlugins
 
       def parse_properties
         head_spec.attributes.each do |a|
-          properties[a.name] = {"type" => a.type.downcase}
+          type = a.type.downcase
+          type = 'array' if a.list?
+          properties[a.name] = {"type" => type}
         end
       end
     end

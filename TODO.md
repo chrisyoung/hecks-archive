@@ -60,7 +60,6 @@
   * Figure out a way to hold open the dynamodb connection
   * Figure out a way to namespace dynamodb tables
 
-
 ## Posters
   * New Project: netrecorder
   * Hecks in Python
