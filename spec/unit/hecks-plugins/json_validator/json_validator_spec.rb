@@ -17,6 +17,9 @@ describe HecksPlugins::JSONValidator do
   subject { described_class.new(command: command) }
 
   it 'lists errors' do
-    expect(subject.call.errors).to eq description: ['missing'], chef: ['missing']
+    expect(subject.call.errors).to eq(
+      description: ['missing'],
+      chef: ['missing']
+    )
   end
 end
