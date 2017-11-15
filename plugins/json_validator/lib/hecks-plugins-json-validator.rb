@@ -51,8 +51,9 @@ module HecksPlugins
     def validate
       MATCHERS.each do |matcher|
         JSON::Validator.fully_validate(schema, args).each { |error|
-          @errors[error.match(matcher[:regex])[1].to_sym] ||= []
-          @errors[error.match(matcher[:regex])[1].to_sym] << matcher[:message]
+          field_name = error.match(matcher[:regex])[1].to_sym
+          @errors[field_name] ||= []
+          @errors[field_name] << matcher[:message]
         }
       end
     end
