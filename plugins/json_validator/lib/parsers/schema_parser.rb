@@ -35,8 +35,9 @@ module HecksPlugins
         @required_fields = head_spec.attributes.map{ |a| a.name }
       end
 
-      def get_json_type(type)
-        result = type.downcase
+      def get_json_type(attribute)
+        result = attribute.type.downcase
+        return 'array'  if attribute.list?
         return 'object' unless JSON_TYPES.include?(result)
         return 'number' if HECKS_NUMBER_TYPES.include?(result)
         result
@@ -44,8 +45,7 @@ module HecksPlugins
 
       def parse_properties
         head_spec.attributes.each do |a|
-          json_type = get_json_type(a.type)
-          properties[a.name] = {"type" => a.list? ? 'array' : json_type}
+          properties[a.name] = {"type" => get_json_type(a)}
         end
       end
     end
