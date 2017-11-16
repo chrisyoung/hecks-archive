@@ -3,6 +3,8 @@ module HecksPlugins
     # Create a JSON Schema from the head_spec
     class SchemaParser
       attr_reader :schema
+      JSON_TYPES = %w{string number object array boolean null}
+      HECKS_NUMBER_TYPES = %w{integer currency}
 
       def initialize(head_spec:)
         @head_spec = head_spec
@@ -32,11 +34,17 @@ module HecksPlugins
         @required_fields = head_spec.attributes.map{ |a| a.name }
       end
 
+      def get_json_type(type)
+        result = type.downcase
+        return 'object' unless JSON_TYPES.include?(result)
+        return 'number' if HECKS_NUMBER_TYPES.include?(result)
+        result
+      end
+
       def parse_properties
         head_spec.attributes.each do |a|
-          type = a.type.downcase
-          type = 'array' if a.list?
-          properties[a.name] = {"type" => type}
+          json_type = get_json_type(a.type)
+          properties[a.name] = {"type" => a.list? ? 'array' : json_type}
         end
       end
     end
