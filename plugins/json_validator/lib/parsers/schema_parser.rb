@@ -6,8 +6,9 @@ module HecksPlugins
       JSON_TYPES = %w{string number object array boolean null}
       HECKS_NUMBER_TYPES = %w{integer currency}
 
-      def initialize(head_spec:)
-        @head_spec = head_spec
+      def initialize(domain_module:)
+        @domain_module = domain_module
+        @head_spec = domain_module.head
         @properties = {}
       end
 
@@ -20,7 +21,7 @@ module HecksPlugins
 
       private
 
-      attr_reader :required_fields, :head_spec, :properties
+      attr_reader :required_fields, :head_spec, :properties, :domain_module
 
       def build_schema
         @schema = {

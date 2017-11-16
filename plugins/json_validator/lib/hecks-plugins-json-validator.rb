@@ -12,9 +12,9 @@ module HecksPlugins
 
     def initialize(command:)
       @args          = command.args
-      @head_spec     = command.domain_module.head
+      @domain_module = command.domain_module
       @errors        = {}
-      @schema_parser = SchemaParser.new(head_spec: head_spec).call
+      @schema_parser = SchemaParser.new(domain_module: domain_module).call
       @validator     = JSON::Validator
     end
 
@@ -26,7 +26,7 @@ module HecksPlugins
 
     private
 
-    attr_reader :args, :head_spec, :schema, :schema_parser, :validator
+    attr_reader :args, :domain_module, :schema, :schema_parser, :validator
 
     def parse_schema
       @schema = schema_parser.schema
