@@ -21,5 +21,12 @@ class HecksDomainBuilder
     def reference(name)
       (@references << Reference.new(name)).last
     end
+
+    def find(name)
+      @objects.each do |object|
+        return object if object.name.downcase == name.downcase
+      end
+      return nil
+    end
   end
 end

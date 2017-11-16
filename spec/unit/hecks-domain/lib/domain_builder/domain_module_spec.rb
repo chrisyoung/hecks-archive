@@ -30,4 +30,11 @@ describe HecksDomainBuilder::DomainModule do
       expect(subject.objects.count).to eq 2
     end
   end
+
+  describe '#find' do
+    it 'return an object by name' do
+      subject.value('topping')
+      expect(subject.find('Topping').name).to eq 'topping'
+    end
+  end
 end
