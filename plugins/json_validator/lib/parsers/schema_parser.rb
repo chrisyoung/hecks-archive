@@ -38,22 +38,23 @@ module HecksPlugins
       def get_json_type(attribute)
         result = attribute.type.downcase
         return 'array'  if attribute.list?
-        return 'object' unless JSON_TYPES.include?(result)
         return 'number' if HECKS_NUMBER_TYPES.include?(result)
+        return 'object' unless JSON_TYPES.include?(result)
+
         result
       end
 
       def schema_for_attribute(attribute)
+        return {} if attribute.reference?
         self.class.new(
           domain_module: domain_module,
-          object: domain_module.find(attribute.referenced_object || attribute.type)
+          object: domain_module.find(attribute.type)
         ).call.schema
       end
 
       def parse_properties
         object.attributes.each do |a|
           type = get_json_type(a)
-
           if type == 'object'
             properties[a.name] = schema_for_attribute(a)
           elsif type == 'array'

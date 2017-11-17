@@ -19,7 +19,6 @@ module HecksPlugins
         object:        command.domain_module.head
       ).call
 
-      pp @schema_parser
       @validator     = JSON::Validator
     end
 
@@ -39,7 +38,8 @@ module HecksPlugins
 
     def validate
       MATCHERS.each do |matcher|
-        validator.fully_validate(schema, args).each do |error|
+        result = validator.fully_validate(schema, args)
+        result.each do |error|
           parser = MessageParser.new(matcher: matcher, error: error).call
           next unless parser.message
           errors[parser.field_name] ||= []
