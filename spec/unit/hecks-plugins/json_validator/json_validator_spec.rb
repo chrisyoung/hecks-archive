@@ -48,7 +48,14 @@ describe HecksPlugins::JSONValidator do
 
       it do
         expect(errors).to eq(
-          line_items: ["Type mismatch. Got 'string', should have been 'array'"]
+          {
+            "line_items/0": {
+              :pizza_name => ["Missing"],
+              :quantity => ["Missing"],
+              :price => ["Missing"],
+              :pizza => ["Missing"]
+            }
+          }
         )
       end
     end

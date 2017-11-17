@@ -38,12 +38,19 @@ module HecksPlugins
 
     def validate
       MATCHERS.each do |matcher|
-        result = validator.fully_validate(schema, args)
+        result = validator.fully_validate(schema, args, errors_as_objects: true)
+
         result.each do |error|
           parser = MessageParser.new(matcher: matcher, error: error).call
           next unless parser.message
-          errors[parser.field_name] ||= []
-          errors[parser.field_name] << parser.message
+          if parser.fragment && parser.fragment != parser.field_name
+            errors[parser.fragment] ||= {}
+            errors[parser.fragment][parser.field_name] ||= []
+            errors[parser.fragment][parser.field_name] << parser.message
+          else
+            errors[parser.field_name] ||= []
+            errors[parser.field_name] << parser.message
+          end
         end
       end
     end
