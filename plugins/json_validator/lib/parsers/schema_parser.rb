@@ -6,10 +6,10 @@ module HecksPlugins
       JSON_TYPES = %w{string number object array boolean null}
       HECKS_NUMBER_TYPES = %w{integer currency}
 
-      def initialize(domain_module:, object:)
+      def initialize domain_module:, object:
         @domain_module = domain_module
-        @object = object
-        @properties = {}
+        @object =        object
+        @properties =    {}
       end
 
       def call
@@ -35,7 +35,7 @@ module HecksPlugins
         @required_fields = object.attributes.map{ |a| a.name }
       end
 
-      def get_json_type(attribute)
+      def get_json_type attribute
         result = attribute.type.downcase
         return 'array'  if attribute.list?
         return 'number' if HECKS_NUMBER_TYPES.include?(result)
@@ -44,7 +44,7 @@ module HecksPlugins
         result
       end
 
-      def schema_for_attribute(attribute)
+      def schema_for_attribute attribute
         return {} if attribute.reference?
         self.class.new(
           domain_module: domain_module,
@@ -56,11 +56,11 @@ module HecksPlugins
         object.attributes.each do |a|
           type = get_json_type(a)
           if type == 'object'
-            properties[a.name] = schema_for_attribute(a)
+            properties[a.name] = schema_for_attribute a
           elsif type == 'array'
             properties[a.name] = {
               "type"  => 'array',
-              "items" => schema_for_attribute(a)
+              "items" => schema_for_attribute a
             }
           else
             properties[a.name] = { "type" => type }
