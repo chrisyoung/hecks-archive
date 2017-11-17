@@ -14,7 +14,7 @@ module HecksPlugins
 
       def call
         parse_required_fields
-        parse_properties
+        object.attributes.each { |a| parse_property(a) }
         build_schema
         self
       end
@@ -52,20 +52,19 @@ module HecksPlugins
         ).call.schema
       end
 
-      def parse_properties
-        object.attributes.each do |a|
-          type = get_json_type(a)
-          if type == 'object'
-            properties[a.name] = schema_for_attribute a
-          elsif type == 'array'
-            properties[a.name] = {
+      def parse_property(attribute)
+        type = get_json_type(attribute)
+        name = attribute.name
+        properties[name] =
+          case type
+          when 'object' then schema_for_attribute(attribute)
+          when 'array'
+            {
               "type"  => 'array',
-              "items" => schema_for_attribute a
+              "items" => schema_for_attribute(attribute)
             }
-          else
-            properties[a.name] = { "type" => type }
+          else { "type" => type }
           end
-        end
       end
     end
   end
