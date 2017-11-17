@@ -14,7 +14,12 @@ module HecksPlugins
       @args          = command.args
       @domain_module = command.domain_module
       @errors        = {}
-      @schema_parser = SchemaParser.new(domain_module: domain_module).call
+      @schema_parser = SchemaParser.new(
+        domain_module: domain_module,
+        object:        command.domain_module.head
+      ).call
+
+      pp @schema_parser
       @validator     = JSON::Validator
     end
 

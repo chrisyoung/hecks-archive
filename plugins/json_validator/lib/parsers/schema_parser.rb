@@ -1,14 +1,14 @@
 module HecksPlugins
   class JSONValidator
-    # Create a JSON Schema from the head_spec
+    # Create a JSON Schema from an object
     class SchemaParser
       attr_reader :schema
       JSON_TYPES = %w{string number object array boolean null}
       HECKS_NUMBER_TYPES = %w{integer currency}
 
-      def initialize(domain_module:)
+      def initialize(domain_module:, object:)
         @domain_module = domain_module
-        @head_spec = domain_module.head
+        @object = object
         @properties = {}
       end
 
@@ -21,7 +21,7 @@ module HecksPlugins
 
       private
 
-      attr_reader :required_fields, :head_spec, :properties, :domain_module
+      attr_reader :required_fields, :object, :properties, :domain_module
 
       def build_schema
         @schema = {
@@ -32,7 +32,7 @@ module HecksPlugins
       end
 
       def parse_required_fields
-        @required_fields = head_spec.attributes.map{ |a| a.name }
+        @required_fields = object.attributes.map{ |a| a.name }
       end
 
       def get_json_type(attribute)
@@ -43,9 +43,27 @@ module HecksPlugins
         result
       end
 
+      def schema_for_attribute(attribute)
+        self.class.new(
+          domain_module: domain_module,
+          object: domain_module.find(attribute.referenced_object || attribute.type)
+        ).call.schema
+      end
+
       def parse_properties
-        head_spec.attributes.each do |a|
-          properties[a.name] = {"type" => get_json_type(a)}
+        object.attributes.each do |a|
+          type = get_json_type(a)
+
+          if type == 'object'
+            properties[a.name] = schema_for_attribute(a)
+          elsif type == 'array'
+            properties[a.name] = {
+              "type" => 'array',
+              "items" => schema_for_attribute(a)
+            }
+          else
+            properties[a.name] = {"type" => type}
+          end
         end
       end
     end
