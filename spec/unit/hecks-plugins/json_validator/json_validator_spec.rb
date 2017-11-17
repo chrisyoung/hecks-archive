@@ -36,7 +36,7 @@ describe HecksPlugins::JSONValidator do
       end
     end
 
-    describe do
+    describe 'nested items' do
       let(:order_attributes) do
         {
           line_items: [{}]
@@ -51,9 +51,9 @@ describe HecksPlugins::JSONValidator do
           {
             "line_items/0": {
               :pizza_name => ["Missing"],
-              :quantity => ["Missing"],
-              :price => ["Missing"],
-              :pizza => ["Missing"]
+              :quantity =>   ["Missing"],
+              :price =>      ["Missing"],
+              :pizza =>      ["Missing"]
             }
           }
         )
