@@ -59,11 +59,11 @@ module HecksPlugins
             properties[a.name] = schema_for_attribute(a)
           elsif type == 'array'
             properties[a.name] = {
-              "type" => 'array',
+              "type"  => 'array',
               "items" => schema_for_attribute(a)
             }
           else
-            properties[a.name] = {"type" => type}
+            properties[a.name] = { "type" => type }
           end
         end
       end
