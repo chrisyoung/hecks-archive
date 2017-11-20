@@ -30,9 +30,10 @@ class HecksApplication
     end
 
     def fetch_command
+      args.merge!(id: SecureRandom.uuid) unless args[:id]
       @command = Commands.const_get(command_name.to_s.camelcase).new(
         repository:    application.database[module_name],
-        args:          args.merge(id: SecureRandom.uuid),
+        args:          args,
         domain_module: fetch_module
       )
     end

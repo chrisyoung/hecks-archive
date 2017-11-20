@@ -31,7 +31,8 @@ describe HecksApplication do
         PIZZA_ATTRIBUTES.merge(
           id:   id,
           name: "Green Pizza"
-        ))
+        )
+      )
       expect(subject[:pizzas].read(id).name).to eq 'Green Pizza'
     end
   end

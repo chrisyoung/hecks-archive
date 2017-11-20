@@ -2,8 +2,10 @@
   * Fix specs
 
 ## Current Sprint
+  * Integration test for new validator
   * Fix generators to use passed in ids (see create)
   * Make rake command work from pizza_builder directory
+  * Add sql_database adapter to integration tests (ci)
   * Cannot read property 'errors' of null in integration spec
   * API routes on serverless
   * Use a query to get back unique pizza toppings
