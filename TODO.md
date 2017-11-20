@@ -1,10 +1,7 @@
 ## In Progress
-  * Fix specs
-
-## Current Sprint
-  * Test to make sure we aren't using 0 as ids for values and links
-  * Integration test for new validator
   * Fix generators to use passed in ids (see create)
+## Current Sprint
+  * Integration test for new validator
   * Make rake command work from pizza_builder directory
   * Add sql_database adapter to integration tests (ci)
   * Cannot read property 'errors' of null in integration spec
@@ -18,7 +15,6 @@
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
   * Move sql database generators into project folder (out of hecks-cli)
-  * Generate ids instead of relying on DB
 
 ## Tests
   * Don't use eval in test => Calls to Serverless should return real json
