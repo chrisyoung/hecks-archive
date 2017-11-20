@@ -26,7 +26,7 @@ module HecksAdapters
             return unless @reference.list?
             @attributes[@column_name].each do |value|
               @reference_ids[@column_name] ||= []
-              @reference_ids[@column_name] << DB[@column.to_table_name].insert(value)
+              @reference_ids[@column_name] << DB[@column.to_table_name].insert(value.merge(id: SecureRandom.uuid))
             end
           end
 

@@ -20,8 +20,9 @@ module HecksAdapters
               next unless reference.list?
 
               @reference_ids[reference.name.downcase].each do |id|
-                DB[join_table.name.to_sym].insert(record(column, id))
+                DB[join_table.name.to_sym].insert(record(column, id).merge(id: SecureRandom.uuid))
               end
+
             end
             self
           end

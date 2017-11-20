@@ -13,7 +13,7 @@ module HecksAdapters
 
       def columns
         [@table.name, @column.name].map do |name|
-          Column.new(name: name.singularize + '_id', type: 'Integer')
+          Column.new(name: name.singularize + '_id', type: 'String')
         end
       end
     end

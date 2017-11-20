@@ -49,7 +49,7 @@ module HecksAdapters
       end
 
       def foreign_key_column(column_name, is_list = false)
-        Column.new(name: column_name + '_id', type: 'Integer', is_list: is_list)
+        Column.new(name: column_name + '_id', type: 'String', is_list: is_list)
       end
     end
   end

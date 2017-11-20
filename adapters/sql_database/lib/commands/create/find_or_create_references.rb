@@ -13,8 +13,10 @@ module HecksAdapters
           end
 
           def call
+
             find_or_create_reference
             find_or_create_references
+
             self
           end
 
@@ -28,7 +30,10 @@ module HecksAdapters
               result = DB[column.to_table_name].first(attributes)
 
               @reference_ids[reference.name] = result[:id] and return if result
-              @reference_ids[reference.name] = DB[column.to_table_name].insert(attributes)
+              id = SecureRandom.uuid
+              with_id = attributes.merge!(id: id)
+              DB[column.to_table_name].insert(with_id)
+              @reference_ids[reference.name] = id
             end
           end
 
@@ -43,7 +48,10 @@ module HecksAdapters
                 result = DB[column.to_table_name].first(attributes)
 
                 @reference_ids[reference.name] << result[:id] and return if result
-                @reference_ids[reference.name] << DB[column.to_table_name].insert(attributes)
+                id = SecureRandom.uuid
+                with_id = attributes.merge!(id: id)
+                DB[column.to_table_name].insert(with_id)
+                @reference_ids[reference.name] << id
               end
             end
           end

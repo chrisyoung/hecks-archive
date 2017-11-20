@@ -32,7 +32,7 @@ class HecksApplication
     def fetch_command
       @command = Commands.const_get(command_name.to_s.camelcase).new(
         repository:    application.database[module_name],
-        args:          args.merge(id: Digest::SHA1.new.to_s),
+        args:          args.merge(id: SecureRandom.uuid),
         domain_module: fetch_module
       )
     end

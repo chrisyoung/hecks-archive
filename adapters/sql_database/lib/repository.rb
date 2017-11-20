@@ -7,7 +7,7 @@ module HecksAdapters
         @head = DOMAIN[module_name].head
       end
 
-      def create attributes, id
+      def create attributes
         Commands::Create.new(attributes: attributes, head: @head).call
       end
 

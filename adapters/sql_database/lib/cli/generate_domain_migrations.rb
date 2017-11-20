@@ -6,7 +6,7 @@ module HecksAdapters
         attr_writer :migration_builder
 
         def load_domain_spec
-          load('../../Domain')
+          load('Domain')
         end
 
         def self.source_root

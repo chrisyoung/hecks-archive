@@ -28,11 +28,13 @@ module HecksAdapters
         private
 
         def find_or_create_references
+
           @reference_ids =
           FindOrCreateReferences.new(
             head: @head,
             attributes: @attributes
           ).call.reference_ids
+
         end
 
         def create
@@ -42,7 +44,8 @@ module HecksAdapters
             [column.to_foreign_key, @reference_ids[reference.name]]
           end.compact.to_h
 
-          @id = DB[@table.name.to_sym].insert(@attributes.merge(graph))
+          @id = @attributes[:id]
+          DB[@table.name.to_sym].insert(@attributes.merge(graph))
         end
 
         def add_to_join_tables
