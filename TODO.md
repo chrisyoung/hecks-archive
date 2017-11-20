@@ -1,7 +1,10 @@
 ## In Progress
-  * Cannot read property 'errors' of null in integration spec
+  * Fix specs
 
 ## Current Sprint
+  * Fix generators to use passed in ids (see create)
+  * Make rake command work from pizza_builder directory
+  * Cannot read property 'errors' of null in integration spec
   * API routes on serverless
   * Use a query to get back unique pizza toppings
   * Add console to CI
