@@ -26,7 +26,7 @@ describe HecksAdapters::DynamoDB do
 
     describe "#read" do
       it '' do
-        r = app[:Pizzas].read({id: id})
+        r = app[:Pizzas].read({ id: id })
         expect(r.name).to eq('White Pizza')
       end
     end

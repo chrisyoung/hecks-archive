@@ -1,9 +1,10 @@
 describe HecksAdapters::ResourceServer do
-  let(:last_id)   { JSON.parse(last_response.body)['id'] }
+  let(:last_id)   { JSON.parse(last_response.body)['args']['id'] }
   let(:last_json) { JSON.parse(last_response.body) }
 
   it 'reads a resource' do
     post  '/pizzas', attributes.to_json
+
     get   "/pizzas/#{last_id}"
     name = last_json['name']
     expect(name).to eq 'The Yuck'
@@ -11,7 +12,7 @@ describe HecksAdapters::ResourceServer do
 
   it 'creates a resource' do
     post '/pizzas', attributes.to_json
-    expect(last_json["id"]).to be
+    expect(last_json["args"]["id"]).to be
   end
 
   it 'updates a resource' do

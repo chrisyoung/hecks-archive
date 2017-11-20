@@ -1,14 +1,17 @@
+require 'digest'
+
 class HecksApplication
   # Run an application command, with validations and broacast lifecycle events
   class CommandRunner
     attr_reader :module_name, :command
 
-    def initialize(command_name:, module_name:, args:, application:)
+    def initialize(command_name:, module_name:, args:, application:, async: false)
       @command_name = command_name
-      @module_name = module_name
-      @args = args
-      @application = application
-      @domain_spec = application.domain_spec
+      @module_name  = module_name
+      @args         = args
+      @application  = application
+      @domain_spec  = application.domain_spec
+      @async        = async
     end
 
     def call()
@@ -20,7 +23,7 @@ class HecksApplication
 
     private
 
-    attr_reader :command_name, :args, :application, :domain_spec
+    attr_reader :command_name, :args, :application, :domain_spec, :async
 
     def broadcast
       application.events_port.send(command: command, module_name: module_name)
@@ -28,8 +31,8 @@ class HecksApplication
 
     def fetch_command
       @command = Commands.const_get(command_name.to_s.camelcase).new(
-        repository: application.database[module_name],
-        args:       args,
+        repository:    application.database[module_name],
+        args:          args.merge(id: Digest::SHA1.new.to_s),
         domain_module: fetch_module
       )
     end
@@ -39,7 +42,13 @@ class HecksApplication
     end
 
     def run_command
-      @command = command.call
+      if async
+        Thread::new { command.call }
+      else
+        command.call
+      end
+
+      command
     end
   end
 end

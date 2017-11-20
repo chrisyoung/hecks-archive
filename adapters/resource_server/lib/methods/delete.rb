@@ -11,7 +11,7 @@ module HecksAdapters
         end
 
         def call(id:, module_name:)
-          @id          = id.to_i
+          @id          = id
           @module_name = module_name.to_sym
           run_command
           convert_to_json

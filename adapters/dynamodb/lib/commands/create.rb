@@ -21,12 +21,13 @@ module HecksAdapters
         attr_reader :client, :args, :head
 
         def put_item
-          @id = SecureRandom.uuid
-          client.put_item({
-            item: args.merge(id: @id),
+          @id = args[:id]
+          result = client.put_item({
+            item:                     args,
             return_consumed_capacity: 'TOTAL',
-            table_name: head.name
+            table_name:               head.name
           })
+
         end
       end
     end

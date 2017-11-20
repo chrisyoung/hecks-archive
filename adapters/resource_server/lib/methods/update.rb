@@ -11,7 +11,7 @@ module HecksAdapters
         end
 
         def call(id:, body:, module_name:)
-          @id          = id.to_i
+          @id          = id
           @body        = body.read
           @module_name = module_name.to_sym
           run_command

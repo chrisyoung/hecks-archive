@@ -2,7 +2,6 @@
   * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
-  * Run commands asynchronously - supply an id that will eventually fetch the resource
   * API routes on serverless
   * Use a query to get back unique pizza toppings
   * Add console to CI

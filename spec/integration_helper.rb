@@ -7,5 +7,5 @@ end
 
 RSpec.configure do |config|
   config.before(:all) { |example| VCR.insert_cassette("cache") }
-  config.after(:all) { |example| VCR.eject_cassette("cache") }
+  config.after(:all)  { |example| VCR.eject_cassette("cache") }
 end

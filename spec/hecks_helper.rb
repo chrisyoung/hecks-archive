@@ -24,3 +24,13 @@ PIZZA_ATTRIBUTES = {
   description: 'white sauce and chicken',
   chef:        { name:  'Chef Ramsey' },
   toppings:    [{ name: 'Chicken' }, { name: 'Cheese' }] }
+
+module CommandRunnerExtensions
+  def call
+    result = super
+    sleep(0.001) if async
+
+    result
+  end
+end
+HecksApplication::CommandRunner.prepend CommandRunnerExtensions

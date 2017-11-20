@@ -14,12 +14,13 @@ module HecksAdapters
         @client = Aws::DynamoDB::Client.new(region: 'us-east-1')
       end
 
-      def create(args)
+      def create(args, id)
+        args.merge!(id: id)
         Commands::Create.new(args, head, client).call
       end
 
       def delete(id)
-        Commands::Delete.new(id, head, client).call
+        Commands::Delete.new({id: id}, head, client).call
       end
 
       def read(id)
