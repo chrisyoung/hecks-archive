@@ -38,7 +38,7 @@ class HecksApplication
       def create
         return if @errors.count.positive?
         @id = args[:id]
-        repository.create(args, id)
+        repository.create(args)
       end
 
       def validate

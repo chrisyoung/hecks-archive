@@ -3,7 +3,7 @@ class HecksApplication
     describe Delete do
       let(:pizza_id) do
         Create.new(
-          args:          PIZZA_ATTRIBUTES,
+          args:          PIZZA_ATTRIBUTES.merge(id: 'some_id'),
           domain_module: domain_module,
           repository:    repository
         ).call.result[:id]

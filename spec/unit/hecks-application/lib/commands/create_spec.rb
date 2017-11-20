@@ -1,7 +1,7 @@
 describe HecksApplication::Commands::Create do
   subject do
     described_class.new(
-      args: PIZZA_ATTRIBUTES,
+      args: PIZZA_ATTRIBUTES.merge(id: 'some_id'),
       domain_module: DOMAIN.domain_modules[:Pizzas],
       repository: PizzaBuilder.repositories[:pizzas]
     )

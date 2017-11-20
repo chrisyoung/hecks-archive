@@ -3,11 +3,11 @@ module PizzaBuilder
     module Pizzas
       class Repository
         @collection = {}
-        @last_id    = 0
 
-        def self.create attributes={}, id
-          @collection[id] = Pizza.new(attributes.merge(id: id))
-          @last_id        = id
+        def self.create attributes={}
+          id = attributes[:id]
+          @collection[id] = Pizza.new(attributes)
+
           Struct.new(:id).new(id)
         end
 
@@ -32,7 +32,6 @@ module PizzaBuilder
 
         def self.delete_all
           @collection = {}
-          @last_id    = 0
         end
       end
     end
