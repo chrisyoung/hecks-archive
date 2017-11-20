@@ -32,7 +32,7 @@ module HecksAdapters
 
           def create_value
             return if @reference.list?
-            @reference_ids[@reference.name] = DB[@column.to_table_name].insert(@attributes[@column.name.to_sym])
+            @reference_ids[@reference.name] = DB[@column.to_table_name].insert(@attributes[@column.name.to_sym].merge(id: SecureRandom.uuid))
           end
         end
       end

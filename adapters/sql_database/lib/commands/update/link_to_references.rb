@@ -24,11 +24,12 @@ module HecksAdapters
           private
 
           def make_linking_records
+
             return unless @reference.list?
             @reference_ids[@reference.name.to_sym].each do |value|
               @record[@column.to_foreign_key] = value
               @record[@table.to_foreign_key] = @id
-              DB[JoinTable.new(@table, @reference).name.to_sym].insert(@record)
+              DB[JoinTable.new(@table, @reference).name.to_sym].insert(@record.merge(id: SecureRandom.uuid))
             end
           end
 
