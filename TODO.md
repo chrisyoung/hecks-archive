@@ -2,6 +2,7 @@
   * Fix specs
 
 ## Current Sprint
+  * Test to make sure we aren't using 0 as ids for values and links
   * Integration test for new validator
   * Fix generators to use passed in ids (see create)
   * Make rake command work from pizza_builder directory
