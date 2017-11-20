@@ -30,7 +30,7 @@ class HecksApplication
     end
 
     def fetch_command
-      args.merge!(id: SecureRandom.uuid) unless args[:id]
+      args.merge!(id: SecureRandom.uuid) if command_name == :create
       @command = Commands.const_get(command_name.to_s.camelcase).new(
         repository:    application.database[module_name],
         args:          args,
