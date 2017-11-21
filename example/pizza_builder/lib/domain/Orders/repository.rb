@@ -3,12 +3,10 @@ module PizzaBuilder
     module Orders
       class Repository
         @collection = {}
-        @last_id    = 0
 
         def self.create attributes={}
           id              = attributes[:id]
           @collection[id] = Order.new(attributes)
-          @last_id        = id
           Struct.new(:id).new(id)
         end
 
@@ -33,7 +31,6 @@ module PizzaBuilder
 
         def self.delete_all
           @collection = {}
-          @last_id    = 0
         end
       end
     end
