@@ -6,7 +6,10 @@ while read -r version; do VERSION=$version; done < Version
 cd domain
 gem uninstall hecks-domain --force -x
 
-cd ../application
+cd ../plugins/json_validator
+gem uninstall hecks-plugins-json-validator --force -x
+
+cd ../../application
 gem uninstall hecks-application --force -x
 
 cd ../adapters/sql_database

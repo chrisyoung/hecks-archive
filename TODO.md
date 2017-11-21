@@ -1,6 +1,8 @@
 ## In Progress
+  * Run ci after deleting pizza_builder
 
 ## Current Sprint
+
   * Integration test for new validator
   * Make rake command work from pizza_builder directory
   * Add sql_database adapter to integration tests (ci)

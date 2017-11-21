@@ -40,7 +40,7 @@ describe HecksAdapters::DynamoDB do
     end
 
     it '#delete' do
-      app[:Pizzas].delete(id: id)
+      app[:Pizzas].delete(id)
       expect(app[:Pizzas].read(id: id)).to be_nil
     end
   end

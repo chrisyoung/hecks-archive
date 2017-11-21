@@ -19,10 +19,7 @@ module HecksAdapters
         attr_reader :client, :head, :query
 
         def delete_item
-          query_with_type = {}
-          query_with_type[query.keys.first] = {s: query[query.keys.first]}
-          puts 'deleting item'
-          client.delete_item(key: query_with_type, table_name: head.name)
+          client.delete_item(key: query, table_name: head.name)
         end
       end
     end
