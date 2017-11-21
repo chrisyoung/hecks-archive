@@ -1,5 +1,5 @@
 ## In Progress
-  * Fix generators to use passed in ids (see create)
+
 ## Current Sprint
   * Integration test for new validator
   * Make rake command work from pizza_builder directory
