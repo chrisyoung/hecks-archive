@@ -14,7 +14,11 @@ module HecksPackager
     end
 
     def data
-      JSON.parse(@data, symbolize_names: true)
+      if(@method == 'delete')
+        return @data.gsub("\"", '')
+      else
+        JSON.parse(@data, symbolize_names: true)
+      end
     end
   end
 end

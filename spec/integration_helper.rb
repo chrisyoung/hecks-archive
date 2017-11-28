@@ -6,6 +6,7 @@ VCR.configure do |config|
 end
 
 RSpec.configure do |config|
+  puts "**WARNING** HTTP Connections are being cached.  See " + File.dirname(__FILE__) + '/integration_helper.rb'
   config.before(:all) { |example| VCR.insert_cassette("cache") }
   config.after(:all)  { |example| VCR.eject_cassette("cache") }
 end
