@@ -22,7 +22,7 @@ module.exports.update = (event, context, callback) => {
 };
 
 module.exports.delete = (event, context, callback) => {
-  exec(commandName(context, event['id'], 'delete'), (err, stdout, stderr) => {
-    callback(null, runBinary('delete', 'pizzas', err, stdout, stderr, event['id']));
+  exec(commandName(context, event, 'delete'), (err, stdout, stderr) => {
+    callback(null, runBinary('delete', 'pizzas', err, stdout, stderr, event));
   });
 };

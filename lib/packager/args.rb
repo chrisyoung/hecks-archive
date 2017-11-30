@@ -14,10 +14,12 @@ module HecksPackager
     end
 
     def data
+      json = JSON.parse(@data, symbolize_names: true)
+
       if(@method == 'delete')
-        return @data.gsub("\"", '')
+        return json[:id]
       else
-        JSON.parse(@data, symbolize_names: true)
+        json
       end
     end
   end
