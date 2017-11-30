@@ -24,8 +24,6 @@
   * Truncate test database between runs
   * Fix up guard so it works with "unit" and "integration"  
   * Use #should_behave_like to test database adapters
-  * Run integration tests as part of ci, skip when running guard or maybe rspec itself
-  * hecks test ci should blow up if anything doesn't work
 
 ## PizzaBuilder
   * Drop Domain Prefix in PizzaBuilder
@@ -55,7 +53,6 @@
   * Add a rake file to hecks
 
 ## Application
-  * Put calls behind a queue
   * Commands should always take the same arguments, the result should be a data structure.
 
 ## dynamodb
@@ -80,7 +77,6 @@
 
 ## Hygiene:
   * Set up guard to build gems
-  * go back to simple pizza bulder domain.  Build out soccer_season
   * don't use tmp folder - use '#run'
   * 12 factor app in Docker
   * Use timestamps in sql migration names
