@@ -2,8 +2,10 @@
   * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
+  * Don't use eval in test => Calls to Serverless should return real json
   * API routes on serverless
   * Release version 0.2.0 :)
+
 
 ## General
   * Integration test for new validator
@@ -19,7 +21,7 @@
   * Move sql database generators into project folder (out of hecks-cli)
 
 ## Tests
-  * Don't use eval in test => Calls to Serverless should return real json
+
   * Add Remote spec for serverless
   * Truncate test database between runs
   * Fix up guard so it works with "unit" and "integration"  
