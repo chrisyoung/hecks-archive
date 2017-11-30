@@ -1,17 +1,17 @@
 ## In Progress
-  * Run ci after deleting pizza_builder
+  * Cannot read property 'errors' of null in integration spec
 
 ## Current Sprint
+  * API routes on serverless
+  * Release version 0.2.0 :)
 
+## General
   * Integration test for new validator
   * Make rake command work from pizza_builder directory
   * Add sql_database adapter to integration tests (ci)
-  * Cannot read property 'errors' of null in integration spec
-  * API routes on serverless
   * Use a query to get back unique pizza toppings
   * Add console to CI
   * Yank all the bad gems
-  * Release version 0.2.0 :)
   * Run arbitrary command
 
 ## SQLDatabase
