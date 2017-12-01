@@ -1,7 +1,8 @@
 ## In Progress
-  * Why doesn't serverless delete have a result?
+  * Why doesn't serverless delete or read have a result?
 
 ## Current Sprint
+  * Errors in run_binary.js
   * API routes on serverless
   * Release version 0.2.0 :)
 
