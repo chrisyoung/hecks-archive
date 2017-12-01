@@ -1,10 +1,7 @@
 ## In Progress
-  * Why doesn't serverless delete or read have a result?
+  * Release version 0.2.0 :)
 
 ## Current Sprint
-  * Errors in run_binary.js
-  * API routes on serverless
-  * Release version 0.2.0 :)
 
 ## General
   * Integration test for schema validator
@@ -14,6 +11,8 @@
   * Add console to CI
   * Yank all the bad gems
   * Run arbitrary command
+  * API routes on serverless
+  * Why doesn't serverless delete or read have a result?
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.

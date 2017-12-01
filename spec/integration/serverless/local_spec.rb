@@ -1,3 +1,5 @@
+require_relative('runner')
+
 describe 'Serverless Tests' do
   let(:pizza_attributes)   { PIZZA_ATTRIBUTES.to_json }
   let(:updated_attributes) do
@@ -23,7 +25,8 @@ describe 'Serverless Tests' do
 
   describe '#update' do
     let(:id) { create[:id] }
-    before { run("update -d '#{updated_attributes}'") }
+    before   { update }
+
     it "updates" do
       expect(read[:name]).to eq 'Green Pizza'
     end
@@ -31,7 +34,7 @@ describe 'Serverless Tests' do
 
   describe '#delete' do
     let(:id) { create[:id] }
-    before { run("delete -d '{\"id\": \"#{id}\"}'") }
+    before { delete }
     it "deletes" do
       expect(read).to be_nil
     end
@@ -49,16 +52,15 @@ describe 'Serverless Tests' do
     result[:body][:result]
   end
 
-  def run(command)
-    result = `#{
-      [
-        "cd example/pizza_builder",
-        "&&",
-        "serverless invoke local -f",
-        "pizzas_#{command}"
-      ].join(" ")
-    }`
+  def update
+    run("update -d '#{updated_attributes}'")
+  end
 
-    JSON.parse(result, symbolize_names: true) unless result.include? "null"
+  def delete
+    run("delete -d '{\"id\": \"#{id}\"}'")
+  end
+
+  def run(command)
+    runner = Runner.new(command_name: command).call.result
   end
 end
