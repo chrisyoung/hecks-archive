@@ -1,6 +1,11 @@
 describe 'Serverless Tests' do
   let(:pizza_attributes)   { PIZZA_ATTRIBUTES.to_json }
-  let(:updated_attributes) { PIZZA_ATTRIBUTES.merge(name: "Green Pizza", id: id).to_json }
+  let(:updated_attributes) do
+    PIZZA_ATTRIBUTES.merge(
+      name: "Green Pizza",
+      id: id
+    ).to_json
+  end
 
   describe '#create' do
     it 'returns an id' do
@@ -45,8 +50,15 @@ describe 'Serverless Tests' do
   end
 
   def run(command)
-    full_command = "cd example/pizza_builder && serverless invoke local -f pizzas_#{command}"
-    result = `#{full_command}`
+    result = `#{
+      [
+        "cd example/pizza_builder",
+        "&&",
+        "serverless invoke local -f",
+        "pizzas_#{command}"
+      ].join(" ")
+    }`
+
     JSON.parse(result, symbolize_names: true) unless result.include? "null"
   end
 end
