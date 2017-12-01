@@ -1,7 +1,7 @@
 describe 'Serverless Tests' do
   def run(command)
-    command = "cd example/pizza_builder && serverless invoke local -f pizzas_#{command}"
-    result = `#{command}`
+    full_command = "cd example/pizza_builder && serverless invoke local -f pizzas_#{command}"
+    result = `#{full_command}`
     JSON.parse(result, symbolize_names: true) unless result.include? "null"
   end
 

@@ -6,7 +6,6 @@
   * API routes on serverless
   * Release version 0.2.0 :)
 
-
 ## General
   * Integration test for new validator
   * Make rake command work from pizza_builder directory
