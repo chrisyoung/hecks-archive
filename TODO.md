@@ -1,8 +1,7 @@
 ## In Progress
-  * Don't use eval in test => Calls to Serverless should return real json
+  * Why doesn't serverless delete have a result?
 
 ## Current Sprint
-  * Why doesn't serverless delete have a result?
   * API routes on serverless
   * Release version 0.2.0 :)
 
@@ -20,7 +19,6 @@
   * Move sql database generators into project folder (out of hecks-cli)
 
 ## Tests
-
   * Add Remote spec for serverless
   * Truncate test database between runs
   * Fix up guard so it works with "unit" and "integration"  
@@ -71,7 +69,6 @@
   * Open source license
 
 ## Bugs
-  * Why do we have to run ci twice - once to build the gem and once to install
   * Why isn't lambda dev being excluded?
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
   * Making 2 pizzas with each post?
