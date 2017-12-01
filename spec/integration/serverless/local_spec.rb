@@ -1,7 +1,8 @@
 describe 'Serverless Tests' do
   def run(command)
-    result = `cd example/pizza_builder && serverless invoke local -f pizzas_#{command}`
-    eval(result) unless result.include? "null"
+    command = "cd example/pizza_builder && serverless invoke local -f pizzas_#{command}"
+    result = `#{command}`
+    JSON.parse(result, symbolize_names: true) unless result.include? "null"
   end
 
   let(:pizza_attributes)   { PIZZA_ATTRIBUTES }
