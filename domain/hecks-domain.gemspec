@@ -1,5 +1,4 @@
 require 'Date'
-puts `pwd`
 version = ENV['HECKS_VERSION']
 Gem::Specification.new do |s|
   s.name        = 'hecks-domain'

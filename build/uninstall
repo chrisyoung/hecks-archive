@@ -1,34 +1,6 @@
-#!/usr/bin/env bash
-set -e
+#!/usr/bin/env ruby
+require_relative 'mappings'
 
-while read -r version; do VERSION=$version; done < Version
-
-cd domain
-gem uninstall hecks-domain --force -x
-
-cd ../plugins/json_validator
-gem uninstall hecks-plugins-json-validator --force -x
-
-cd ../../application
-gem uninstall hecks-application --force -x
-
-cd ../adapters/sql_database
-gem uninstall hecks-adapters-sql-database --force -x
-
-cd ../dynamodb
-gem uninstall hecks-adapters-dynamodb --force -x
-
-cd ../resource_server
-gem uninstall hecks-adapters-resource-server --force -x
-
-cd ../memory_database
-gem uninstall hecks-memory-database --force -x
-
-cd ../../lib/packager
-gem uninstall hecks-packager --force -x
-
-cd ../serverless
-gem uninstall hecks-serverless --force -x
-
-cd ../..
-gem uninstall hecks --force -x
+MAPPINGS.each do |mapping|
+  puts `cd #{@root}/#{mapping[:path]} && gem uninstall #{mapping[:gem]} --force -x`
+end
