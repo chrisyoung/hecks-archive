@@ -6,7 +6,7 @@
   * Release version 0.2.0 :)
 
 ## General
-  * Integration test for new validator
+  * Integration test for schema validator
   * Make rake command work from pizza_builder directory
   * Add sql_database adapter to integration tests (ci)
   * Use a query to get back unique pizza toppings
