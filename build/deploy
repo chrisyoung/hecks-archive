@@ -2,5 +2,5 @@
 require_relative 'mappings'
 
 MAPPINGS.each do |mapping|
-  puts `cd #{@root}/#{mapping[:path]} && gem push ./#{mapping[:gem]}.gem`
+  puts `cd #{@root}/#{mapping[:path]} && gem push ./#{mapping[:gem]}-#{@version}.gem`
 end

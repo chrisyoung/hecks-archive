@@ -1,5 +1,4 @@
 ## In Progress
-  * Release version 0.2.0 :)
 
 ## Current Sprint
 
