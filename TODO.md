@@ -1,8 +1,8 @@
 ## In Progress
-  * Cannot read property 'errors' of null in integration spec
+  * Don't use eval in test => Calls to Serverless should return real json
 
 ## Current Sprint
-  * Don't use eval in test => Calls to Serverless should return real json
+  * Why doesn't serverless delete have a result?
   * API routes on serverless
   * Release version 0.2.0 :)
 
