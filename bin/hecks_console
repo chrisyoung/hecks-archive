@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 
+require 'irb'
+require 'ap'
 require_relative '../lib/hecks'
-require HecksConsole.full_path
-
-puts File.dirname(__FILE__)
+load 'Hecksfile'
 
 puts "Hecks Loaded!"
-puts "Using the " + HecksConsole.domain_name + " domain"
+puts "Using the " + DOMAIN.name + " domain"
+puts "Type 'app' to interact with the domain"
 
 IRB::ExtendCommandBundle.include(HecksConsole::Commands)
 IRB.start
