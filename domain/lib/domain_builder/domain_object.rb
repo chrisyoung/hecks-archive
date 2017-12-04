@@ -10,6 +10,15 @@ class HecksDomainBuilder
     def attributes(*values)
       return @attributes if @attributes
       @attributes = values.map { |value| Attribute.new(value) }
+      self
+    end
+
+    def optional_attributes(*values)
+      values.each do |attribute_name|
+        attributes.each do |attribute|
+          attribute.optional = true if attribute.name == attribute_name
+        end
+      end
     end
 
     def attribute_hash

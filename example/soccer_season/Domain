@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+DOMAIN ||=
+HecksDomainBuilder.build "soccer_season" do |soccer_season|
+  soccer_season.module 'Teams' do |teams|
+    teams.head("Team").attributes('name:string')
+    teams.reference("fixtures::goal")
+  end
+
+  soccer_season.module 'Players' do |players|
+    players.head("Player").attributes(
+      'name:string',
+      'team:teams::team'
+    )
+
+    players.reference("teams::team")
+  end
+
+  soccer_season.module 'Pitches' do |pitches|
+    pitches.head("Pitch").attributes('name:string')
+  end
+
+  soccer_season.module 'Fixtures' do |fixtures|
+    fixtures.head("Fixture").attributes(
+      'date:string',
+      'time:string',
+      'teams:[teams::team]',
+      'pitch:pitches::pitch',
+      'result:result'
+    ).optional_attributes(
+      'result'
+    )
+
+    fixtures.value("Result").attributes(
+      'winner:teams::team',
+      'loser:teams::team',
+      'goals:[goal]'
+    )
+
+    fixtures.value("Goal").attributes('player:players:player')
+    fixtures.reference("teams::team")
+    fixtures.reference("pitches::pitch")
+  end
+end

@@ -3,6 +3,7 @@ class HecksDomainBuilder
   class Attribute
     attr_writer :type
     attr_reader :object_name
+    attr_writer :optional
 
     def initialize(string)
       @string = string
@@ -11,6 +12,10 @@ class HecksDomainBuilder
 
     def list?
       @string.include?("[")
+    end
+
+    def optional?
+      @optional
     end
 
     def name

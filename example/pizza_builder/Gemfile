@@ -2,4 +2,5 @@ source 'https://rubygems.org'
 
 gem 'hecks-application', '~>0.1'
 gem 'hecks-adapters-dynamodb', '~>0.1'
+gem 'hecks-plugins-json-validator', '~>0.2'
 gem 'pizza_builder'

@@ -5,7 +5,7 @@ class HecksApplication
     class Create
       attr_accessor :args, :result, :errors, :repository, :domain_module, :id
 
-      def initialize(args:, repository:, domain_module:, validator: HecksApplication::Validator)
+      def initialize(args:, repository:, domain_module:, validator: validator)
         @repository      = repository
         @args            = args
         @errors          = {}

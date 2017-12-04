@@ -17,6 +17,7 @@ ENV['HECKS_DOMAIN_PATH'] ||= File.dirname(__FILE__) + '/../example/pizza_builder
 
 require_relative '../lib/hecks'
 require_relative '../example/pizza_builder/lib/pizza_builder'
+require_relative '../example/soccer_season/lib/soccer_season'
 
 # Easy way to grab a valid pizza when playing with apis
 PIZZA_ATTRIBUTES = {

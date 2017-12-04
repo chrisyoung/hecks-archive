@@ -2,16 +2,16 @@
 
 ## Current Sprint
 
-## General
-  * Integration test for schema validator
-  * Make rake command work from pizza_builder directory
+## Next
   * Add sql_database adapter to integration tests (ci)
-  * Use a query to get back unique pizza toppings
   * Add console to CI
+  * Integration test for schema validator
+  * Drop Domain Prefix in PizzaBuilder
+  * Clarify ambiguity between the domain builder and the domain objects Ruby modules
+  * Add a rake file to hecks
+  * Make rake command work from pizza_builder directory
   * Yank all the bad gems
-  * Run arbitrary command
-  * API routes on serverless
-  * Why doesn't serverless delete or read have a result?
+  * Use local version of dynamo db for testing
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
@@ -23,15 +23,9 @@
   * Fix up guard so it works with "unit" and "integration"  
   * Use #should_behave_like to test database adapters
 
-## PizzaBuilder
-  * Drop Domain Prefix in PizzaBuilder
-
 ## Packager
   * Use activesupport-inflector instead of activesupport
   * Delete cache from binary package
-
-## Domain
-  * Clarify ambiguity between the domain builder and the domain objects Ruby modules
 
 ## CLI
   * Only offer to generate domain migrations if in sqldatabase adapter folder
@@ -48,22 +42,23 @@
   * Rename ResourceServer to HTTPResourceServer
   * Figure out the right way to load the hecks file
   * Use invariants (with #fail)
-  * Add a rake file to hecks
+
+## Serverless
+  * API routes on serverless
+  * Why doesn't serverless delete or read have a result?
 
 ## Application
+  * Run arbitrary command
   * Commands should always take the same arguments, the result should be a data structure.
 
 ## dynamodb
-  * Use local version of dynamo db for testing
   * Figure out a way to hold open the dynamodb connection
   * Figure out a way to namespace dynamodb tables
 
 ## Posters
-  * New Project: netrecorder
   * Hecks in Python
   * DynoDB Database Generator
   * CouchDB Database Generator
-  * Schema Validator
   * Package as Docker
   * Open source license
 
@@ -101,6 +96,7 @@
   * Demonstrate Hexagon Shims for Tanga
 
 ## Challenges:
+  * Use a query to get back unique pizza toppings
   * Generate a different language
   * Figure out scheme to use in_memory db in production and periodically flush to real db
   * Remove all if statements

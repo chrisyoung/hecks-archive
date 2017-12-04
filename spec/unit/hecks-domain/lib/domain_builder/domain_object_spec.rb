@@ -18,6 +18,14 @@ describe HecksDomainBuilder::DomainObject do
     end
   end
 
+  describe '#optional attributes' do
+    it 'sets optional attributes' do
+      subject.attributes("name:string")
+      subject.optional_attributes("name")
+      expect(subject.attributes.first.optional?).to eq true
+    end
+  end
+
   describe '#references' do
     it 'sets references' do
       subject.attributes("chef:chef")

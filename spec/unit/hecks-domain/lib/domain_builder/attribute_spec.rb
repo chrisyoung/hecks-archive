@@ -81,6 +81,13 @@ describe HecksDomainBuilder::Attribute do
     end
   end
 
+  describe '#optional' do
+    it do
+      basic.optional = true
+      expect(basic.optional?).to eq true
+    end
+  end
+
   describe '#copy' do
     it 'makes a copy' do
       expect(basic.copy).to eq basic
