@@ -5,6 +5,7 @@ class HecksDomainBuilder
 
     def initialize(name:)
       @name = name
+      @optional_attributes = []
     end
 
     def attributes(*values)
@@ -14,6 +15,7 @@ class HecksDomainBuilder
     end
 
     def optional_attributes(*values)
+      @optional_attributes = values.map { |value| Attribute.new(value) }
       values.each do |attribute_name|
         attributes.each do |attribute|
           attribute.optional = true if attribute.name == attribute_name
@@ -30,6 +32,12 @@ class HecksDomainBuilder
     def attribute_string
       attributes.map do |attribute|
         [attribute.name, type_with_domain_module(attribute)].join(':')
+      end
+    end
+
+    def optional_attribute_string
+      @optional_attributes.map do |attribute|
+        [attribute.name]
       end
     end
 
