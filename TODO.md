@@ -3,6 +3,7 @@
 ## Current Sprint
 
 ## Next
+  * Test that optional fields work with Value Objects
   * Add sql_database adapter to integration tests (ci)
   * Add console to CI
   * Integration test for schema validator
@@ -12,6 +13,9 @@
   * Make rake command work from pizza_builder directory
   * Yank all the bad gems
   * Use local version of dynamo db for testing
+  * Optional fields in schema Validator
+  * rename json validator to schema validator
+  * Export schema with schema validator
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
