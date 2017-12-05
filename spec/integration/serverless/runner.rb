@@ -9,7 +9,6 @@ class Runner
   def call
     run_command
     parse_result
-    print_command
     self
   end
 
@@ -24,10 +23,6 @@ class Runner
 
   def run_command
     @raw = `#{command}`
-  end
-
-  def print_command
-    puts command
   end
 
   def command

@@ -8,10 +8,6 @@ module HecksDomain
           @attributes = attributes.map do |attribute|
             attribute = HecksDomainBuilder::Attribute.new(attribute)
 
-            puts 'optional'
-            puts optional_attributes
-            puts '---------'
-
             if optional_attributes.include?(attribute.name)
               attribute.optional = true
             end
