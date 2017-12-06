@@ -3,6 +3,7 @@
 ## Current Sprint
   * Generate factories on assignment
   * Use single parameter for domain objects (maybe attributes)
+  * Stop making references as classes
 
 ## Next
   * Test that optional fields work with Value Objects

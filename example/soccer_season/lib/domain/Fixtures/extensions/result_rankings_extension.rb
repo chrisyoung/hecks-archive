@@ -36,10 +36,6 @@ module SoccerSeason
             end.sort.reverse
         end
       end
-
-      class Result
-        prepend ResultRankingsExtension
-      end
     end
   end
 end

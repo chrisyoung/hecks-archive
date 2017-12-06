@@ -6,10 +6,6 @@ module SoccerSeason
           @result = Result.factory(value)
         end
       end
-
-      class Fixture
-        prepend FixtureExtension
-      end
     end
   end
 end
