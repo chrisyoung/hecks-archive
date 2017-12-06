@@ -6,6 +6,7 @@
   * Stop making references as classes
   * Generate extensions.rb and folder
   * Tests for the new extensions
+  * Generate boilerplate for extensions
 
 ## Next
   * Test that optional fields work with Value Objects

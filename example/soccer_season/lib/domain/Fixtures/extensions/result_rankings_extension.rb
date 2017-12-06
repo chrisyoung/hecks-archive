@@ -34,8 +34,8 @@ module SoccerSeason
         def calculate_rankings
           @rankings = teams
             .group_by {|a| a.name}
-            .inject(Hash.new(0)) do |h,v|
-              h[v[1].count] = v[0];h
+            .inject(Hash.new(0)) do |hash,teams|
+              hash[teams[1].count] = teams[0];hash
             end.sort.reverse
         end
       end
