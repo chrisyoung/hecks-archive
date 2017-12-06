@@ -12,10 +12,6 @@ module SoccerSeason
           @id = id
         end
 
-        def result=(value)
-          @result = Result.factory(value)
-        end
-
         def to_json
           JSON.generate(date: date, time: time, teams: teams, pitch: pitch, result: result, id: id)
         end
