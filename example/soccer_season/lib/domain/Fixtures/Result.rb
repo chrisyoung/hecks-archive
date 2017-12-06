@@ -14,8 +14,8 @@ module SoccerSeason
 
         def initialize(goals:, winner: nil, loser: nil)
           @goals = Goal.factory(goals)
-          @winner = TeamReference.factory(winner)
-          @loser = TeamReference.factory(loser)
+@winner = TeamReference.factory(winner)
+@loser = TeamReference.factory(loser)
         end
 
         def to_json(config)

@@ -1,5 +1,4 @@
 ## In Progress
-  * Optional fields on value objects
 
 ## Current Sprint
   * Generate factories for assignments
@@ -8,20 +7,19 @@
   * Generate extensions.rb and folder
   * Tests for the new extensions
   * Generate boilerplate for extensions
-
-## Next
+  * Handle optionals in schema validator
   * Test that optional fields work with Value Objects
   * Add sql_database adapter to integration tests (ci)
-  * Add console to CI
   * Integration test for schema validator
+  * Make rake command work from pizza_builder directory (with sql_adapter)
+  * Use local version of dynamo db for testing
+  * rename json validator to schema validator
+
+## Next
+  * Add console to CI
   * Drop Domain Prefix in PizzaBuilder
   * Clarify ambiguity between the domain builder and the domain objects Ruby modules
   * Add a rake file to hecks
-  * Make rake command work from pizza_builder directory
-  * Yank all the bad gems
-  * Use local version of dynamo db for testing
-  * Optional fields in schema Validator
-  * rename json validator to schema validator
   * Export schema with schema validator
 
 ## SQLDatabase

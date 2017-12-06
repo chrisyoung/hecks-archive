@@ -13,8 +13,8 @@ module HecksDomain
                 '-m', domain_module.name,
                 '-a', value_object.attribute_string
               ]
-              unless domain_module.head.optional_attribute_string.empty?
-                command = command + ['-o', domain_module.head.optional_attribute_string]
+              unless value_object.optional_attribute_string.empty?
+                command = command + ['-o', value_object.optional_attribute_string]
               end
               runner.call(command)
             end
