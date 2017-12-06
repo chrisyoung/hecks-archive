@@ -8,6 +8,9 @@ module SoccerSeason
       class Fixture
         prepend FixtureExtension
       end
+
+      class Goal
+      end
     end
   end
 end
