@@ -3,7 +3,6 @@ module SoccerSeason
     module Fixtures
       class Result
         attr_accessor :goals
-        attr_reader :winner, :loser
 
         def self.factory(group_attributes)
           return if group_attributes.nil?

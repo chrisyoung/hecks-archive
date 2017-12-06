@@ -4,12 +4,12 @@ module SoccerSeason
       class Fixture
         attr_accessor :date, :time, :teams, :pitch, :result, :id
         def initialize(date:, time:, teams:, pitch:, result: nil, id:)
-          @date = date
-          @time = time
-          @teams = TeamReference.factory(teams)
-          @pitch = PitchReference.factory(pitch)
-          @result = Result.factory(result)
-          @id = id
+        @date = date
+@time = time
+@teams = TeamReference.factory(teams)
+@pitch = PitchReference.factory(pitch)
+@result = Result.factory(result)
+@id = id
         end
 
         def to_json

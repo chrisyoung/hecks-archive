@@ -2,6 +2,7 @@
 
 ## Current Sprint
   * Generate factories on assignment
+  * Use single parameter for domain objects (maybe attributes)
 
 ## Next
   * Test that optional fields work with Value Objects
