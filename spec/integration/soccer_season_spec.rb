@@ -18,17 +18,14 @@ class HecksApplication
       tanya_id = create_tanya.result[:id]
 
       goals = [
-        { player: {id: chris_id} },
-        { player: {id: chris_id} },
-        { player: {id: tanya_id} }
+        { player: { id: chris_id } },
+        { player: { id: chris_id } },
+        { player: { id: tanya_id } }
       ]
 
       create_fixture = app[:fixtures].create(
         date: Date.today,
         time: Time.now,
-        # result: {
-        #   goals: goals
-        # },
         teams: [
           { id: create_chris.result[:id] },
           { id: create_tanya.result[:id] },
@@ -43,9 +40,10 @@ class HecksApplication
 
       update_fixture = app[:fixtures].update id: fixture_id, result: { goals: goals }
 
-      read_fixture = app[:fixtures].read fixture_id
+      fixture = app[:fixtures].read fixture_id
 
-      binding.pry
+      expect(fixture.result.winner.id).to eq create_team_a.result[:id]
+      expect(fixture.result.loser.id).to eq create_team_b.result[:id]
     end
   end
 end

@@ -1,6 +1,7 @@
 ## In Progress
 
 ## Current Sprint
+  * Generate factories on assignment
 
 ## Next
   * Test that optional fields work with Value Objects
