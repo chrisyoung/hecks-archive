@@ -48,7 +48,7 @@ class HecksApplication
       # Lets add a result
       update_fixture = app[:fixtures].update id: fixture_id, result: { goals: goals }
 
-      # Finally, lests read the fixture
+      # Finally, lets read the fixture
       fixture = app[:fixtures].read fixture_id
 
       # TeamA Wins, TeamB loses

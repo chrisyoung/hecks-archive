@@ -1,10 +1,11 @@
 ## In Progress
 
 ## Current Sprint
-  * Generate factories on assignment
+  * Generate factories for assignments
   * Use single parameter for domain objects (maybe attributes)
   * Stop making references as classes
   * Generate extensions.rb and folder
+  * Tests for the new extensions
 
 ## Next
   * Test that optional fields work with Value Objects
