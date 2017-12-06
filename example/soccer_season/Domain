@@ -32,7 +32,11 @@ HecksDomainBuilder.build "soccer_season" do |soccer_season|
     )
 
     fixtures.value("Result").attributes(
-      'goals:[goal]'
+      'goals:[goal]',
+      'winner:[teams::team]',
+      'loser:[teams::team]'
+    ).optional_attributes(
+      'winner', 'loser'
     )
 
     fixtures.value("Goal").attributes('player:players::player')

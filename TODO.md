@@ -1,4 +1,5 @@
 ## In Progress
+  * Optional fields on value objects
 
 ## Current Sprint
   * Generate factories for assignments
