@@ -32,13 +32,13 @@ HecksDomainBuilder.build "soccer_season" do |soccer_season|
     )
 
     fixtures.value("Result").attributes(
-      'winner:teams::team',
-      'loser:teams::team',
       'goals:[goal]'
     )
 
-    fixtures.value("Goal").attributes('player:players:player')
+    fixtures.value("Goal").attributes('player:players::player')
+
     fixtures.reference("teams::team")
     fixtures.reference("pitches::pitch")
+    fixtures.reference("players::player")
   end
 end

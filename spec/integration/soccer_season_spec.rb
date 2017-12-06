@@ -14,14 +14,20 @@ class HecksApplication
         team: { id: create_team_b.result[:id] })
 
       create_pitch = app[:pitches].create(name: "My Backyard")
+      chris_id = create_chris.result[:id]
+      tanya_id = create_tanya.result[:id]
 
-      fixture = app[:fixtures].create(
+      goals = [
+        { player: {id: chris_id} },
+        { player: {id: chris_id} },
+        { player: {id: tanya_id} }
+      ]
+
+      create_fixture = app[:fixtures].create(
         date: Date.today,
         time: Time.now,
         # result: {
-        #   winner: {id: create_team_b.result[:id]},
-        #   loser: {id: create_team_a.result[:id]},
-        #   goals: []
+        #   goals: goals
         # },
         teams: [
           { id: create_chris.result[:id] },
@@ -29,8 +35,17 @@ class HecksApplication
         ],
         pitch: { id: create_pitch.result[:id] }
       )
-      expect(fixture.result[:success]).to be true
-      expect(fixture.result[:errors]).to eq({})
+
+      expect(create_fixture.result[:success]).to be true
+      expect(create_fixture.result[:errors]).to eq({})
+
+      fixture_id = create_fixture.result[:id]
+
+      update_fixture = app[:fixtures].update id: fixture_id, result: { goals: goals }
+
+      read_fixture = app[:fixtures].read fixture_id
+
+      binding.pry
     end
   end
 end

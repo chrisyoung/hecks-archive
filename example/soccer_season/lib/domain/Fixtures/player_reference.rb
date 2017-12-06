@@ -1,20 +1,20 @@
 module SoccerSeason
   module Domain
-    module Teams
-      class GoalReference
+    module Fixtures
+      class PlayerReference
         attr_accessor :id, :referenced_entity
 
         def self.factory(group_attributes)
           return if group_attributes.nil?
-          return GoalReference.new(group_attributes) unless group_attributes.is_a?(Array)
+          return PlayerReference.new(group_attributes) unless group_attributes.is_a?(Array)
           group_attributes.map do |attributes|
-            GoalReference.new(attributes)
+            PlayerReference.new(attributes)
           end
         end
 
         def initialize(id:)
           @id = id
-          @referenced_entity = Fixtures::Goal
+          @referenced_entity = Players::Player
         end
 
         def to_json(config)

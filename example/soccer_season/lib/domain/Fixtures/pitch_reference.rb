@@ -5,6 +5,7 @@ module SoccerSeason
         attr_accessor :id, :referenced_entity
 
         def self.factory(group_attributes)
+          return if group_attributes.nil?
           return PitchReference.new(group_attributes) unless group_attributes.is_a?(Array)
           group_attributes.map do |attributes|
             PitchReference.new(attributes)

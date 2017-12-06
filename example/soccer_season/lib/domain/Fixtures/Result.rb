@@ -2,7 +2,7 @@ module SoccerSeason
   module Domain
     module Fixtures
       class Result
-        attr_accessor :winner, :loser, :goals
+        attr_accessor :goals
 
         def self.factory(group_attributes)
           return if group_attributes.nil?
@@ -12,14 +12,12 @@ module SoccerSeason
           end
         end
 
-        def initialize(winner:, loser:, goals:)
-          @winner = TeamReference.factory(winner)
-@loser = TeamReference.factory(loser)
-@goals = Goal.factory(goals)
+        def initialize(goals:)
+          @goals = Goal.factory(goals)
         end
 
         def to_json(config)
-          JSON.generate(winner: winner, loser: loser, goals: goals)
+          JSON.generate(goals: goals)
         end
       end
     end
