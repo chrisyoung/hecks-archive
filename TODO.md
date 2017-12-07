@@ -1,10 +1,12 @@
 ## In Progress
-  * Rename json validator to schema validator
+  * Read only attributes (winner, loser)
 
 ## Current Sprint
   * Handle optionals in schema validator
   * Soccer Season Website
-  * Read only attributes (winner, loser)
+  * Rename json validator to schema validator  
+  * Implement invariants from SoccerSeason (ie. only two teams)
+  * Syntax error in packager (run ci to see it)
 
 ## Build/CI
   * Make build/reset executable

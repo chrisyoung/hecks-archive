@@ -19,11 +19,11 @@ module HecksDomain
         attr_reader :attributes, :tab_count
 
         def render_template(attribute, indent_first_line: false)
-          <<~METHOD
-          #{" " * tab_count * 2 unless indent_first_line}def #{name(attribute)}=(#{name(attribute)})
-          #{" " * tab_count * 2}  #{AssignmentTemplate.new([attribute]).render}
-          #{" " * tab_count * 2}end
-          METHOD
+<<-METHOD
+#{" " * tab_count * 2 unless indent_first_line}def #{name(attribute)}=(#{name(attribute)})
+#{" " * tab_count * 2}  #{AssignmentTemplate.new([attribute]).render}
+#{" " * tab_count * 2}end
+METHOD
         end
 
         def name(attribute)
