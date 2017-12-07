@@ -1,10 +1,7 @@
 ## In Progress
-  * Generate factories for assignments
 
 ## Current Sprint
-  * Stop making references as classes
-  * Generate extensions.rb and folder
-  * Tests for the new extensions
+  * Tests for the extension
   * Generate boilerplate for extensions
   * Handle optionals in schema validator
   * Add sql_database adapter to integration tests (ci)
@@ -14,6 +11,8 @@
   * rename json validator to schema validator
   * Use single parameter for domain objects (maybe \*attributes)
   * Make build/reset executable
+  * Stop making references as classes
+  * Generate extensions.rb and folder
 
 ## Next
   * Add console to CI
