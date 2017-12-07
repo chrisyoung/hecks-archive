@@ -8,6 +8,11 @@ module SoccerSeason
 @id = id
         end
 
+        def name=(name)
+  @name = name
+end
+
+
         def to_json
           JSON.generate(name: name, id: id)
         end
