@@ -2,7 +2,7 @@
   * Generate factories for assignments
 
 ## Current Sprint
-  * Use single parameter for domain objects (maybe attributes)
+  * Use single parameter for domain objects (maybe \*attributes)
   * Stop making references as classes
   * Generate extensions.rb and folder
   * Tests for the new extensions

@@ -43,15 +43,19 @@ module HecksPlugins
         result.each do |error|
           parser = MessageParser.new(matcher: matcher, error: error).call
           next unless parser.message
-          if parser.fragment && parser.fragment != parser.field_name
-            errors[parser.fragment] ||= {}
-            errors[parser.fragment][parser.field_name] ||= []
-            errors[parser.fragment][parser.field_name] << parser.message
-          else
-            errors[parser.field_name] ||= []
-            errors[parser.field_name] << parser.message
-          end
+          set_errors(parser)
         end
+      end
+    end
+
+    def set_errors(parser)
+      if parser.fragment && parser.fragment != parser.field_name
+        errors[parser.fragment] ||= {}
+        errors[parser.fragment][parser.field_name] ||= []
+        errors[parser.fragment][parser.field_name] << parser.message
+      else
+        errors[parser.field_name] ||= []
+        errors[parser.field_name] << parser.message
       end
     end
   end
