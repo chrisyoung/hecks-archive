@@ -1,39 +1,36 @@
 ## In Progress
 
 ## Current Sprint
+  * Handle optionals in schema validator
+  * Soccer Season Website
+  * Read only attributes (winner, loser)
+
+## Build/CI
+  * Make build/reset executable
+  * Add console to CI
+
+## Schema validator
+  * Stop converting messages in schema validator
+  * Rename json validator to schema validator
+  * Export schema with schema validator
+  * Integration test for schema validator
+
+## Extensions
   * Tests for the extension
   * Generate boilerplate for extensions
-  * Handle optionals in schema validator
-  * Add sql_database adapter to integration tests (ci)
-  * Integration test for schema validator
-  * Make rake command work from pizza_builder directory (with sql_adapter)
-  * Use local version of dynamo db for testing
-  * rename json validator to schema validator
-  * Use single parameter for domain objects (maybe \*attributes)
-  * Make build/reset executable
-  * Stop making references as classes
-  * Generate extensions.rb and folder
-  * Soccer Season Website
-  * Stop converting messages in schema validator
-  * Read only attributes
-  * Change delimiter in hecks file to something like pizza=pizzas::pizza
-
-## Next
-  * Add console to CI
-  * Drop Domain Prefix in PizzaBuilder
-  * Clarify ambiguity between the domain builder and the domain objects Ruby modules
-  * Add a rake file to hecks
-  * Export schema with schema validator
 
 ## SQLDatabase
   * Don't use join tables for value objects - value objects belong to their parents.
   * Move sql database generators into project folder (out of hecks-cli)
+  * Make rake command work from pizza_builder directory (with sql_adapter)
 
 ## Tests
+  * Use local version of dynamo db for testing
   * Add Remote spec for serverless
   * Truncate test database between runs
   * Fix up guard so it works with "unit" and "integration"  
   * Use #should_behave_like to test database adapters
+  * Add sql_database adapter to integration tests (ci)
 
 ## Packager
   * Use activesupport-inflector instead of activesupport
@@ -46,6 +43,7 @@
   * Clean up generator comments
 
 ## Hecks
+  * Add a rake file to hecks
   * Make an "Admin" app and "User App"
   * Use Ruby for binaries instead of bash
   * Hecks build cli command
@@ -79,7 +77,14 @@
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
   * Making 2 pizzas with each post?
 
+## Generators
+  * Stop making references as classes
+  * Change delimiter in hecks file to something like pizza=pizzas::pizza
+
 ## Hygiene:
+  * Clarify ambiguity between the domain builder and the domain objects Ruby modules
+  * Drop Domain Prefix in PizzaBuilder
+  * Use single parameter for domain objects (maybe \*attributes)
   * Set up guard to build gems
   * don't use tmp folder - use '#run'
   * 12 factor app in Docker
@@ -99,6 +104,7 @@
   * Generate Readme examples
 
 ## Demos
+  * Set up soccer season on a new computer
   * Hook up pizzas as rack middleware
   * Hook up events example
   * Demo Domain Versioning
