@@ -27,6 +27,10 @@ module HecksDomain
         AssignmentTemplate.new(attributes).render
       end
 
+      def setter_template(attributes)
+        SetterTemplate.new(attributes).render
+      end
+
       def option_format(format, include_id: false)
         OptionFormatter.new(
           options[:attributes],

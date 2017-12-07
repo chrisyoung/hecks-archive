@@ -12,6 +12,27 @@ module SoccerSeason
 @id = id
         end
 
+        def date=(date)
+  @date = date
+end
+
+def time=(time)
+  @time = time
+end
+
+def teams=(teams)
+  @teams = TeamReference.factory(teams)
+end
+
+def pitch=(pitch)
+  @pitch = PitchReference.factory(pitch)
+end
+
+def result=(result)
+  @result = Result.factory(result)
+end
+
+
         def to_json
           JSON.generate(date: date, time: time, teams: teams, pitch: pitch, result: result, id: id)
         end

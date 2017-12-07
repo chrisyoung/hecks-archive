@@ -6,7 +6,6 @@ module SoccerSeason
       end
 
       class Fixture
-        prepend FixtureExtension
       end
 
       class Goal

@@ -16,6 +16,8 @@ module <%= domain_name.camelize %>
           <%= assignment_template(attributes_without_id) %>
         end
 
+        <%= setter_template(attributes_without_id) %>
+
         def to_json(config)
           JSON.generate(<%= option_format('keys_and_values') %>)
         end

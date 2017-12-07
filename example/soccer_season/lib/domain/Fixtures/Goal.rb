@@ -16,6 +16,11 @@ module SoccerSeason
           @player = PlayerReference.factory(player)
         end
 
+        def player=(player)
+  @player = PlayerReference.factory(player)
+end
+
+
         def to_json(config)
           JSON.generate(player: player)
         end

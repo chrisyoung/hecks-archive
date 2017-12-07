@@ -17,6 +17,8 @@ module <%= domain_name.camelize %>
           @referenced_entity = <%= options[:referenced_entity] %>
         end
 
+        <%= setter_template(attributes_without_id) %>
+
         def to_json(config)
           JSON.generate({id: @id, referenced_entity: @referenced_entity})
         end

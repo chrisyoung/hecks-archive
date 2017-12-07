@@ -2,18 +2,18 @@
   * Generate factories for assignments
 
 ## Current Sprint
-  * Use single parameter for domain objects (maybe \*attributes)
   * Stop making references as classes
   * Generate extensions.rb and folder
   * Tests for the new extensions
   * Generate boilerplate for extensions
   * Handle optionals in schema validator
-  * Test that optional fields work with Value Objects
   * Add sql_database adapter to integration tests (ci)
   * Integration test for schema validator
   * Make rake command work from pizza_builder directory (with sql_adapter)
   * Use local version of dynamo db for testing
   * rename json validator to schema validator
+  * Use single parameter for domain objects (maybe \*attributes)
+  * Make build/reset executable
 
 ## Next
   * Add console to CI
