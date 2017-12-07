@@ -15,6 +15,8 @@
   * Generate extensions.rb and folder
   * Soccer Season Website
   * Stop converting messages in schema validator
+  * Read only attributes
+  * Change delimiter in hecks file to something like pizza=pizzas::pizza
 
 ## Next
   * Add console to CI
@@ -84,8 +86,6 @@
   * Use timestamps in sql migration names
   * Add result methods to all the crud commands
   * Move generator templates closer to commands
-  * Fix indentation in generators
-  * Change delimiter in hecks file to something like pizza=pizzas::pizza
   * Set up stats module to count lines of code
   * Use a struct for value objects
 

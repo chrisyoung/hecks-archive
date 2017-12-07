@@ -7,8 +7,7 @@ module <%= domain_name.camelize %>
           <%= assignment_template(attributes) %>
         end
 
-        <%= setter_template(attributes_without_id) %>
-
+        <%= setter_template(attributes_without_id, tab_count: 4) %>
         def to_json
           JSON.generate(<%= option_format('keys_and_values', include_id: true) %>)
         end

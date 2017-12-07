@@ -3,23 +3,24 @@ module HecksDomain
     # Helpful methods for supporting object creation
     class GenerateDomainObject
       class SetterTemplate
-        def initialize(attributes)
+        def initialize(attributes, tab_count: 0)
           @attributes = attributes
+          @tab_count = tab_count
         end
 
         def render
-          attributes.map do |attribute|
-            render_template(attribute)
+          attributes.map.with_index do |attribute, i|
+            render_template(attribute, indent_first_line: i == 0)
           end.join("\n")
         end
 
         private
 
-        attr_reader :attributes
+        attr_reader :attributes, :tab_count
 
-        def render_template(attribute, tab_count: 4)
+        def render_template(attribute, indent_first_line: false)
           <<~METHOD
-          def #{name(attribute)}=(#{name(attribute)})
+          #{" " * tab_count * 2 unless indent_first_line}def #{name(attribute)}=(#{name(attribute)})
           #{" " * tab_count * 2}  #{AssignmentTemplate.new([attribute]).render}
           #{" " * tab_count * 2}end
           METHOD
