@@ -20,10 +20,14 @@ module HecksDomain
 
         def render_template(attribute, indent_first_line: false)
 <<-METHOD
-#{" " * tab_count * 2 unless indent_first_line}def #{name(attribute)}=(#{name(attribute)})
-#{" " * tab_count * 2}  #{AssignmentTemplate.new([attribute]).render}
-#{" " * tab_count * 2}end
+#{tabs unless indent_first_line}def #{name(attribute)}=(#{name(attribute)})
+#{tabs}  #{AssignmentTemplate.new([attribute]).render}
+#{tabs}end
 METHOD
+        end
+
+        def tabs
+          " " * tab_count * 2
         end
 
         def name(attribute)
