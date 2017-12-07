@@ -1,4 +1,5 @@
 ## In Progress
+  * Rename json validator to schema validator
 
 ## Current Sprint
   * Handle optionals in schema validator
@@ -11,7 +12,6 @@
 
 ## Schema validator
   * Stop converting messages in schema validator
-  * Rename json validator to schema validator
   * Export schema with schema validator
   * Integration test for schema validator
 
@@ -118,9 +118,3 @@
   * Remove all if statements
   * Create Commands from Product Use Cases
   * Create plugin for Asana to show test results on use cases
-
-## Musings:
-  * Just in time compiling of source code?
-    * Generators are functions.  What if the code is generated for the function to complete?
-    * Generate the code > Run the code > Delete the code
-    * Code is always up to date.
