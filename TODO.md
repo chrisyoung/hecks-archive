@@ -13,6 +13,8 @@
   * Make build/reset executable
   * Stop making references as classes
   * Generate extensions.rb and folder
+  * Soccer Season Website
+  * Stop converting messages in schema validator
 
 ## Next
   * Add console to CI

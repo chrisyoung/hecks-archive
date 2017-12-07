@@ -27,8 +27,8 @@ module HecksDomain
         AssignmentTemplate.new(attributes).render
       end
 
-      def setter_template(attributes)
-        SetterTemplate.new(attributes).render
+      def setter_template(attributes, tab_count=0)
+        SetterTemplate.new(attributes, tab_count).render
       end
 
       def option_format(format, include_id: false)

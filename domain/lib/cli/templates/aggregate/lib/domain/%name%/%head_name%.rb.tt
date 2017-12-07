@@ -4,7 +4,7 @@ module <%= domain_name.camelize %>
       class <%= options[:head_name].camelize %>
         attr_accessor <%= option_format('attribute_string', include_id: true) %>
         def initialize(<%= option_format('param_names', include_id: true) %>)
-        <%= assignment_template(attributes) %>
+          <%= assignment_template(attributes) %>
         end
 
         <%= setter_template(attributes_without_id) %>

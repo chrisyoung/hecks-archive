@@ -9,8 +9,8 @@ module SoccerSeason
         end
 
         def name=(name)
-  @name = name
-end
+          @name = name
+        end
 
 
         def to_json

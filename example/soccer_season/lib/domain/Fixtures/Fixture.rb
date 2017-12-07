@@ -13,24 +13,24 @@ module SoccerSeason
         end
 
         def date=(date)
-  @date = date
-end
+          @date = date
+        end
 
 def time=(time)
-  @time = time
-end
+          @time = time
+        end
 
 def teams=(teams)
-  @teams = TeamReference.factory(teams)
-end
+          @teams = TeamReference.factory(teams)
+        end
 
 def pitch=(pitch)
-  @pitch = PitchReference.factory(pitch)
-end
+          @pitch = PitchReference.factory(pitch)
+        end
 
 def result=(result)
-  @result = Result.factory(result)
-end
+          @result = Result.factory(result)
+        end
 
 
         def to_json

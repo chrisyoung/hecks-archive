@@ -19,16 +19,16 @@ module SoccerSeason
         end
 
         def goals=(goals)
-  @goals = Goal.factory(goals)
-end
+          @goals = Goal.factory(goals)
+        end
 
 def winner=(winner)
-  @winner = TeamReference.factory(winner)
-end
+          @winner = TeamReference.factory(winner)
+        end
 
 def loser=(loser)
-  @loser = TeamReference.factory(loser)
-end
+          @loser = TeamReference.factory(loser)
+        end
 
 
         def to_json(config)
