@@ -35,10 +35,12 @@ module HecksDomain
         end
 
         def factory_assignment(skip_tabs: false)
+          return if attribute.read_only?
           "#{tabs unless skip_tabs}@#{attribute.name} = #{attribute.type}.factory(#{attribute.name})"
         end
 
         def value_assignment(skip_tabs: false)
+          return if attribute.read_only?
           "#{tabs unless skip_tabs}@#{attribute.name} = #{attribute.name}"
         end
       end

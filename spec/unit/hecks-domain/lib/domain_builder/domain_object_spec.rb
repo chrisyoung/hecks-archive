@@ -26,6 +26,14 @@ describe HecksDomainBuilder::DomainObject do
     end
   end
 
+  describe '#read_only_attributes' do
+    it 'sets read only attributes' do
+      subject.attributes("middle_name:string")
+      subject.read_only_attributes("middle_name")
+      expect(subject.attributes.first.read_only?).to eq true
+    end
+  end
+
   describe '#references' do
     it 'sets references' do
       subject.attributes("chef:chef")

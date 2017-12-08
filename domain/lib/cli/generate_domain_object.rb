@@ -8,6 +8,7 @@ module HecksDomain
       class_option :head_name,   aliases: '-h', desc: 'the name of the aggregate head'
       class_option :attributes,  aliases: '-a', type: :array, desc: 'attributes for the aggregate head'
       class_option :optional_attributes, aliases: '-o', type: :array, desc: "attributes that aren't required"
+      class_option :read_only_attributes, aliases: '-d', type: :array, desc: "read only attributes"
       class_option :name,        aliases: '-n', desc: 'attributes for the aggregate head'
       class_option :type,        aliases: '-t', desc: 'The type of domain object you want to create'
       class_option :module_name, aliases: '-m', desc: 'Domain Module'
@@ -27,14 +28,26 @@ module HecksDomain
         AssignmentTemplate.new(attributes).render
       end
 
+      def writable_attributes(attributes)
+        attributes.select do |attribute|
+          !(options[:read_only_attributes] || []).include?(
+            HecksDomainBuilder::Attribute.new(attribute).name
+          )
+        end
+      end
+
       def setter_template(attributes, tab_count: 0)
-        SetterTemplate.new(attributes, tab_count: tab_count).render
+        SetterTemplate.new(
+          writable_attributes(attributes),
+          tab_count: tab_count
+        ).render
       end
 
       def option_format(format, include_id: false)
         OptionFormatter.new(
           options[:attributes],
-          options[:optional_attributes] || []
+          options[:optional_attributes] || [],
+          options[:read_only_attributes] || []
         ).call(format, include_id: include_id)
       end
 

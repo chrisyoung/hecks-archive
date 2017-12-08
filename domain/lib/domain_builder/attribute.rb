@@ -4,6 +4,7 @@ class HecksDomainBuilder
     attr_writer :type
     attr_reader :object_name
     attr_writer :optional
+    attr_writer :read_only
 
     def initialize(string)
       @string = string
@@ -16,6 +17,10 @@ class HecksDomainBuilder
 
     def optional?
       @optional
+    end
+
+    def read_only?
+      @read_only
     end
 
     def name

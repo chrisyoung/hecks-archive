@@ -3,13 +3,19 @@ module HecksDomain
     class GenerateDomainObject
       # Generates options in templates
       class OptionFormatter
-        def initialize(attributes, optional_attributes=[])
+        def initialize(attributes, optional_attributes=[], read_only_attributes=[])
           @optional_attributes = optional_attributes
+          @read_only_attributes = read_only_attributes
+
           @attributes = attributes.map do |attribute|
             attribute = HecksDomainBuilder::Attribute.new(attribute)
 
             if optional_attributes.include?(attribute.name)
               attribute.optional = true
+            end
+
+            if read_only_attributes.include?(attribute.name)
+              attribute.read_only = true
             end
 
             attribute
@@ -25,8 +31,8 @@ module HecksDomain
             attributes(include_id).map { |attribute| ':' + attribute.name }.join ', '
           when 'param_names'
             attributes(include_id).map do |attribute|
-              attribute.name + ':' + (attribute.optional? ? ' nil' : '')
-            end.join ', '
+              attribute.name + ':' + (attribute.optional? ? ' nil' : '') unless attribute.read_only?
+            end.compact.join ', '
           end
         end
 

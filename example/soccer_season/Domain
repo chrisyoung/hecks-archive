@@ -35,7 +35,7 @@ HecksDomainBuilder.build "soccer_season" do |soccer_season|
       'goals:[goal]',
       'winner:[teams::team]',
       'loser:[teams::team]'
-    ).optional_attributes(
+    ).read_only_attributes(
       'winner', 'loser'
     )
 

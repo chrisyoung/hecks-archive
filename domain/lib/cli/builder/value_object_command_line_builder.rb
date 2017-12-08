@@ -16,6 +16,9 @@ module HecksDomain
               unless value_object.optional_attribute_string.empty?
                 command = command + ['-o', value_object.optional_attribute_string]
               end
+              unless value_object.read_only_attribute_string.empty?
+                command = command + ['-d', value_object.read_only_attribute_string]
+              end
               runner.call(command)
             end
           end

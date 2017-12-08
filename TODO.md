@@ -113,6 +113,7 @@
   * Demonstrate Hexagon Shims for Tanga
 
 ## Challenges:
+  * Use aws-lambda-jruby in packager
   * Use a query to get back unique pizza toppings
   * Generate a different language
   * Figure out scheme to use in_memory db in production and periodically flush to real db

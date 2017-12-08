@@ -6,6 +6,7 @@ class HecksDomainBuilder
     def initialize(name:)
       @name = name
       @optional_attributes = []
+      @read_only_attributes = []
     end
 
     def attributes(*values)
@@ -19,6 +20,15 @@ class HecksDomainBuilder
       values.each do |attribute_name|
         attributes.each do |attribute|
           attribute.optional = true if attribute.name == attribute_name
+        end
+      end
+    end
+
+    def read_only_attributes(*values)
+      @read_only_attributes = values.map { |value| Attribute.new(value) }
+      values.each do |attribute_name|
+        attributes.each do |attribute|
+          attribute.read_only = true if attribute.name == attribute_name
         end
       end
     end
@@ -37,6 +47,12 @@ class HecksDomainBuilder
 
     def optional_attribute_string
       @optional_attributes.map do |attribute|
+        [attribute.name]
+      end
+    end
+
+    def read_only_attribute_string
+      @read_only_attributes.map do |attribute|
         [attribute.name]
       end
     end

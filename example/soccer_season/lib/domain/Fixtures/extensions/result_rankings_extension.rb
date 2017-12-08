@@ -2,8 +2,6 @@ module SoccerSeason
   module Domain
     module Fixtures
       module ResultRankingsExtension
-        attr_reader :winner, :loser
-
         def initialize(group_attributes)
           super
           lookup_teams

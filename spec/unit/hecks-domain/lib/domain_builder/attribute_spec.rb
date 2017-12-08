@@ -88,6 +88,13 @@ describe HecksDomainBuilder::Attribute do
     end
   end
 
+  describe '#read_only' do
+    it do
+      basic.read_only = true
+      expect(basic.read_only?).to eq true
+    end
+  end
+
   describe '#copy' do
     it 'makes a copy' do
       expect(basic.copy).to eq basic
