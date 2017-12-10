@@ -1,10 +1,12 @@
 ## In Progress
+  * make update work with form helper (currently not including id)
 
 ## Current Sprint
   * Handle optionals in schema validator
-  * Soccer Season Website
   * Rename json validator to schema validator  
   * Implement invariants from SoccerSeason (ie. only two teams)
+
+## Soccer Season Website
 
 ## Build/CI
   * Make build/reset executable
