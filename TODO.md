@@ -1,5 +1,4 @@
 ## In Progress
-  * Read only attributes (winner, loser)
 
 ## Current Sprint
   * Handle optionals in schema validator
@@ -79,13 +78,14 @@
   * Making 2 pizzas with each post?
 
 ## Generators
+  * Goal#winner and Goal#loser should be attr_readers
   * Stop making references as classes
   * Change delimiter in hecks file to something like pizza=pizzas::pizza
+  * Don't assign read only attributes in initializer
 
 ## Hygiene:
   * Clarify ambiguity between the domain builder and the domain objects Ruby modules
   * Drop Domain Prefix in PizzaBuilder
-  * Use single parameter for domain objects (maybe \*attributes)
   * Set up guard to build gems
   * don't use tmp folder - use '#run'
   * 12 factor app in Docker
