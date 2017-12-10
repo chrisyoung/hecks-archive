@@ -12,8 +12,8 @@ module SoccerSeason
           end
         end
 
-        def initialize(player:)
-          @player = PlayerReference.factory(player)
+        def initialize(attributes={})
+          @player = PlayerReference.factory(attributes[:player])
         end
 
         def player=(player)

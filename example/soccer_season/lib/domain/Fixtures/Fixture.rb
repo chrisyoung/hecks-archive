@@ -3,13 +3,13 @@ module SoccerSeason
     module Fixtures
       class Fixture
         attr_accessor :date, :time, :teams, :pitch, :result, :id
-        def initialize(date:, time:, teams:, pitch:, result: nil, id:)
-          @date = date
-          @time = time
-          @teams = TeamReference.factory(teams)
-          @pitch = PitchReference.factory(pitch)
-          @result = Result.factory(result)
-          @id = id
+        def initialize(attributes={})
+          @date = attributes[:date]
+          @time = attributes[:time]
+          @teams = TeamReference.factory(attributes[:teams])
+          @pitch = PitchReference.factory(attributes[:pitch])
+          @result = Result.factory(attributes[:result])
+          @id = attributes[:id]
         end
 
         def date=(date)

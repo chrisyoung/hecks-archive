@@ -24,8 +24,11 @@ module HecksDomain
 
       private
 
-      def assignment_template(attributes)
-        AssignmentTemplate.new(attributes).render
+      def assignment_template(attributes, assign_from_hash: false)
+        AssignmentTemplate.new(
+          attributes,
+          assign_from_hash: assign_from_hash
+        ).render
       end
 
       def writable_attributes(attributes)

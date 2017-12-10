@@ -3,10 +3,10 @@ module SoccerSeason
     module Players
       class Player
         attr_accessor :name, :team, :id
-        def initialize(name:, team:, id:)
-          @name = name
-          @team = TeamReference.factory(team)
-          @id = id
+        def initialize(attributes={})
+          @name = attributes[:name]
+          @team = TeamReference.factory(attributes[:team])
+          @id = attributes[:id]
         end
 
         def name=(name)

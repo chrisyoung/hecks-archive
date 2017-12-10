@@ -12,8 +12,8 @@ module <%= domain_name.camelize %>
           end
         end
 
-        def initialize(<%= option_format('param_names') %>)
-          <%= assignment_template(attributes_without_id) %>
+        def initialize(attributes={})
+          <%= assignment_template(attributes_without_id, assign_from_hash: true) %>
         end
 
         <%= setter_template(attributes_without_id, tab_count: 4) %>

@@ -6,18 +6,16 @@ module SoccerSeason
 
         def self.factory(group_attributes)
           return if group_attributes.nil?
-          unless group_attributes.is_a?(Array)
-            return Result.new(group_attributes)
-          end
+          return Result.new(group_attributes) unless group_attributes.is_a?(Array)
           group_attributes.map do |attributes|
             Result.new(attributes)
           end
         end
 
-        def initialize(goals:)
-          @goals = Goal.factory(goals)
-          # @winner = TeamReference.factory(winner)
-          # @loser = TeamReference.factory(loser)
+        def initialize(attributes={})
+          @goals = Goal.factory(attributes[:goals])
+          @winner = TeamReference.factory(attributes[:winner])
+          @loser = TeamReference.factory(attributes[:loser])
         end
 
         def goals=(goals)

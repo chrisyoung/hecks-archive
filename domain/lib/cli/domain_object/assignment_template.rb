@@ -1,47 +1,38 @@
+require_relative 'assigner'
+require_relative 'hash_assigner'
+
 module HecksDomain
   module CLI
     # Helpful methods for supporting object creation
     class GenerateDomainObject
       class AssignmentTemplate
-        def initialize(attributes, tab_count: 5)
+        def initialize(attributes, tab_count: 5, assign_from_hash: false)
           @attributes = attributes
           @tab_count = tab_count
+          @assign_from_hash = assign_from_hash
         end
 
         def render
           attributes.map.with_index do |attribute, i|
             @attribute = HecksDomainBuilder::Attribute.new(attribute)
-            do_assignment(skip_tabs: i==0)
+            if assign_from_hash
+              do_assignment(skip_tabs: i==0, assigner: HashAssigner)
+            else
+              do_assignment(skip_tabs: i==0, assigner: Assigner)
+            end
           end.join("\n")
         end
 
         private
 
-        attr_reader :attributes, :attribute, :tab_count
+        attr_reader :attributes, :attribute, :tab_count, :assign_from_hash
 
-        def do_assignment(skip_tabs: false)
-          return value_assignment(skip_tabs: skip_tabs) if HecksDomainBuilder::Types.values.include?(@attribute.type)
-          return value_assignment(skip_tabs: skip_tabs) if @attribute.type == 'Value'
-          return reference_factory_assignment(skip_tabs: skip_tabs) if attribute.domain_module
-          return factory_assignment(skip_tabs: skip_tabs)
-        end
-
-        def tabs
-          ' ' * tab_count * 2
-        end
-
-        def reference_factory_assignment(skip_tabs: false)
-          "#{tabs unless skip_tabs}@#{attribute.name} = #{attribute.type}Reference.factory(#{attribute.name})"
-        end
-
-        def factory_assignment(skip_tabs: false)
-          return if attribute.read_only?
-          "#{tabs unless skip_tabs}@#{attribute.name} = #{attribute.type}.factory(#{attribute.name})"
-        end
-
-        def value_assignment(skip_tabs: false)
-          return if attribute.read_only?
-          "#{tabs unless skip_tabs}@#{attribute.name} = #{attribute.name}"
+        def do_assignment(skip_tabs: false, assigner:)
+          assigner.new(
+            attribute: attribute,
+            skip_tabs: skip_tabs,
+            tab_count: tab_count
+          ).render
         end
       end
     end

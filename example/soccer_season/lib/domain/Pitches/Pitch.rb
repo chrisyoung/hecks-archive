@@ -3,9 +3,9 @@ module SoccerSeason
     module Pitches
       class Pitch
         attr_accessor :name, :id
-        def initialize(name:, id:)
-          @name = name
-          @id = id
+        def initialize(attributes={})
+          @name = attributes[:name]
+          @id = attributes[:id]
         end
 
         def name=(name)
