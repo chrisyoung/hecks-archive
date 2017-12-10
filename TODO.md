@@ -1,5 +1,4 @@
 ## In Progress
-  * make update work with form helper (currently not including id)
 
 ## Current Sprint
   * Handle optionals in schema validator

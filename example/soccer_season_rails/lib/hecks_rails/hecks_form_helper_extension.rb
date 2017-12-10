@@ -15,6 +15,6 @@ module HecksFormHelperExtension
   end
 
   def to_model
-    Model.new(model_name_as_string, !id.nil?)
+    Model.new(model_name_as_string, !id.nil?, id)
   end
 end

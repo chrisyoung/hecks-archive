@@ -1,8 +1,9 @@
 module HecksFormHelperExtension
   class Model
-    def initialize(name, persisted)
+    def initialize(name, persisted, id)
       @name = name
       @persisted = persisted
+      @id = id
     end
 
     def model_name
@@ -10,11 +11,15 @@ module HecksFormHelperExtension
     end
 
     def to_key
-      [@name]
+      [@id]
     end
 
     def persisted?
       @persisted
+    end
+
+    def to_s
+      @id
     end
   end
 end

@@ -11,8 +11,13 @@ class PitchesController < ApplicationController
     @pitch = HA[:pitches].read(params[:id])
   end
 
+  def show
+    @pitch = HA[:pitches].read(params[:id])
+  end
+
   def update
-    redirect_to(HA[:pitches].update(pitch_params).result[:id])
+    HA[:pitches].update(pitch_params.merge(id: params[:id]))
+    redirect_to(edit_pitch_path(params[:id]))
   end
 
   def pitch_params
