@@ -56,6 +56,7 @@ GEM
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hecks-adapters-rails (0.2.1)
     hecks-application (0.2.1)
       hecks-domain (= 0.2.1)
       hecks-memory-database (= 0.2.1)
@@ -169,6 +170,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  hecks-adapters-rails
   hecks-application
   jbuilder (~> 2.5)
   jquery-rails

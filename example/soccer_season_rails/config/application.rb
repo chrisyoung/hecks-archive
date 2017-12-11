@@ -13,7 +13,3 @@ module SoccerSeasonRails
     # -- all .rb files in that directory are automatically loaded.
   end
 end
-
-Rails.application.configure do
-  config.autoload_paths += Dir["#{config.root}/lib/**/"]
-end

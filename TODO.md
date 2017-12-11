@@ -1,4 +1,6 @@
 ## In Progress
+  * How do we list pitches?
+  * Mixin form helper methods to models
 
 ## Current Sprint
   * Handle optionals in schema validator
