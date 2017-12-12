@@ -1,6 +1,6 @@
 require_relative 'form_helper_extension'
-
-HA = HecksApplication.new(domain: ENV['DOMAIN'].constantize)
+load('Hecksfile')
+HA = HecksApp
 
 module HecksAdapters
   module Rails

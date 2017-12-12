@@ -1,0 +1,3 @@
+HecksApp = HecksApplication.new(
+  domain:   SoccerSeason
+)
