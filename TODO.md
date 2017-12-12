@@ -1,11 +1,10 @@
 ## In Progress
-  * How do we list pitches?
-  * Mixin form helper methods to models
 
 ## Current Sprint
   * Handle optionals in schema validator
-  * Rename json validator to schema validator  
+  * Rename json validator to schema validator
   * Implement invariants from SoccerSeason (ie. only two teams)
+  * How do we list pitches?
 
 ## Soccer Season Website
 
