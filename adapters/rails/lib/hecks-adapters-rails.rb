@@ -4,6 +4,8 @@ HA = HecksApp
 
 module HecksAdapters
   module Rails
+    # Add methods that are friendly with Rails form helpers, like
+    # #form_for
     DOMAIN.domain_modules.each do |domain_module|
       domain_module = domain_module[1]
       domain_module.objects.each do |object|
