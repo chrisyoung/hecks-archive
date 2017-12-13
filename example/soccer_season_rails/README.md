@@ -1,24 +1,9 @@
-# README
+# Soccer Season Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How I was configured
+1. Generate Rails project
+2. Update gemfile to include hecks-application, hecks-adapters-rails and soccer_season gems
+3. Add Hecksfile
+4. Run rails s
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Visit localhost:3000/pitches to see things in action

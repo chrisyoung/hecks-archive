@@ -1,6 +1,5 @@
 require 'form_helper_extension/model'
 require 'form_helper_extension/model_name'
-require 'form_helper_extension/register_models'
 
 module HecksAdapters
   module Rails

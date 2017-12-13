@@ -11,4 +11,6 @@ Gem::Specification.new do |s|
   s.email       = 'chris@example.com'
   s.files       = Dir["lib/**/*"]
   s.license     = 'MIT'
+
+  s.add_runtime_dependency 'hecks-application', "=#{version}"
 end

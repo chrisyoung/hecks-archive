@@ -1,4 +1,5 @@
 ## In Progress
+  * Hecks Rails Adapter should depend on hecks-application
 
 ## Current Sprint
   * Handle optionals in schema validator
