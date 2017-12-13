@@ -12,8 +12,8 @@ module PizzaBuilder
           end
         end
 
-        def initialize(name:)
-          @name = name
+        def initialize(attributes={})
+          @name = attributes[:name]
         end
 
         def name=(name)

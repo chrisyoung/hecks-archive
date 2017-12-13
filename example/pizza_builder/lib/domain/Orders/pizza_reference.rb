@@ -12,8 +12,8 @@ module PizzaBuilder
           end
         end
 
-        def initialize(id:)
-          @id = id
+        def initialize(attributes={})
+          @id = attributes[:id]
           @referenced_entity = Pizzas::Pizza
         end
 

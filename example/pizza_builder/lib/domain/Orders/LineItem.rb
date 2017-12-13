@@ -12,11 +12,11 @@ module PizzaBuilder
           end
         end
 
-        def initialize(pizza_name:, quantity:, price:, pizza:)
-          @pizza_name = pizza_name
-          @quantity = quantity
-          @price = price
-          @pizza = PizzaReference.factory(pizza)
+        def initialize(attributes={})
+          @pizza_name = attributes[:pizza_name]
+          @quantity = attributes[:quantity]
+          @price = attributes[:price]
+          @pizza = PizzaReference.factory(attributes[:pizza])
         end
 
         def pizza_name=(pizza_name)

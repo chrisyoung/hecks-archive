@@ -5,11 +5,11 @@
   * Rename json validator to schema validator
   * Implement invariants from SoccerSeason (ie. only two teams)
   * How do we list pitches?
+  * rails generate hecks -d SoccerSeason
 
 ## Soccer Season Website
 
 ## Build/CI
-  * Make build/reset executable
   * Add console to CI
 
 ## Schema validator
@@ -30,7 +30,7 @@
   * Use local version of dynamo db for testing
   * Add Remote spec for serverless
   * Truncate test database between runs
-  * Fix up guard so it works with "unit" and "integration"  
+  * Fix up guard so it works with "unit" and "integration"
   * Use #should_behave_like to test database adapters
   * Add sql_database adapter to integration tests (ci)
 
