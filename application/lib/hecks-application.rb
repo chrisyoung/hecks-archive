@@ -14,7 +14,7 @@ require_relative 'validator'
 # The Applicaiton port.  Adapters usually talk to the domain through
 # HecksApplication
 class HecksApplication
-  attr_reader :database, :domain_spec, :events_port, :validator
+  attr_reader :database, :domain_spec, :events_port, :validator, :domain
   def initialize(database: nil, listeners: [], domain:, validator: HecksApplication::Validator)
     load(domain.spec_path)
     @domain      = domain
