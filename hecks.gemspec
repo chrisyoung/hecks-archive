@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'hecks-adapters-sql-database', "=#{version}"
   s.add_runtime_dependency 'hecks-adapters-resource-server', "=#{version}"
   s.add_runtime_dependency 'hecks-adapters-dynamodb', "=#{version}"
+  s.add_runtime_dependency 'hecks-plugins-json-validator', "=#{version}"
   s.add_runtime_dependency 'thor', "~>0.10"
 
   s.add_development_dependency "codeclimate-test-reporter", "~> 1.0"
