@@ -1,8 +1,0 @@
-#!/bin/bash
-set -xe
-
-PIZZA_BUILDER_DIR='example/pizza_builder'
-cd $PIZZA_BUILDER_DIR
-
-serverless deploy -s production
-serverless invoke -s production -l -f pizzas_create -d '{"name": "white pizza", "toppings": ["cheese"], "description": "only the best", "chef": "me"}'

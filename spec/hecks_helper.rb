@@ -8,7 +8,7 @@ ENV['HECKS_DOMAIN_PATH'] ||= File.dirname(__FILE__) + '/../example/pizza_builder
   /../plugins/json_validator/lib/
   /../adapters/rails/lib/
   /../adapters/dynamodb/lib/
-  /../adapters/resource_server/lib/
+  
   /../adapters/memory_database/lib/
   /../adapters/sql_database/lib/
   /../application/lib/

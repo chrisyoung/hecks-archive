@@ -34,7 +34,7 @@ GEM
     json-schema (2.8.0)
       addressable (>= 2.4)
     minitest (5.11.3)
-    pizza_builder (0.0.1)
+    pizza_builder (0.2.1)
     public_suffix (3.0.3)
     thor (0.20.0)
     thread_safe (0.3.6)
@@ -51,4 +51,4 @@ DEPENDENCIES
   pizza_builder
 
 BUNDLED WITH
-   1.16.1
+   1.16.6

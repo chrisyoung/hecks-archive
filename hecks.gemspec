@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'hecks-plugins-json-validator', "=#{version}"
   s.add_runtime_dependency 'thor', "~>0.10"
 
+
+  s.add_development_dependency "rspec", "~> 3.8"
   s.add_development_dependency "codeclimate-test-reporter", "~> 1.0"
   s.add_development_dependency 'guard-rspec', "~>4.7"
   s.add_development_dependency 'simplecov', '~>0.12'
@@ -30,6 +32,4 @@ Gem::Specification.new do |s|
 
   s.executables << 'hecks'
   s.executables << 'hecks_console'
-  s.executables << 'hecks-package'
-  s.executables << 'hecks_serverless'
 end

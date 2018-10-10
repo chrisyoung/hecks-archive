@@ -148,9 +148,10 @@ DEPENDENCIES
   hecks!
   pry (~> 0.10)
   rack-test (~> 0.6)
+  rspec (~> 3.8)
   simplecov (~> 0.12)
   vcr (~> 3.0)
   webmock (~> 2.3)
 
 BUNDLED WITH
-   1.16.1
+   1.16.6

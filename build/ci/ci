@@ -1,10 +1,9 @@
 #!/bin/bash
 set -xe
+gem install bundle
 bash ./build/clean
 ./build/uninstall
 ./build/install
 ./build/ci/generate_pizza_builder
-./build/ci/package_pizza_builder
-./build/ci/generate_serverless_config
-./build/ci/deploy_serverless
+bundle
 rspec

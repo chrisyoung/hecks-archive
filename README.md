@@ -17,7 +17,6 @@ PizzaBuilder is an ridiculously simplified application built using Hecks.  We'll
 	hecks generate        # generate
 	hecks help [COMMAND]  # Describe available commands or one specific command
 	hecks new             # Create a new Domain
-	hecks package         # package
 
 ### Create a HECKS file in an empty project directory:
 	HecksDomainBuilder.build "pizza_builder" do |pizza_builder|
@@ -42,25 +41,11 @@ You should see a bunch of output as hecks builds the Objects that you'll use to 
 	$ rackup config.ru
 	$ curl -H "Content-Type: application/json" -d '{"name": "white", "description":"yummy", "toppings": [{"name":"pepperoni"}]}' localhost:9292/pizzas
 
-### Command Line
-The command line adapter is currently implemented as a 2.2.2 traveling ruby package.  Hecks provides the means to build that package.
-
-	$ hecks package binary
-	$ cd packages/binary/build/osx/app/
-	$ bundle
-	$ pizza_builder 'module: {'pizzas', args: {...}}'
-
 ### Ruby Console
 Move into your domain's directory (the one creared with hecks new)
 
 	$ hecks console
 	:001 > pp app[:pizzas].create({name: 'White Pizza' ... }]})
-
-### AWS Lambda
-Hecks is friends with serverless to generate a deployable function.  Here's how to see if it worlks locally:
-
-	$ hecks package lambda
-	$ serverless invoke local -f hello -d '{"name":"White Pizza","description":"white sauce and chicken","toppings":[{"name":"chicken"}]}'
 
 ## Contribute to Hecks
 Here are some commands that will be helpful if you would like to develop new features for Hecks

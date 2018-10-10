@@ -2,6 +2,5 @@
 # frozen_string_literal: true
 
 require_relative '../lib/hecks'
-require 'pry'
 
 HecksCLI.start(ARGV)

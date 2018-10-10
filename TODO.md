@@ -28,15 +28,10 @@
 
 ## Tests
   * Use local version of dynamo db for testing
-  * Add Remote spec for serverless
   * Truncate test database between runs
   * Fix up guard so it works with "unit" and "integration"
   * Use #should_behave_like to test database adapters
   * Add sql_database adapter to integration tests (ci)
-
-## Packager
-  * Use activesupport-inflector instead of activesupport
-  * Delete cache from binary package
 
 ## CLI
   * Only offer to generate domain migrations if in sqldatabase adapter folder
@@ -55,10 +50,6 @@
   * Figure out the right way to load the hecks file
   * Use invariants (with #fail)
 
-## Serverless
-  * API routes on serverless
-  * Why doesn't serverless delete or read have a result?
-
 ## Application
   * Run arbitrary command
   * Commands should always take the same arguments, the result should be a data structure.
@@ -75,7 +66,6 @@
   * Open source license
 
 ## Bugs
-  * Why isn't lambda dev being excluded?
   * Fix DeleteReferences#where_clause ... Not doing anything currently :(
   * Making 2 pizzas with each post?
 
@@ -115,7 +105,6 @@
   * Demonstrate Hexagon Shims for Tanga
 
 ## Challenges:
-  * Use aws-lambda-jruby in packager
   * Use a query to get back unique pizza toppings
   * Generate a different language
   * Figure out scheme to use in_memory db in production and periodically flush to real db

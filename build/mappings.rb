@@ -10,5 +10,6 @@ MAPPINGS=[
   { path: 'adapters/resource_server', gem: 'hecks-adapters-resource-server' },
   { path: 'adapters/rails', gem: 'hecks-adapters-rails' },
   { path: 'plugins/json_validator', gem: 'hecks-plugins-json-validator' },
+  { path: 'example/pizza_builder', gem: 'pizza_builder' },
   { path: nil, gem: 'hecks' }
 ]

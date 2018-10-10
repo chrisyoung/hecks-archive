@@ -1,7 +1,0 @@
-#!/bin/bash
-set -e
-SELFDIR="`dirname \"$0\"`"
-SELFDIR="`cd \"$SELFDIR\" && pwd`"
-export BUNDLE_GEMFILE="$SELFDIR/Gemfile"
-unset BUNDLE_IGNORE_CONFIG
-exec "$SELFDIR/ruby/bin/ruby" -rbundler/setup -rreadline "$SELFDIR/lib/hecks.rb" "$@"

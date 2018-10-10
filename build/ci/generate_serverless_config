@@ -1,8 +1,0 @@
-#!/bin/bash
-set -xe
-
-PIZZA_BUILDER_DIR='example/pizza_builder'
-cd $PIZZA_BUILDER_DIR
-rm -f serverless.yml
-rm -rf serverless
-hecks_serverless generate

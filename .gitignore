@@ -3,7 +3,5 @@
 coverage
 **/tmp
 **/*.gem
-example/**/package
 spec/integration/http_interactions/
-example/**/.serverless/
 doc/

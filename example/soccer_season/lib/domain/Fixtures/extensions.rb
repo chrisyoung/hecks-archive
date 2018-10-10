@@ -1,3 +1,4 @@
+
 module SoccerSeason
   module Domain
     module Fixtures

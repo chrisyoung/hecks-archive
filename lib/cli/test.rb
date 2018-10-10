@@ -7,7 +7,6 @@ class Test < Thor
   desc 'ci', 'Run and test the generators'
   def ci
     examples
-    packages
     domain_adapters
   end
 
@@ -23,12 +22,6 @@ class Test < Thor
     run('rspec -f d')
   end
 
-  desc 'packages', 'Generate and run the package specs'
-  def packages
-    build_binary_package('pizza_builder')
-    build_lambda_package('pizza_builder')
-  end
-
   private
 
   def generate_sql_database(name)
@@ -39,14 +32,6 @@ class Test < Thor
     run("cd ../example/#{name} && rm -rf lib")
     run("cd ../example/#{name} && rm -rf spec")
     run("cd ../example/#{name} && hecks new")
-  end
-
-  def build_binary_package(name)
-    run("cd ../example/#{name} && hecks package binary  #{'-n' if options[:no_cache]}")
-  end
-
-  def build_lambda_package(name)
-    run("cd ../example/#{name} && hecks package lambda")
   end
 
   def generate_resource_server(name)
