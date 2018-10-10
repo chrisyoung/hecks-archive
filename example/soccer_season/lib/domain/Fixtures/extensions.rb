@@ -3,7 +3,7 @@ module SoccerSeason
   module Domain
     module Fixtures
       class Result
-        prepend ResultRankingsExtension
+        # prepend ResultRankingsExtension
       end
 
       class Fixture
