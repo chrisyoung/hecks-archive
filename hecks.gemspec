@@ -1,5 +1,6 @@
 require 'Date'
 version = File.read("Version").gsub("\n", '')
+ENV['HECKS_VERSION'] = version
 Gem::Specification.new do |s|
   s.name        = 'hecks'
   s.homepage    = "https://github.com/chrisyoung/heckson"

@@ -1,10 +1,19 @@
-ENV['DATABASE_URL']      ||= 'mysql2://root:password@localhost/pizza_builder_test'
+require "sequel"
+ENV['DATABASE_NAME']     ||= 'pizza_builder_test'
+ENV['DATABASE_URL']      ||= 'mysql2://root:password@localhost/' + ENV['DATABASE_NAME']
+
 namespace :db do
   desc "Run migrations"
+
+  task :create, [:version] do |t, args|
+    db ||= Sequel.connect(ENV.fetch("DATABASE_URL"))
+    db.execute("CREATE DATABASE IF NOT EXISTS #{ENV["DATABASE_NAME"]}")
+  end
+
   task :migrate, [:version] do |t, args|
-    require "sequel"
     Sequel.extension :migration
     db ||= Sequel.connect(ENV.fetch("DATABASE_URL"))
+
     if args[:version]
       puts "Migrating to version #{args[:version]}"
       Sequel::Migrator.run(db, "db/migrate", target: args[:version].to_i)
