@@ -1,9 +1,10 @@
+Dir[File.dirname(__FILE__) + "/extensions/*.rb"].each {|file|require file}
 
 module SoccerSeason
   module Domain
     module Fixtures
       class Result
-        # prepend ResultRankingsExtension
+        prepend ResultRankingsExtension
       end
 
       class Fixture
