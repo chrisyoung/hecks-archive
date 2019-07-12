@@ -3,5 +3,5 @@ require_relative 'mappings'
 
 MAPPINGS.each do |mapping|
   puts `cd #{@root}/#{mapping[:path]} && HECKS_VERSION=#{@version} gem build #{mapping[:gem]}`
-  puts `cd #{@root}/#{mapping[:path]} && gem install --no-rdoc --no-ri -q ./#{mapping[:gem]}-#{@version}.gem`
+  puts `cd #{@root}/#{mapping[:path]} && gem install --no-document -q ./#{mapping[:gem]}-#{@version}.gem`
 end
