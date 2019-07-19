@@ -1,4 +1,4 @@
-require_relative 'next_domain/domain_objects'
+require_relative 'next_domain/domain_object'
 require_relative 'next_domain/domain_object_methods'
 require_relative 'next_domain/aggregate'
 
@@ -34,6 +34,9 @@ class NextDomain
       puts file
     end
   end
+  class Entity < DomainObject;end
+  class ValueObject < DomainObject;end  
+
 end
 
 def next_domain name, &block
