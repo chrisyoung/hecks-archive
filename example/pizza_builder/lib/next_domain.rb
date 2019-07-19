@@ -1,3 +1,6 @@
+require_relative 'next_domain/domain_object_methods/entity'
+require_relative 'next_domain/domain_object_methods/value'
+require_relative 'next_domain/domain_object_methods/subtypes'
 require_relative 'next_domain/domain_object'
 require_relative 'next_domain/domain_object_methods'
 require_relative 'next_domain/aggregate'

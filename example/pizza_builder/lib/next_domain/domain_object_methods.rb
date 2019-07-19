@@ -1,7 +1,3 @@
-require_relative 'domain_object_methods/entity'
-require_relative 'domain_object_methods/value'
-require_relative 'domain_object_methods/subtypes'
-
 module DomainObjectMethods
   def list(name, &block)
     List.new(name, &block).tap do |list|

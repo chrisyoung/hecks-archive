@@ -1,8 +1,4 @@
-require_relative 'domain_object_methods/entity'
-require_relative 'domain_object_methods/value'
-require_relative 'domain_object_methods/subtypes'
-
-class NextDomain  
+class NextDomain
   class DomainObject
     include DomainObjectMethods
     
@@ -11,8 +7,6 @@ class NextDomain
       @value_objects = []
       @entities = []
       @lists = []
-      
-      
       @aggregate = aggregate
       instance_eval &block if block
       @domain_objects = @lists + @entities + @value_objects
