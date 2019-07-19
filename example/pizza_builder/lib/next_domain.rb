@@ -18,18 +18,23 @@ class NextDomain
     @aggregates << Aggregate.new(name, self, &block)
   end
 
-  def activate(arg=nil)
-    @files << ERB.new(File.open(File.dirname(__FILE__) + '/next_domain/templates/domain.erb').read).result(binding)
+  def activate
+    @files << build_file('domain', binding)
     @aggregates.each do |aggregate|
-      @files << ERB.new(File.open(File.dirname(__FILE__) + '/next_domain/templates/aggregate.erb').read).result(aggregate.get_binding)
+      @files << build_file('aggregate', aggregate.get_binding)
       aggregate.domain_objects.each do |domain_object|
         @files << ERB.new(File.open(File.dirname(__FILE__) + '/next_domain/templates/domain_object.erb').read, nil, '-').result(domain_object.get_binding)
       end
     end
+
     @files.each do |file|
       TOPLEVEL_BINDING.eval file
     end
     self
+  end
+
+  def build_file(name, context)
+    ERB.new(File.open(File.dirname(__FILE__) + "/next_domain/templates/#{name}.erb").read).result(context)
   end
 
   def print
@@ -39,7 +44,6 @@ class NextDomain
   end
   class Entity < DomainObject;end
   class ValueObject < DomainObject;end  
-
 end
 
 def next_domain name, &block
