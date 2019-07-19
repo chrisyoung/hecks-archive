@@ -5,19 +5,19 @@ module <%= @aggregate.domain.name%>
 
       def initialize <%= @domain_objects.map { |domain_object| domain_object.name.to_s + ':'}.join(', ') -%>
         <% @domain_objects.each do |domain_object| -%>
-          <% if domain_object.is_a?(List) %>
-            @<%= domain_object.name %> = <%= domain_object.name %>.map do |object|
-              <%= domain_object.get_as -%>.new(object)
-            end
-          <% elsif domain_object.is_a?(DomainObjectMethods::Entity) -%>
-          <% if domain_object.get_as.is_a?(Hash) %>
-            @<%= domain_object.name -%> = <%= domain_object.get_as.keys.first -%>::<%= domain_object.get_as.values.first -%>.new(<%= domain_object.name -%>)
-          <% else -%>
-            @<%= domain_object.name -%> = <%= domain_object.get_as -%>.new(<%= domain_object.name -%>)
-          <% end -%>
-          <% else %>
-            @<%= domain_object.name -%> = <%= domain_object.name -%>
-          <% end -%>
+        <% if domain_object.is_a?(List) %>
+        @<%= domain_object.name %> = <%= domain_object.name %>.map do |object|
+          <%= domain_object.get_as -%>.new(object)
+        end
+        <% elsif domain_object.is_a?(DomainObjectMethods::Entity) -%>
+        <% if domain_object.get_as.is_a?(Hash) %>
+        @<%= domain_object.name -%> = <%= domain_object.get_as.keys.first -%>::<%= domain_object.get_as.values.first -%>.new(<%= domain_object.name -%>)
+        <% else -%>
+        @<%= domain_object.name -%> = <%= domain_object.get_as -%>.new(<%= domain_object.name -%>)
+        <% end -%>
+        <% else %>
+        @<%= domain_object.name -%> = <%= domain_object.name -%>
+        <% end -%>
         <% end %>
       end
     end
