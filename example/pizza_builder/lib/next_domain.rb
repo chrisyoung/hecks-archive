@@ -1,12 +1,14 @@
+require 'singleton'
 require_relative 'next_domain/fields/entity'
 require_relative 'next_domain/fields/value'
 require_relative 'next_domain/fields/subtypes'
 require_relative 'next_domain/domain_object'
 require_relative 'next_domain/fields'
 require_relative 'next_domain/aggregate'
+require_relative 'next_domain/activator'
 
 class NextDomain
-  attr_reader :name
+  attr_reader :name, :aggregates
   def initialize(name, &block)
     @name = name
     @aggregates = []
@@ -18,30 +20,19 @@ class NextDomain
     @aggregates << Aggregate.new(name, self, &block)
   end
 
-  def activate
-    @files << build_file('domain', binding)
-    @aggregates.each do |aggregate|
-      @files << build_file('aggregate', aggregate.get_binding)
-      aggregate.domain_objects.each do |domain_object|
-        @files << ERB.new(File.open(File.dirname(__FILE__) + '/next_domain/templates/domain_object.erb').read, nil, '-').result(domain_object.get_binding)
-      end
-    end
+  def get_binding
+    binding
+  end
 
-    @files.each do |file|
-      TOPLEVEL_BINDING.eval file
-    end
+  def activate
+    Activator.call(self)
     self
   end
 
-  def build_file(name, context)
-    ERB.new(File.open(File.dirname(__FILE__) + "/next_domain/templates/#{name}.erb").read).result(context)
+  def print
+    Activator.print
   end
 
-  def print
-    @files.each do |file|
-      puts file
-    end
-  end
   class Entity < DomainObject;end
   class ValueObject < DomainObject;end  
 end
