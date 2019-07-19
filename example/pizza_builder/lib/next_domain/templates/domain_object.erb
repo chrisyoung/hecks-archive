@@ -1,22 +1,22 @@
-module <%= @aggregate.domain.name%>
+module <%= @aggregate.domain.name %>
   module <%= @aggregate.name %>
     class <%= @name %>
-      attr_reader <%= @domain_objects.map { |domain_object| ':' + domain_object.name.to_s }.join(', ') %>
+      attr_reader <%= @fields.map { |field| ':' + field.name.to_s }.join(', ') %>
 
-      def initialize <%= @domain_objects.map { |domain_object| domain_object.name.to_s + ':'}.join(', ') -%>
-        <% @domain_objects.each do |domain_object| -%>
-        <% if domain_object.is_a?(List) %>
-        @<%= domain_object.name %> = <%= domain_object.name %>.map do |object|
-          <%= domain_object.get_as -%>.new(object)
+      def initialize <%= @fields.map { |field| field.name.to_s + ':'}.join(', ') -%>
+        <% @fields.each do |field| -%>
+        <% if field.is_a?(List) %>
+        @<%= field.name %> = <%= field.name %>.map do |object|
+          <%= field.get_as -%>.new(object)
         end
-        <% elsif domain_object.is_a?(DomainObjectMethods::Entity) -%>
-        <% if domain_object.get_as.is_a?(Hash) %>
-        @<%= domain_object.name -%> = <%= domain_object.get_as.keys.first -%>::<%= domain_object.get_as.values.first -%>.new(<%= domain_object.name -%>)
+        <% elsif field.is_a?(Fields::Entity) -%>
+        <% if field.get_as.is_a?(Hash) %>
+        @<%= field.name -%> = <%= field.get_as.keys.first -%>::<%= field.get_as.values.first -%>.new(<%= field.name -%>)
         <% else -%>
-        @<%= domain_object.name -%> = <%= domain_object.get_as -%>.new(<%= domain_object.name -%>)
+        @<%= field.name -%> = <%= field.get_as -%>.new(<%= field.name -%>)
         <% end -%>
         <% else %>
-        @<%= domain_object.name -%> = <%= domain_object.name -%>
+        @<%= field.name -%> = <%= field.name -%>
         <% end -%>
         <% end %>
       end

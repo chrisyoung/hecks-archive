@@ -1,4 +1,4 @@
-module DomainObjectMethods
+module Fields
   def list(name, &block)
     List.new(name, &block).tap do |list|
       @lists << list

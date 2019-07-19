@@ -1,6 +1,6 @@
 class NextDomain
   class DomainObject
-    include DomainObjectMethods
+    include Fields
     
     def initialize(name, aggregate, &block)
       @name = name
@@ -9,7 +9,7 @@ class NextDomain
       @lists = []
       @aggregate = aggregate
       instance_eval &block if block
-      @domain_objects = @lists + @entities + @value_objects
+      @fields = @lists + @entities + @value_objects
     end
 
     def get_binding

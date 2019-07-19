@@ -1,4 +1,4 @@
-module DomainObjectMethods
+module Fields
   class StringValue < Value;end
   class IntegerValue < Value;end
   class CurrencyValue < Value;end

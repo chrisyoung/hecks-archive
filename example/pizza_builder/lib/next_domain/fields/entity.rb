@@ -1,4 +1,4 @@
-module DomainObjectMethods
+module Fields
   class Entity
     attr_reader :name
     def initialize(name)
