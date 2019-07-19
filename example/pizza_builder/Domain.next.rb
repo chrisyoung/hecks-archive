@@ -1,29 +1,44 @@
 require 'pry'
+require 'erb'
 require_relative 'lib/next_domain'
 
-pp(
-  next_domain('Pizzeria') do
-    aggregate :pizzas do
-      head :pizza do 
-        string_value :name
-        string_value :description
-        entity(:named_by).as(:chef)
-        list(:toppings).as(:topping)      
-      end
-      entity :chef { string_value(:name) }
-      value_object :topping { string_value(:name) }
+next_domain('Pizzeria') do
+  aggregate :Pizzas do
+    head :Pizza do 
+      string_value :name
+      string_value :description
+      entity(:named_by).as(:Chef)
+      list(:toppings).as(:Topping)      
     end
+    entity :Chef { string_value(:name) }
+    value_object :Topping { string_value(:name) }
+  end
 
-    aggregate :orders do
-      head :order do
-        list(:line_items).as(:line_item)
-      end
-      value_object :line_item do
-        string_value :pizza_name
-        integer_value :quantity
-        currency_value :price
-        entity(:pizza).as(pizzas: :pizza)
-      end
+  aggregate :Orders do
+    head :Order do
+      list(:line_items).as(:LineItem)
+    end
+    value_object :LineItem do
+      string_value :pizza_name
+      integer_value :quantity
+      currency_value :price
+      entity(:pizza).as(Pizzas: :Pizza)
     end
   end
+end.activate.print
+
+pp NextDomain::Pizzeria::Orders::Order.new(
+  line_items: [
+    {
+      quantity: 1, 
+      pizza_name: 'Cat', 
+      price: 3.00, 
+      pizza: { 
+        name: 'Cat', 
+        toppings: [{ name: 'peperoni' }],
+        named_by: { name: "Chris Young" },
+        description: 'Pure GOod'
+      }
+    }
+  ]
 )
