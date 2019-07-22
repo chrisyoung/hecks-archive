@@ -29,12 +29,12 @@ class NextDomain
         end
       end
 
-      @files.each { |file| TOPLEVEL_BINDING.eval file }
+      @files.each { |file| TOPLEVEL_BINDING.eval(file) }
       self
     end
 
     def build_file(name, context)
-      @files << ERB.new(read_template(name), nil, '-').result(context)
+      @files << Erubis::Eruby.new(read_template(name)).result(context)
     end
 
     def read_template(name)

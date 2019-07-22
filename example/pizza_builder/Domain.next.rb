@@ -1,5 +1,5 @@
 require 'pry'
-require 'erb'
+require 'erubis'
 require_relative 'lib/next_domain'
 
 next_domain('Pizzeria') do
@@ -10,8 +10,8 @@ next_domain('Pizzeria') do
       entity(:named_by).as(:Chef)
       list(:toppings).as(:Topping)      
     end
-    entity :Chef { string_value(:name) }
-    value_object :Topping { string_value(:name) }
+    entity(:Chef) { string_value(:name) }
+    value_object(:Topping) { string_value(:name) }
   end
 
   aggregate :Orders do
@@ -27,7 +27,7 @@ next_domain('Pizzeria') do
   end
 end.activate.print
 
-pp NextDomain::Pizzeria::Orders::Order.new(
+pp Pizzeria::Orders::Order.new(
   line_items: [
     {
       quantity: 1, 
