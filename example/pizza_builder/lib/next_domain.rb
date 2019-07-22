@@ -1,9 +1,7 @@
 require 'singleton'
-require_relative 'next_domain/fields/entity'
-require_relative 'next_domain/fields/value'
-require_relative 'next_domain/fields/subtypes'
+require 'pry'
+require 'erubis'
 require_relative 'next_domain/domain_object'
-require_relative 'next_domain/fields'
 require_relative 'next_domain/aggregate'
 require_relative 'next_domain/activator'
 

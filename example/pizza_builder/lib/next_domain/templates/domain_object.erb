@@ -9,7 +9,7 @@ module <%= @aggregate.domain.name %>
         @<%= field.name %> = <%= field.name %>.map do |object|
           <%= field.get_as %>.new(object)
         end
-        <% elsif field.is_a?(Fields::Entity) %>
+        <% elsif field.is_a?(Entity) %>
         <% if field.get_as.is_a?(Hash) %>
         @<%= field.name %> = <%= field.get_as.keys.first %>::<%= field.get_as.values.first %>.new(<%= field.name %>)
         <% else %>

@@ -1,8 +1,6 @@
-require 'pry'
-require 'erubis'
 require_relative 'lib/next_domain'
 
-next_domain('Pizzeria') do
+next_domain(:Pizzeria) do
   aggregate :Pizzas do
     head :Pizza do 
       string_value :name

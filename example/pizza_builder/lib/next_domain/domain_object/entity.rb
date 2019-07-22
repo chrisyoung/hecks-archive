@@ -1,4 +1,5 @@
-module DomainObject
+class NextDomain
+class DomainObject
   class Entity
     attr_reader :name
     def initialize(name)
@@ -13,4 +14,5 @@ module DomainObject
       @as
     end
   end
+end
 end
