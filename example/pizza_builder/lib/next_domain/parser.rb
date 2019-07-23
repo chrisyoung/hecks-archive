@@ -1,4 +1,5 @@
 require_relative 'parser/domain'
+require_relative 'parser/aggregate'
 
 class NextDomain
   class Parser
@@ -7,5 +8,7 @@ class NextDomain
     def initialize(name, &block)
       @domain = Domain.new(name, &block)
     end
+    
+    class Entity < DomainObject;end
   end
 end
