@@ -1,6 +1,6 @@
 class NextDomain
-  class DomainObject
-    class Entity
+  class Parser
+    class EntityField
       attr_reader :name
       def initialize(name)
         @name = name

@@ -5,11 +5,11 @@ module <%= @aggregate.domain.name %>
 
       def initialize <%= @fields.map { |field| field.name.to_s + ':'}.join(', ') %>
         <% @fields.each do |field| %>
-        <% if field.is_a?(List) %>
+        <% if field.is_a?(ListField) %>
         @<%= field.name %> = <%= field.name %>.map do |object|
         <%= field.get_as %>.new(object)
         end
-        <% elsif field.is_a?(Entity) %>
+        <% elsif field.is_a?(EntityField) %>
         <% if field.get_as.is_a?(Hash) %>
         @<%= field.name %> = <%= field.get_as.keys.first %>::<%= field.get_as.values.first %>.reference(<%= field.name %>)
         <% else %>

@@ -38,9 +38,6 @@ class NextDomain
       def get_binding
         binding
       end
-
-      class Entity < DomainObject;end
-      class ValueObject < DomainObject;end    
     end
   end
 end
