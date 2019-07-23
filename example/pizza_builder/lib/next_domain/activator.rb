@@ -6,25 +6,16 @@ class NextDomain
       instance.activate(domain)
     end
 
-    def self.print
-      instance.print
-    end
-
     def initialize
       @files = []
     end
 
-    def print
-      @files.each do |file|
-        puts file
-      end
-    end
-
     def activate(domain)
-      build_file('domain', domain.get_binding)
+      domain.ruby_file = build_file('domain', domain.get_binding)
       domain.aggregates.each do |aggregate|
-        build_file('aggregate', aggregate.get_binding)
+        aggregate.ruby_file = build_file('aggregate', aggregate.get_binding)
         aggregate.domain_objects.each do |domain_object|
+          domain_object.ruby_file = build_file('domain_object', domain_object.get_binding)
           build_file('domain_object', domain_object.get_binding)
         end
       end
@@ -34,7 +25,9 @@ class NextDomain
     end
 
     def build_file(name, context)
-      @files << Erubis::Eruby.new(read_template(name)).result(context)
+      Erubis::Eruby.new(read_template(name)).result(context).tap do |file|
+        @files << file
+      end
     end
 
     def read_template(name)

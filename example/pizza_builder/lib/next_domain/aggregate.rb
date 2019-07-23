@@ -1,6 +1,8 @@
 class NextDomain
   class Aggregate  
     attr_reader :domain, :name, :domain_objects
+    attr_accessor :ruby_file
+    
     def initialize(name, domain, &block)
       @name = name
       @entities = []
@@ -16,12 +18,16 @@ class NextDomain
       end
     end
 
-    def head(name, &block)
-      @head = entity(name, &block)
+    def file_name
+      folder_name + '.rb'
     end
 
-    def get_head
-      @head
+    def folder_name
+      name.to_s.underscore
+    end
+
+    def head(name, &block)
+      @head = entity(name, &block)
     end
 
     def value_object(name, &block)

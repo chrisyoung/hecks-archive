@@ -23,20 +23,22 @@ next_domain(:Pizzeria) do
       entity(:pizza).as(Pizzas: :Pizza)
     end
   end
-end.activate.print
+end.tap do |domain|
+  domain.activate
+  domain.dump
+end
 
-pp Pizzeria::Orders::Order.new(
+module Pizzeria
+pp Orders::Order.new(
   line_items: [
     {
       quantity: 1, 
       pizza_name: 'Cat', 
       price: 3.00, 
-      pizza: { 
-        name: 'Cat', 
-        toppings: [{ name: 'peperoni' }],
-        named_by: { name: "Chris Young" },
-        description: 'Pure GOod'
-      }
+      pizza: 1
     }
   ]
 )
+pp Orders.head
+end
+

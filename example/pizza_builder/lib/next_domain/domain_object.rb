@@ -3,6 +3,9 @@ require_relative 'domain_object/value'
 
 class NextDomain
   class DomainObject
+    attr_accessor :ruby_file
+    attr_reader :name
+    
     def initialize(name, aggregate, &block)
       @name = name
       @value_objects = []
@@ -39,6 +42,14 @@ class NextDomain
       Entity.new(name, &block).tap do |entity|
         @entities << entity
       end
+    end
+
+    def file_name
+      folder_name + '.rb'
+    end
+
+    def folder_name
+      @name.to_s.underscore
     end
 
     def get_binding

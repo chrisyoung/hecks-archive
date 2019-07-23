@@ -7,11 +7,11 @@ module <%= @aggregate.domain.name %>
         <% @fields.each do |field| %>
         <% if field.is_a?(List) %>
         @<%= field.name %> = <%= field.name %>.map do |object|
-          <%= field.get_as %>.new(object)
+        <%= field.get_as %>.new(object)
         end
         <% elsif field.is_a?(Entity) %>
         <% if field.get_as.is_a?(Hash) %>
-        @<%= field.name %> = <%= field.get_as.keys.first %>::<%= field.get_as.values.first %>.new(<%= field.name %>)
+        @<%= field.name %> = <%= field.get_as.keys.first %>::<%= field.get_as.values.first %>.reference(<%= field.name %>)
         <% else %>
         @<%= field.name %> = <%= field.get_as %>.new(<%= field.name %>)
         <% end %>
@@ -19,6 +19,10 @@ module <%= @aggregate.domain.name %>
         @<%= field.name %> = <%= field.name %>
         <% end %>
         <% end %>
+      end
+
+      def self.reference(id)
+        Struct.new(:type, :id).new(self, id)
       end
     end
   end
