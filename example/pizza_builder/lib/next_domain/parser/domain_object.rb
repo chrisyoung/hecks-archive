@@ -10,18 +10,16 @@ class NextDomain
         @entities = []
         @lists = []
         @aggregate = aggregate
-        instance_eval &block if block
+        instance_eval &block
         @fields = @lists + @entities + @value_objects
       end
 
-      def list(name, &block)
-        ListField.new(name, &block).tap do |list|
-          @lists << list
-        end
+      def list(name)
+        ListField.new(name).tap { |list| @lists << list }
       end
     
-      def string_value(name)
-        @value_objects << StringField.new(name)
+      def string_value(name, options={})
+        @value_objects << StringField.new(name, options)
       end
     
       def integer_value(name)
@@ -32,14 +30,16 @@ class NextDomain
         @value_objects << CurrencyField.new(name)
       end
     
-      def value_object(name, &block)
-        @value_objects << ValueObject.new(name, &block)
+      def value_object(name)
+        @value_objects << ValueObject.new(name)
       end
 
-      def entity(name, &block)
-        EntityField.new(name, &block).tap do |entity|
-          @entities << entity
-        end
+      def entity(name)
+        EntityField.new(name).tap { |entity| @entities << entity }
+      end
+
+      def reference(name)
+        ReferenceField.new(name).tap { |entity| @entities << entity }
       end
 
       def file_name

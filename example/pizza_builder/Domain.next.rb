@@ -6,7 +6,7 @@ next_domain(:Pizzeria) do
       string_value :name
       string_value :description
       entity(:named_by).as(:Chef)
-      list(:toppings).as(:Topping)      
+      list(:toppings).as(:Topping)
     end
     entity(:Chef) { string_value(:name) }
     value_object(:Topping) { string_value(:name) }
@@ -20,7 +20,8 @@ next_domain(:Pizzeria) do
       string_value :pizza_name
       integer_value :quantity
       currency_value :price
-      entity(:pizza).as(Pizzas: :Pizza)
+      string_value :foo, optional: true
+      reference(:pizza).as(Pizzas: :Pizza)
     end
   end
 end.tap do |domain|
@@ -29,16 +30,15 @@ end.tap do |domain|
 end
 
 module Pizzeria
-pp Orders::Order.new(
-  line_items: [
-    {
-      quantity: 1, 
-      pizza_name: 'Cat', 
-      price: 3.00, 
-      pizza: 1
-    }
-  ]
-)
-pp Orders.head
+  pp Orders::Order.new(
+    line_items: [
+      {
+        quantity: 1, 
+        pizza_name: 'Cat', 
+        price: 3.00, 
+        pizza: 1
+      }
+    ]
+  )
+  pp Orders.head
 end
-

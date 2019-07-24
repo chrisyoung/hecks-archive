@@ -3,27 +3,26 @@ module <%= @aggregate.domain.name %>
     class <%= @name %>
       attr_reader <%= @fields.map { |field| ':' + field.name.to_s }.join(', ') %>
 
-      def initialize <%= @fields.map { |field| field.name.to_s + ':'}.join(', ') %>
+      def initialize <%= @fields.map { |field| field.attribute_name}.join(', ') %>
         <% @fields.each do |field| %>
-        <% if field.is_a?(ListField) %>
+          <% if field.is_a?(ListField) %>
         @<%= field.name %> = <%= field.name %>.map do |object|
-        <%= field.get_as %>.new(object)
+          <%= field.get_as %>.new(object)
         end
-        <% elsif field.is_a?(EntityField) %>
-        <% if field.get_as.is_a?(Hash) %>
+          <% elsif field.is_a?(ReferenceField) %>
         @<%= field.name %> = <%= field.get_as.keys.first %>::<%= field.get_as.values.first %>.reference(<%= field.name %>)
-        <% else %>
+          <% elsif field.is_a?(EntityField) %>
         @<%= field.name %> = <%= field.get_as %>.new(<%= field.name %>)
-        <% end %>
-        <% else %>
+          <% else %>
         @<%= field.name %> = <%= field.name %>
-        <% end %>
+          <% end %>
         <% end %>
       end
-
+      <% if self.is_a?(Entity) %>
       def self.reference(id)
         Struct.new(:type, :id).new(self, id)
       end
+      <% end %>
     end
   end
 end
